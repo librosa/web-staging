@@ -1,0 +1,6 @@
+﻿librosa.samples\_like
+=====================
+
+.. currentmodule:: librosa
+
+.. autofunction:: samples_like

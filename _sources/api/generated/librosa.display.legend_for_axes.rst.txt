@@ -1,0 +1,6 @@
+﻿librosa.display.legend\_for\_axes
+=================================
+
+.. currentmodule:: librosa.display
+
+.. autofunction:: legend_for_axes

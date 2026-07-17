@@ -1,0 +1,6 @@
+﻿librosa.util.dtype\_c2r
+=======================
+
+.. currentmodule:: librosa.util
+
+.. autofunction:: dtype_c2r

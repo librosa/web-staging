@@ -1,0 +1,6 @@
+﻿librosa.sequence.path\_to\_steps
+================================
+
+.. currentmodule:: librosa.sequence
+
+.. autofunction:: path_to_steps

@@ -1,0 +1,6 @@
+﻿librosa.util.abs2
+=================
+
+.. currentmodule:: librosa.util
+
+.. autofunction:: abs2

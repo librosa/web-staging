@@ -1,0 +1,172 @@
+
+
+.. _sphx_glr_auto_tutorials_02-display:
+
+.. _tutorial-display-index:
+
+Display and visualization
+=========================
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section introduces the main ways to visualize audio waveforms in librosa.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_01-wave_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_01-wave.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Visualizing audio waveforms</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section introduces librosa.display.specshow, the main function for visualizing spectrogram-like data.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_02-spectrogram_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_02-spectrogram.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Visualizing time-frequency content</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section covers spectrogram displays with various spectral representations, as well as different notational systems for annotating plot axes.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_03-axes_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_03-axes.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Using different frequency axes</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section discusses in depth how librosa.display.specshow uses color to represent data.  It then provides some tips and tricks for making effective visualizations with color.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_04-colors_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_04-colors.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Using color effectively</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Visualizing non-spectral data">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_05-nonspectral_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_05-nonspectral.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Visualizing non-spectral data</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Non-uniform coordinate grids">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_06-nonuniform_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_06-nonuniform.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Non-uniform coordinate grids</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Multi-channel display">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_07-multichannel_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_07-multichannel.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Multi-channel display</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Annotations and mir_eval integration">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/02-display/images/thumb/sphx_glr_08-mireval_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_02-display_08-mireval.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Annotations and mir_eval integration</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_tutorials/02-display/01-wave
+   /auto_tutorials/02-display/02-spectrogram
+   /auto_tutorials/02-display/03-axes
+   /auto_tutorials/02-display/04-colors
+   /auto_tutorials/02-display/05-nonspectral
+   /auto_tutorials/02-display/06-nonuniform
+   /auto_tutorials/02-display/07-multichannel
+   /auto_tutorials/02-display/08-mireval
+
