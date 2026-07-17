@@ -240,7 +240,7 @@ The `vscale='dphase'` will work with whatever time-frequency grid is provided by
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 5.246 seconds)
+   **Total running time of the script:** (0 minutes 6.236 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_rainbowgram.py:
