@@ -1,0 +1,6 @@
+﻿librosa.to\_multi
+=================
+
+.. currentmodule:: librosa
+
+.. autofunction:: to_multi

@@ -1,0 +1,1281 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>librosa.beat &#8212; librosa 1.0.0dev documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=ce423923" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=756f2b42"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=35a8b989"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-171031946-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/librosa/beat';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://librosa.org/en/stable/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0dev" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
+    <img src="../../_static/librosa_logo_text.svg" class="logo__image only-dark pst-js-only" alt="librosa"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">librosa.beat</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+
+  <h1>Source code for librosa.beat</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Beat and tempo</span>
+<span class="sd">==============</span>
+<span class="sd">.. autosummary::</span>
+<span class="sd">   :toctree: generated/</span>
+
+<span class="sd">   beat_track</span>
+<span class="sd">   plp</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">overload</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numba</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">core</span><span class="p">,</span> <span class="n">onset</span><span class="p">,</span> <span class="n">util</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.feature</span><span class="w"> </span><span class="kn">import</span> <span class="n">fourier_tempogram</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.feature</span><span class="w"> </span><span class="kn">import</span> <span class="n">tempo</span> <span class="k">as</span> <span class="n">_tempo</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterError</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing_extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">TypeVar</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">._typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">_Array1D</span>
+
+    <span class="nb">type</span> <span class="n">_BpmLike</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># `typing_extensions.TypeVar` is only needed until Python 3.13, which adds support</span>
+    <span class="c1"># for type parameter defaults (PEP 696).</span>
+    <span class="n">_SparseBpmT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_SparseBpmT&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">_BpmLike</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">float</span> <span class="o">|</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">])</span>
+    <span class="n">_DenseBpmT</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;_DenseBpmT&quot;</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">_BpmLike</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">])</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;beat_track&quot;</span><span class="p">,</span> <span class="s2">&quot;plp&quot;</span><span class="p">]</span>
+
+
+<span class="nd">@overload</span>  <span class="c1"># units=&quot;frames&quot; | &quot;samples&quot;, sparse=True (default)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">beat_track</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">start_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">120.0</span><span class="p">,</span>
+    <span class="n">tightness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">trim</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">bpm</span><span class="p">:</span> <span class="n">_SparseBpmT</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">prior</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">units</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;frames&quot;</span><span class="p">,</span> <span class="s2">&quot;samples&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;frames&quot;</span><span class="p">,</span>
+    <span class="n">sparse</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">_SparseBpmT</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">]]:</span> <span class="o">...</span>
+<span class="nd">@overload</span>  <span class="c1"># units=&quot;time&quot;, sparse=True (default)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">beat_track</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">start_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">120.0</span><span class="p">,</span>
+    <span class="n">tightness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">trim</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">bpm</span><span class="p">:</span> <span class="n">_SparseBpmT</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">prior</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">units</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">],</span>
+    <span class="n">sparse</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">_SparseBpmT</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]:</span> <span class="o">...</span>
+<span class="nd">@overload</span>  <span class="c1"># sparse=False</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">beat_track</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">start_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">120.0</span><span class="p">,</span>
+    <span class="n">tightness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">trim</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">bpm</span><span class="p">:</span> <span class="n">_DenseBpmT</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">prior</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">units</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;frames&quot;</span><span class="p">,</span> <span class="s2">&quot;samples&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;frames&quot;</span><span class="p">,</span>
+    <span class="n">sparse</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">False</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">_DenseBpmT</span><span class="p">,</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">]]:</span> <span class="o">...</span>
+<div class="viewcode-block" id="beat_track">
+<a class="viewcode-back" href="../../generated/librosa.beat.beat_track.html#librosa.beat.beat_track">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">beat_track</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">start_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">120.0</span><span class="p">,</span>
+    <span class="n">tightness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">trim</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">bpm</span><span class="p">:</span> <span class="n">_BpmLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">prior</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">units</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;frames&quot;</span><span class="p">,</span>
+    <span class="n">sparse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="w">    </span><span class="sa">r</span><span class="sd">&quot;&quot;&quot;Dynamic programming beat tracker.</span>
+
+<span class="sd">    Beats are detected in three stages, following the method of [#]_:</span>
+
+<span class="sd">      1. Measure onset strength</span>
+<span class="sd">      2. Estimate tempo from onset correlation</span>
+<span class="sd">      3. Pick peaks in onset strength approximately consistent with estimated</span>
+<span class="sd">         tempo</span>
+
+<span class="sd">    .. [#] Ellis, Daniel PW. &quot;Beat tracking by dynamic programming.&quot;</span>
+<span class="sd">        Journal of New Music Research 36.1 (2007): 51-60.</span>
+<span class="sd">        http://labrosa.ee.columbia.edu/projects/beattrack/</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        Audio time series.</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        Sampling rate of ``y``.</span>
+
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., m)] or None</span>
+<span class="sd">        (Optional) pre-computed onset strength envelope.</span>
+
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of audio samples between successive ``onset_envelope`` values.</span>
+
+<span class="sd">    start_bpm : float &gt; 0 [scalar]</span>
+<span class="sd">        Initial guess for the tempo estimator (in beats per minute).</span>
+
+<span class="sd">    tightness : float [scalar]</span>
+<span class="sd">        Tightness of beat distribution around tempo.</span>
+
+<span class="sd">    trim : bool [scalar]</span>
+<span class="sd">        Trim leading/trailing beats with weak onsets.</span>
+
+<span class="sd">    bpm : float [scalar] or np.ndarray [shape=(...)]</span>
+<span class="sd">        (Optional) if provided, use ``bpm`` as the tempo instead of</span>
+<span class="sd">        estimating it from ``onsets``.</span>
+
+<span class="sd">        If multichannel, tempo estimates can be provided for all channels.</span>
+
+<span class="sd">        Tempo estimates may also be time-varying, in which case the shape</span>
+<span class="sd">        of ``bpm`` should match that of ``onset_envelope``, i.e.,</span>
+<span class="sd">        one estimate provided for each frame.</span>
+
+<span class="sd">    prior : scipy.stats.rv_continuous [optional]</span>
+<span class="sd">        An optional prior distribution over tempo.</span>
+<span class="sd">        If provided, ``start_bpm`` will be ignored.</span>
+
+<span class="sd">    units : {&#39;frames&#39;, &#39;samples&#39;, &#39;time&#39;}</span>
+<span class="sd">        The units to encode detected beat events in.</span>
+<span class="sd">        By default, &#39;frames&#39; are used.</span>
+
+<span class="sd">    sparse : bool</span>
+<span class="sd">        If ``True`` (default), detections are returned as an array of frames,</span>
+<span class="sd">        samples, or time indices (as specified by ``units=``).</span>
+
+<span class="sd">        If ``False``, detections are encoded as a dense boolean array where</span>
+<span class="sd">        ``beats[..., n]`` is true if there&#39;s a beat at frame index ``n``.</span>
+
+<span class="sd">        .. note:: multi-channel input is only supported when ``sparse=False``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tempo : float [scalar, non-negative] or np.ndarray</span>
+<span class="sd">        The estimated global tempo (in beats per minute).</span>
+
+<span class="sd">        If multi-channel and ``bpm`` is not provided, a separate</span>
+<span class="sd">        tempo will be returned for each channel.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            By default, the tempo is returned as an ndarray even for mono input.</span>
+<span class="sd">            In this case, the array will have a single element and be one-dimensional.</span>
+<span class="sd">            This is to ensure consistent return types for multi-channel input.</span>
+<span class="sd">    beats : np.ndarray</span>
+<span class="sd">        The estimated beat event locations.</span>
+
+<span class="sd">        If `sparse=True` (default), beat locations are given in the specified units</span>
+<span class="sd">        (default is frame indices).</span>
+
+<span class="sd">        If `sparse=False` (required for multichannel input), beat events are</span>
+<span class="sd">        indicated by a boolean for each frame.</span>
+
+<span class="sd">        .. note::</span>
+<span class="sd">            If no onset strength could be detected, beat_tracker estimates 0 BPM</span>
+<span class="sd">            and returns an empty list.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ParameterError</span>
+<span class="sd">        if neither ``y`` nor ``onset_envelope`` are provided,</span>
+<span class="sd">        or if ``units`` is not one of &#39;frames&#39;, &#39;samples&#39;, or &#39;time&#39;</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    librosa.onset.onset_strength</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Track beats using time series input</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;choice&#39;, duration=10)</span>
+
+<span class="sd">    &gt;&gt;&gt; tempo, beats = librosa.beat.beat_track(y=y, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; tempo</span>
+<span class="sd">    135.99917763157896</span>
+
+<span class="sd">    Print the frames corresponding to beats</span>
+
+<span class="sd">    &gt;&gt;&gt; beats</span>
+<span class="sd">    array([  3,  21,  40,  59,  78,  96, 116, 135, 154, 173, 192, 211,</span>
+<span class="sd">           230, 249, 268, 287, 306, 325, 344, 363])</span>
+
+<span class="sd">    Or print them as timestamps</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.frames_to_time(beats, sr=sr)</span>
+<span class="sd">    array([0.07 , 0.488, 0.929, 1.37 , 1.811, 2.229, 2.694, 3.135,</span>
+<span class="sd">           3.576, 4.017, 4.458, 4.899, 5.341, 5.782, 6.223, 6.664,</span>
+<span class="sd">           7.105, 7.546, 7.988, 8.429])</span>
+
+<span class="sd">    Output beat detections as a boolean array instead of frame indices</span>
+
+<span class="sd">    &gt;&gt;&gt; tempo, beats_dense = librosa.beat.beat_track(y=y, sr=sr, sparse=False)</span>
+<span class="sd">    &gt;&gt;&gt; beats_dense</span>
+<span class="sd">    array([False, False, False,  True, False, False, False, False,</span>
+<span class="sd">       False, False, False, False, False, False, False, False,</span>
+<span class="sd">       False, False, False, False, ..., False, False,  True,</span>
+<span class="sd">       False, False, False, False, False, False, False, False,</span>
+<span class="sd">       False, False, False, False, False, False, False, False,</span>
+<span class="sd">       False])</span>
+
+<span class="sd">    Track beats using a pre-computed onset envelope</span>
+
+<span class="sd">    &gt;&gt;&gt; onset_env = librosa.onset.onset_strength(y=y, sr=sr,</span>
+<span class="sd">    ...                                          aggregate=np.median)</span>
+<span class="sd">    &gt;&gt;&gt; tempo, beats = librosa.beat.beat_track(onset_envelope=onset_env,</span>
+<span class="sd">    ...                                        sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; tempo</span>
+<span class="sd">    135.99917763157896</span>
+<span class="sd">    &gt;&gt;&gt; beats</span>
+<span class="sd">    array([  3,  21,  40,  59,  78,  96, 116, 135, 154, 173, 192, 211,</span>
+<span class="sd">           230, 249, 268, 287, 306, 325, 344, 363])</span>
+
+<span class="sd">    Plot the beat events against the onset strength envelope</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; hop_length = 512</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=2, sharex=True)</span>
+<span class="sd">    &gt;&gt;&gt; times = librosa.times_like(onset_env, sr=sr, hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; M = librosa.feature.melspectrogram(y=y, sr=sr, hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(M, vscale=&#39;dBFS[power]&#39;,</span>
+<span class="sd">    ...                          y_axis=&#39;mel&#39;, x_axis=&#39;time&#39;, hop_length=hop_length,</span>
+<span class="sd">    ...                          ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&#39;Mel spectrogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].plot(times, librosa.util.normalize(onset_env),</span>
+<span class="sd">    ...          label=&#39;Onset strength&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].vlines(times[beats], 0, 1, alpha=0.5, color=&#39;r&#39;,</span>
+<span class="sd">    ...            linestyle=&#39;--&#39;, label=&#39;Beats&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].legend()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># First, get the frame-&gt;beat strength profile if we don&#39;t already have one</span>
+    <span class="k">if</span> <span class="n">onset_envelope</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;y or onset_envelope must be provided&quot;</span><span class="p">)</span>
+
+        <span class="n">onset_envelope</span> <span class="o">=</span> <span class="n">onset</span><span class="o">.</span><span class="n">onset_strength</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sparse</span> <span class="ow">and</span> <span class="n">onset_envelope</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sparse=True (default) does not support &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">onset_envelope</span><span class="o">.</span><span class="n">ndim</span><span class="si">}</span><span class="s2">-dimensional inputs. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Either set sparse=False or convert the signal to mono.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Do we have any onsets to grab?</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">onset_envelope</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">sparse</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">onset_envelope</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">))</span>
+
+    <span class="c1"># Estimate BPM if one was not provided</span>
+    <span class="k">if</span> <span class="n">bpm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bpm</span> <span class="o">=</span> <span class="n">_tempo</span><span class="p">(</span>
+            <span class="n">onset_envelope</span><span class="o">=</span><span class="n">onset_envelope</span><span class="p">,</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+            <span class="n">start_bpm</span><span class="o">=</span><span class="n">start_bpm</span><span class="p">,</span>
+            <span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Ensure that tempo is in a shape that is compatible with vectorization</span>
+    <span class="n">_bpm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="n">bpm</span><span class="p">)</span>
+    <span class="n">bpm_expanded</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">expand_to</span><span class="p">(</span><span class="n">_bpm</span><span class="p">,</span>
+                                  <span class="n">ndim</span><span class="o">=</span><span class="n">onset_envelope</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span>
+                                  <span class="n">axes</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">_bpm</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+
+    <span class="c1"># Then, run the tracker</span>
+    <span class="n">beats</span> <span class="o">=</span> <span class="n">__beat_tracker</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">,</span> <span class="n">bpm_expanded</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span> <span class="o">/</span> <span class="n">hop_length</span><span class="p">,</span> <span class="n">tightness</span><span class="p">,</span> <span class="n">trim</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sparse</span><span class="p">:</span>
+        <span class="n">beats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">beats</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;frames&quot;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">elif</span> <span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;samples&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">bpm</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">frames_to_samples</span><span class="p">(</span><span class="n">beats</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">units</span> <span class="o">==</span> <span class="s2">&quot;time&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">bpm</span><span class="p">,</span> <span class="n">core</span><span class="o">.</span><span class="n">frames_to_time</span><span class="p">(</span><span class="n">beats</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid unit type: </span><span class="si">{</span><span class="n">units</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">bpm</span><span class="p">,</span> <span class="n">beats</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="plp">
+<a class="viewcode-back" href="../../generated/librosa.beat.plp.html#librosa.beat.plp">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">plp</span><span class="p">[</span><span class="n">FloatT</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">[</span><span class="n">Any</span><span class="p">]](</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">FloatT</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">FloatT</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">win_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">384</span><span class="p">,</span>
+    <span class="n">tempo_min</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="n">tempo_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="n">prior</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">FloatT</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Predominant local pulse (PLP) estimation. [#]_</span>
+
+<span class="sd">    The PLP method analyzes the onset strength envelope in the frequency domain</span>
+<span class="sd">    to find a locally stable tempo for each frame.  These local periodicities</span>
+<span class="sd">    are used to synthesize local half-waves, which are combined such that peaks</span>
+<span class="sd">    coincide with rhythmically salient frames (e.g. onset events on a musical time grid).</span>
+<span class="sd">    The local maxima of the pulse curve can be taken as estimated beat positions.</span>
+
+<span class="sd">    This method may be preferred over the dynamic programming method of `beat_track`</span>
+<span class="sd">    when the tempo is expected to vary significantly over time.  Additionally,</span>
+<span class="sd">    since `plp` does not require the entire signal to make predictions, it may be</span>
+<span class="sd">    preferable when beat-tracking long recordings in a streaming setting.</span>
+
+<span class="sd">    .. [#] Grosche, P., &amp; Muller, M. (2011).</span>
+<span class="sd">        &quot;Extracting predominant local pulse information from music recordings.&quot;</span>
+<span class="sd">        IEEE Transactions on Audio, Speech, and Language Processing, 19(6), 1688-1701.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        Audio time series. Multi-channel is supported.</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        Sampling rate of ``y``.</span>
+
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        (Optional) pre-computed onset strength envelope.</span>
+
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of audio samples between successive ``onset_envelope`` values.</span>
+
+<span class="sd">    win_length : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of frames to use for tempogram analysis.</span>
+<span class="sd">        By default, 384 frames (at ``sr=22050`` and ``hop_length=512``) corresponds</span>
+<span class="sd">        to about 8.9 seconds.</span>
+
+<span class="sd">    tempo_min, tempo_max : numbers &gt; 0 [scalar], optional</span>
+<span class="sd">        Minimum and maximum permissible tempo values.  ``tempo_max`` must be at least</span>
+<span class="sd">        ``tempo_min``.</span>
+
+<span class="sd">        Set either (or both) to `None` to disable this constraint.</span>
+
+<span class="sd">    prior : scipy.stats.rv_continuous [optional]</span>
+<span class="sd">        A prior distribution over tempo (in beats per minute).</span>
+<span class="sd">        By default, a uniform prior over ``[tempo_min, tempo_max]`` is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pulse : np.ndarray, shape=[(..., n)]</span>
+<span class="sd">        The estimated pulse curve.  Maxima correspond to rhythmically salient</span>
+<span class="sd">        points of time.</span>
+
+<span class="sd">        If input is multi-channel, one pulse curve per channel is computed.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    beat_track</span>
+<span class="sd">    librosa.onset.onset_strength</span>
+<span class="sd">    librosa.feature.fourier_tempogram</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Visualize the PLP compared to an onset strength envelope.</span>
+<span class="sd">    Both are normalized here to make comparison easier.</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;brahms&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; onset_env = librosa.onset.onset_strength(y=y, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; pulse = librosa.beat.plp(onset_envelope=onset_env, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; # Or compute pulse with an alternate prior, like log-normal</span>
+<span class="sd">    &gt;&gt;&gt; import scipy.stats</span>
+<span class="sd">    &gt;&gt;&gt; prior = scipy.stats.lognorm(loc=np.log(120), scale=120, s=1)</span>
+<span class="sd">    &gt;&gt;&gt; pulse_lognorm = librosa.beat.plp(onset_envelope=onset_env, sr=sr,</span>
+<span class="sd">    ...                                  prior=prior)</span>
+<span class="sd">    &gt;&gt;&gt; melspec = librosa.feature.melspectrogram(y=y, sr=sr)</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=3, sharex=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(melspec, vscale=&#39;dBFS[power]&#39;,</span>
+<span class="sd">    ...                          x_axis=&#39;time&#39;, y_axis=&#39;mel&#39;, ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&#39;Mel spectrogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].plot(librosa.times_like(onset_env),</span>
+<span class="sd">    ...          librosa.util.normalize(onset_env),</span>
+<span class="sd">    ...          label=&#39;Onset strength&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].plot(librosa.times_like(pulse),</span>
+<span class="sd">    ...          librosa.util.normalize(pulse),</span>
+<span class="sd">    ...          label=&#39;Predominant local pulse (PLP)&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&#39;Uniform tempo prior [30, 300]&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].plot(librosa.times_like(onset_env),</span>
+<span class="sd">    ...          librosa.util.normalize(onset_env),</span>
+<span class="sd">    ...          label=&#39;Onset strength&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].plot(librosa.times_like(pulse_lognorm),</span>
+<span class="sd">    ...          librosa.util.normalize(pulse_lognorm),</span>
+<span class="sd">    ...          label=&#39;Predominant local pulse (PLP)&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].set(title=&#39;Log-normal tempo prior, mean=120&#39;, xlim=[5, 20])</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].legend()</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    PLP local maxima can be used as estimates of beat positions.</span>
+
+<span class="sd">    &gt;&gt;&gt; tempo, beats = librosa.beat.beat_track(onset_envelope=onset_env)</span>
+<span class="sd">    &gt;&gt;&gt; beats_plp = np.flatnonzero(librosa.util.localmax(pulse))</span>
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=2, sharex=True, sharey=True)</span>
+<span class="sd">    &gt;&gt;&gt; times = librosa.times_like(onset_env, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].plot(times, librosa.util.normalize(onset_env),</span>
+<span class="sd">    ...          label=&#39;Onset strength&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].vlines(times[beats], 0, 1, alpha=0.5, color=&#39;r&#39;,</span>
+<span class="sd">    ...            linestyle=&#39;--&#39;, label=&#39;Beats&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].legend()</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&#39;librosa.beat.beat_track&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; # Limit the plot to a 15-second window</span>
+<span class="sd">    &gt;&gt;&gt; times = librosa.times_like(pulse, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].plot(times, librosa.util.normalize(pulse),</span>
+<span class="sd">    ...          label=&#39;PLP&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].vlines(times[beats_plp], 0, 1, alpha=0.5, color=&#39;r&#39;,</span>
+<span class="sd">    ...            linestyle=&#39;--&#39;, label=&#39;PLP Beats&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].legend()</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&#39;librosa.beat.plp&#39;, xlim=[5, 20])</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].xaxis.set_major_formatter(librosa.display.TimeFormatter())</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Step 1: get the onset envelope</span>
+    <span class="k">if</span> <span class="n">onset_envelope</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">onset_envelope</span> <span class="o">=</span> <span class="n">onset</span><span class="o">.</span><span class="n">onset_strength</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span> <span class="n">aggregate</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">median</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tempo_min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tempo_max</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">tempo_max</span> <span class="o">&lt;=</span> <span class="n">tempo_min</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;tempo_max=</span><span class="si">{</span><span class="n">tempo_max</span><span class="si">}</span><span class="s2"> must be larger than tempo_min=</span><span class="si">{</span><span class="n">tempo_min</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Step 2: get the fourier tempogram</span>
+    <span class="n">ftgram</span> <span class="o">=</span> <span class="n">fourier_tempogram</span><span class="p">(</span>
+        <span class="n">onset_envelope</span><span class="o">=</span><span class="n">onset_envelope</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+        <span class="n">win_length</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Step 3: pin to the feasible tempo range</span>
+    <span class="n">tempo_frequencies</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">fourier_tempo_frequencies</span><span class="p">(</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span> <span class="n">win_length</span><span class="o">=</span><span class="n">win_length</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tempo_min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ftgram</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">tempo_frequencies</span> <span class="o">&lt;</span> <span class="n">tempo_min</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">tempo_max</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ftgram</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">tempo_frequencies</span> <span class="o">&gt;</span> <span class="n">tempo_max</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># reshape lengths to match dimension properly</span>
+    <span class="n">tempo_frequencies</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">expand_to</span><span class="p">(</span><span class="n">tempo_frequencies</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">ftgram</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">axes</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Step 3: Discard everything below the peak</span>
+    <span class="n">ftmag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="mf">1e6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ftgram</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">prior</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ftmag</span> <span class="o">+=</span> <span class="n">prior</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">tempo_frequencies</span><span class="p">)</span>
+
+    <span class="n">peak_values</span> <span class="o">=</span> <span class="n">ftmag</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ftgram</span><span class="p">[</span><span class="n">ftmag</span> <span class="o">&lt;</span> <span class="n">peak_values</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Normalize to keep only phase information</span>
+    <span class="n">ftgram</span> <span class="o">/=</span> <span class="n">util</span><span class="o">.</span><span class="n">tiny</span><span class="p">(</span><span class="n">ftgram</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ftgram</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+    <span class="c1"># Step 5: invert the Fourier tempogram to get the pulse</span>
+    <span class="n">pulse</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">istft</span><span class="p">(</span>
+        <span class="n">ftgram</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">onset_envelope</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Step 6: retain only the positive part of the pulse cycle</span>
+    <span class="n">pulse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pulse</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pulse</span><span class="p">)</span>
+
+    <span class="c1"># Return the normalized pulse</span>
+    <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">pulse</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__beat_tracker</span><span class="p">(</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bpm</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">frame_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">tightness</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">trim</span><span class="p">:</span> <span class="nb">bool</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Array1D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Track beats in an onset strength envelope.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., n,)]</span>
+<span class="sd">        onset strength envelope</span>
+<span class="sd">    bpm : float [scalar] or np.ndarray [shape=(...)]</span>
+<span class="sd">        tempo estimate</span>
+<span class="sd">    frame_rate : float [scalar]</span>
+<span class="sd">        frame rate of the spectrogram (sr / hop_length, frames per second)</span>
+<span class="sd">    tightness : float [scalar, positive]</span>
+<span class="sd">        how closely do we adhere to bpm?</span>
+<span class="sd">    trim : bool [scalar]</span>
+<span class="sd">        trim leading/trailing beats with weak onsets?</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    beats : np.ndarray [shape=(n,)]</span>
+<span class="sd">        frame numbers of beat events</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">bpm</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bpm=</span><span class="si">{</span><span class="n">bpm</span><span class="si">}</span><span class="s2"> must be strictly positive&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tightness</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;tightness must be strictly positive&quot;</span><span class="p">)</span>
+
+    <span class="c1"># TODO: this might be better accomplished with a np.broadcast_shapes check</span>
+    <span class="k">if</span> <span class="n">bpm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">onset_envelope</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid bpm shape=</span><span class="si">{</span><span class="n">bpm</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> does not match &quot;</span>
+                             <span class="sa">f</span><span class="s2">&quot;onset envelope shape=</span><span class="si">{</span><span class="n">onset_envelope</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># convert bpm to frames per beat (rounded)</span>
+    <span class="c1"># [frames / sec] * [60 sec / min] / [beat / min] = [frames / beat]</span>
+    <span class="n">frames_per_beat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">frame_rate</span> <span class="o">*</span> <span class="mf">60.0</span> <span class="o">/</span> <span class="n">bpm</span><span class="p">)</span>
+
+    <span class="c1"># localscore is a smoothed version of AGC&#39;d onset envelope</span>
+    <span class="n">localscore</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">)</span>
+    <span class="n">__beat_local_score</span><span class="p">(</span><span class="n">__normalize_onsets</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">),</span> <span class="n">frames_per_beat</span><span class="p">,</span> <span class="n">localscore</span><span class="p">)</span>
+
+    <span class="c1"># run the DP</span>
+    <span class="n">backlink</span><span class="p">,</span> <span class="n">cumscore</span> <span class="o">=</span> <span class="n">__beat_track_dp</span><span class="p">(</span><span class="n">localscore</span><span class="p">,</span> <span class="n">frames_per_beat</span><span class="p">,</span> <span class="n">tightness</span><span class="p">)</span>
+
+    <span class="c1"># Reconstruct the beat path from backlinks</span>
+    <span class="n">tail</span> <span class="o">=</span> <span class="n">__last_beat</span><span class="p">(</span><span class="n">cumscore</span><span class="p">)</span>
+    <span class="n">beats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    <span class="n">__dp_backtrack</span><span class="p">(</span><span class="n">backlink</span><span class="p">,</span> <span class="n">tail</span><span class="p">,</span> <span class="n">beats</span><span class="p">)</span>
+
+    <span class="c1"># Discard spurious trailing beats</span>
+    <span class="n">beats_trimmed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">beats</span><span class="p">)</span>
+    <span class="n">__trim_beats</span><span class="p">(</span><span class="n">localscore</span><span class="p">,</span> <span class="n">beats</span><span class="p">,</span> <span class="n">trim</span><span class="p">,</span> <span class="n">beats_trimmed</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">beats_trimmed</span>
+
+
+<span class="c1"># -- Helper functions for beat tracking</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__normalize_onsets</span><span class="p">(</span><span class="n">onsets</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normalize onset strength by its standard deviation&quot;&quot;&quot;</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">onsets</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">onsets</span> <span class="o">/</span> <span class="p">(</span><span class="n">norm</span> <span class="o">+</span> <span class="n">util</span><span class="o">.</span><span class="n">tiny</span><span class="p">(</span><span class="n">onsets</span><span class="p">))</span>
+
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">guvectorize</span><span class="p">(</span>
+        <span class="s2">&quot;(t),(n)-&gt;(t)&quot;</span><span class="p">,</span>
+        <span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__beat_local_score</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">,</span> <span class="n">frames_per_beat</span><span class="p">,</span> <span class="n">localscore</span><span class="p">):</span>
+    <span class="c1"># This function essentially implements a same-mode convolution,</span>
+    <span class="c1"># but also allows for a time-varying convolution-like filter to support dynamic tempo.</span>
+
+
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames_per_beat</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Static tempo mode</span>
+        <span class="c1"># NOTE: when we can bump the minimum numba to 0.58, we can eliminate this branch and just use</span>
+        <span class="c1"># np.convolve(..., mode=&#39;same&#39;) directly</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">frames_per_beat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                                          <span class="n">frames_per_beat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">32.0</span> <span class="o">/</span> <span class="n">frames_per_beat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+        <span class="c1"># This is a vanilla same-mode convolution</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">)):</span>
+            <span class="n">localscore</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="c1"># we need i + K // 2 - k &lt; N ==&gt; k &gt; i + K //2 - N</span>
+            <span class="c1"># and i + K // 2 - k &gt;= 0 ==&gt;    k &lt;= i + K // 2</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">K</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">K</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">)):</span>
+                <span class="n">localscore</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">window</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">onset_envelope</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">K</span><span class="o">//</span><span class="mi">2</span> <span class="o">-</span><span class="n">k</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames_per_beat</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">):</span>
+        <span class="c1"># Time-varying tempo estimates</span>
+        <span class="c1"># This isn&#39;t exactly a convolution anymore, since the filter is time-varying, but it&#39;s pretty close</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">)):</span>
+            <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">frames_per_beat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                                              <span class="n">frames_per_beat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">32.0</span> <span class="o">/</span> <span class="n">frames_per_beat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">K</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="n">frames_per_beat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span>
+
+            <span class="n">localscore</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">K</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">K</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">K</span><span class="p">)):</span>
+                <span class="n">localscore</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">window</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">onset_envelope</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">K</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">k</span><span class="p">]</span>
+
+
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">guvectorize</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;void(float32[:], float32[:], float32, int32[:], float32[:])&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;void(float64[:], float64[:], float32, int32[:], float64[:])&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;(t),(n),()-&gt;(t),(t)&quot;</span><span class="p">,</span>
+        <span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__beat_track_dp</span><span class="p">(</span><span class="n">localscore</span><span class="p">,</span> <span class="n">frames_per_beat</span><span class="p">,</span> <span class="n">tightness</span><span class="p">,</span> <span class="n">backlink</span><span class="p">,</span> <span class="n">cumscore</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Core dynamic program for beat tracking&quot;&quot;&quot;</span>
+    <span class="c1"># Threshold for the first beat to exceed</span>
+    <span class="n">score_thresh</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">localscore</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+    <span class="c1"># Are we on the first beat?</span>
+    <span class="n">first_beat</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">backlink</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="n">cumscore</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">localscore</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># If tv == 0, then tv * i will always be 0, so we only ever use frames_per_beat[0]</span>
+    <span class="c1"># If tv == 1, then tv * i = i, so we use the time-varying FPB</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frames_per_beat</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">score_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">localscore</span><span class="p">):</span>
+        <span class="n">best_score</span> <span class="o">=</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+        <span class="n">beat_location</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="c1"># Search over all possible predecessors to find the best preceding beat</span>
+        <span class="c1"># NOTE: to provide time-varying tempo estimates, we replace</span>
+        <span class="c1"># frames_per_beat[0] by frames_per_beat[i] in this loop body.</span>
+        <span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="nb">round</span><span class="p">(</span><span class="n">frames_per_beat</span><span class="p">[</span><span class="n">tv</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">frames_per_beat</span><span class="p">[</span><span class="n">tv</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="c1"># Once we&#39;re searching past the start, break out</span>
+            <span class="k">if</span> <span class="n">loc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="n">cumscore</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span> <span class="o">-</span> <span class="n">tightness</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="n">loc</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">frames_per_beat</span><span class="p">[</span><span class="n">tv</span> <span class="o">*</span> <span class="n">i</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span>
+            <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="n">best_score</span><span class="p">:</span>
+                <span class="n">best_score</span> <span class="o">=</span> <span class="n">score</span>
+                <span class="n">beat_location</span> <span class="o">=</span> <span class="n">loc</span>
+
+        <span class="c1"># Add the local score</span>
+        <span class="k">if</span> <span class="n">beat_location</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">cumscore</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">score_i</span> <span class="o">+</span> <span class="n">best_score</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># No back-link found, so just use the current score</span>
+            <span class="n">cumscore</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">score_i</span>
+
+        <span class="c1"># Special case the first onset.  Stop if the localscore is small</span>
+        <span class="k">if</span> <span class="n">first_beat</span> <span class="ow">and</span> <span class="n">score_i</span> <span class="o">&lt;</span> <span class="n">score_thresh</span><span class="p">:</span>
+            <span class="n">backlink</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">backlink</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">beat_location</span>
+            <span class="n">first_beat</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">guvectorize</span><span class="p">(</span>
+    <span class="s2">&quot;(t),(t),()-&gt;(t)&quot;</span><span class="p">,</span>
+    <span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__trim_beats</span><span class="p">(</span><span class="n">localscore</span><span class="p">,</span> <span class="n">beats</span><span class="p">,</span> <span class="n">trim</span><span class="p">,</span> <span class="n">beats_trimmed</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove spurious leading and trailing beats from the detection array&quot;&quot;&quot;</span>
+    <span class="c1"># Populate the trimmed beats array with the existing values</span>
+    <span class="n">beats_trimmed</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">beats</span>
+
+    <span class="c1"># Compute the threshold: 1/2 RMS of the smoothed beat envelope</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hanning</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="c1"># Slicing here to implement same-mode convolution in older numba where</span>
+    <span class="c1"># mode=&#39;same&#39; is not yet supported</span>
+    <span class="n">smooth_boe</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">localscore</span><span class="p">[</span><span class="n">beats</span><span class="p">],</span> <span class="n">w</span><span class="p">)[</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">localscore</span><span class="p">)</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># This logic is to preserve old behavior and always discard beats detected with oenv==0</span>
+    <span class="k">if</span> <span class="n">trim</span><span class="p">:</span>
+        <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">smooth_boe</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># Suppress bad beats</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">localscore</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">beats_trimmed</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">localscore</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">localscore</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">beats_trimmed</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__last_beat</span><span class="p">(</span><span class="n">cumscore</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Identify the position of the last detected beat&quot;&quot;&quot;</span>
+    <span class="c1"># Use a masked array to support multidimensional statistics</span>
+    <span class="c1"># We negate the mask here because of numpy masked array semantics</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">util</span><span class="o">.</span><span class="n">localmax</span><span class="p">(</span><span class="n">cumscore</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">masked_scores</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">cumscore</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
+    <span class="n">medians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">masked_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">thresholds</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">medians</span><span class="p">)</span>
+
+    <span class="c1"># Also find the last beat positions</span>
+    <span class="n">tail</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">cumscore</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">__last_beat_selector</span><span class="p">(</span><span class="n">cumscore</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">thresholds</span><span class="p">,</span> <span class="n">tail</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tail</span>
+
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">guvectorize</span><span class="p">(</span>
+        <span class="s2">&quot;(t),(t),()-&gt;()&quot;</span><span class="p">,</span>
+        <span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__last_beat_selector</span><span class="p">(</span><span class="n">cumscore</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">out</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Vectorized helper to identify the last valid beat position:</span>
+
+<span class="sd">    cumscore[n] &gt; threshold and not mask[n]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cumscore</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">mask</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="ow">and</span> <span class="n">cumscore</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="n">out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+
+
+<span class="nd">@numba</span><span class="o">.</span><span class="n">guvectorize</span><span class="p">(</span>
+        <span class="s2">&quot;(t),()-&gt;(t)&quot;</span><span class="p">,</span>
+        <span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__dp_backtrack</span><span class="p">(</span><span class="n">backlinks</span><span class="p">,</span> <span class="n">tail</span><span class="p">,</span> <span class="n">beats</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Populate the beat indicator array from a sequence of backlinks&quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">tail</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">beats</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">backlinks</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+</pre></div>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2013--2026, librosa development team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

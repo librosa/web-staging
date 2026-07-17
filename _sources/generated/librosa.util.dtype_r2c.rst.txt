@@ -1,0 +1,6 @@
+﻿librosa.util.dtype\_r2c
+=======================
+
+.. currentmodule:: librosa.util
+
+.. autofunction:: dtype_r2c

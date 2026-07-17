@@ -1,0 +1,1786 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>librosa.core.notation &#8212; librosa 1.0.0dev documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ce423923" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=756f2b42"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=35a8b989"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-171031946-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/librosa/core/notation';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://librosa.org/en/stable/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0dev" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-dark pst-js-only" alt="librosa"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">librosa.core.notation</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+
+  <h1>Source code for librosa.core.notation</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Music notation utilities&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">overload</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._cache</span><span class="w"> </span><span class="kn">import</span> <span class="n">cache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">vectorize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.intervals</span><span class="w"> </span><span class="kn">import</span> <span class="n">INTERVALS</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
+
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">npt</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+        <span class="n">_Array1D</span><span class="p">,</span>
+        <span class="n">_FloatLike_co</span><span class="p">,</span>
+        <span class="n">_IterableLike</span><span class="p">,</span>
+        <span class="n">_ScalarOrSequence</span><span class="p">,</span>
+        <span class="n">_SequenceLike</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;key_to_degrees&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key_to_notes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mela_to_degrees&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mela_to_svara&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;thaat_to_degrees&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;list_mela&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;list_thaat&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fifths_to_note&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;interval_to_fjs&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">THAAT_MAP</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">bilaval</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+    <span class="n">khamaj</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="n">kafi</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="n">asavari</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="n">bhairavi</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+    <span class="n">kalyan</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+    <span class="n">marva</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+    <span class="n">poorvi</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+    <span class="n">todi</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+    <span class="n">bhairav</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Enumeration will start from 1</span>
+<span class="n">MELAKARTA_MAP</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">k</span><span class="p">:</span> <span class="n">i</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+        <span class="p">[</span>
+            <span class="s2">&quot;kanakangi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ratnangi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ganamurthi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;vanaspathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;manavathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;tanarupi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;senavathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hanumathodi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dhenuka&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;natakapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kokilapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rupavathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gayakapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;vakulabharanam&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mayamalavagaula&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;chakravakom&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;suryakantham&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hatakambari&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;jhankaradhwani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;natabhairavi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;keeravani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kharaharapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gaurimanohari&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;varunapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mararanjini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;charukesi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sarasangi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;harikambhoji&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dheerasankarabharanam&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;naganandini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;yagapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ragavardhini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gangeyabhushani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;vagadheeswari&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sulini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;chalanatta&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;salagam&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;jalarnavam&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;jhalavarali&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;navaneetham&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;pavani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;raghupriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gavambodhi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;bhavapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;subhapanthuvarali&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;shadvidhamargini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;suvarnangi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;divyamani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dhavalambari&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;namanarayani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kamavardhini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ramapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;gamanasrama&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;viswambhari&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;syamalangi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;shanmukhapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;simhendramadhyamam&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;hemavathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dharmavathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;neethimathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kanthamani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rishabhapriya&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;latangi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;vachaspathi&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;mechakalyani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;chitrambari&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sucharitra&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;jyotisvarupini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;dhatuvardhini&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;nasikabhushani&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;kosalam&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rasikapriya&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="mi">1</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="c1"># Pre-compiled regular expressions for note and key parsing</span>
+<span class="n">KEY_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;^(?P&lt;tonic&gt;[A-Ga-g])&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;(?P&lt;accidental&gt;[#♯𝄪b!♭𝄫♮n]*)&quot;</span>
+        <span class="sa">r</span><span class="s2">&quot;:((?P&lt;scale&gt;(maj|min)(or)?)|(?P&lt;mode&gt;(((ion|dor|phryg|lyd|mixolyd|aeol|locr)(ian)?)|phr|mix|aeo|loc)))$&quot;</span>
+<span class="p">)</span>
+
+<span class="n">NOTE_RE</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="sa">r</span><span class="s2">&quot;^(?P&lt;note&gt;[A-Ga-g])&quot;</span>
+    <span class="sa">r</span><span class="s2">&quot;(?P&lt;accidental&gt;[#♯𝄪b!♭𝄫♮n]*)&quot;</span>
+    <span class="sa">r</span><span class="s2">&quot;(?P&lt;octave&gt;[+-]?\d+)?&quot;</span>
+    <span class="sa">r</span><span class="s2">&quot;(?P&lt;cents&gt;[+-]\d+)?$&quot;</span>
+<span class="p">)</span>
+<span class="c1"># A dictionary converting the tonic name to the associated major key,</span>
+<span class="c1"># e.g. C Dorian uses the notes of the Bb major scale, hence MAJOR_DICT[&#39;dor&#39;][&#39;C&#39;] = &#39;B♭&#39;</span>
+<span class="n">MAJOR_DICT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;ion&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;dor&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;B♭&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;E♭&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;phr&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;A♭&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;B♭&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;D♭&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;E♭&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;lyd&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;F♯&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;mix&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;B♭&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;E&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;aeo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;E♭&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;A♭&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;B♭&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="s2">&quot;D♭&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="s2">&quot;E♭&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="s2">&quot;G♭&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="s2">&quot;A♭&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="s2">&quot;B♭&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="s2">&quot;C&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">OFFSET_DICT</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;ion&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;dor&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;phr&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;lyd&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;mix&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;aeo&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;loc&quot;</span><span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+
+<span class="n">ACC_MAP</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;#&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;♮&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;!&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;♯&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;♭&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;𝄪&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;𝄫&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">}</span>
+
+
+<div class="viewcode-block" id="thaat_to_degrees">
+<a class="viewcode-back" href="../../../generated/librosa.thaat_to_degrees.html#librosa.thaat_to_degrees">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">thaat_to_degrees</span><span class="p">(</span><span class="n">thaat</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Array1D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Construct the svara indices (degrees) for a given thaat</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    thaat : str</span>
+<span class="sd">        The name of the thaat</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    indices : np.ndarray</span>
+<span class="sd">        A list of the seven svara indices (starting from 0=Sa)</span>
+<span class="sd">        contained in the specified thaat</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    key_to_degrees</span>
+<span class="sd">    mela_to_degrees</span>
+<span class="sd">    list_thaat</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; librosa.thaat_to_degrees(&#39;bilaval&#39;)</span>
+<span class="sd">    array([ 0,  2,  4,  5,  7,  9, 11])</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.thaat_to_degrees(&#39;todi&#39;)</span>
+<span class="sd">    array([ 0,  1,  3,  6,  7,  8, 11])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">THAAT_MAP</span><span class="p">[</span><span class="n">thaat</span><span class="o">.</span><span class="n">lower</span><span class="p">()])</span></div>
+
+
+
+<div class="viewcode-block" id="mela_to_degrees">
+<a class="viewcode-back" href="../../../generated/librosa.mela_to_degrees.html#librosa.mela_to_degrees">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">mela_to_degrees</span><span class="p">(</span><span class="n">mela</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_Array1D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Construct the svara indices (degrees) for a given melakarta raga</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mela : str or int</span>
+<span class="sd">        Either the name or integer index ([1, 2, ..., 72]) of the melakarta raga</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    degrees : np.ndarray</span>
+<span class="sd">        A list of the seven svara indices (starting from 0=Sa)</span>
+<span class="sd">        contained in the specified raga</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    thaat_to_degrees</span>
+<span class="sd">    key_to_degrees</span>
+<span class="sd">    list_mela</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Melakarta #1 (kanakangi):</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_degrees(1)</span>
+<span class="sd">    array([0, 1, 2, 5, 7, 8, 9])</span>
+
+<span class="sd">    Or using a name directly:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_degrees(&#39;kanakangi&#39;)</span>
+<span class="sd">    array([0, 1, 2, 5, 7, 8, 9])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mela</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">MELAKARTA_MAP</span><span class="p">[</span><span class="n">mela</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">mela</span> <span class="o">&lt;=</span> <span class="mi">72</span><span class="p">:</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">mela</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mela=</span><span class="si">{</span><span class="n">mela</span><span class="si">}</span><span class="s2"> must be in range [1, 72]&quot;</span><span class="p">)</span>
+
+    <span class="c1"># always have Sa [0]</span>
+    <span class="n">degrees</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Fill in Ri and Ga</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">36</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="c1"># Ri1, Ga1</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="mi">6</span> <span class="o">&lt;=</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="mi">12</span><span class="p">:</span>
+        <span class="c1"># Ri1, Ga2</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="mi">12</span> <span class="o">&lt;=</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="mi">18</span><span class="p">:</span>
+        <span class="c1"># Ri1, Ga3</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="mi">18</span> <span class="o">&lt;=</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="mi">24</span><span class="p">:</span>
+        <span class="c1"># Ri2, Ga2</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="mi">24</span> <span class="o">&lt;=</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="c1"># Ri2, Ga3</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Ri3, Ga3</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+    <span class="c1"># Determine Ma</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">36</span><span class="p">:</span>
+        <span class="c1"># Ma1</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Ma2</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+    <span class="c1"># always have Pa [7]</span>
+    <span class="n">degrees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+
+    <span class="c1"># Determine Dha and Ni</span>
+    <span class="n">upper</span> <span class="o">=</span> <span class="n">index</span> <span class="o">%</span> <span class="mi">6</span>
+    <span class="k">if</span> <span class="n">upper</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Dha1, Ni1</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">upper</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># Dha1, Ni2</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">upper</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="c1"># Dha1, Ni3</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">upper</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="c1"># Dha2, Ni2</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="n">upper</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="c1"># Dha2, Ni3</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Dha3, Ni3</span>
+        <span class="n">degrees</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">degrees</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="mela_to_svara">
+<a class="viewcode-back" href="../../../generated/librosa.mela_to_svara.html#librosa.mela_to_svara">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mela_to_svara</span><span class="p">(</span>
+    <span class="n">mela</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">abbr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spell the Carnatic svara names for a given melakarta raga</span>
+
+<span class="sd">    This function exists to resolve enharmonic equivalences between</span>
+<span class="sd">    pitch classes:</span>
+
+<span class="sd">        - Ri2 / Ga1</span>
+<span class="sd">        - Ri3 / Ga2</span>
+<span class="sd">        - Dha2 / Ni1</span>
+<span class="sd">        - Dha3 / Ni2</span>
+
+<span class="sd">    For svara outside the raga, names are chosen to preserve orderings</span>
+<span class="sd">    so that all Ri precede all Ga, and all Dha precede all Ni.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mela : str or int</span>
+<span class="sd">        the name or numerical index of the melakarta raga</span>
+
+<span class="sd">    abbr : bool</span>
+<span class="sd">        If `True`, use single-letter svara names: S, R, G, ...</span>
+
+<span class="sd">        If `False`, use full names: Sa, Ri, Ga, ...</span>
+
+<span class="sd">    unicode : bool</span>
+<span class="sd">        If `True`, use unicode symbols for numberings, e.g., Ri\u2081</span>
+
+<span class="sd">        If `False`, use low-order ASCII, e.g., Ri1.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    svara : list of str</span>
+
+<span class="sd">        The svara names for each of the 12 pitch classes.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    key_to_notes</span>
+<span class="sd">    mela_to_degrees</span>
+<span class="sd">    list_mela</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Melakarta #1 (Kanakangi) uses R1, G1, D1, N1</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_svara(1)</span>
+<span class="sd">    [&#39;S&#39;, &#39;R₁&#39;, &#39;G₁&#39;, &#39;G₂&#39;, &#39;G₃&#39;, &#39;M₁&#39;, &#39;M₂&#39;, &#39;P&#39;, &#39;D₁&#39;, &#39;N₁&#39;, &#39;N₂&#39;, &#39;N₃&#39;]</span>
+
+<span class="sd">    #19 (Jhankaradhwani) uses R2 and G2 so the third svara are Ri:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_svara(19)</span>
+<span class="sd">    [&#39;S&#39;, &#39;R₁&#39;, &#39;R₂&#39;, &#39;G₂&#39;, &#39;G₃&#39;, &#39;M₁&#39;, &#39;M₂&#39;, &#39;P&#39;, &#39;D₁&#39;, &#39;N₁&#39;, &#39;N₂&#39;, &#39;N₃&#39;]</span>
+
+<span class="sd">    #31 (Yagapriya) uses R3 and G3, so third and fourth svara are Ri:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_svara(31)</span>
+<span class="sd">    [&#39;S&#39;, &#39;R₁&#39;, &#39;R₂&#39;, &#39;R₃&#39;, &#39;G₃&#39;, &#39;M₁&#39;, &#39;M₂&#39;, &#39;P&#39;, &#39;D₁&#39;, &#39;N₁&#39;, &#39;N₂&#39;, &#39;N₃&#39;]</span>
+
+<span class="sd">    #34 (Vagadheeswari) uses D2 and N2, so Ni1 becomes Dha2:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_svara(34)</span>
+<span class="sd">    [&#39;S&#39;, &#39;R₁&#39;, &#39;R₂&#39;, &#39;R₃&#39;, &#39;G₃&#39;, &#39;M₁&#39;, &#39;M₂&#39;, &#39;P&#39;, &#39;D₁&#39;, &#39;D₂&#39;, &#39;N₂&#39;, &#39;N₃&#39;]</span>
+
+<span class="sd">    #36 (Chalanatta) uses D3 and N3, so Ni2 becomes Dha3:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_svara(36)</span>
+<span class="sd">    [&#39;S&#39;, &#39;R₁&#39;, &#39;R₂&#39;, &#39;R₃&#39;, &#39;G₃&#39;, &#39;M₁&#39;, &#39;M₂&#39;, &#39;P&#39;, &#39;D₁&#39;, &#39;D₂&#39;, &#39;D₃&#39;, &#39;N₃&#39;]</span>
+
+<span class="sd">    # You can also query by raga name instead of index:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.mela_to_svara(&#39;chalanatta&#39;)</span>
+<span class="sd">    [&#39;S&#39;, &#39;R₁&#39;, &#39;R₂&#39;, &#39;R₃&#39;, &#39;G₃&#39;, &#39;M₁&#39;, &#39;M₂&#39;, &#39;P&#39;, &#39;D₁&#39;, &#39;D₂&#39;, &#39;D₃&#39;, &#39;N₃&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># The following will be constant for all ragas</span>
+    <span class="n">svara_map</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;Sa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Ri</span><span class="se">\u2081</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Ri2/Ga1</span>
+        <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Ri3/Ga2</span>
+        <span class="s2">&quot;Ga</span><span class="se">\u2083</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Ma</span><span class="se">\u2081</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Ma</span><span class="se">\u2082</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Pa&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Dha</span><span class="se">\u2081</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Dha2/Ni1</span>
+        <span class="s2">&quot;&quot;</span><span class="p">,</span>  <span class="c1"># Dha3/Ni2</span>
+        <span class="s2">&quot;Ni</span><span class="se">\u2083</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mela</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">mela_idx</span> <span class="o">=</span> <span class="n">MELAKARTA_MAP</span><span class="p">[</span><span class="n">mela</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">mela</span> <span class="o">&lt;=</span> <span class="mi">72</span><span class="p">:</span>
+        <span class="n">mela_idx</span> <span class="o">=</span> <span class="n">mela</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mela=</span><span class="si">{</span><span class="n">mela</span><span class="si">}</span><span class="s2"> must be in range [1, 72]&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Determine Ri2/Ga1</span>
+    <span class="n">lower</span> <span class="o">=</span> <span class="n">mela_idx</span> <span class="o">%</span> <span class="mi">36</span>
+    <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="c1"># First six will have Ri1/Ga1</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Ga</span><span class="se">\u2081</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># All others have either Ga2/Ga3</span>
+        <span class="c1"># So we&#39;ll call this Ri2</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Ri</span><span class="se">\u2082</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Determine Ri3/Ga2</span>
+    <span class="k">if</span> <span class="n">lower</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="c1"># First thirty should get Ga2</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Ga</span><span class="se">\u2082</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Only the last six have Ri3</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Ri</span><span class="se">\u2083</span><span class="s2">&quot;</span>
+
+    <span class="n">upper</span> <span class="o">=</span> <span class="n">mela_idx</span> <span class="o">%</span> <span class="mi">6</span>
+
+    <span class="c1"># Determine Dha2/Ni1</span>
+    <span class="k">if</span> <span class="n">upper</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># these are the only ones with Ni1</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Ni</span><span class="se">\u2081</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Everyone else has Dha2</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Dha</span><span class="se">\u2082</span><span class="s2">&quot;</span>
+
+    <span class="c1"># Determine Dha3/Ni2</span>
+    <span class="k">if</span> <span class="n">upper</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="c1"># This one has Dha3</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Dha</span><span class="se">\u2083</span><span class="s2">&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Everyone else has Ni2</span>
+        <span class="n">svara_map</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Ni</span><span class="se">\u2082</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="n">abbr</span><span class="p">:</span>
+        <span class="n">t_abbr</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">})</span>
+        <span class="n">svara_map</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">t_abbr</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">svara_map</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">unicode</span><span class="p">:</span>
+        <span class="n">t_uni</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;</span><span class="se">\u2081</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\u2082</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\u2083</span><span class="s2">&quot;</span><span class="p">:</span> <span class="s2">&quot;3&quot;</span><span class="p">})</span>
+        <span class="n">svara_map</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">t_uni</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">svara_map</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">svara_map</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="list_mela">
+<a class="viewcode-back" href="../../../generated/librosa.list_mela.html#librosa.list_mela">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_mela</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List melakarta ragas by name and index.</span>
+
+<span class="sd">    Melakarta raga names are transcribed from [#]_, with the exception of #45</span>
+<span class="sd">    (subhapanthuvarali).</span>
+
+<span class="sd">    .. [#] Bhagyalekshmy, S. (1990).</span>
+<span class="sd">        Ragas in Carnatic music.</span>
+<span class="sd">        South Asia Books.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mela_map : dict</span>
+<span class="sd">        A dictionary mapping melakarta raga names to indices (1, 2, ..., 72)</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; librosa.list_mela()</span>
+<span class="sd">    {&#39;kanakangi&#39;: 1,</span>
+<span class="sd">     &#39;ratnangi&#39;: 2,</span>
+<span class="sd">     &#39;ganamurthi&#39;: 3,</span>
+<span class="sd">     &#39;vanaspathi&#39;: 4,</span>
+<span class="sd">     ...}</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    mela_to_degrees</span>
+<span class="sd">    mela_to_svara</span>
+<span class="sd">    list_thaat</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">MELAKARTA_MAP</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="list_thaat">
+<a class="viewcode-back" href="../../../generated/librosa.list_thaat.html#librosa.list_thaat">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_thaat</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List supported thaats by name.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    thaats : list</span>
+<span class="sd">        A list of supported thaats</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; librosa.list_thaat()</span>
+<span class="sd">    [&#39;bilaval&#39;,</span>
+<span class="sd">     &#39;khamaj&#39;,</span>
+<span class="sd">     &#39;kafi&#39;,</span>
+<span class="sd">     &#39;asavari&#39;,</span>
+<span class="sd">     &#39;bhairavi&#39;,</span>
+<span class="sd">     &#39;kalyan&#39;,</span>
+<span class="sd">     &#39;marva&#39;,</span>
+<span class="sd">     &#39;poorvi&#39;,</span>
+<span class="sd">     &#39;todi&#39;,</span>
+<span class="sd">     &#39;bhairav&#39;]</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    list_mela</span>
+<span class="sd">    thaat_to_degrees</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">THAAT_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__note_to_degree</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span> <span class="o">...</span>
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__note_to_degree</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">_IterableLike</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">_Array1D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">]:</span> <span class="o">...</span>
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__note_to_degree</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">_Array1D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">]:</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__note_to_degree</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">_IterableLike</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">_Array1D</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Take a note name and return the degree of that note (e.g. &#39;C#&#39; -&gt; 1). We allow possibilities like &quot;C#b&quot;.</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__note_to_degree(&#39;B#&#39;)</span>
+<span class="sd">    0</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__note_to_degree(&#39;D♮##b&#39;)</span>
+<span class="sd">    3</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__note_to_degree([&#39;B#&#39;,&#39;D♮##b&#39;])</span>
+<span class="sd">    array([0,3])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">__note_to_degree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">key</span><span class="p">])</span>
+
+
+    <span class="n">match</span> <span class="o">=</span> <span class="n">NOTE_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Improper key format: </span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;note&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">accidental</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;accidental&quot;</span><span class="p">)</span>
+    <span class="n">pitch_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">}</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">accidental</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">pitch_map</span><span class="p">[</span><span class="n">letter</span><span class="p">]</span><span class="o">+</span><span class="nb">sum</span><span class="p">([</span><span class="n">ACC_MAP</span><span class="p">[</span><span class="n">acc</span><span class="p">]</span> <span class="o">*</span> <span class="n">counter</span><span class="p">[</span><span class="n">acc</span><span class="p">]</span> <span class="k">for</span> <span class="n">acc</span> <span class="ow">in</span> <span class="n">ACC_MAP</span><span class="p">]))</span><span class="o">%</span><span class="mi">12</span>
+
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__simplify_note</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">additional_acc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=...</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span>  <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__simplify_note</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="n">_IterableLike</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">additional_acc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">]:</span> <span class="o">...</span>
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__simplify_note</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">additional_acc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">]:</span> <span class="o">...</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__simplify_note</span><span class="p">(</span>
+    <span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">_IterableLike</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">additional_acc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Take in a note name and simplify by canceling sharp-flat pairs, and doubling accidentals as appropriate.</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__simplify_note(&#39;C♭♯&#39;)</span>
+<span class="sd">    &#39;C&#39;</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__simplify_note(&#39;C♭♭♭&#39;)</span>
+<span class="sd">    &#39;C♭𝄫&#39;</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__simplify_note([&#39;C♭♯&#39;, &#39;C♭♭♭&#39;])</span>
+<span class="sd">    array([&#39;C&#39;, &#39;C♭𝄫&#39;], dtype=&#39;&lt;U3&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">__simplify_note</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="n">additional_acc</span><span class="p">,</span> <span class="n">unicode</span><span class="o">=</span><span class="n">unicode</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">key</span><span class="p">])</span>
+
+    <span class="n">match</span> <span class="o">=</span> <span class="n">NOTE_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">key</span><span class="o">+</span><span class="n">additional_acc</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Improper key format: </span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;note&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">accidental</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;accidental&quot;</span><span class="p">)</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">accidental</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">ACC_MAP</span><span class="p">[</span><span class="n">acc</span><span class="p">]</span> <span class="o">*</span> <span class="n">counter</span><span class="p">[</span><span class="n">acc</span><span class="p">]</span> <span class="k">for</span> <span class="n">acc</span> <span class="ow">in</span> <span class="n">ACC_MAP</span><span class="p">])</span>
+
+    <span class="n">simplified_note</span> <span class="o">=</span> <span class="n">letter</span>
+    <span class="k">if</span> <span class="n">offset</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">simplified_note</span> <span class="o">+=</span> <span class="s2">&quot;♯&quot;</span><span class="o">*</span><span class="p">(</span><span class="n">offset</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;𝄪&quot;</span><span class="o">*</span><span class="p">(</span><span class="n">offset</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">simplified_note</span> <span class="o">+=</span> <span class="s2">&quot;♭&quot;</span><span class="o">*</span><span class="p">(</span><span class="n">offset</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;𝄫&quot;</span><span class="o">*</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">unicode</span><span class="p">:</span>
+        <span class="n">translations</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;♯&quot;</span><span class="p">:</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;𝄪&quot;</span><span class="p">:</span> <span class="s2">&quot;##&quot;</span><span class="p">,</span> <span class="s2">&quot;♭&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;𝄫&quot;</span><span class="p">:</span> <span class="s2">&quot;bb&quot;</span><span class="p">,</span> <span class="s2">&quot;♮&quot;</span><span class="p">:</span> <span class="s2">&quot;n&quot;</span><span class="p">})</span>
+        <span class="n">simplified_note</span> <span class="o">=</span> <span class="n">simplified_note</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">simplified_note</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__mode_to_key</span><span class="p">(</span><span class="n">signature</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Translate a mode (eg D:dorian) into its equivalent major key.</span>
+
+<span class="sd">    If unicode==True, return the accidentals as unicode symbols, regardless of nature</span>
+<span class="sd">    of accidentals in signature. Otherwise, return accidentals as ASCII symbols.</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__mode_to_key(&#39;Db:loc&#39;)</span>
+<span class="sd">    &#39;E𝄫:maj&#39;</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.__mode_to_key(&#39;D♭:loc&#39;, unicode = False)</span>
+<span class="sd">    &#39;Ebb:maj&#39;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">KEY_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">signature</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;Improper format: </span><span class="si">{:s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">signature</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">):</span>
+        <span class="c1"># We&#39;re already fine here, but let&#39;s pass the key through __simpify_note()</span>
+        <span class="c1"># to ensure good formatting.</span>
+        <span class="n">signature</span> <span class="o">=</span> <span class="p">(</span><span class="n">__simplify_note</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;tonic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">+</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;accidental&quot;</span><span class="p">),</span>
+                                     <span class="n">unicode</span><span class="o">=</span><span class="n">unicode</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="o">+</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">)</span> <span class="k">if</span>
+                                                         <span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">signature</span>
+
+    <span class="c1"># We have a mode, time to translate</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># Get the relative major</span>
+    <span class="n">tonic</span> <span class="o">=</span> <span class="n">MAJOR_DICT</span><span class="p">[</span><span class="n">mode</span><span class="p">][</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;tonic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()]</span>
+
+    <span class="k">return</span> <span class="n">__simplify_note</span><span class="p">(</span><span class="n">tonic</span><span class="o">+</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;accidental&quot;</span><span class="p">),</span> <span class="n">unicode</span> <span class="o">=</span> <span class="n">unicode</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;:maj&quot;</span>
+
+
+<div class="viewcode-block" id="key_to_notes">
+<a class="viewcode-back" href="../../../generated/librosa.key_to_notes.html#librosa.key_to_notes">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">key_to_notes</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">natural</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List all 12 chromatic note names, as spelled according to a given key or mode.</span>
+
+<span class="sd">    This function exists to resolve enharmonic equivalences between different</span>
+<span class="sd">    spellings for the same pitch (e.g. C♯ vs D♭), and is primarily useful when producing</span>
+<span class="sd">    human-readable outputs (e.g. plotting) for pitch content.</span>
+
+<span class="sd">    Note names are decided by the following rules:</span>
+
+<span class="sd">    1. If the tonic of the key has an accidental (sharp or flat), that accidental will be</span>
+<span class="sd">       used consistently for all notes.</span>
+
+<span class="sd">    2. If the tonic does not have an accidental, accidentals will be inferred to minimize</span>
+<span class="sd">       the total number used for diatonic scale degrees.</span>
+
+<span class="sd">    3. If there is a tie (e.g., in the case of C:maj vs A:min), sharps will be preferred.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    key : str</span>
+<span class="sd">        Must be in the form TONIC:key.  Tonic must be upper case (``CDEFGAB``),</span>
+<span class="sd">        key must be lower-case</span>
+<span class="sd">        (``major``, ``minor``, ``ionian``, ``dorian``, ``phrygian``, ``lydian``,</span>
+<span class="sd">        ``mixolydian``, ``aeolian``, ``locrian``).</span>
+
+<span class="sd">        The following abbreviations are supported for the modes: either the first three letters of the mode name</span>
+<span class="sd">        (e.g. &quot;mix&quot;) or the mode name without &quot;ian&quot; (e.g. &quot;mixolyd&quot;).</span>
+
+<span class="sd">        Both ``major`` and ``maj`` are supported as mode abbreviations.</span>
+
+<span class="sd">        Single and multiple accidentals (``b!♭`` for flat, ``#♯`` for sharp,</span>
+<span class="sd">        ``𝄪𝄫`` for double-accidentals, or any combination thereof) are supported.</span>
+
+<span class="sd">        Examples: ``C:maj, C:major, Dbb:min, A♭:min, D:aeo, E𝄪:phryg``.</span>
+
+<span class="sd">    unicode : bool</span>
+<span class="sd">        If ``True`` (default), use Unicode symbols (♯𝄪♭𝄫)for accidentals.</span>
+
+<span class="sd">        If ``False``, Unicode symbols will be mapped to low-order ASCII representations::</span>
+
+<span class="sd">            ♯ -&gt; #, 𝄪 -&gt; ##, ♭ -&gt; b, 𝄫 -&gt; bb, ♮ -&gt; n</span>
+
+<span class="sd">    natural : bool</span>
+<span class="sd">        If ``True&#39;&#39;, mark natural accidentals with a natural symbol (♮).</span>
+
+<span class="sd">        If ``False`` (default), do not print natural symbols.</span>
+
+<span class="sd">        For example, `note_to_degrees(&#39;D:maj&#39;)[0]` is `C` if `natural=False` (default) and `C♮` if `natural=True`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    notes : list</span>
+<span class="sd">        ``notes[k]`` is the name for semitone ``k`` (starting from C)</span>
+<span class="sd">        under the given key.  All chromatic notes (0 through 11) are</span>
+<span class="sd">        included.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    midi_to_note</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    `C:maj` will use all sharps</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;C:maj&#39;)</span>
+<span class="sd">    [&#39;C&#39;, &#39;C♯&#39;, &#39;D&#39;, &#39;D♯&#39;, &#39;E&#39;, &#39;F&#39;, &#39;F♯&#39;, &#39;G&#39;, &#39;G♯&#39;, &#39;A&#39;, &#39;A♯&#39;, &#39;B&#39;]</span>
+
+<span class="sd">    `A:min` has the same notes</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;A:min&#39;)</span>
+<span class="sd">    [&#39;C&#39;, &#39;C♯&#39;, &#39;D&#39;, &#39;D♯&#39;, &#39;E&#39;, &#39;F&#39;, &#39;F♯&#39;, &#39;G&#39;, &#39;G♯&#39;, &#39;A&#39;, &#39;A♯&#39;, &#39;B&#39;]</span>
+
+<span class="sd">    `A♯:min` will use sharps, but spell note 0 (`C`) as `B♯`</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;A#:min&#39;)</span>
+<span class="sd">    [&#39;B♯&#39;, &#39;C♯&#39;, &#39;D&#39;, &#39;D♯&#39;, &#39;E&#39;, &#39;E♯&#39;, &#39;F♯&#39;, &#39;G&#39;, &#39;G♯&#39;, &#39;A&#39;, &#39;A♯&#39;, &#39;B&#39;]</span>
+
+<span class="sd">    `G♯:maj` will use a double-sharp to spell note 7 (`G`) as `F𝄪`:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;G#:maj&#39;)</span>
+<span class="sd">    [&#39;B♯&#39;, &#39;C♯&#39;, &#39;D&#39;, &#39;D♯&#39;, &#39;E&#39;, &#39;E♯&#39;, &#39;F♯&#39;, &#39;F𝄪&#39;, &#39;G♯&#39;, &#39;A&#39;, &#39;A♯&#39;, &#39;B&#39;]</span>
+
+<span class="sd">    `F♭:min` will use double-flats</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;Fb:min&#39;)</span>
+<span class="sd">    [&#39;D𝄫&#39;, &#39;D♭&#39;, &#39;E𝄫&#39;, &#39;E♭&#39;, &#39;F♭&#39;, &#39;F&#39;, &#39;G♭&#39;, &#39;A𝄫&#39;, &#39;A♭&#39;, &#39;B𝄫&#39;, &#39;B♭&#39;, &#39;C♭&#39;]</span>
+
+<span class="sd">    `G:loc` uses flats</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;G:loc&#39;)</span>
+<span class="sd">    [&#39;C&#39;, &#39;D♭&#39;, &#39;D&#39;, &#39;E♭&#39;, &#39;E&#39;, &#39;F&#39;, &#39;G♭&#39;, &#39;G&#39;, &#39;A♭&#39;, &#39;A&#39;, &#39;B♭&#39;, &#39;B&#39;]</span>
+
+<span class="sd">    If `natural=True`, print natural accidentals.</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;G:loc&#39;, natural=True)</span>
+<span class="sd">    [&#39;C&#39;, &#39;D♭&#39;, &#39;D♮&#39;, &#39;E♭&#39;, &#39;E♮&#39;, &#39;F&#39;, &#39;G♭&#39;, &#39;G&#39;, &#39;A♭&#39;, &#39;A♮&#39;, &#39;B♭&#39;, &#39;B♮&#39;]</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;D:maj&#39;, natural=True)</span>
+<span class="sd">    [&#39;C♮&#39;, &#39;C♯&#39;, &#39;D&#39;, &#39;D♯&#39;, &#39;E&#39;, &#39;F♮&#39;, &#39;F♯&#39;, &#39;G&#39;, &#39;G♯&#39;, &#39;A&#39;, &#39;A♯&#39;, &#39;B&#39;]</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_notes(&#39;G#:maj&#39;, unicode = False, natural = True)</span>
+<span class="sd">    [&#39;B#&#39;, &#39;C#&#39;, &#39;Dn&#39;, &#39;D#&#39;, &#39;En&#39;, &#39;E#&#39;, &#39;F#&#39;, &#39;F##&#39;, &#39;G#&#39;, &#39;An&#39;, &#39;A#&#39;, &#39;B&#39;]</span>
+
+<span class="sd">    We can combine this with ``key_to_degrees`` to get the notes for a given scale:</span>
+
+<span class="sd">    &gt;&gt;&gt; notes = librosa.key_to_notes(&#39;D:maj&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; degrees = librosa.key_to_degrees(&#39;D:maj&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print([notes[d] for d in degrees])</span>
+<span class="sd">    [&#39;D&#39;, &#39;E&#39;, &#39;F♯&#39;, &#39;G&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C♯&#39;]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Parse the key signature</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">KEY_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Improper key format: </span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">pitch_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">}</span>
+
+    <span class="n">tonic</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;tonic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">accidental</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;accidental&quot;</span><span class="p">)</span>
+
+    <span class="n">offset</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">ACC_MAP</span><span class="p">[</span><span class="n">acc</span><span class="p">]</span> <span class="k">for</span> <span class="n">acc</span> <span class="ow">in</span> <span class="n">accidental</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">):</span>
+        <span class="n">equiv</span> <span class="o">=</span> <span class="n">__mode_to_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">key_to_notes</span><span class="p">(</span><span class="n">equiv</span><span class="p">,</span> <span class="n">unicode</span><span class="o">=</span><span class="n">unicode</span><span class="p">,</span> <span class="n">natural</span> <span class="o">=</span> <span class="n">natural</span><span class="p">)</span>
+
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="n">multiple</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">2</span>
+
+    <span class="c1"># If multiple accidentals, we use recursion, then cycle through so that the</span>
+    <span class="c1"># enharmonic equivalent of C is at the beginning again.</span>
+
+    <span class="k">if</span> <span class="n">multiple</span><span class="p">:</span>
+        <span class="n">sign_map</span> <span class="o">=</span> <span class="p">{</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;♯&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;♭&quot;</span><span class="p">}</span>
+        <span class="n">additional_acc</span> <span class="o">=</span> <span class="n">sign_map</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">offset</span><span class="p">)]</span>
+        <span class="n">intermediate_notes</span> <span class="o">=</span> <span class="n">key_to_notes</span><span class="p">(</span><span class="n">tonic</span><span class="o">+</span><span class="n">additional_acc</span><span class="o">*</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;:&quot;</span><span class="o">+</span><span class="n">scale</span><span class="p">,</span> <span class="n">natural</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">notes</span> <span class="o">=</span> <span class="p">[</span><span class="n">__simplify_note</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="n">additional_acc</span><span class="p">)</span> <span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">intermediate_notes</span><span class="p">]</span>
+        <span class="n">degrees</span> <span class="o">=</span> <span class="n">__note_to_degree</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
+        <span class="n">notes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">notes</span><span class="p">,</span> <span class="n">shift</span><span class="o">=-</span><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">degrees</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">notes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">notes</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">unicode</span><span class="p">:</span>
+            <span class="n">translations</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;♯&quot;</span><span class="p">:</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;𝄪&quot;</span><span class="p">:</span> <span class="s2">&quot;##&quot;</span><span class="p">,</span> <span class="s2">&quot;♭&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;𝄫&quot;</span><span class="p">:</span> <span class="s2">&quot;bb&quot;</span><span class="p">,</span> <span class="s2">&quot;♮&quot;</span><span class="p">:</span> <span class="s2">&quot;n&quot;</span><span class="p">})</span>
+            <span class="n">notes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">notes</span>
+
+
+    <span class="c1"># Determine major or minor</span>
+    <span class="n">major</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">==</span> <span class="s2">&quot;maj&quot;</span>
+
+    <span class="c1"># calculate how many clockwise steps we are on CoF (== # sharps)</span>
+    <span class="k">if</span> <span class="n">major</span><span class="p">:</span>
+        <span class="n">tonic_number</span> <span class="o">=</span> <span class="p">((</span><span class="n">pitch_map</span><span class="p">[</span><span class="n">tonic</span><span class="p">]</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">tonic_number</span> <span class="o">=</span> <span class="p">((</span><span class="n">pitch_map</span><span class="p">[</span><span class="n">tonic</span><span class="p">]</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span>
+
+    <span class="c1"># Decide if using flats or sharps</span>
+    <span class="c1"># Logic here is as follows:</span>
+    <span class="c1">#   1. respect the given notation for the tonic.</span>
+    <span class="c1">#      Sharp tonics will always use sharps, likewise flats.</span>
+    <span class="c1">#   2. If no accidental in the tonic, try to minimize accidentals.</span>
+    <span class="c1">#   3. If there&#39;s a tie for accidentals, use sharp for major and flat for minor.</span>
+
+    <span class="k">if</span> <span class="n">offset</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># use flats explicitly</span>
+        <span class="n">use_sharps</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">elif</span> <span class="n">offset</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># use sharps explicitly</span>
+        <span class="n">use_sharps</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">elif</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">tonic_number</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">use_sharps</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">elif</span> <span class="n">tonic_number</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">use_sharps</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Basic note sequences for simple keys</span>
+    <span class="n">notes_sharp</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;C♯&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;D♯&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;F♯&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;G♯&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;A♯&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]</span>
+    <span class="n">notes_flat</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D♭&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E♭&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="s2">&quot;G♭&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="s2">&quot;A♭&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B♭&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">]</span>
+
+    <span class="c1"># These apply when we have &gt;= 6 sharps</span>
+    <span class="n">sharp_corrections</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;E♯&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;B♯&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;F𝄪&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;C𝄪&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;G𝄪&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;D𝄪&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;A𝄪&quot;</span><span class="p">),</span>
+    <span class="p">]</span>
+
+    <span class="c1"># These apply when we have &gt;= 6 flats</span>
+    <span class="n">flat_corrections</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;C♭&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;F♭&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;B𝄫&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;E𝄫&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;A𝄫&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;D𝄫&quot;</span><span class="p">),</span>
+    <span class="p">]</span>  <span class="c1"># last would be (5, &#39;G𝄫&#39;)</span>
+
+    <span class="c1"># Apply a mod-12 correction to distinguish B#:maj from C:maj</span>
+    <span class="n">n_sharps</span> <span class="o">=</span> <span class="n">tonic_number</span>
+    <span class="k">if</span> <span class="n">tonic_number</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">tonic</span> <span class="o">==</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span>
+        <span class="n">n_sharps</span> <span class="o">=</span> <span class="mi">12</span>
+
+    <span class="k">if</span> <span class="n">use_sharps</span><span class="p">:</span>
+        <span class="c1"># This will only execute if n_sharps &gt;= 6</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_sharps</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">sharp_corrections</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+            <span class="n">notes_sharp</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="n">notes</span> <span class="o">=</span> <span class="n">notes_sharp</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">n_flats</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span> <span class="o">-</span> <span class="n">tonic_number</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span>
+
+        <span class="c1"># This will only execute if tonic_number &lt;= 6</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_flats</span> <span class="o">-</span> <span class="mi">6</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">flat_corrections</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+            <span class="n">notes_flat</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">name</span>
+
+        <span class="n">notes</span> <span class="o">=</span> <span class="n">notes_flat</span>
+
+    <span class="c1"># Apply natural signs to any note which has no other accidentals and does not appear in the scale for key.</span>
+    <span class="k">if</span> <span class="n">natural</span><span class="p">:</span>
+        <span class="n">scale_notes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">key_to_degrees</span><span class="p">(</span><span class="n">key</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">place</span><span class="p">,</span> <span class="n">note</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">notes</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">__note_to_degree</span><span class="p">(</span><span class="n">note</span><span class="p">)</span> <span class="ow">in</span> <span class="n">scale_notes</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">note</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">notes</span><span class="p">[</span><span class="n">place</span><span class="p">]</span> <span class="o">=</span> <span class="n">note</span><span class="o">+</span><span class="s2">&quot;♮&quot;</span>
+
+    <span class="c1"># Finally, apply any unicode down-translation if necessary</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">unicode</span><span class="p">:</span>
+        <span class="n">translations</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">({</span><span class="s2">&quot;♯&quot;</span><span class="p">:</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="s2">&quot;𝄪&quot;</span><span class="p">:</span> <span class="s2">&quot;##&quot;</span><span class="p">,</span> <span class="s2">&quot;♭&quot;</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;𝄫&quot;</span><span class="p">:</span> <span class="s2">&quot;bb&quot;</span><span class="p">,</span> <span class="s2">&quot;♮&quot;</span><span class="p">:</span> <span class="s2">&quot;n&quot;</span><span class="p">})</span>
+        <span class="n">notes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">notes</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">notes</span></div>
+
+
+<span class="c1"># I made this work even for key signatures like &#39;C#b#:min&#39;</span>
+
+<div class="viewcode-block" id="key_to_degrees">
+<a class="viewcode-back" href="../../../generated/librosa.key_to_degrees.html#librosa.key_to_degrees">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">key_to_degrees</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Construct the diatonic scale degrees for a given key.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    key : str</span>
+<span class="sd">        Must be in the form TONIC:key.  Tonic must be upper case (``CDEFGAB``),</span>
+<span class="sd">        key must be lower-case</span>
+<span class="sd">        (``maj``, ``min``, ``ionian``, ``dorian``, ``phrygian``, ``lydian``, ``mixolydian``, ``aeolian``, ``locrian``).</span>
+
+<span class="sd">        The following abbreviations are supported for the modes: either the first three letters of the mode name</span>
+<span class="sd">        (e.g. &quot;mix&quot;) or the mode name without &quot;ian&quot; (e.g. &quot;mixolyd&quot;).</span>
+
+<span class="sd">        Both ``major`` and ``maj`` are supported as abbreviations.</span>
+
+<span class="sd">        Single and multiple accidentals (``b!♭`` for flat, or ``#♯`` for sharp) are supported.</span>
+
+<span class="sd">        Examples: ``C:maj, C:major, Dbb:min, A♭:min, D:aeo, E𝄪:phryg``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    degrees : np.ndarray</span>
+<span class="sd">        An array containing the semitone numbers (0=C, 1=C#, ... 11=B)</span>
+<span class="sd">        for each of the seven scale degrees in the given key, starting</span>
+<span class="sd">        from the tonic.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    key_to_notes</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_degrees(&#39;C:maj&#39;)</span>
+<span class="sd">    array([ 0,  2,  4,  5,  7,  9, 11])</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_degrees(&#39;C#:maj&#39;)</span>
+<span class="sd">    array([ 1,  3,  5,  6,  8, 10,  0])</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_degrees(&#39;A:min&#39;)</span>
+<span class="sd">    array([ 9, 11,  0,  2,  4,  5,  7])</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.key_to_degrees(&#39;A:min&#39;)</span>
+<span class="sd">    array([ 9, 11,  0,  2,  4,  5,  7])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">notes</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+        <span class="n">maj</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">]),</span> <span class="nb">min</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+    <span class="p">)</span>
+
+    <span class="n">match</span> <span class="o">=</span> <span class="n">KEY_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Improper key format: </span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">):</span>
+        <span class="n">equiv</span> <span class="o">=</span> <span class="n">__mode_to_key</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="n">OFFSET_DICT</span><span class="p">[</span><span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">key_to_degrees</span><span class="p">(</span><span class="n">equiv</span><span class="p">),</span><span class="o">-</span><span class="n">offset</span><span class="p">)</span>
+
+    <span class="n">pitch_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">}</span>
+    <span class="n">tonic</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;tonic&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">accidental</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;accidental&quot;</span><span class="p">)</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">accidental</span><span class="p">)</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">ACC_MAP</span><span class="p">[</span><span class="n">acc</span><span class="p">]</span><span class="o">*</span><span class="n">counts</span><span class="p">[</span><span class="n">acc</span><span class="p">]</span> <span class="k">for</span> <span class="n">acc</span> <span class="ow">in</span> <span class="n">ACC_MAP</span><span class="p">])</span>
+
+    <span class="n">scale</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;scale&quot;</span><span class="p">)[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">notes</span><span class="p">[</span><span class="n">scale</span><span class="p">]</span> <span class="o">+</span> <span class="n">pitch_map</span><span class="p">[</span><span class="n">tonic</span><span class="p">]</span> <span class="o">+</span> <span class="n">offset</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span></div>
+
+
+
+<div class="viewcode-block" id="fifths_to_note">
+<a class="viewcode-back" href="../../../generated/librosa.fifths_to_note.html#librosa.fifths_to_note">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">fifths_to_note</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">unison</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">fifths</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the note name for a given number of perfect fifths from a specified unison.</span>
+
+<span class="sd">    This function is primarily intended as a utility routine for</span>
+<span class="sd">    Functional Just System (FJS) notation conversions.</span>
+
+<span class="sd">    This function does not assume the &quot;circle of fifths&quot; or equal temperament,</span>
+<span class="sd">    so 12 fifths will not generally produce a note of the same pitch class</span>
+<span class="sd">    due to the accumulation of accidentals.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    unison : str</span>
+<span class="sd">        The name of the starting (unison) note, e.g., &#39;C&#39; or &#39;Bb&#39;.</span>
+<span class="sd">        Unicode accidentals are supported.</span>
+
+<span class="sd">    fifths : int</span>
+<span class="sd">        The number of perfect fifths to deviate from unison.</span>
+
+<span class="sd">    unicode : bool</span>
+<span class="sd">        If ``True`` (default), use Unicode symbols (♯𝄪♭𝄫)for accidentals.</span>
+
+<span class="sd">        If ``False``, accidentals will be encoded as low-order ASCII representations::</span>
+
+<span class="sd">            ♯ -&gt; #, 𝄪 -&gt; ##, ♭ -&gt; b, 𝄫 -&gt; bb</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    note : str</span>
+<span class="sd">        The name of the requested note</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; librosa.fifths_to_note(unison=&#39;C&#39;, fifths=6)</span>
+<span class="sd">    &#39;F♯&#39;</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.fifths_to_note(unison=&#39;G&#39;, fifths=-3)</span>
+<span class="sd">    &#39;B♭&#39;</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.fifths_to_note(unison=&#39;Eb&#39;, fifths=11, unicode=False)</span>
+<span class="sd">    &#39;G#&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Starting the circle of fifths at F makes accidentals easier to count</span>
+    <span class="n">COFMAP</span> <span class="o">=</span> <span class="s2">&quot;FCGDAEB&quot;</span>
+
+    <span class="n">acc_map</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;#&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;!&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;♯&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;𝄪&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;♭&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;𝄫&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+        <span class="s2">&quot;♮&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">unicode</span><span class="p">:</span>
+        <span class="n">acc_map_inv</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;♯&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;𝄪&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;♭&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;𝄫&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">acc_map_inv</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;##&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;bb&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
+
+    <span class="n">match</span> <span class="o">=</span> <span class="n">NOTE_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">unison</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Improper note format: </span><span class="si">{</span><span class="n">unison</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Find unison in the alphabet</span>
+    <span class="n">pitch</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;note&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+
+    <span class="c1"># Find the number of accidentals to start from</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">acc_map</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;accidental&quot;</span><span class="p">)])</span>
+
+    <span class="c1"># Find the raw target note</span>
+    <span class="n">circle_idx</span> <span class="o">=</span> <span class="n">COFMAP</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">pitch</span><span class="p">)</span>
+    <span class="n">raw_output</span> <span class="o">=</span> <span class="n">COFMAP</span><span class="p">[(</span><span class="n">circle_idx</span> <span class="o">+</span> <span class="n">fifths</span><span class="p">)</span> <span class="o">%</span> <span class="mi">7</span><span class="p">]</span>
+
+    <span class="c1"># Now how many accidentals have we accrued?</span>
+    <span class="c1"># Equivalently, count times we cross a B&lt;-&gt;F boundary</span>
+    <span class="n">acc_index</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">+</span> <span class="p">(</span><span class="n">circle_idx</span> <span class="o">+</span> <span class="n">fifths</span><span class="p">)</span> <span class="o">//</span> <span class="mi">7</span>
+
+    <span class="c1"># Compress multiple-accidentals as needed</span>
+    <span class="n">acc_str</span> <span class="o">=</span> <span class="n">acc_map_inv</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">acc_index</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span>
+        <span class="nb">abs</span><span class="p">(</span><span class="n">acc_index</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+    <span class="p">)</span> <span class="o">+</span> <span class="n">acc_map_inv</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">acc_index</span><span class="p">)]</span> <span class="o">*</span> <span class="nb">int</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">acc_index</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">raw_output</span> <span class="o">+</span> <span class="n">acc_str</span></div>
+
+
+
+<span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nogil</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__o_fold</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the octave-folded interval.</span>
+
+<span class="sd">    This maps intervals to the range [1, 2).</span>
+
+<span class="sd">    This is part of the FJS notation converter.</span>
+<span class="sd">    It is equivalent to the `red` function described in the FJS</span>
+<span class="sd">    documentation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">d</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">**</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span>
+
+
+<span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nogil</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__bo_fold</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the balanced, octave-folded interval.</span>
+
+<span class="sd">    This maps intervals to the range [sqrt(2)/2, sqrt(2)).</span>
+
+<span class="sd">    This is part of the FJS notation converter.</span>
+<span class="sd">    It is equivalent to the `reb` function described in the FJS</span>
+<span class="sd">    documentation, but with a simpler implementation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">d</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">**</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">d</span><span class="p">)))</span>
+
+
+<span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nogil</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__fifth_search</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Accelerated helper function for finding the number of fifths</span>
+<span class="sd">    to get within tolerance of a given interval.</span>
+
+<span class="sd">    This implementation will give up after 32 fifths</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log_tolerance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">tolerance</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">power</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">sign</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">__bo_fold</span><span class="p">(</span><span class="n">interval</span> <span class="o">/</span> <span class="mf">3.0</span> <span class="o">**</span> <span class="p">(</span><span class="n">power</span> <span class="o">*</span> <span class="n">sign</span><span class="p">))))</span>
+                <span class="o">&lt;=</span> <span class="n">log_tolerance</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="n">power</span> <span class="o">*</span> <span class="n">sign</span>
+        <span class="n">power</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">power</span>
+
+
+<span class="c1"># Translation grids for superscripts and subscripts</span>
+<span class="n">SUPER_TRANS</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;0123456789&quot;</span><span class="p">,</span> <span class="s2">&quot;⁰¹²³⁴⁵⁶⁷⁸⁹&quot;</span><span class="p">)</span>
+<span class="n">SUB_TRANS</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s2">&quot;0123456789&quot;</span><span class="p">,</span> <span class="s2">&quot;₀₁₂₃₄₅₆₇₈₉&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">interval_to_fjs</span><span class="p">(</span>
+    <span class="n">interval</span><span class="p">:</span> <span class="n">_FloatLike_co</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">unison</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">tolerance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span> <span class="o">...</span>
+<span class="nd">@overload</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">interval_to_fjs</span><span class="p">(</span>
+    <span class="n">interval</span><span class="p">:</span> <span class="n">_SequenceLike</span><span class="p">[</span><span class="n">_FloatLike_co</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">unison</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">tolerance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+    <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">]:</span> <span class="o">...</span>
+<div class="viewcode-block" id="interval_to_fjs">
+<a class="viewcode-back" href="../../../generated/librosa.interval_to_fjs.html#librosa.interval_to_fjs">[docs]</a>
+<span class="nd">@vectorize</span><span class="p">(</span><span class="n">otypes</span><span class="o">=</span><span class="s2">&quot;U&quot;</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="nb">set</span><span class="p">([</span><span class="s2">&quot;unison&quot;</span><span class="p">,</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span> <span class="s2">&quot;unicode&quot;</span><span class="p">]))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">interval_to_fjs</span><span class="p">(</span>
+    <span class="n">interval</span><span class="p">:</span> <span class="n">_ScalarOrSequence</span><span class="p">[</span><span class="n">_FloatLike_co</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">unison</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span>
+    <span class="n">tolerance</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">65.0</span> <span class="o">/</span> <span class="mi">63</span><span class="p">,</span>
+    <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">npt</span><span class="o">.</span><span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">str_</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert an interval to Functional Just System (FJS) notation.</span>
+
+<span class="sd">    See https://misotanni.github.io/fjs/en/index.html for a thorough overview</span>
+<span class="sd">    of the FJS notation system, and the examples below.</span>
+
+<span class="sd">    FJS conversion works by identifying a Pythagorean interval which is within</span>
+<span class="sd">    a specified tolerance of the target interval, which provides the core note</span>
+<span class="sd">    name.  If the interval is derived from ratios other than perfect fifths,</span>
+<span class="sd">    then the remaining factors are encoded as superscripts for otonal</span>
+<span class="sd">    (increasing) intervals and subscripts for utonal (decreasing) intervals.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    interval : float &gt; 0 or iterable of floats</span>
+<span class="sd">        A (just) interval to notate in FJS.</span>
+
+<span class="sd">    unison : str</span>
+<span class="sd">        The name of the unison note (corresponding to `interval=1`).</span>
+
+<span class="sd">    tolerance : float</span>
+<span class="sd">        The tolerance threshold for identifying the core note name.</span>
+
+<span class="sd">    unicode : bool</span>
+<span class="sd">        If ``True`` (default), use Unicode symbols (♯𝄪♭𝄫)for accidentals,</span>
+<span class="sd">        and superscripts/subscripts for otonal and utonal accidentals.</span>
+
+<span class="sd">        If ``False``, accidentals will be encoded as low-order ASCII representations::</span>
+
+<span class="sd">            ♯ -&gt; #, 𝄪 -&gt; ##, ♭ -&gt; b, 𝄫 -&gt; bb</span>
+
+<span class="sd">        Otonal and utonal accidentals will be denoted by `^##` and `_##`</span>
+<span class="sd">        respectively (see examples below).</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ParameterError</span>
+<span class="sd">        If the provided interval is not positive</span>
+
+<span class="sd">        If the provided interval cannot be identified with a</span>
+<span class="sd">        just intonation prime factorization.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    note_fjs : str or np.ndarray(dtype=str)</span>
+<span class="sd">        The interval(s) relative to the given unison in FJS notation.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Pythagorean intervals appear as expected, with no otonal</span>
+<span class="sd">    or utonal extensions:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.interval_to_fjs(3/2, unison=&#39;C&#39;)</span>
+<span class="sd">    &#39;G&#39;</span>
+<span class="sd">    &gt;&gt;&gt; librosa.interval_to_fjs(4/3, unison=&#39;F&#39;)</span>
+<span class="sd">    &#39;B♭&#39;</span>
+
+<span class="sd">    A ptolemaic major third will appear with an otonal &#39;5&#39;:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.interval_to_fjs(5/4, unison=&#39;A&#39;)</span>
+<span class="sd">    &#39;C♯⁵&#39;</span>
+
+<span class="sd">    And a ptolemaic minor third will appear with utonal &#39;5&#39;:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.interval_to_fjs(6/5, unison=&#39;A&#39;)</span>
+<span class="sd">    &#39;C₅&#39;</span>
+
+<span class="sd">    More complex intervals will have compound accidentals.</span>
+<span class="sd">    For example:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.interval_to_fjs(25/14, unison=&#39;F#&#39;)</span>
+<span class="sd">    &#39;E²⁵₇&#39;</span>
+<span class="sd">    &gt;&gt;&gt; librosa.interval_to_fjs(25/14, unison=&#39;F#&#39;, unicode=False)</span>
+<span class="sd">    &#39;E^25_7&#39;</span>
+
+<span class="sd">    Array inputs are also supported:</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.interval_to_fjs([3/2, 4/3, 5/3])</span>
+<span class="sd">    array([&#39;G&#39;, &#39;F&#39;, &#39;A⁵&#39;], dtype=&#39;&lt;U2&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># suppressing the type check here because mypy won&#39;t introspect through</span>
+    <span class="c1"># numpy vectorization</span>
+    <span class="k">if</span> <span class="n">interval</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># type: ignore</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Interval=</span><span class="si">{</span><span class="n">interval</span><span class="si">}</span><span class="s2"> must be strictly positive&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Find the approximate number of fifth-steps to get within tolerance</span>
+    <span class="c1"># of the target interval</span>
+    <span class="n">fifths</span> <span class="o">=</span> <span class="n">__fifth_search</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span>
+
+    <span class="c1"># determine the base note name</span>
+    <span class="n">note_name</span> <span class="o">=</span> <span class="n">fifths_to_note</span><span class="p">(</span><span class="n">unison</span><span class="o">=</span><span class="n">unison</span><span class="p">,</span> <span class="n">fifths</span><span class="o">=</span><span class="n">fifths</span><span class="p">,</span> <span class="n">unicode</span><span class="o">=</span><span class="n">unicode</span><span class="p">)</span>
+
+    <span class="c1"># Get the prime factor expansion from the interval table</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Balance the interval into the octave for lookup</span>
+        <span class="n">interval_b</span> <span class="o">=</span> <span class="n">__o_fold</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+        <span class="n">powers</span> <span class="o">=</span> <span class="n">INTERVALS</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">around</span><span class="p">(</span><span class="n">interval_b</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">6</span><span class="p">)]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown interval=</span><span class="si">{</span><span class="n">interval</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">exc</span>
+
+    <span class="c1"># Ignore pythagorean spelling</span>
+    <span class="n">powers</span> <span class="o">=</span> <span class="p">{</span><span class="n">p</span><span class="p">:</span> <span class="n">powers</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">powers</span> <span class="k">if</span> <span class="n">p</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">}</span>
+
+    <span class="c1"># Split into otonal and utonal accidentals</span>
+    <span class="n">otonal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="n">p</span> <span class="o">**</span> <span class="n">powers</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">powers</span> <span class="k">if</span> <span class="n">powers</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">utonal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">([</span><span class="n">p</span> <span class="o">**</span> <span class="o">-</span><span class="n">powers</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">powers</span> <span class="k">if</span> <span class="n">powers</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">suffix</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">otonal</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">unicode</span><span class="p">:</span>
+            <span class="n">suffix</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">otonal</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">SUPER_TRANS</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">suffix</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">otonal</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">if</span> <span class="n">utonal</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">unicode</span><span class="p">:</span>
+            <span class="n">suffix</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">utonal</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">SUB_TRANS</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">suffix</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;_</span><span class="si">{</span><span class="n">utonal</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="k">return</span> <span class="n">note_name</span> <span class="o">+</span> <span class="n">suffix</span></div>
+
+</pre></div>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2013--2026, librosa development team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

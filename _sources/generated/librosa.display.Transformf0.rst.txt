@@ -1,0 +1,61 @@
+﻿librosa.display.Transformf0
+===========================
+
+.. currentmodule:: librosa.display
+
+.. autoclass:: Transformf0
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Transformf0.__init__
+      ~Transformf0.contains_branch
+      ~Transformf0.contains_branch_separately
+      ~Transformf0.contains_branch_seperately
+      ~Transformf0.frozen
+      ~Transformf0.get_affine
+      ~Transformf0.get_matrix
+      ~Transformf0.invalidate
+      ~Transformf0.inverted
+      ~Transformf0.set_children
+      ~Transformf0.transform
+      ~Transformf0.transform_affine
+      ~Transformf0.transform_angles
+      ~Transformf0.transform_bbox
+      ~Transformf0.transform_non_affine
+      ~Transformf0.transform_path
+      ~Transformf0.transform_path_affine
+      ~Transformf0.transform_path_non_affine
+      ~Transformf0.transform_point
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Transformf0.depth
+      ~Transformf0.has_inverse
+      ~Transformf0.input_dims
+      ~Transformf0.is_affine
+      ~Transformf0.is_separable
+      ~Transformf0.output_dims
+      ~Transformf0.pass_through
+      ~Transformf0.f0_interp
+      ~Transformf0.norm
+      ~Transformf0.bins_per_octave
+      ~Transformf0.f0
+      ~Transformf0.sr
+      ~Transformf0.hop_length
+      ~Transformf0.offset
+      ~Transformf0.transpose
+      ~Transformf0.is_inverted
+   
+   

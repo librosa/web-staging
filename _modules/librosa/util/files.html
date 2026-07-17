@@ -1,0 +1,876 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>librosa.util.files &#8212; librosa 1.0.0dev documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ce423923" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=756f2b42"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=35a8b989"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-171031946-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/librosa/util/files';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://librosa.org/en/stable/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0dev" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-dark pst-js-only" alt="librosa"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">librosa.util.files</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+
+  <h1>Source code for librosa.util.files</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Utility functions for dealing with files&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">importlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">resources</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">msgpack</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pooch</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..version</span><span class="w"> </span><span class="kn">import</span> <span class="n">version</span> <span class="k">as</span> <span class="n">librosa_version</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterError</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;find_files&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;example&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ex&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;list_examples&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;example_info&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># Instantiate the pooch</span>
+<span class="n">__data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;LIBROSA_DATA_DIR&quot;</span><span class="p">,</span> <span class="n">pooch</span><span class="o">.</span><span class="n">os_cache</span><span class="p">(</span><span class="s2">&quot;librosa&quot;</span><span class="p">))</span>
+<span class="n">__GOODBOY</span> <span class="o">=</span> <span class="n">pooch</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">__data_path</span><span class="p">,</span> <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://librosa.org/data/audio/&quot;</span><span class="p">,</span> <span class="n">registry</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+
+
+<span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_resource_file</span><span class="p">(</span><span class="n">package</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Provide a context manager for accessing resources in a package.</span>
+
+<span class="sd">    This previously served as a shim wrapper to support Python &lt; 3.9,</span>
+<span class="sd">    but now it&#39;s a convenience function to simplify path mangling.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">resources</span><span class="o">.</span><span class="n">as_file</span><span class="p">(</span><span class="n">resources</span><span class="o">.</span><span class="n">files</span><span class="p">(</span><span class="n">package</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span> <span class="k">as</span> <span class="n">path</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">path</span>
+
+
+<span class="k">with</span> <span class="n">_resource_file</span><span class="p">(</span><span class="s2">&quot;librosa.util.example_data&quot;</span><span class="p">,</span> <span class="s2">&quot;registry.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">reg</span><span class="p">:</span>
+    <span class="n">__GOODBOY</span><span class="o">.</span><span class="n">load_registry</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">reg</span><span class="p">))</span>
+    <span class="c1"># We want to bypass version checks here to allow asynchronous updates for new releases</span>
+    <span class="n">__GOODBOY</span><span class="o">.</span><span class="n">registry</span><span class="p">[</span><span class="s2">&quot;version_index.msgpack&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">with</span> <span class="n">_resource_file</span><span class="p">(</span><span class="s2">&quot;librosa.util.example_data&quot;</span><span class="p">,</span> <span class="s2">&quot;index.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">index</span><span class="p">,</span> <span class="n">index</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">_fdesc</span><span class="p">:</span>
+    <span class="n">__TRACKMAP</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">_fdesc</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="example">
+<a class="viewcode-back" href="../../../generated/librosa.util.example.html#librosa.util.example">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">example</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">hq</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Retrieve the example recording identified by &#39;key&#39;.</span>
+
+<span class="sd">    The first time an example is requested, it will be downloaded from</span>
+<span class="sd">    the remote repository over HTTPS.</span>
+<span class="sd">    All subsequent requests will use a locally cached copy of the recording.</span>
+
+<span class="sd">    For a list of examples (and their keys), see `librosa.util.list_examples`.</span>
+
+<span class="sd">    By default, local files will be cached in the directory given by</span>
+<span class="sd">    `pooch.os_cache(&#39;librosa&#39;)`.  You can override this by setting</span>
+<span class="sd">    an environment variable ``LIBROSA_DATA_DIR`` prior to importing librosa:</span>
+
+<span class="sd">    &gt;&gt;&gt; import os</span>
+<span class="sd">    &gt;&gt;&gt; os.environ[&#39;LIBROSA_DATA_DIR&#39;] = &#39;/path/to/store/data&#39;</span>
+<span class="sd">    &gt;&gt;&gt; import librosa</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    key : str</span>
+<span class="sd">        The identifier for the track to load</span>
+<span class="sd">    hq : bool</span>
+<span class="sd">        If ``True``, return the high-quality version of the recording.</span>
+<span class="sd">        If ``False``, return the 22KHz mono version of the recording.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        The path to the requested example file</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Load &quot;Hungarian Dance #5&quot; by Johannes Brahms</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.load(librosa.example(&#39;brahms&#39;))</span>
+
+<span class="sd">    Load &quot;Vibe Ace&quot; by Kevin MacLeod (the example previously packaged with librosa)</span>
+<span class="sd">    in high-quality mode</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.load(librosa.example(&#39;vibeace&#39;, hq=True))</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    librosa.util.list_examples</span>
+<span class="sd">    pooch.os_cache</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">__TRACKMAP</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown example key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">hq</span><span class="p">:</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="s2">&quot;.hq.ogg&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="s2">&quot;.ogg&quot;</span>
+
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">__GOODBOY</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;path&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ext</span><span class="p">))</span></div>
+
+
+
+<span class="n">ex</span> <span class="o">=</span> <span class="n">example</span>
+<span class="sd">&quot;&quot;&quot;Alias for example&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="list_examples">
+<a class="viewcode-back" href="../../../generated/librosa.util.list_examples.html#librosa.util.list_examples">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_examples</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List the available audio recordings included with librosa.</span>
+
+<span class="sd">    Each recording is given a unique identifier (e.g., &quot;brahms&quot; or &quot;nutcracker&quot;),</span>
+<span class="sd">    listed in the first column of the output.</span>
+
+<span class="sd">    A brief description is provided in the second column.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    util.example</span>
+<span class="sd">    util.example_info</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;AVAILABLE EXAMPLES&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">68</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">__TRACKMAP</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;pibble&quot;</span><span class="p">:</span>
+            <span class="c1"># Shh... she&#39;s sleeping</span>
+            <span class="k">continue</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="example_info">
+<a class="viewcode-back" href="../../../generated/librosa.util.example_info.html#librosa.util.example_info">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">example_info</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Display licensing and metadata information for the given example recording.</span>
+
+<span class="sd">    The first time an example is requested, it will be downloaded from</span>
+<span class="sd">    the remote repository over HTTPS.</span>
+<span class="sd">    All subsequent requests will use a locally cached copy of the recording.</span>
+
+<span class="sd">    For a list of examples (and their keys), see `librosa.util.list_examples`.</span>
+
+<span class="sd">    By default, local files will be cached in the directory given by</span>
+<span class="sd">    `pooch.os_cache(&#39;librosa&#39;)`.  You can override this by setting</span>
+<span class="sd">    an environment variable ``LIBROSA_DATA_DIR`` prior to importing librosa.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    key : str</span>
+<span class="sd">        The identifier for the recording (see `list_examples`)</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    librosa.util.example</span>
+<span class="sd">    librosa.util.list_examples</span>
+<span class="sd">    pooch.os_cache</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">__TRACKMAP</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown example key: </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">license_file</span> <span class="o">=</span> <span class="n">__GOODBOY</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;path&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">license_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fdesc</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">10s</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">68</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fdesc</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="find_files">
+<a class="viewcode-back" href="../../../generated/librosa.util.find_files.html#librosa.util.find_files">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">find_files</span><span class="p">(</span>
+    <span class="n">directory</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">ext</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">recurse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">case_sensitive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">offset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a sorted list of (audio) files in a directory or directory sub-tree.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Get all audio files in a directory sub-tree</span>
+<span class="sd">    &gt;&gt;&gt; files = librosa.util.find_files(&#39;~/Music&#39;)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Look only within a specific directory, not the sub-tree</span>
+<span class="sd">    &gt;&gt;&gt; files = librosa.util.find_files(&#39;~/Music&#39;, recurse=False)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Only look for mp3 files</span>
+<span class="sd">    &gt;&gt;&gt; files = librosa.util.find_files(&#39;~/Music&#39;, ext=&#39;mp3&#39;)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Or just mp3 and ogg</span>
+<span class="sd">    &gt;&gt;&gt; files = librosa.util.find_files(&#39;~/Music&#39;, ext=[&#39;mp3&#39;, &#39;ogg&#39;])</span>
+
+<span class="sd">    &gt;&gt;&gt; # Only get the first 10 files</span>
+<span class="sd">    &gt;&gt;&gt; files = librosa.util.find_files(&#39;~/Music&#39;, limit=10)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Or last 10 files</span>
+<span class="sd">    &gt;&gt;&gt; files = librosa.util.find_files(&#39;~/Music&#39;, offset=-10)</span>
+
+<span class="sd">    &gt;&gt;&gt; # Avoid including search patterns in the path string</span>
+<span class="sd">    &gt;&gt;&gt; import glob</span>
+<span class="sd">    &gt;&gt;&gt; directory = &#39;~/[202206] Music&#39;</span>
+<span class="sd">    &gt;&gt;&gt; directory = glob.escape(directory)  # Escape the special characters</span>
+<span class="sd">    &gt;&gt;&gt; files = librosa.util.find_files(directory)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    directory : str</span>
+<span class="sd">        Path to look for files</span>
+
+<span class="sd">    ext : str or list of str</span>
+<span class="sd">        A file extension or list of file extensions to include in the search.</span>
+
+<span class="sd">        Default: ``[&#39;aac&#39;, &#39;au&#39;, &#39;flac&#39;, &#39;m4a&#39;, &#39;mp3&#39;, &#39;ogg&#39;, &#39;wav&#39;]``</span>
+
+<span class="sd">    recurse : bool</span>
+<span class="sd">        If ``True``, then all subfolders of ``directory`` will be searched.</span>
+
+<span class="sd">        Otherwise, only ``directory`` will be searched.</span>
+
+<span class="sd">    case_sensitive : bool</span>
+<span class="sd">        If ``False``, files matching upper-case version of</span>
+<span class="sd">        extensions will be included.</span>
+
+<span class="sd">    limit : int &gt; 0 or None</span>
+<span class="sd">        Return at most ``limit`` files. If ``None``, all files are returned.</span>
+
+<span class="sd">    offset : int</span>
+<span class="sd">        Return files starting at ``offset`` within the list.</span>
+
+<span class="sd">        Use negative values to offset from the end of the list.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    files : list of str</span>
+<span class="sd">        The list of audio files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ext</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;aac&quot;</span><span class="p">,</span> <span class="s2">&quot;au&quot;</span><span class="p">,</span> <span class="s2">&quot;flac&quot;</span><span class="p">,</span> <span class="s2">&quot;m4a&quot;</span><span class="p">,</span> <span class="s2">&quot;mp3&quot;</span><span class="p">,</span> <span class="s2">&quot;ogg&quot;</span><span class="p">,</span> <span class="s2">&quot;wav&quot;</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ext</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="p">[</span><span class="n">ext</span><span class="p">]</span>
+
+    <span class="c1"># Cast into a set</span>
+    <span class="n">ext</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span>
+
+    <span class="c1"># Generate upper-case versions</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">case_sensitive</span><span class="p">:</span>
+        <span class="c1"># Force to lower-case</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="p">{</span><span class="n">e</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ext</span><span class="p">}</span>
+        <span class="c1"># Add in upper-case versions</span>
+        <span class="n">ext</span> <span class="o">|=</span> <span class="p">{</span><span class="n">e</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">ext</span><span class="p">}</span>
+
+    <span class="n">fileset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">recurse</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">walk</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>  <span class="c1"># type: ignore</span>
+            <span class="n">fileset</span> <span class="o">|=</span> <span class="n">__get_files</span><span class="p">(</span><span class="n">walk</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ext</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fileset</span> <span class="o">=</span> <span class="n">__get_files</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">ext</span><span class="p">)</span>
+
+    <span class="n">files</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fileset</span><span class="p">)</span>
+    <span class="n">files</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="n">offset</span><span class="p">:]</span>
+    <span class="k">if</span> <span class="n">limit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="n">files</span><span class="p">[:</span><span class="n">limit</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">files</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__get_files</span><span class="p">(</span><span class="n">dir_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">extensions</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get a list of files in a single directory&quot;&quot;&quot;</span>
+    <span class="c1"># Expand out the directory</span>
+    <span class="n">dir_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">dir_name</span><span class="p">))</span>
+
+    <span class="n">myfiles</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">sub_ext</span> <span class="ow">in</span> <span class="n">extensions</span><span class="p">:</span>
+        <span class="n">globstr</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dir_name</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">extsep</span> <span class="o">+</span> <span class="n">sub_ext</span><span class="p">)</span>
+        <span class="n">myfiles</span> <span class="o">|=</span> <span class="nb">set</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">globstr</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">myfiles</span>
+
+
+<div class="viewcode-block" id="cite">
+<a class="viewcode-back" href="../../../generated/librosa.util.cite.html#librosa.util.cite">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">cite</span><span class="p">(</span><span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the citation information for librosa.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    version : str or None</span>
+<span class="sd">        The version of librosa to cite. If None, the current version is used.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    doi : str</span>
+<span class="sd">        The DOI for the given version of librosa.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ParameterError</span>
+<span class="sd">        If the requested version is not found in the citation index.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; librosa.cite(&quot;0.10.1&quot;)</span>
+<span class="sd">    &quot;https://doi.org/10.5281/zenodo.8252662&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">version</span> <span class="o">=</span> <span class="n">librosa_version</span>
+
+    <span class="n">version_data</span> <span class="o">=</span> <span class="n">__GOODBOY</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="s2">&quot;version_index.msgpack&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">version_data</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fdesc</span><span class="p">:</span>
+        <span class="n">version_index</span> <span class="o">=</span> <span class="n">msgpack</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fdesc</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">version</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">version_index</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">&quot;dev&quot;</span> <span class="ow">in</span> <span class="n">version</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Version </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> is not yet released and &quot;</span>
+                                 <span class="s2">&quot;therefore does not yet have a citable DOI.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Version </span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> not found in the citation index&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;https://doi.org/</span><span class="si">{</span><span class="n">version_index</span><span class="p">[</span><span class="n">version</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+</pre></div>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2013--2026, librosa development team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

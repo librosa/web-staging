@@ -1,0 +1,6 @@
+﻿librosa.util.is\_positive\_int
+==============================
+
+.. currentmodule:: librosa.util
+
+.. autofunction:: is_positive_int

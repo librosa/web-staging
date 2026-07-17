@@ -1,0 +1,1484 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>librosa.feature.rhythm &#8212; librosa 1.0.0dev documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ce423923" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=756f2b42"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=35a8b989"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-171031946-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/librosa/feature/rhythm';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://librosa.org/en/stable/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0dev" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-dark pst-js-only" alt="librosa"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">librosa.feature.rhythm</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+
+  <h1>Source code for librosa.feature.rhythm</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Rhythmic feature extraction&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">util</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._cache</span><span class="w"> </span><span class="kn">import</span> <span class="n">cache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.audio</span><span class="w"> </span><span class="kn">import</span> <span class="n">autocorrelate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">fourier_tempo_frequencies</span><span class="p">,</span> <span class="n">tempo_frequencies</span><span class="p">,</span> <span class="n">time_to_frames</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.harmonic</span><span class="w"> </span><span class="kn">import</span> <span class="n">f0_harmonics</span><span class="p">,</span> <span class="n">interp_harmonics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..core.spectrum</span><span class="w"> </span><span class="kn">import</span> <span class="n">stft</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..filters</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_window</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterError</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
+
+    <span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.._typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">_InterpKind</span><span class="p">,</span> <span class="n">_WindowSpec</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;tempogram&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;fourier_tempogram&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tempo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tempogram_ratio&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;metrogram&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;hybrid_tempogram&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="c1"># -- Rhythmic features -- #</span>
+<div class="viewcode-block" id="tempogram">
+<a class="viewcode-back" href="../../../generated/librosa.feature.tempogram.html#librosa.feature.tempogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">tempogram</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">win_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">384</span><span class="p">,</span>
+    <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the tempogram: local autocorrelation of the onset strength envelope. [#]_</span>
+
+<span class="sd">    .. [#] Grosche, Peter, Meinard Müller, and Frank Kurth.</span>
+<span class="sd">        &quot;Cyclic tempogram - A mid-level tempo representation for music signals.&quot;</span>
+<span class="sd">        ICASSP, 2010.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        Audio time series.  Multi-channel is supported.</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of ``y``</span>
+
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., n) or (..., m, n)] or None</span>
+<span class="sd">        Optional pre-computed onset strength envelope as provided by</span>
+<span class="sd">        `librosa.onset.onset_strength`.</span>
+
+<span class="sd">        If multi-dimensional, tempograms are computed independently for each</span>
+<span class="sd">        band (first dimension).</span>
+
+<span class="sd">    hop_length : int &gt; 0</span>
+<span class="sd">        number of audio samples between successive onset measurements</span>
+
+<span class="sd">    win_length : int &gt; 0</span>
+<span class="sd">        length of the onset autocorrelation window (in frames/onset measurements)</span>
+<span class="sd">        The default settings (384) corresponds to ``384 * hop_length / sr ~= 8.9s``.</span>
+
+<span class="sd">    center : bool</span>
+<span class="sd">        If `True`, onset autocorrelation windows are centered.</span>
+<span class="sd">        If `False`, windows are left-aligned.</span>
+
+<span class="sd">    window : str, function, number, tuple, or np.ndarray [shape=(win_length,)]</span>
+<span class="sd">        A window specification as in `stft`.</span>
+
+<span class="sd">    norm : {np.inf, -np.inf, 0, float &gt; 0, None}</span>
+<span class="sd">        Normalization mode.  Set to `None` to disable normalization.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tempogram : np.ndarray [shape=(..., win_length, n)]</span>
+<span class="sd">        Localized autocorrelation of the onset strength envelope.</span>
+
+<span class="sd">        If given multi-band input (``onset_envelope.shape==(m,n)``) then</span>
+<span class="sd">        ``tempogram[i]`` is the tempogram of ``onset_envelope[i]``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ParameterError</span>
+<span class="sd">        if neither ``y`` nor ``onset_envelope`` are provided</span>
+
+<span class="sd">        if ``win_length &lt; 1``</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    fourier_tempogram</span>
+<span class="sd">    librosa.onset.onset_strength</span>
+<span class="sd">    librosa.util.normalize</span>
+<span class="sd">    librosa.stft</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Compute local onset autocorrelation</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;nutcracker&#39;, duration=30)</span>
+<span class="sd">    &gt;&gt;&gt; hop_length = 512</span>
+<span class="sd">    &gt;&gt;&gt; oenv = librosa.onset.onset_strength(y=y, sr=sr, hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; tempogram = librosa.feature.tempogram(onset_envelope=oenv, sr=sr,</span>
+<span class="sd">    ...                                       hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; # Compute global onset autocorrelation</span>
+<span class="sd">    &gt;&gt;&gt; ac_global = librosa.autocorrelate(oenv, max_size=tempogram.shape[0])</span>
+<span class="sd">    &gt;&gt;&gt; ac_global = librosa.util.normalize(ac_global)</span>
+<span class="sd">    &gt;&gt;&gt; # Estimate the global tempo for display purposes</span>
+<span class="sd">    &gt;&gt;&gt; tempo = librosa.feature.tempo(onset_envelope=oenv, sr=sr,</span>
+<span class="sd">    ...                               hop_length=hop_length)[0]</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=4, figsize=(10, 10))</span>
+<span class="sd">    &gt;&gt;&gt; times = librosa.times_like(oenv, sr=sr, hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].plot(times, oenv, label=&#39;Onset strength&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].legend(frameon=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(tempogram, sr=sr, hop_length=hop_length,</span>
+<span class="sd">    ...                          x_axis=&#39;time&#39;, y_axis=&#39;tempo&#39;, cmap=&#39;magma&#39;,</span>
+<span class="sd">    ...                          ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; hl = librosa.display.highlight(ax=ax[1], linewidth=4, color=&#39;w&#39;, alpha=.75)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].axhline(tempo, path_effects=hl, linewidth=2, color=&#39;k&#39;, linestyle=&#39;--&#39;,</span>
+<span class="sd">    ...               label=&#39;Estimated tempo={:g}&#39;.format(tempo))</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].legend(loc=&#39;upper right&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&#39;Tempogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; x = np.linspace(0, tempogram.shape[0] * float(hop_length) / sr,</span>
+<span class="sd">    ...                 num=tempogram.shape[0])</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].plot(x, np.mean(tempogram, axis=1), label=&#39;Mean local autocorrelation&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].plot(x, ac_global, &#39;--&#39;, alpha=0.75, label=&#39;Global autocorrelation&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].set(xlabel=&#39;Lag (seconds)&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].legend(frameon=True)</span>
+<span class="sd">    &gt;&gt;&gt; freqs = librosa.tempo_frequencies(tempogram.shape[0], hop_length=hop_length, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; ax[3].semilogx(freqs[1:], np.mean(tempogram[1:], axis=1),</span>
+<span class="sd">    ...               label=&#39;Mean local autocorrelation&#39;, base=2)</span>
+<span class="sd">    &gt;&gt;&gt; ax[3].semilogx(freqs[1:], ac_global[1:], &#39;--&#39;, alpha=0.75,</span>
+<span class="sd">    ...               label=&#39;Global autocorrelation&#39;, base=2)</span>
+<span class="sd">    &gt;&gt;&gt; ax[3].axvline(tempo, color=&#39;black&#39;, linestyle=&#39;--&#39;, alpha=.8,</span>
+<span class="sd">    ...               label=&#39;Estimated tempo={:g}&#39;.format(tempo))</span>
+<span class="sd">    &gt;&gt;&gt; ax[3].legend(frameon=True)</span>
+<span class="sd">    &gt;&gt;&gt; ax[3].set(xlabel=&#39;BPM&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[3].grid(True)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..onset</span><span class="w"> </span><span class="kn">import</span> <span class="n">onset_strength</span>
+
+    <span class="k">if</span> <span class="n">win_length</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;win_length must be a positive integer&quot;</span><span class="p">)</span>
+
+    <span class="n">ac_window</span> <span class="o">=</span> <span class="n">get_window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">win_length</span><span class="p">,</span> <span class="n">fftbins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">onset_envelope</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;Either y or onset_envelope must be provided&quot;</span><span class="p">)</span>
+
+        <span class="n">onset_envelope</span> <span class="o">=</span> <span class="n">onset_strength</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)</span>
+
+    <span class="c1"># Center the autocorrelation windows</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">onset_envelope</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">center</span><span class="p">:</span>
+        <span class="n">padding</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">onset_envelope</span><span class="o">.</span><span class="n">shape</span><span class="p">]</span>
+        <span class="n">padding</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">win_length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">),)</span> <span class="o">*</span> <span class="mi">2</span>
+        <span class="n">onset_envelope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span>
+            <span class="n">onset_envelope</span><span class="p">,</span> <span class="n">padding</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;linear_ramp&quot;</span><span class="p">,</span> <span class="n">end_values</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Carve onset envelope into frames</span>
+    <span class="n">odf_frame</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">onset_envelope</span><span class="p">,</span> <span class="n">frame_length</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Truncate to the length of the original signal</span>
+    <span class="k">if</span> <span class="n">center</span><span class="p">:</span>
+        <span class="n">odf_frame</span> <span class="o">=</span> <span class="n">odf_frame</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">n</span><span class="p">]</span>
+
+    <span class="c1"># explicit broadcast of ac_window</span>
+    <span class="n">ac_window</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">expand_to</span><span class="p">(</span><span class="n">ac_window</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">odf_frame</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">axes</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Window, autocorrelate, and normalize</span>
+    <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span>
+        <span class="n">autocorrelate</span><span class="p">(</span><span class="n">odf_frame</span> <span class="o">*</span> <span class="n">ac_window</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="fourier_tempogram">
+<a class="viewcode-back" href="../../../generated/librosa.feature.fourier_tempogram.html#librosa.feature.fourier_tempogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fourier_tempogram</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">win_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">384</span><span class="p">,</span>
+    <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the Fourier tempogram: the short-time Fourier transform of the onset strength envelope. [#]_</span>
+
+<span class="sd">    .. [#] Grosche, Peter, Meinard Müller, and Frank Kurth.</span>
+<span class="sd">        &quot;Cyclic tempogram - A mid-level tempo representation for music signals.&quot;</span>
+<span class="sd">        ICASSP, 2010.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        Audio time series.  Multi-channel is supported.</span>
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of ``y``</span>
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        Optional pre-computed onset strength envelope as provided by</span>
+<span class="sd">        ``librosa.onset.onset_strength``.</span>
+<span class="sd">        Multi-channel is supported.</span>
+<span class="sd">    hop_length : int &gt; 0</span>
+<span class="sd">        number of audio samples between successive onset measurements</span>
+<span class="sd">    win_length : int &gt; 0</span>
+<span class="sd">        length of the onset window (in frames/onset measurements)</span>
+<span class="sd">        The default settings (384) corresponds to ``384 * hop_length / sr ~= 8.9s``.</span>
+<span class="sd">    center : bool</span>
+<span class="sd">        If `True`, onset windows are centered.</span>
+<span class="sd">        If `False`, windows are left-aligned.</span>
+<span class="sd">    window : str, function, number, tuple, or np.ndarray [shape=(win_length,)]</span>
+<span class="sd">        A window specification as in `stft`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tempogram : np.ndarray [shape=(..., win_length // 2 + 1, n)]</span>
+<span class="sd">        Complex short-time Fourier transform of the onset envelope.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ParameterError</span>
+<span class="sd">        if neither ``y`` nor ``onset_envelope`` are provided</span>
+
+<span class="sd">        if ``win_length &lt; 1``</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    tempogram</span>
+<span class="sd">    librosa.onset.onset_strength</span>
+<span class="sd">    librosa.util.normalize</span>
+<span class="sd">    librosa.stft</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Compute local onset autocorrelation</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;nutcracker&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; hop_length = 512</span>
+<span class="sd">    &gt;&gt;&gt; oenv = librosa.onset.onset_strength(y=y, sr=sr, hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; tempogram = librosa.feature.fourier_tempogram(onset_envelope=oenv, sr=sr,</span>
+<span class="sd">    ...                                               hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; # Compute the auto-correlation tempogram, unnormalized to make comparison easier</span>
+<span class="sd">    &gt;&gt;&gt; ac_tempogram = librosa.feature.tempogram(onset_envelope=oenv, sr=sr,</span>
+<span class="sd">    ...                                          hop_length=hop_length, norm=None)</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=3, sharex=True)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].plot(librosa.times_like(oenv), oenv, label=&#39;Onset strength&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].legend(frameon=True)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(np.abs(tempogram), sr=sr, hop_length=hop_length,</span>
+<span class="sd">    &gt;&gt;&gt;                          x_axis=&#39;time&#39;, y_axis=&#39;fourier_tempo&#39;, cmap=&#39;magma&#39;,</span>
+<span class="sd">    ...                          ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&#39;Fourier tempogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(ac_tempogram, sr=sr, hop_length=hop_length,</span>
+<span class="sd">    &gt;&gt;&gt;                          x_axis=&#39;time&#39;, y_axis=&#39;tempo&#39;, cmap=&#39;magma&#39;,</span>
+<span class="sd">    ...                          ax=ax[2])</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].set(title=&#39;Autocorrelation tempogram&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..onset</span><span class="w"> </span><span class="kn">import</span> <span class="n">onset_strength</span>
+
+    <span class="k">if</span> <span class="n">win_length</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;win_length must be a positive integer&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">onset_envelope</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;Either y or onset_envelope must be provided&quot;</span><span class="p">)</span>
+
+        <span class="n">onset_envelope</span> <span class="o">=</span> <span class="n">onset_strength</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)</span>
+
+    <span class="c1"># Generate the short-time Fourier transform</span>
+    <span class="k">return</span> <span class="n">stft</span><span class="p">(</span>
+        <span class="n">onset_envelope</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="tempo">
+<a class="viewcode-back" href="../../../generated/librosa.feature.tempo.html#librosa.feature.tempo">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tempo</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">tg</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">start_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="n">std_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">ac_size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">,</span>
+    <span class="n">max_tempo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">320.0</span><span class="p">,</span>
+    <span class="n">aggregate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span>
+    <span class="n">prior</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Estimate the tempo (beats per minute)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        audio time series. Multi-channel is supported.</span>
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of the time series</span>
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        pre-computed onset strength envelope</span>
+<span class="sd">    tg : np.ndarray</span>
+<span class="sd">        pre-computed tempogram.  If provided, then `y` and</span>
+<span class="sd">        `onset_envelope` are ignored, and `win_length` is</span>
+<span class="sd">        inferred from the shape of the tempogram.</span>
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        hop length of the time series</span>
+<span class="sd">    start_bpm : float [scalar]</span>
+<span class="sd">        initial guess of the BPM</span>
+<span class="sd">    std_bpm : float &gt; 0 [scalar]</span>
+<span class="sd">        standard deviation of tempo distribution</span>
+<span class="sd">    ac_size : float &gt; 0 [scalar]</span>
+<span class="sd">        length (in seconds) of the auto-correlation window</span>
+<span class="sd">    max_tempo : float &gt; 0 [scalar, optional]</span>
+<span class="sd">        If provided, only estimate tempo below this threshold</span>
+<span class="sd">    aggregate : callable [optional]</span>
+<span class="sd">        Aggregation function for estimating global tempo.</span>
+<span class="sd">        If `None`, then tempo is estimated independently for each frame.</span>
+<span class="sd">    prior : scipy.stats.rv_continuous [optional]</span>
+<span class="sd">        A prior distribution over tempo (in beats per minute).</span>
+<span class="sd">        By default, a pseudo-log-normal prior is used.</span>
+<span class="sd">        If given, ``start_bpm`` and ``std_bpm`` will be ignored.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tempo : np.ndarray</span>
+<span class="sd">        estimated tempo (beats per minute).</span>
+<span class="sd">        If input is multi-channel, one tempo estimate per channel is provided.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    librosa.onset.onset_strength</span>
+<span class="sd">    librosa.feature.tempogram</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function caches at level 30.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; # Estimate a static tempo</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;nutcracker&#39;, duration=30)</span>
+<span class="sd">    &gt;&gt;&gt; onset_env = librosa.onset.onset_strength(y=y, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; tempo = librosa.feature.tempo(onset_envelope=onset_env, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; tempo</span>
+<span class="sd">    array([143.555])</span>
+
+<span class="sd">    &gt;&gt;&gt; # Or a static tempo with a uniform prior instead</span>
+<span class="sd">    &gt;&gt;&gt; import scipy.stats</span>
+<span class="sd">    &gt;&gt;&gt; prior = scipy.stats.uniform(30, 300)  # uniform over 30-300 BPM</span>
+<span class="sd">    &gt;&gt;&gt; utempo = librosa.feature.tempo(onset_envelope=onset_env, sr=sr, prior=prior)</span>
+<span class="sd">    &gt;&gt;&gt; utempo</span>
+<span class="sd">    array([161.499])</span>
+
+<span class="sd">    &gt;&gt;&gt; # Or a dynamic tempo</span>
+<span class="sd">    &gt;&gt;&gt; dtempo = librosa.feature.tempo(onset_envelope=onset_env, sr=sr,</span>
+<span class="sd">    ...                                aggregate=None)</span>
+<span class="sd">    &gt;&gt;&gt; dtempo</span>
+<span class="sd">    array([ 89.103,  89.103,  89.103, ..., 123.047, 123.047, 123.047])</span>
+
+<span class="sd">    &gt;&gt;&gt; # Dynamic tempo with a proper log-normal prior</span>
+<span class="sd">    &gt;&gt;&gt; prior_lognorm = scipy.stats.lognorm(loc=np.log(120), scale=120, s=1)</span>
+<span class="sd">    &gt;&gt;&gt; dtempo_lognorm = librosa.feature.tempo(onset_envelope=onset_env, sr=sr,</span>
+<span class="sd">    ...                                        aggregate=None,</span>
+<span class="sd">    ...                                        prior=prior_lognorm)</span>
+<span class="sd">    &gt;&gt;&gt; dtempo_lognorm</span>
+<span class="sd">    array([ 89.103,  89.103,  89.103, ..., 123.047, 123.047, 123.047])</span>
+
+<span class="sd">    Plot the estimated tempo against the onset autocorrelation</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; # Convert to scalar</span>
+<span class="sd">    &gt;&gt;&gt; tempo = tempo.item()</span>
+<span class="sd">    &gt;&gt;&gt; utempo = utempo.item()</span>
+<span class="sd">    &gt;&gt;&gt; # Compute 2-second windowed autocorrelation</span>
+<span class="sd">    &gt;&gt;&gt; hop_length = 512</span>
+<span class="sd">    &gt;&gt;&gt; ac = librosa.autocorrelate(onset_env, max_size=2 * sr // hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; freqs = librosa.tempo_frequencies(len(ac), sr=sr,</span>
+<span class="sd">    ...                                   hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; # Plot on a BPM axis.  We skip the first (0-lag) bin.</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots()</span>
+<span class="sd">    &gt;&gt;&gt; ax.semilogx(freqs[1:], librosa.util.normalize(ac)[1:],</span>
+<span class="sd">    ...              label=&#39;Onset autocorrelation&#39;, base=2)</span>
+<span class="sd">    &gt;&gt;&gt; ax.axvline(tempo, 0, 1, alpha=0.75, linestyle=&#39;--&#39;, color=&#39;r&#39;,</span>
+<span class="sd">    ...             label=&#39;Tempo (default prior): {:.2f} BPM&#39;.format(tempo))</span>
+<span class="sd">    &gt;&gt;&gt; ax.axvline(utempo, 0, 1, alpha=0.75, linestyle=&#39;:&#39;, color=&#39;g&#39;,</span>
+<span class="sd">    ...             label=&#39;Tempo (uniform prior): {:.2f} BPM&#39;.format(utempo))</span>
+<span class="sd">    &gt;&gt;&gt; ax.set(xlabel=&#39;Tempo (BPM)&#39;, title=&#39;Static tempo estimation&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax.grid(True)</span>
+<span class="sd">    &gt;&gt;&gt; ax.legend()</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+
+<span class="sd">    Plot dynamic tempo estimates over a tempogram</span>
+
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots()</span>
+<span class="sd">    &gt;&gt;&gt; tg = librosa.feature.tempogram(onset_envelope=onset_env, sr=sr,</span>
+<span class="sd">    ...                                hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(tg, x_axis=&#39;time&#39;, y_axis=&#39;tempo&#39;, cmap=&#39;magma&#39;, ax=ax)</span>
+<span class="sd">    &gt;&gt;&gt; hl = librosa.display.highlight(ax=ax, alpha=.85, linewidth=3, color=&#39;k&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax.plot(librosa.times_like(dtempo), dtempo, linewidth=2,</span>
+<span class="sd">    ...         path_effects=hl, label=&#39;Tempo estimate (default prior)&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax.plot(librosa.times_like(dtempo_lognorm), dtempo_lognorm, color=&#39;C0&#39;,</span>
+<span class="sd">    ...         linestyle=&#39;--&#39;, linewidth=2,</span>
+<span class="sd">    ...         path_effects=hl, label=&#39;Tempo estimate (lognorm prior)&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax.set(title=&#39;Dynamic tempo estimation&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax.legend()</span>
+<span class="sd">    &gt;&gt;&gt; plt.show()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">start_bpm</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;start_bpm must be strictly positive&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">win_length</span> <span class="o">=</span> <span class="n">time_to_frames</span><span class="p">(</span><span class="n">ac_size</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+        <span class="n">tg</span> <span class="o">=</span> <span class="n">tempogram</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+            <span class="n">onset_envelope</span><span class="o">=</span><span class="n">onset_envelope</span><span class="p">,</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+            <span class="n">win_length</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Override window length by what&#39;s actually given</span>
+        <span class="n">win_length</span> <span class="o">=</span> <span class="n">tg</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="c1"># Eventually, we want this to work for time-varying tempo</span>
+    <span class="k">if</span> <span class="n">aggregate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tg</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">tg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">assert</span> <span class="n">tg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="c1"># Get the BPM values for each bin, skipping the 0-lag bin</span>
+    <span class="n">bpms</span> <span class="o">=</span> <span class="n">tempo_frequencies</span><span class="p">(</span><span class="n">win_length</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+
+    <span class="c1"># Weight the autocorrelation by a log-normal distribution</span>
+    <span class="k">if</span> <span class="n">prior</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">logprior</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">bpms</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">start_bpm</span><span class="p">))</span> <span class="o">/</span> <span class="n">std_bpm</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logprior</span> <span class="o">=</span> <span class="n">prior</span><span class="o">.</span><span class="n">logpdf</span><span class="p">(</span><span class="n">bpms</span><span class="p">)</span>
+
+    <span class="c1"># Kill everything above the max tempo</span>
+    <span class="k">if</span> <span class="n">max_tempo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">max_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">bpms</span> <span class="o">&lt;</span> <span class="n">max_tempo</span><span class="p">))</span>
+        <span class="n">logprior</span><span class="p">[:</span><span class="n">max_idx</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+    <span class="c1"># explicit axis expansion</span>
+    <span class="n">logprior</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">expand_to</span><span class="p">(</span><span class="n">logprior</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">tg</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">axes</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Get the maximum, weighted by the prior</span>
+    <span class="c1"># Using log1p here for numerical stability</span>
+    <span class="n">best_period</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="mf">1e6</span> <span class="o">*</span> <span class="n">tg</span><span class="p">)</span> <span class="o">+</span> <span class="n">logprior</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">tempo_est</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">bpms</span><span class="p">,</span> <span class="n">best_period</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tempo_est</span></div>
+
+
+
+<div class="viewcode-block" id="tempogram_ratio">
+<a class="viewcode-back" href="../../../generated/librosa.feature.tempogram_ratio.html#librosa.feature.tempogram_ratio">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tempogram_ratio</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">tg</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bpm</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">win_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">384</span><span class="p">,</span>
+    <span class="n">start_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="n">std_bpm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">max_tempo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">320.0</span><span class="p">,</span>
+    <span class="n">freqs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">factors</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">aggregate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">prior</span><span class="p">:</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">rv_continuous</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="n">_InterpKind</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tempogram ratio features, also known as spectral rhythm patterns. [1]_</span>
+
+<span class="sd">    This function summarizes the energy at metrically important multiples</span>
+<span class="sd">    of the tempo.  For example, if the tempo corresponds to the quarter-note</span>
+<span class="sd">    period, the tempogram ratio will measure the energy at the eighth note,</span>
+<span class="sd">    sixteenth note, half note, whole note, etc. periods, as well as dotted</span>
+<span class="sd">    and triplet ratios.</span>
+
+<span class="sd">    By default, the multiplicative factors used here are as specified by</span>
+<span class="sd">    [2]_.  If the estimated tempo corresponds to a quarter note, these factors</span>
+<span class="sd">    will measure relative energy at the following metrical subdivisions:</span>
+
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    | Index | Factor | Description      |</span>
+<span class="sd">    +=======+========+==================+</span>
+<span class="sd">    |     0 |    4   | Sixteenth note   |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     1 |    8/3 | Dotted sixteenth |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     2 |    3   | Eighth triplet   |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     3 |    2   | Eighth note      |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     4 |    4/3 | Dotted eighth    |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     5 |    3/2 | Quarter triplet  |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     6 |    1   | Quarter note     |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     7 |    2/3 | Dotted quarter   |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     8 |    3/4 | Half triplet     |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |     9 |    1/2 | Half note        |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |    10 |    1/3 | Dotted half note |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |    11 |    3/8 | Whole triplet    |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+<span class="sd">    |    12 |    1/4 | Whole note       |</span>
+<span class="sd">    +-------+--------+------------------+</span>
+
+<span class="sd">    .. [1] Peeters, Geoffroy.</span>
+<span class="sd">        &quot;Rhythm Classification Using Spectral Rhythm Patterns.&quot;</span>
+<span class="sd">        In ISMIR, pp. 644-647. 2005.</span>
+
+<span class="sd">    .. [2] Prockup, Matthew, Andreas F. Ehmann, Fabien Gouyon, Erik M. Schmidt, and Youngmoo E. Kim.</span>
+<span class="sd">        &quot;Modeling musical rhythm at scale with the music genome project.&quot;</span>
+<span class="sd">        In 2015 IEEE workshop on applications of signal processing to audio</span>
+<span class="sd">        and acoustics (WASPAA), pp. 1-5. IEEE, 2015.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        audio time series</span>
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of the time series</span>
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        pre-computed onset strength envelope</span>
+<span class="sd">    tg : np.ndarray</span>
+<span class="sd">        pre-computed tempogram.  If provided, then `y` and</span>
+<span class="sd">        `onset_envelope` are ignored, and `win_length` is</span>
+<span class="sd">        inferred from the shape of the tempogram.</span>
+<span class="sd">    bpm : np.ndarray</span>
+<span class="sd">        pre-computed tempo estimate.  This must be a per-frame</span>
+<span class="sd">        estimate, and have dimension compatible with `tg`.</span>
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        hop length of the time series</span>
+<span class="sd">    win_length : int &gt; 0 [scalar]</span>
+<span class="sd">        window length of the autocorrelation window for tempogram</span>
+<span class="sd">        calculation</span>
+<span class="sd">    start_bpm : float [scalar]</span>
+<span class="sd">        initial guess of the BPM if `bpm` is not provided</span>
+<span class="sd">    std_bpm : float &gt; 0 [scalar]</span>
+<span class="sd">        standard deviation of tempo distribution</span>
+<span class="sd">    max_tempo : float &gt; 0 [scalar, optional]</span>
+<span class="sd">        If provided, only estimate tempo below this threshold</span>
+<span class="sd">    freqs : np.ndarray</span>
+<span class="sd">        Frequencies (in BPM) of the tempogram axis.</span>
+<span class="sd">    factors : np.ndarray</span>
+<span class="sd">        Multiples of the fundamental tempo (bpm) to estimate.</span>
+<span class="sd">        If not provided, the factors are as specified above.</span>
+<span class="sd">    aggregate : callable [optional]</span>
+<span class="sd">        Aggregation function for estimating global tempogram ratio.</span>
+<span class="sd">        If `None`, then ratios are estimated independently for each frame.</span>
+<span class="sd">    prior : scipy.stats.rv_continuous [optional]</span>
+<span class="sd">        A prior distribution over tempo (in beats per minute).</span>
+<span class="sd">        By default, a pseudo-log-normal prior is used.</span>
+<span class="sd">        If given, ``start_bpm`` and ``std_bpm`` will be ignored.</span>
+<span class="sd">    center : bool</span>
+<span class="sd">        If `True`, onset windows are centered.</span>
+<span class="sd">        If `False`, windows are left-aligned.</span>
+<span class="sd">    window : str, function, number, tuple, or np.ndarray [shape=(win_length,)]</span>
+<span class="sd">        A window specification as in `stft`.</span>
+<span class="sd">    kind : str</span>
+<span class="sd">        Interpolation mode for measuring tempogram ratios</span>
+<span class="sd">    fill_value : float</span>
+<span class="sd">        The value to fill when extrapolating beyond the observed</span>
+<span class="sd">        frequency range.</span>
+<span class="sd">    norm : {np.inf, -np.inf, 0, float &gt; 0, None}</span>
+<span class="sd">        Normalization mode.  Set to `None` to disable normalization.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tgr : np.ndarray</span>
+<span class="sd">        The tempogram ratio for the specified factors.</span>
+<span class="sd">        If `aggregate` is provided, the trailing time axis</span>
+<span class="sd">        will be removed.</span>
+<span class="sd">        If `aggregate` is not provided (default), ratios</span>
+<span class="sd">        will be estimated for each frame.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    tempogram</span>
+<span class="sd">    tempo</span>
+<span class="sd">    librosa.f0_harmonics</span>
+<span class="sd">    librosa.tempo_frequencies</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Compute tempogram ratio features using the default factors</span>
+<span class="sd">    for a waltz (3/4 time)</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;sweetwaltz&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; tempogram = librosa.feature.tempogram(y=y, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; tgr = librosa.feature.tempogram_ratio(tg=tempogram, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=2, sharex=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(tempogram, x_axis=&#39;time&#39;, y_axis=&#39;tempo&#39;,</span>
+<span class="sd">    ...                          ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(tgr, x_axis=&#39;time&#39;, ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&quot;Tempogram&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&quot;Tempogram ratio&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Get a tempogram and time-varying tempo estimate</span>
+    <span class="k">if</span> <span class="n">tg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tg</span> <span class="o">=</span> <span class="n">tempogram</span><span class="p">(</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+            <span class="n">onset_envelope</span><span class="o">=</span><span class="n">onset_envelope</span><span class="p">,</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+            <span class="n">win_length</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span>
+            <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
+            <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+            <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">freqs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">freqs</span> <span class="o">=</span> <span class="n">tempo_frequencies</span><span class="p">(</span><span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">tg</span><span class="p">),</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)</span>
+
+    <span class="c1"># Estimate tempo per-frame, no aggregation yet</span>
+    <span class="k">if</span> <span class="n">bpm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">bpm</span> <span class="o">=</span> <span class="n">tempo</span><span class="p">(</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+            <span class="n">tg</span><span class="o">=</span><span class="n">tg</span><span class="p">,</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+            <span class="n">start_bpm</span><span class="o">=</span><span class="n">start_bpm</span><span class="p">,</span>
+            <span class="n">std_bpm</span><span class="o">=</span><span class="n">std_bpm</span><span class="p">,</span>
+            <span class="n">max_tempo</span><span class="o">=</span><span class="n">max_tempo</span><span class="p">,</span>
+            <span class="n">aggregate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">prior</span><span class="o">=</span><span class="n">prior</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">factors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># metric multiples from Prockup&#39;15</span>
+        <span class="n">factors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="n">tgr</span> <span class="o">=</span> <span class="n">f0_harmonics</span><span class="p">(</span>
+        <span class="n">tg</span><span class="p">,</span> <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="n">bpm</span><span class="p">,</span> <span class="n">harmonics</span><span class="o">=</span><span class="n">factors</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">aggregate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">tgr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">return</span> <span class="n">tgr</span></div>
+
+
+<div class="viewcode-block" id="hybrid_tempogram">
+<a class="viewcode-back" href="../../../generated/librosa.feature.hybrid_tempogram.html#librosa.feature.hybrid_tempogram">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">hybrid_tempogram</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">onset_envelope</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">win_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">384</span><span class="p">,</span>
+    <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute a hybrid tempogram.</span>
+
+<span class="sd">    This function computes a hybrid representation by combining the</span>
+<span class="sd">    Fourier tempogram and autocorrelation tempogram. The tempograms are</span>
+<span class="sd">    aligned onto a common frequency grid and merged using the geometric mean [1]_.</span>
+
+<span class="sd">    .. [1] Peeters, Geoffroy. &quot;Rhythm Classification Using Periodicities and the</span>
+<span class="sd">           Beat-Histogram.&quot; Proceedings of the 6th International Conference on Music</span>
+<span class="sd">           Information Retrieval (ISMIR). 2005.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        Audio time series. Multi-channel is supported.</span>
+<span class="sd">    sr : float &gt; 0</span>
+<span class="sd">        Sampling rate</span>
+<span class="sd">    onset_envelope : np.ndarray [shape=(..., n)] or None</span>
+<span class="sd">        Optional pre-computed onset strength envelope</span>
+<span class="sd">    hop_length : int &gt; 0</span>
+<span class="sd">        Number of samples between frames</span>
+<span class="sd">    win_length : int &gt; 0</span>
+<span class="sd">        Window length for analysis</span>
+<span class="sd">    center : bool</span>
+<span class="sd">        Whether to center the frames</span>
+<span class="sd">    window : str, tuple, number, function, or np.ndarray [shape=(win_length,)]</span>
+<span class="sd">        A window specification as supported by `scipy.signal.get_window`</span>
+<span class="sd">        and `librosa.filters.get_window`.</span>
+<span class="sd">    **kwargs : additional keyword arguments</span>
+<span class="sd">        Additional keyword arguments passed to `scipy.interpolate.interp1d`</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    hybrid : np.ndarray</span>
+<span class="sd">        The hybrid tempogram combining both representations</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    tempogram</span>
+<span class="sd">    fourier_tempogram</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Compute local onset autocorrelation</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;nutcracker&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; hop_length = 512</span>
+<span class="sd">    &gt;&gt;&gt; oenv = librosa.onset.onset_strength(y=y, sr=sr, hop_length=hop_length)</span>
+
+<span class="sd">    Compute the autocorrelation, Fourier, and hybrid tempograms</span>
+
+<span class="sd">    &gt;&gt;&gt; tempogram = librosa.feature.tempogram(onset_envelope=oenv, sr=sr,</span>
+<span class="sd">    ...                                       hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; fourier_tempogram = librosa.feature.fourier_tempogram(onset_envelope=oenv, sr=sr,</span>
+<span class="sd">    ...                                                       hop_length=hop_length)</span>
+<span class="sd">    &gt;&gt;&gt; hybrid_tempogram = librosa.feature.hybrid_tempogram(onset_envelope=oenv, sr=sr,</span>
+<span class="sd">    ...                                                     hop_length=hop_length)</span>
+
+<span class="sd">    Plot the results</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=3, sharex=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(tempogram, x_axis=&#39;time&#39;, y_axis=&#39;tempo&#39;,</span>
+<span class="sd">    ...                          hop_length=hop_length, ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&#39;Autocorrelation Tempogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(np.abs(fourier_tempogram), x_axis=&#39;time&#39;,</span>
+<span class="sd">    ...                          y_axis=&#39;fourier_tempo&#39;, hop_length=hop_length, ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&#39;Fourier Tempogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; img = librosa.display.specshow(hybrid_tempogram, x_axis=&#39;time&#39;,</span>
+<span class="sd">    ...                                y_axis=&#39;fourier_tempo&#39;, hop_length=hop_length,</span>
+<span class="sd">    ...                                ax=ax[2])</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].set(title=&#39;Hybrid Tempogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; fig.colorbar(img, ax=ax)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">interp_kwargs_dict</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span> <span class="k">if</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="p">{}</span>
+    <span class="n">interp_kwargs_dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;bounds_error&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">interp_kwargs_dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;fill_value&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">interp_kwargs_dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;copy&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">interp_kwargs_dict</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;axis&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Calculate onset envelope once to avoid redundant STFT computations</span>
+    <span class="k">if</span> <span class="n">onset_envelope</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="s2">&quot;Either y or onset_envelope must be provided&quot;</span><span class="p">)</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..onset</span><span class="w"> </span><span class="kn">import</span> <span class="n">onset_strength</span>
+        <span class="n">onset_envelope</span> <span class="o">=</span> <span class="n">onset_strength</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)</span>
+
+    <span class="c1"># 1. Compute Fourier tempogram</span>
+    <span class="n">tg_f</span> <span class="o">=</span> <span class="n">fourier_tempogram</span><span class="p">(</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">onset_envelope</span><span class="o">=</span><span class="n">onset_envelope</span><span class="p">,</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+        <span class="n">win_length</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span>
+        <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Get Fourier tempogram frequencies</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">fourier_tempo_frequencies</span><span class="p">(</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span> <span class="n">win_length</span><span class="o">=</span><span class="n">win_length</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 2. Compute Autocorrelation tempogram</span>
+    <span class="n">tg_a</span> <span class="o">=</span> <span class="n">tempogram</span><span class="p">(</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">onset_envelope</span><span class="o">=</span><span class="n">onset_envelope</span><span class="p">,</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+        <span class="n">win_length</span><span class="o">=</span><span class="n">win_length</span><span class="p">,</span>
+        <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Get autocorrelation tempogram frequencies (lags)</span>
+    <span class="n">lags</span> <span class="o">=</span> <span class="n">tempo_frequencies</span><span class="p">(</span><span class="n">tg_a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)</span>
+
+    <span class="c1"># 3. Restrict to finite frequencies (drop 0-lag / infinite BPM)</span>
+    <span class="n">tg_a_finite</span> <span class="o">=</span> <span class="n">tg_a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">lags_finite</span> <span class="o">=</span> <span class="n">lags</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="c1"># 4. Hybrid Interpolation</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">scipy.interpolate</span>
+
+    <span class="n">f_interp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+        <span class="n">lags_finite</span><span class="p">,</span> <span class="n">tg_a_finite</span><span class="p">,</span> <span class="o">**</span><span class="n">interp_kwargs_dict</span>
+    <span class="p">)</span>
+    <span class="n">tg_a_resampled</span> <span class="o">=</span> <span class="n">f_interp</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="c1"># 5. Shape Matching - align time frames</span>
+    <span class="n">n_frames_min</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">tg_f</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">tg_a_resampled</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># 6. Merging (Geometric Mean)</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tg_f</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">n_frames_min</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tg_a_resampled</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">n_frames_min</span><span class="p">])</span>
+    <span class="n">hybrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">product</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">hybrid</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="metrogram">
+<a class="viewcode-back" href="../../../generated/librosa.feature.metrogram.html#librosa.feature.metrogram">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">metrogram</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">tg</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">freqs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">factors</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">aggregate</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="n">_InterpKind</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Metrogram Transform. [1]_</span>
+
+<span class="sd">    This function summarizes the presence of rhythmic ratios in a tempogram. For example, a tempogram with two</span>
+<span class="sd">    simultaneous energy peaks at 90BPM and 30BPM would have a strong presence of the 1/3 ratio. This makes it possible</span>
+<span class="sd">    to perform meter estimation by finding the ratio between the beat&#39;s and downbeat&#39;s frequency.</span>
+
+<span class="sd">    By default, the factors used here are as specified by [2]_.</span>
+
+<span class="sd">    +-------+--------+----------------+</span>
+<span class="sd">    | Index | Factor | Time Signature |</span>
+<span class="sd">    +=======+========+================+</span>
+<span class="sd">    |     0 |   1/3  | 3/4            |</span>
+<span class="sd">    +-------+--------+----------------+</span>
+<span class="sd">    |     1 |   1/4  | 4/4            |</span>
+<span class="sd">    +-------+--------+----------------+</span>
+<span class="sd">    |     2 |   1/5  | 5/4            |</span>
+<span class="sd">    +-------+--------+----------------+</span>
+<span class="sd">    |     3 |   1/7  | 7/4            |</span>
+<span class="sd">    +-------+--------+----------------+</span>
+
+<span class="sd">    .. [1] Cozens, James, and Simon Godsill.</span>
+<span class="sd">       &quot;Dynamic Time Signature Recognition, Tempo Inference, and Beat Tracking Through the Metrogram Transform.&quot;</span>
+<span class="sd">       In IEEE Open Journal of Signal Processing, pp. 1--9, 2023.</span>
+
+<span class="sd">    .. [2] Abimbola, Jeremiah, Daniel Kostrzewa, and Paweł Kasprowski.</span>
+<span class="sd">       &quot;METER2800: A novel dataset for music time signature detection.&quot;</span>
+<span class="sd">       In Data in Brief, vol. 51, 109736, 2023.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    tempogram</span>
+<span class="sd">    tempogram_ratio</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tg : np.ndarray</span>
+<span class="sd">        Pre-computed tempogram.</span>
+<span class="sd">    freqs : np.ndarray</span>
+<span class="sd">        Frequencies (in BPM) of the tempogram axis.</span>
+<span class="sd">    factors : np.ndarray</span>
+<span class="sd">        Metric ratios to estimate.</span>
+<span class="sd">        If not provided, the default factors are 1/3, 1/4, 1/5, and 1/7.</span>
+<span class="sd">    aggregate : callable [optional]</span>
+<span class="sd">        Aggregation function to collapse the tempo axis for each ratio</span>
+<span class="sd">        at each point in time. Defaults to ``np.sum``.</span>
+<span class="sd">    kind : str</span>
+<span class="sd">        Interpolation method used on the tempo axis.</span>
+<span class="sd">    fill_value : float</span>
+<span class="sd">        The value to fill when extrapolating beyond the observed</span>
+<span class="sd">        tempo range.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    metrogram : np.ndarray</span>
+<span class="sd">        The metrogram transform for the specified factors.</span>
+<span class="sd">        If ``aggregate`` is set to ``None``, the ratios for all individual tempo bins are returned.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; import librosa</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&quot;sweetwaltz&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; # extend the window, to capture the slower downbeat pulses</span>
+<span class="sd">    &gt;&gt;&gt; win_length = 384 * 4</span>
+<span class="sd">    &gt;&gt;&gt; fourier_tempogram = librosa.feature.fourier_tempogram(y=y, win_length=win_length)</span>
+<span class="sd">    &gt;&gt;&gt; fourier_freqs = librosa.fourier_tempo_frequencies(win_length=win_length)</span>
+<span class="sd">    &gt;&gt;&gt; ac_tempogram = librosa.feature.tempogram(y=y, win_length=win_length)</span>
+<span class="sd">    &gt;&gt;&gt; ac_freqs = librosa.tempo_frequencies(ac_tempogram.shape[-2])</span>
+<span class="sd">    &gt;&gt;&gt; # combine Fourier and AC tempo grid (alternatively, you may use either one)</span>
+<span class="sd">    &gt;&gt;&gt; # we remove np.inf from ac_freqs to avoid nan results</span>
+<span class="sd">    &gt;&gt;&gt; funt_freqs = np.union1d(fourier_freqs, ac_freqs[1:])</span>
+<span class="sd">    &gt;&gt;&gt; fundamental_tempogram = librosa.util.interp_broadcast(</span>
+<span class="sd">    ...     x1=ac_tempogram,</span>
+<span class="sd">    ...     x1_pos=ac_freqs,</span>
+<span class="sd">    ...     x2=fourier_tempogram[..., :-1],  # both tempograms must be of equal length along time</span>
+<span class="sd">    ...     x2_pos=fourier_freqs,</span>
+<span class="sd">    ...     interp_pos=funt_freqs,</span>
+<span class="sd">    ... )</span>
+<span class="sd">    &gt;&gt;&gt; metrogram = librosa.feature.metrogram(tg=fundamental_tempogram, freqs=funt_freqs)</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(np.abs(metrogram), x_axis=&quot;time&quot;, ax=ax)</span>
+<span class="sd">    &gt;&gt;&gt; ax.set(title=&quot;Metrogram&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">factors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">factors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">7</span><span class="p">])</span>
+
+    <span class="n">tg_interp</span> <span class="o">=</span> <span class="n">interp_harmonics</span><span class="p">(</span>
+        <span class="n">tg</span><span class="p">,</span> <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span> <span class="n">harmonics</span><span class="o">=</span><span class="n">factors</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span>
+    <span class="p">)</span>
+
+    <span class="n">product</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">tg_interp</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">tg</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">aggregate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">product_agg</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">product_agg</span>
+
+    <span class="k">return</span> <span class="n">product</span></div>
+
+</pre></div>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2013--2026, librosa development team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

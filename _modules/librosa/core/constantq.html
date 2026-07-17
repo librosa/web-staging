@@ -1,0 +1,2211 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>librosa.core.constantq &#8212; librosa 1.0.0dev documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ce423923" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../../_static/documentation_options.js?v=756f2b42"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=35a8b989"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-171031946-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/librosa/core/constantq';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://librosa.org/en/stable/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0dev" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
+    <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-dark pst-js-only" alt="librosa"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">librosa.core.constantq</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+
+  <h1>Source code for librosa.core.constantq</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Constant-Q transforms&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">jit</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">filters</span><span class="p">,</span> <span class="n">util</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.._cache</span><span class="w"> </span><span class="kn">import</span> <span class="n">cache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.deprecation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Deprecated</span><span class="p">,</span> <span class="n">rename_kw</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">audio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.convert</span><span class="w"> </span><span class="kn">import</span> <span class="n">cqt_frequencies</span><span class="p">,</span> <span class="n">note_to_hz</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.intervals</span><span class="w"> </span><span class="kn">import</span> <span class="n">interval_frequencies</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.pitch</span><span class="w"> </span><span class="kn">import</span> <span class="n">estimate_tuning</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.spectrum</span><span class="w"> </span><span class="kn">import</span> <span class="n">istft</span><span class="p">,</span> <span class="n">stft</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Collection</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">DTypeLike</span><span class="p">,</span> <span class="n">NDArray</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.._typing</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+        <span class="n">RNGLike</span><span class="p">,</span>
+        <span class="n">SeedLike</span><span class="p">,</span>
+        <span class="n">_FloatLike_co</span><span class="p">,</span>
+        <span class="n">_PadMode</span><span class="p">,</span>
+        <span class="n">_WindowSpec</span><span class="p">,</span>
+    <span class="p">)</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cqt&quot;</span><span class="p">,</span> <span class="s2">&quot;hybrid_cqt&quot;</span><span class="p">,</span> <span class="s2">&quot;pseudo_cqt&quot;</span><span class="p">,</span> <span class="s2">&quot;icqt&quot;</span><span class="p">,</span> <span class="s2">&quot;griffinlim_cqt&quot;</span><span class="p">,</span> <span class="s2">&quot;vqt&quot;</span><span class="p">]</span>
+
+<span class="c1"># TODO: ivqt, griffinlim_vqt</span>
+
+
+<div class="viewcode-block" id="cqt">
+<a class="viewcode-back" href="../../../generated/librosa.cqt.html#librosa.cqt">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">cqt</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">fmin</span><span class="p">:</span> <span class="n">_FloatLike_co</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">84</span><span class="p">,</span>
+    <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="n">tuning</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">sparsity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">pad_mode</span><span class="p">:</span> <span class="n">_PadMode</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="n">res_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;soxr_hq&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the constant-Q transform of an audio signal.</span>
+
+<span class="sd">    This implementation is based on the recursive sub-sampling method</span>
+<span class="sd">    described by [#]_.</span>
+
+<span class="sd">    .. [#] Schoerkhuber, Christian, and Anssi Klapuri.</span>
+<span class="sd">        &quot;Constant-Q transform toolbox for music processing.&quot;</span>
+<span class="sd">        7th Sound and Music Computing Conference, Barcelona, Spain. 2010.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        audio time series. Multi-channel is supported.</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of ``y``</span>
+
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        number of samples between successive CQT columns.</span>
+
+<span class="sd">    fmin : float &gt; 0 [scalar]</span>
+<span class="sd">        Minimum frequency. Defaults to `C1 ~= 32.70 Hz`</span>
+
+<span class="sd">    n_bins : int &gt; 0 or None [scalar]</span>
+<span class="sd">        Number of frequency bins, starting at ``fmin``.</span>
+<span class="sd">        If `None`, the number of bins will be inferred as the maximum that will</span>
+<span class="sd">        fit below `sr/2`.</span>
+
+<span class="sd">    bins_per_octave : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of bins per octave</span>
+
+<span class="sd">    tuning : None or float</span>
+<span class="sd">        Tuning offset in fractions of a bin.</span>
+
+<span class="sd">        If ``None``, tuning will be automatically estimated from the signal.</span>
+
+<span class="sd">        The minimum frequency of the resulting CQT will be modified to</span>
+<span class="sd">        ``fmin * 2**(tuning / bins_per_octave)``.</span>
+
+<span class="sd">    filter_scale : float &gt; 0</span>
+<span class="sd">        Filter scale factor. Small values (&lt;1) use shorter windows</span>
+<span class="sd">        for improved time resolution.</span>
+
+<span class="sd">    norm : {inf, -inf, 0, float &gt; 0}</span>
+<span class="sd">        Type of norm to use for basis function normalization.</span>
+<span class="sd">        See `librosa.util.normalize`.</span>
+
+<span class="sd">    sparsity : float in [0, 1)</span>
+<span class="sd">        Sparsify the CQT basis by discarding up to ``sparsity``</span>
+<span class="sd">        fraction of the energy in each basis.</span>
+
+<span class="sd">        Set ``sparsity=0`` to disable sparsification.</span>
+
+<span class="sd">    window : str, tuple, number, or function</span>
+<span class="sd">        Window specification for the basis filters.</span>
+<span class="sd">        See `filters.get_window` for details.</span>
+
+<span class="sd">    scale : bool</span>
+<span class="sd">        If ``True``, scale the CQT response by square-root the length of</span>
+<span class="sd">        each channel&#39;s filter.  This is analogous to ``norm=&#39;ortho&#39;`` in FFT.</span>
+
+<span class="sd">        If ``False``, do not scale the CQT. This is analogous to</span>
+<span class="sd">        ``norm=None`` in FFT.</span>
+
+<span class="sd">    pad_mode : str</span>
+<span class="sd">        Padding mode for centered frame analysis.</span>
+
+<span class="sd">        See also: `librosa.stft` and `numpy.pad`.</span>
+
+<span class="sd">    res_type : str</span>
+<span class="sd">        The resampling mode for recursive downsampling.</span>
+
+<span class="sd">    dtype : np.dtype</span>
+<span class="sd">        The (complex) data type of the output array.  By default, this is inferred to match</span>
+<span class="sd">        the numerical precision of the input signal.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CQT : np.ndarray [shape=(..., n_bins, t)]</span>
+<span class="sd">        Constant-Q value each frequency at each time.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    vqt</span>
+<span class="sd">    librosa.resample</span>
+<span class="sd">    librosa.util.normalize</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function caches at level 20.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Generate and plot a constant-Q power spectrum</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;trumpet&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; C = np.abs(librosa.cqt(y, sr=sr))</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots()</span>
+<span class="sd">    &gt;&gt;&gt; img = librosa.display.specshow(C, vscale=&#39;dBFS&#39;,</span>
+<span class="sd">    ...                                sr=sr, x_axis=&#39;time&#39;, y_axis=&#39;cqt_note&#39;, ax=ax)</span>
+<span class="sd">    &gt;&gt;&gt; ax.set_title(&#39;Constant-Q power spectrum&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.colorbar_db(img)</span>
+
+<span class="sd">    Limit the frequency range</span>
+
+<span class="sd">    &gt;&gt;&gt; C = np.abs(librosa.cqt(y, sr=sr, fmin=librosa.note_to_hz(&#39;C2&#39;),</span>
+<span class="sd">    ...                 n_bins=60))</span>
+<span class="sd">    &gt;&gt;&gt; C</span>
+<span class="sd">    array([[6.830e-04, 6.361e-04, ..., 7.362e-09, 9.102e-09],</span>
+<span class="sd">           [5.366e-04, 4.818e-04, ..., 8.953e-09, 1.067e-08],</span>
+<span class="sd">           ...,</span>
+<span class="sd">           [4.288e-02, 4.580e-01, ..., 1.529e-05, 5.572e-06],</span>
+<span class="sd">           [2.965e-03, 1.508e-01, ..., 8.965e-06, 1.455e-05]])</span>
+
+<span class="sd">    Using a higher frequency resolution</span>
+
+<span class="sd">    &gt;&gt;&gt; C = np.abs(librosa.cqt(y, sr=sr, fmin=librosa.note_to_hz(&#39;C2&#39;),</span>
+<span class="sd">    ...                 n_bins=60 * 2, bins_per_octave=12 * 2))</span>
+<span class="sd">    &gt;&gt;&gt; C</span>
+<span class="sd">    array([[5.468e-04, 5.382e-04, ..., 5.911e-09, 6.105e-09],</span>
+<span class="sd">           [4.118e-04, 4.014e-04, ..., 7.788e-09, 8.160e-09],</span>
+<span class="sd">           ...,</span>
+<span class="sd">           [2.780e-03, 1.424e-01, ..., 4.225e-06, 2.388e-05],</span>
+<span class="sd">           [5.147e-02, 6.959e-02, ..., 1.694e-05, 5.811e-06]])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># CQT is the special case of VQT with gamma=0</span>
+    <span class="k">return</span> <span class="n">vqt</span><span class="p">(</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+        <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span>
+        <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span>
+        <span class="n">intervals</span><span class="o">=</span><span class="s2">&quot;equal&quot;</span><span class="p">,</span>
+        <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">,</span>
+        <span class="n">tuning</span><span class="o">=</span><span class="n">tuning</span><span class="p">,</span>
+        <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">sparsity</span><span class="o">=</span><span class="n">sparsity</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
+        <span class="n">pad_mode</span><span class="o">=</span><span class="n">pad_mode</span><span class="p">,</span>
+        <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="hybrid_cqt">
+<a class="viewcode-back" href="../../../generated/librosa.hybrid_cqt.html#librosa.hybrid_cqt">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">hybrid_cqt</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">fmin</span><span class="p">:</span> <span class="n">_FloatLike_co</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">84</span><span class="p">,</span>
+    <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="n">tuning</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">sparsity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">pad_mode</span><span class="p">:</span> <span class="n">_PadMode</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="n">res_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;soxr_hq&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the hybrid constant-Q transform of an audio signal.</span>
+
+<span class="sd">    Here, the hybrid CQT uses the pseudo CQT for higher frequencies where</span>
+<span class="sd">    the hop_length is longer than half the filter length and the full CQT</span>
+<span class="sd">    for lower frequencies.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        audio time series. Multi-channel is supported.</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of ``y``</span>
+
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        number of samples between successive CQT columns.</span>
+
+<span class="sd">    fmin : float &gt; 0 [scalar]</span>
+<span class="sd">        Minimum frequency. Defaults to `C1 ~= 32.70 Hz`</span>
+
+<span class="sd">    n_bins : int &gt; 0 or None [scalar]</span>
+<span class="sd">        Number of frequency bins, starting at ``fmin``</span>
+<span class="sd">        If `None` the number of bins will be inferred as the maximum that will</span>
+<span class="sd">        fit below `sr/2`.</span>
+
+<span class="sd">    bins_per_octave : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of bins per octave</span>
+
+<span class="sd">    tuning : None or float</span>
+<span class="sd">        Tuning offset in fractions of a bin.</span>
+
+<span class="sd">        If ``None``, tuning will be automatically estimated from the signal.</span>
+
+<span class="sd">        The minimum frequency of the resulting CQT will be modified to</span>
+<span class="sd">        ``fmin * 2**(tuning / bins_per_octave)``.</span>
+
+<span class="sd">    filter_scale : float &gt; 0</span>
+<span class="sd">        Filter filter_scale factor. Larger values use longer windows.</span>
+
+<span class="sd">    norm : {inf, -inf, 0, float &gt; 0}</span>
+<span class="sd">        Type of norm to use for basis function normalization.</span>
+<span class="sd">        See `librosa.util.normalize`.</span>
+
+<span class="sd">    sparsity : float in [0, 1)</span>
+<span class="sd">        Sparsify the CQT basis by discarding up to ``sparsity``</span>
+<span class="sd">        fraction of the energy in each basis.</span>
+
+<span class="sd">        Set ``sparsity=0`` to disable sparsification.</span>
+
+<span class="sd">    window : str, tuple, number, or function</span>
+<span class="sd">        Window specification for the basis filters.</span>
+<span class="sd">        See `filters.get_window` for details.</span>
+
+<span class="sd">    scale : bool</span>
+<span class="sd">        If ``True``, scale the CQT response by square-root the length of</span>
+<span class="sd">        each channel&#39;s filter.  This is analogous to ``norm=&#39;ortho&#39;`` in FFT.</span>
+
+<span class="sd">        If ``False``, do not scale the CQT. This is analogous to</span>
+<span class="sd">        ``norm=None`` in FFT.</span>
+
+<span class="sd">    pad_mode : str</span>
+<span class="sd">        Padding mode for centered frame analysis.</span>
+
+<span class="sd">        See also: `librosa.stft` and `numpy.pad`.</span>
+
+<span class="sd">    res_type : str</span>
+<span class="sd">        Resampling mode.  See `librosa.cqt` for details.</span>
+
+<span class="sd">    dtype : np.dtype, optional</span>
+<span class="sd">        The complex dtype to use for computing the CQT.</span>
+<span class="sd">        By default, this is inferred to match the precision of</span>
+<span class="sd">        the input signal.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CQT : np.ndarray [shape=(..., n_bins, t), dtype=np.float]</span>
+<span class="sd">        Constant-Q energy for each frequency at each time.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    cqt</span>
+<span class="sd">    pseudo_cqt</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function caches at level 20.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># C1 by default</span>
+        <span class="n">fmin</span> <span class="o">=</span> <span class="n">note_to_hz</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tuning</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tuning</span> <span class="o">=</span> <span class="n">estimate_tuning</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="c1"># Apply tuning correction</span>
+    <span class="n">fmin</span> <span class="o">=</span> <span class="n">fmin</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="n">tuning</span> <span class="o">/</span> <span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fmin</span> <span class="o">&gt;=</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fmin=</span><span class="si">{</span><span class="n">fmin</span><span class="si">}</span><span class="s2"> must be less than sr/2=</span><span class="si">{</span><span class="n">sr</span><span class="o">/</span><span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n_bins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">bins_per_octave</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">fmin</span><span class="p">))))</span>
+        <span class="n">auto_n_bins</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">auto_n_bins</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="c1"># Get all CQT frequencies</span>
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">cqt_frequencies</span><span class="p">(</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">auto_n_bins</span><span class="p">:</span>
+        <span class="c1"># Calling with gamma=0 here since this is CQT</span>
+        <span class="n">freqs</span> <span class="o">=</span> <span class="n">__clip_freqs</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">filter_scale</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
+        <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="c1"># Pre-compute alpha</span>
+    <span class="k">if</span> <span class="n">n_bins</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">__et_relative_bw</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">_relative_bandwidth</span><span class="p">(</span><span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="c1"># Compute the length of each constant-Q basis function</span>
+    <span class="n">lengths</span><span class="p">,</span> <span class="n">filter_cutoff</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">wavelet_lengths</span><span class="p">(</span>
+        <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">filter_cutoff</span> <span class="o">&gt;</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Filter cutoff frequency </span><span class="si">{</span><span class="n">filter_cutoff</span><span class="si">}</span><span class="s2"> exceeds Nyquist frequency </span><span class="si">{</span><span class="n">sr</span><span class="o">/</span><span class="mi">2</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="s2">&quot;Try reducing the number of frequency bins.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Determine which filters to use with Pseudo CQT</span>
+    <span class="c1"># These are the ones that fit within 2 hop lengths after padding</span>
+    <span class="n">pseudo_filters</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">**</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">lengths</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">hop_length</span>
+
+    <span class="n">n_bins_pseudo</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pseudo_filters</span><span class="p">))</span>
+
+    <span class="n">n_bins_full</span> <span class="o">=</span> <span class="n">n_bins</span> <span class="o">-</span> <span class="n">n_bins_pseudo</span>
+    <span class="n">cqt_resp</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">if</span> <span class="n">n_bins_pseudo</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">fmin_pseudo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">freqs</span><span class="p">[</span><span class="n">pseudo_filters</span><span class="p">])</span>
+
+        <span class="n">cqt_resp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">pseudo_cqt</span><span class="p">(</span>
+                <span class="n">y</span><span class="p">,</span>
+                <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+                <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+                <span class="n">fmin</span><span class="o">=</span><span class="n">fmin_pseudo</span><span class="p">,</span>
+                <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins_pseudo</span><span class="p">,</span>
+                <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">,</span>
+                <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+                <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+                <span class="n">sparsity</span><span class="o">=</span><span class="n">sparsity</span><span class="p">,</span>
+                <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+                <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
+                <span class="n">pad_mode</span><span class="o">=</span><span class="n">pad_mode</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n_bins_full</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">cqt_resp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span>
+                <span class="n">cqt</span><span class="p">(</span>
+                    <span class="n">y</span><span class="p">,</span>
+                    <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+                    <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+                    <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span>
+                    <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins_full</span><span class="p">,</span>
+                    <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">,</span>
+                    <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+                    <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+                    <span class="n">sparsity</span><span class="o">=</span><span class="n">sparsity</span><span class="p">,</span>
+                    <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+                    <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
+                    <span class="n">pad_mode</span><span class="o">=</span><span class="n">pad_mode</span><span class="p">,</span>
+                    <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Propagate dtype from the last component</span>
+    <span class="k">return</span> <span class="n">__trim_stack</span><span class="p">(</span><span class="n">cqt_resp</span><span class="p">,</span> <span class="n">n_bins</span><span class="p">,</span> <span class="n">cqt_resp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="pseudo_cqt">
+<a class="viewcode-back" href="../../../generated/librosa.pseudo_cqt.html#librosa.pseudo_cqt">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pseudo_cqt</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">fmin</span><span class="p">:</span> <span class="n">_FloatLike_co</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">84</span><span class="p">,</span>
+    <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="n">tuning</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">sparsity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">pad_mode</span><span class="p">:</span> <span class="n">_PadMode</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the pseudo constant-Q transform of an audio signal.</span>
+
+<span class="sd">    This uses a single fft size that is the smallest power of 2 that is greater</span>
+<span class="sd">    than or equal to the max of:</span>
+
+<span class="sd">        1. The longest CQT filter</span>
+<span class="sd">        2. 2x the hop_length</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        audio time series. Multi-channel is supported.</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of ``y``</span>
+
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        number of samples between successive CQT columns.</span>
+
+<span class="sd">    fmin : float &gt; 0 [scalar]</span>
+<span class="sd">        Minimum frequency. Defaults to `C1 ~= 32.70 Hz`</span>
+
+<span class="sd">    n_bins : int &gt; 0 or None [scalar]</span>
+<span class="sd">        Number of frequency bins, starting at ``fmin``</span>
+<span class="sd">        If `None` the number of bins will be inferred as the maximum that will</span>
+<span class="sd">        fit below `sr/2`.</span>
+
+<span class="sd">    bins_per_octave : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of bins per octave</span>
+
+<span class="sd">    tuning : None or float</span>
+<span class="sd">        Tuning offset in fractions of a bin.</span>
+
+<span class="sd">        If ``None``, tuning will be automatically estimated from the signal.</span>
+
+<span class="sd">        The minimum frequency of the resulting CQT will be modified to</span>
+<span class="sd">        ``fmin * 2**(tuning / bins_per_octave)``.</span>
+
+<span class="sd">    filter_scale : float &gt; 0</span>
+<span class="sd">        Filter filter_scale factor. Larger values use longer windows.</span>
+
+<span class="sd">    norm : {inf, -inf, 0, float &gt; 0}</span>
+<span class="sd">        Type of norm to use for basis function normalization.</span>
+<span class="sd">        See `librosa.util.normalize`.</span>
+
+<span class="sd">    sparsity : float in [0, 1)</span>
+<span class="sd">        Sparsify the CQT basis by discarding up to ``sparsity``</span>
+<span class="sd">        fraction of the energy in each basis.</span>
+
+<span class="sd">        Set ``sparsity=0`` to disable sparsification.</span>
+
+<span class="sd">    window : str, tuple, number, or function</span>
+<span class="sd">        Window specification for the basis filters.</span>
+<span class="sd">        See `filters.get_window` for details.</span>
+
+<span class="sd">    scale : bool</span>
+<span class="sd">        If ``True``, scale the CQT response by square-root the length of</span>
+<span class="sd">        each channel&#39;s filter.  This is analogous to ``norm=&#39;ortho&#39;`` in FFT.</span>
+
+<span class="sd">        If ``False``, do not scale the CQT. This is analogous to</span>
+<span class="sd">        ``norm=None`` in FFT.</span>
+
+<span class="sd">    pad_mode : str</span>
+<span class="sd">        Padding mode for centered frame analysis.</span>
+
+<span class="sd">        See also: `librosa.stft` and `numpy.pad`.</span>
+
+<span class="sd">    dtype : np.dtype, optional</span>
+<span class="sd">        The complex data type for CQT calculations.</span>
+<span class="sd">        By default, this is inferred to match the precision of the input signal.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    CQT : np.ndarray [shape=(..., n_bins, t), dtype=np.float]</span>
+<span class="sd">        Pseudo Constant-Q energy for each frequency at each time.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function caches at level 20.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># C1 by default</span>
+        <span class="n">fmin</span> <span class="o">=</span> <span class="n">note_to_hz</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tuning</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tuning</span> <span class="o">=</span> <span class="n">estimate_tuning</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">dtype_r2c</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="c1"># Apply tuning correction</span>
+    <span class="n">fmin</span> <span class="o">=</span> <span class="n">fmin</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="n">tuning</span> <span class="o">/</span> <span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fmin</span> <span class="o">&gt;=</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fmin=</span><span class="si">{</span><span class="n">fmin</span><span class="si">}</span><span class="s2"> must be less than sr/2=</span><span class="si">{</span><span class="n">sr</span><span class="o">/</span><span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n_bins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">bins_per_octave</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">fmin</span><span class="p">))))</span>
+        <span class="n">auto_n_bins</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">auto_n_bins</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">cqt_frequencies</span><span class="p">(</span><span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">auto_n_bins</span><span class="p">:</span>
+        <span class="c1"># Calling with gamma=0 here since this is CQT</span>
+        <span class="n">freqs</span> <span class="o">=</span> <span class="n">__clip_freqs</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">filter_scale</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
+        <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n_bins</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">__et_relative_bw</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">_relative_bandwidth</span><span class="p">(</span><span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="n">lengths</span><span class="p">,</span> <span class="n">filter_cutoff</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">wavelet_lengths</span><span class="p">(</span>
+        <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">filter_cutoff</span> <span class="o">&gt;</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Filter cutoff frequency </span><span class="si">{</span><span class="n">filter_cutoff</span><span class="si">}</span><span class="s2"> exceeds Nyquist frequency </span><span class="si">{</span><span class="n">sr</span><span class="o">/</span><span class="mi">2</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="s2">&quot;Try reducing the number of frequency bins.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">fft_basis</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">__vqt_filter_fft</span><span class="p">(</span>
+        <span class="n">sr</span><span class="p">,</span>
+        <span class="n">freqs</span><span class="p">,</span>
+        <span class="n">filter_scale</span><span class="p">,</span>
+        <span class="n">norm</span><span class="p">,</span>
+        <span class="n">sparsity</span><span class="p">,</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">fft_basis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_basis</span><span class="p">)</span>
+
+    <span class="c1"># Compute the magnitude-only CQT response</span>
+    <span class="n">C</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">__cqt_response</span><span class="p">(</span>
+        <span class="n">y</span><span class="p">,</span>
+        <span class="n">n_fft</span><span class="p">,</span>
+        <span class="n">hop_length</span><span class="p">,</span>
+        <span class="n">fft_basis</span><span class="p">,</span>
+        <span class="n">pad_mode</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+        <span class="n">phase</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">scale</span><span class="p">:</span>
+        <span class="n">C</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_fft</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># reshape lengths to match dimension properly</span>
+        <span class="n">lengths</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">expand_to</span><span class="p">(</span><span class="n">lengths</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">C</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">axes</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">C</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lengths</span> <span class="o">/</span> <span class="n">n_fft</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">C</span></div>
+
+
+
+<div class="viewcode-block" id="icqt">
+<a class="viewcode-back" href="../../../generated/librosa.icqt.html#librosa.icqt">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">icqt</span><span class="p">(</span>
+    <span class="n">C</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">fmin</span><span class="p">:</span> <span class="n">_FloatLike_co</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="n">tuning</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">sparsity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">res_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;soxr_hq&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the inverse constant-Q transform.</span>
+
+<span class="sd">    Given a constant-Q transform representation ``C`` of an audio signal ``y``,</span>
+<span class="sd">    this function produces an approximation ``y_hat``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : np.ndarray, [shape=(..., n_bins, n_frames)]</span>
+<span class="sd">        Constant-Q representation as produced by `cqt`</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of the signal</span>
+
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        number of samples between successive frames</span>
+
+<span class="sd">    fmin : float &gt; 0 [scalar]</span>
+<span class="sd">        Minimum frequency. Defaults to `C1 ~= 32.70 Hz`</span>
+
+<span class="sd">    bins_per_octave : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of bins per octave</span>
+
+<span class="sd">    tuning : float [scalar]</span>
+<span class="sd">        Tuning offset in fractions of a bin.</span>
+
+<span class="sd">        The minimum frequency of the CQT will be modified to</span>
+<span class="sd">        ``fmin * 2**(tuning / bins_per_octave)``.</span>
+
+<span class="sd">    filter_scale : float &gt; 0 [scalar]</span>
+<span class="sd">        Filter scale factor. Small values (&lt;1) use shorter windows</span>
+<span class="sd">        for improved time resolution.</span>
+
+<span class="sd">    norm : {inf, -inf, 0, float &gt; 0}</span>
+<span class="sd">        Type of norm to use for basis function normalization.</span>
+<span class="sd">        See `librosa.util.normalize`.</span>
+
+<span class="sd">    sparsity : float in [0, 1)</span>
+<span class="sd">        Sparsify the CQT basis by discarding up to ``sparsity``</span>
+<span class="sd">        fraction of the energy in each basis.</span>
+
+<span class="sd">        Set ``sparsity=0`` to disable sparsification.</span>
+
+<span class="sd">    window : str, tuple, number, or function</span>
+<span class="sd">        Window specification for the basis filters.</span>
+<span class="sd">        See `filters.get_window` for details.</span>
+
+<span class="sd">    scale : bool</span>
+<span class="sd">        If ``True``, scale the CQT response by square-root the length</span>
+<span class="sd">        of each channel&#39;s filter. This is analogous to ``norm=&#39;ortho&#39;`` in FFT.</span>
+
+<span class="sd">        If ``False``, do not scale the CQT. This is analogous to ``norm=None``</span>
+<span class="sd">        in FFT.</span>
+
+<span class="sd">    length : int &gt; 0, optional</span>
+<span class="sd">        If provided, the output ``y`` is zero-padded or clipped to exactly</span>
+<span class="sd">        ``length`` samples.</span>
+
+<span class="sd">    res_type : str</span>
+<span class="sd">        Resampling mode.</span>
+<span class="sd">        See `librosa.resample` for supported modes.</span>
+
+<span class="sd">    dtype : numeric type</span>
+<span class="sd">        Real numeric type for ``y``.  Default is inferred to match the numerical</span>
+<span class="sd">        precision of the input CQT.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : np.ndarray, [shape=(..., n_samples), dtype=np.float]</span>
+<span class="sd">        Audio time-series reconstructed from the CQT representation.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    cqt</span>
+<span class="sd">    librosa.resample</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function caches at level 40.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Using default parameters</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;trumpet&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; C = librosa.cqt(y=y, sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; y_hat = librosa.icqt(C=C, sr=sr)</span>
+
+<span class="sd">    Or with a different hop length and frequency resolution:</span>
+
+<span class="sd">    &gt;&gt;&gt; hop_length = 256</span>
+<span class="sd">    &gt;&gt;&gt; bins_per_octave = 12 * 3</span>
+<span class="sd">    &gt;&gt;&gt; C = librosa.cqt(y=y, sr=sr, hop_length=256, n_bins=7*bins_per_octave,</span>
+<span class="sd">    ...                 bins_per_octave=bins_per_octave)</span>
+<span class="sd">    &gt;&gt;&gt; y_hat = librosa.icqt(C=C, sr=sr, hop_length=hop_length,</span>
+<span class="sd">    ...                 bins_per_octave=bins_per_octave)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fmin</span> <span class="o">=</span> <span class="n">note_to_hz</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Apply tuning correction</span>
+    <span class="n">fmin</span> <span class="o">=</span> <span class="n">fmin</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="n">tuning</span> <span class="o">/</span> <span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="c1"># Get the top octave of frequencies</span>
+    <span class="n">n_bins</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">n_octaves</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n_bins</span><span class="p">)</span> <span class="o">/</span> <span class="n">bins_per_octave</span><span class="p">))</span>
+
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">cqt_frequencies</span><span class="p">(</span><span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_bins</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">__et_relative_bw</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">_relative_bandwidth</span><span class="p">(</span><span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="n">lengths</span><span class="p">,</span> <span class="n">_f_cutoff</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">wavelet_lengths</span><span class="p">(</span>
+        <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Trim the CQT to only what&#39;s necessary for reconstruction</span>
+    <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">n_frames</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">length</span> <span class="o">+</span> <span class="nb">max</span><span class="p">(</span><span class="n">lengths</span><span class="p">))</span> <span class="o">/</span> <span class="n">hop_length</span><span class="p">))</span>
+        <span class="n">C</span> <span class="o">=</span> <span class="n">C</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">n_frames</span><span class="p">]</span>
+
+    <span class="n">C_scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+
+    <span class="c1"># This shape array will be used for broadcasting the basis scale</span>
+    <span class="c1"># we&#39;ll have to adapt this per octave within the loop</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Assume the top octave is at the full rate</span>
+    <span class="n">srs</span> <span class="o">=</span> <span class="p">[</span><span class="n">sr</span><span class="p">]</span>
+    <span class="n">hops</span> <span class="o">=</span> <span class="p">[</span><span class="n">hop_length</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">_i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_octaves</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">hops</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># We can downsample:</span>
+            <span class="n">srs</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">srs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
+            <span class="n">hops</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">hops</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># We&#39;re out of downsamplings, carry forward</span>
+            <span class="n">srs</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">srs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">hops</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">hops</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">my_sr</span><span class="p">,</span> <span class="n">my_hop</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">srs</span><span class="p">,</span> <span class="n">hops</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">)):</span>
+        <span class="c1"># How many filters are in this octave?</span>
+        <span class="n">n_filters</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="p">,</span> <span class="n">n_bins</span> <span class="o">-</span> <span class="n">bins_per_octave</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># Slice out the current octave</span>
+        <span class="n">sl</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">bins_per_octave</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">bins_per_octave</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="n">n_filters</span><span class="p">)</span>
+
+        <span class="n">fft_basis</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">__vqt_filter_fft</span><span class="p">(</span>
+            <span class="n">my_sr</span><span class="p">,</span>
+            <span class="n">freqs</span><span class="p">[</span><span class="n">sl</span><span class="p">],</span>
+            <span class="n">filter_scale</span><span class="p">,</span>
+            <span class="n">norm</span><span class="p">,</span>
+            <span class="n">sparsity</span><span class="p">,</span>
+            <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">[</span><span class="n">sl</span><span class="p">],</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Transpose the basis</span>
+        <span class="n">inv_basis</span> <span class="o">=</span> <span class="n">fft_basis</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+        <span class="c1"># Compute each filter&#39;s frequency-domain power</span>
+        <span class="n">freq_power</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">util</span><span class="o">.</span><span class="n">abs2</span><span class="p">(</span><span class="n">inv_basis</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Compensate for length normalization in the forward transform</span>
+        <span class="n">freq_power</span> <span class="o">*=</span> <span class="n">n_fft</span> <span class="o">/</span> <span class="n">lengths</span><span class="p">[</span><span class="n">sl</span><span class="p">]</span>
+
+        <span class="c1"># Inverse-project the basis for each octave</span>
+        <span class="k">if</span> <span class="n">scale</span><span class="p">:</span>
+            <span class="c1"># scale=True ==&gt; re-scale by sqrt(lengths)</span>
+            <span class="n">D_oct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span>
+                <span class="s2">&quot;fc,c,c,...ct-&gt;...ft&quot;</span><span class="p">,</span>
+                <span class="n">inv_basis</span><span class="p">,</span>
+                <span class="n">C_scale</span><span class="p">[</span><span class="n">sl</span><span class="p">],</span>
+                <span class="n">freq_power</span><span class="p">,</span>
+                <span class="n">C</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="p">:],</span>
+                <span class="n">optimize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">D_oct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span>
+                <span class="s2">&quot;fc,c,...ct-&gt;...ft&quot;</span><span class="p">,</span> <span class="n">inv_basis</span><span class="p">,</span> <span class="n">freq_power</span><span class="p">,</span> <span class="n">C</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">sl</span><span class="p">,</span> <span class="p">:],</span> <span class="n">optimize</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+        <span class="n">y_oct</span> <span class="o">=</span> <span class="n">istft</span><span class="p">(</span><span class="n">D_oct</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">my_hop</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="n">y_oct</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
+            <span class="n">y_oct</span><span class="p">,</span>
+            <span class="n">orig_sr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">target_sr</span><span class="o">=</span><span class="n">sr</span> <span class="o">//</span> <span class="n">my_sr</span><span class="p">,</span>
+            <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span>
+            <span class="n">scale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">fix</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y_oct</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="n">y_oct</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">y_oct</span>
+    <span class="c1"># make mypy happy</span>
+    <span class="k">assert</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="n">length</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">fix_length</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">y</span></div>
+
+
+
+<div class="viewcode-block" id="vqt">
+<a class="viewcode-back" href="../../../generated/librosa.vqt.html#librosa.vqt">[docs]</a>
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">vqt</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">fmin</span><span class="p">:</span> <span class="n">_FloatLike_co</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">84</span><span class="p">,</span>
+    <span class="n">intervals</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Collection</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;equal&quot;</span><span class="p">,</span>
+    <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="n">tuning</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">sparsity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">pad_mode</span><span class="p">:</span> <span class="n">_PadMode</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="n">res_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;soxr_hq&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the variable-Q transform of an audio signal.</span>
+
+<span class="sd">    This implementation is based on the recursive sub-sampling method</span>
+<span class="sd">    described by [#]_.</span>
+
+<span class="sd">    .. [#] Schörkhuber, Christian, Anssi Klapuri, Nicki Holighaus, and Monika Dörfler.</span>
+<span class="sd">        &quot;A Matlab toolbox for efficient perfect reconstruction time-frequency</span>
+<span class="sd">        transforms with log-frequency resolution.&quot;</span>
+<span class="sd">        In Audio Engineering Society Conference: 53rd International Conference: Semantic Audio.</span>
+<span class="sd">        Audio Engineering Society, 2014.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        audio time series. Multi-channel is supported.</span>
+
+<span class="sd">    sr : number &gt; 0 [scalar]</span>
+<span class="sd">        sampling rate of ``y``</span>
+
+<span class="sd">    hop_length : int &gt; 0 [scalar]</span>
+<span class="sd">        number of samples between successive VQT columns.</span>
+
+<span class="sd">    fmin : float &gt; 0 [scalar]</span>
+<span class="sd">        Minimum frequency. Defaults to `C1 ~= 32.70 Hz`</span>
+
+<span class="sd">    n_bins : int &gt; 0 or None [scalar]</span>
+<span class="sd">        Number of frequency bins, starting at ``fmin``</span>
+<span class="sd">        If `None`, the number of bins will be inferred as the maximum that will</span>
+<span class="sd">        fit below `sr/2`.</span>
+
+<span class="sd">    intervals : str or array of floats in [1, 2)</span>
+<span class="sd">        Either a string specification for an interval set, e.g.,</span>
+<span class="sd">        `&#39;equal&#39;`, `&#39;pythagorean&#39;`, `&#39;ji3&#39;`, etc. or an array of</span>
+<span class="sd">        intervals expressed as numbers between 1 and 2.</span>
+<span class="sd">        .. see also:: librosa.interval_frequencies</span>
+
+<span class="sd">    gamma : number &gt; 0 [scalar]</span>
+<span class="sd">        Bandwidth offset for determining filter lengths.</span>
+
+<span class="sd">        If ``gamma=0``, produces the constant-Q transform.</span>
+
+<span class="sd">        If &#39;gamma=None&#39;, gamma will be calculated such that filter bandwidths are equal to a</span>
+<span class="sd">        constant fraction of the equivalent rectangular bandwidths (ERB). This is accomplished</span>
+<span class="sd">        by solving for the gamma which gives::</span>
+
+<span class="sd">            B_k = alpha * f_k + gamma = C * ERB(f_k),</span>
+
+<span class="sd">        where ``B_k`` is the bandwidth of filter ``k`` with center frequency ``f_k``, alpha</span>
+<span class="sd">        is the inverse of what would be the constant Q-factor, and ``C = alpha / 0.108`` is the</span>
+<span class="sd">        constant fraction across all filters.</span>
+
+<span class="sd">        Here we use ``ERB(f_k) = 24.7 + 0.108 * f_k``, the best-fit curve derived</span>
+<span class="sd">        from experimental data in [#]_.</span>
+
+<span class="sd">        .. [#] Glasberg, Brian R., and Brian CJ Moore.</span>
+<span class="sd">            &quot;Derivation of auditory filter shapes from notched-noise data.&quot;</span>
+<span class="sd">            Hearing research 47.1-2 (1990): 103-138.</span>
+
+<span class="sd">    bins_per_octave : int &gt; 0 [scalar]</span>
+<span class="sd">        Number of bins per octave</span>
+
+<span class="sd">    tuning : None or float</span>
+<span class="sd">        Tuning offset in fractions of a bin.</span>
+
+<span class="sd">        If ``None``, tuning will be automatically estimated from the signal.</span>
+
+<span class="sd">        The minimum frequency of the resulting VQT will be modified to</span>
+<span class="sd">        ``fmin * 2**(tuning / bins_per_octave)``.</span>
+
+<span class="sd">    filter_scale : float &gt; 0</span>
+<span class="sd">        Filter scale factor. Small values (&lt;1) use shorter windows</span>
+<span class="sd">        for improved time resolution.</span>
+
+<span class="sd">    norm : {inf, -inf, 0, float &gt; 0}</span>
+<span class="sd">        Type of norm to use for basis function normalization.</span>
+<span class="sd">        See `librosa.util.normalize`.</span>
+
+<span class="sd">    sparsity : float in [0, 1)</span>
+<span class="sd">        Sparsify the VQT basis by discarding up to ``sparsity``</span>
+<span class="sd">        fraction of the energy in each basis.</span>
+
+<span class="sd">        Set ``sparsity=0`` to disable sparsification.</span>
+
+<span class="sd">    window : str, tuple, number, or function</span>
+<span class="sd">        Window specification for the basis filters.</span>
+<span class="sd">        See `filters.get_window` for details.</span>
+
+<span class="sd">    scale : bool</span>
+<span class="sd">        If ``True``, scale the VQT response by square-root the length of</span>
+<span class="sd">        each channel&#39;s filter.  This is analogous to ``norm=&#39;ortho&#39;`` in FFT.</span>
+
+<span class="sd">        If ``False``, do not scale the VQT. This is analogous to</span>
+<span class="sd">        ``norm=None`` in FFT.</span>
+
+<span class="sd">    pad_mode : str</span>
+<span class="sd">        Padding mode for centered frame analysis.</span>
+
+<span class="sd">        See also: `librosa.stft` and `numpy.pad`.</span>
+
+<span class="sd">    res_type : str</span>
+<span class="sd">        The resampling mode for recursive downsampling.</span>
+
+<span class="sd">    dtype : np.dtype</span>
+<span class="sd">        The dtype of the output array.  By default, this is inferred to match the</span>
+<span class="sd">        numerical precision of the input signal.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    VQT : np.ndarray [shape=(..., n_bins, t), dtype=np.complex]</span>
+<span class="sd">        Variable-Q value each frequency at each time.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    cqt</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function caches at level 20.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Generate and plot a variable-Q power spectrum</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;choice&#39;, duration=5)</span>
+<span class="sd">    &gt;&gt;&gt; C = np.abs(librosa.cqt(y, sr=sr))</span>
+<span class="sd">    &gt;&gt;&gt; V = np.abs(librosa.vqt(y, sr=sr))</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=2, sharex=True, sharey=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(C, vscale=&#39;dBFS&#39;,</span>
+<span class="sd">    ...                          sr=sr, x_axis=&#39;time&#39;, y_axis=&#39;cqt_note&#39;, ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&#39;Constant-Q power spectrum&#39;, xlabel=None)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; img = librosa.display.specshow(V, vscale=&#39;dBFS&#39;,</span>
+<span class="sd">    ...                                sr=sr, x_axis=&#39;time&#39;, y_axis=&#39;cqt_note&#39;, ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set_title(&#39;Variable-Q power spectrum&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.colorbar_db(img, ax=ax)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># If intervals are provided as an array, override BPO</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">intervals</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">bins_per_octave</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">intervals</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># C1 by default</span>
+        <span class="n">fmin</span> <span class="o">=</span> <span class="n">note_to_hz</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">tuning</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tuning</span> <span class="o">=</span> <span class="n">estimate_tuning</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dtype</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">dtype_r2c</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="c1"># Apply tuning correction</span>
+    <span class="n">fmin</span> <span class="o">=</span> <span class="n">fmin</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="n">tuning</span> <span class="o">/</span> <span class="n">bins_per_octave</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">fmin</span> <span class="o">&gt;=</span> <span class="n">sr</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fmin=</span><span class="si">{</span><span class="n">fmin</span><span class="si">}</span><span class="s2"> must be less than sr/2=</span><span class="si">{</span><span class="n">sr</span><span class="o">/</span><span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_bins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># If n_bins is None, we need to compute the number of bins to reach sr/2</span>
+        <span class="c1"># Over-allocating by one octave buys us enough buffer to be safe.</span>
+        <span class="c1"># We&#39;ll clip back down later as needed.</span>
+        <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">bins_per_octave</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">fmin</span><span class="p">))))</span>
+        <span class="c1"># Equivalently: bins_per_octave * (1 + log2(sr/2 / fmin))</span>
+        <span class="n">auto_n_bins</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">auto_n_bins</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">freqs</span> <span class="o">=</span> <span class="n">interval_frequencies</span><span class="p">(</span>
+        <span class="n">n_bins</span><span class="o">=</span><span class="n">n_bins</span><span class="p">,</span>
+        <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span>
+        <span class="n">intervals</span><span class="o">=</span><span class="n">intervals</span><span class="p">,</span>
+        <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">,</span>
+        <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">auto_n_bins</span><span class="p">:</span>
+        <span class="n">freqs</span> <span class="o">=</span> <span class="n">__clip_freqs</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">filter_scale</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
+        <span class="n">n_bins</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">n_bins</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">__et_relative_bw</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">_relative_bandwidth</span><span class="p">(</span><span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">)</span>
+
+    <span class="n">lengths</span><span class="p">,</span> <span class="n">filter_cutoff</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">wavelet_lengths</span><span class="p">(</span>
+        <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+        <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+        <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Determine required resampling quality</span>
+    <span class="n">nyquist</span> <span class="o">=</span> <span class="n">sr</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+    <span class="k">if</span> <span class="n">filter_cutoff</span> <span class="o">&gt;</span> <span class="n">nyquist</span><span class="p">:</span>
+        <span class="n">freqs_top</span> <span class="o">=</span> <span class="n">freqs</span><span class="p">[</span><span class="o">-</span><span class="n">bins_per_octave</span><span class="p">:]</span>
+        <span class="n">fmax_t</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">freqs_top</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Wavelet basis with max frequency=</span><span class="si">{</span><span class="n">fmax_t</span><span class="si">}</span><span class="s2"> would exceed the Nyquist frequency=</span><span class="si">{</span><span class="n">nyquist</span><span class="si">}</span><span class="s2">. &quot;</span>
+            <span class="s2">&quot;Try reducing the number of frequency bins.&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># How many octaves are we dealing with?</span>
+    <span class="n">n_octaves</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">n_bins</span><span class="p">)</span> <span class="o">/</span> <span class="n">bins_per_octave</span><span class="p">))</span>
+    <span class="n">n_filters</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="p">,</span> <span class="n">n_bins</span><span class="p">)</span>
+
+    <span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span> <span class="o">=</span> <span class="n">__early_downsample</span><span class="p">(</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="p">,</span> <span class="n">res_type</span><span class="p">,</span> <span class="n">n_octaves</span><span class="p">,</span> <span class="n">nyquist</span><span class="p">,</span> <span class="n">filter_cutoff</span><span class="p">,</span> <span class="n">scale</span>
+    <span class="p">)</span>
+
+    <span class="n">vqt_resp</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Iterate down the octaves</span>
+    <span class="n">my_y</span><span class="p">,</span> <span class="n">my_sr</span><span class="p">,</span> <span class="n">my_hop</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_octaves</span><span class="p">):</span>
+        <span class="c1"># Slice out the current octave of filters</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">sl</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="n">n_filters</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sl</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="n">n_filters</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="n">n_filters</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># This may be incorrect with early downsampling</span>
+        <span class="n">freqs_oct</span> <span class="o">=</span> <span class="n">freqs</span><span class="p">[</span><span class="n">sl</span><span class="p">]</span>
+        <span class="n">alpha_oct</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">[</span><span class="n">sl</span><span class="p">]</span>
+
+        <span class="n">fft_basis</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">__vqt_filter_fft</span><span class="p">(</span>
+            <span class="n">my_sr</span><span class="p">,</span>
+            <span class="n">freqs_oct</span><span class="p">,</span>
+            <span class="n">filter_scale</span><span class="p">,</span>
+            <span class="n">norm</span><span class="p">,</span>
+            <span class="n">sparsity</span><span class="p">,</span>
+            <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+            <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="n">alpha_oct</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Re-scale the filters to compensate for downsampling</span>
+        <span class="n">fft_basis</span><span class="p">[:]</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sr</span> <span class="o">/</span> <span class="n">my_sr</span><span class="p">)</span>
+
+        <span class="c1"># Compute the vqt filter response and append to the stack</span>
+        <span class="n">vqt_resp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">__cqt_response</span><span class="p">(</span><span class="n">my_y</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">my_hop</span><span class="p">,</span> <span class="n">fft_basis</span><span class="p">,</span> <span class="n">pad_mode</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># We can downsample here if the hop length is even, and the highest frequency</span>
+        <span class="c1"># in the next octave down is comfortably below the target Nyquist frequency.</span>
+        <span class="c1"># We&#39;ll assume that rolloff from downsampling starts at ~80% Nyquist.</span>
+        <span class="c1"># This is equivalent to 40% of the target sampling rate, or 20% of the current sampling</span>
+        <span class="c1"># rate.</span>
+        <span class="c1"># Only downsample if we&#39;re not in the last octave.</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n_octaves</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">f_max_next</span> <span class="o">=</span> <span class="n">freqs</span><span class="p">[</span><span class="n">sl</span><span class="o">.</span><span class="n">start</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">my_hop</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">f_max_next</span> <span class="o">&lt;=</span> <span class="n">my_sr</span> <span class="o">/</span> <span class="mi">5</span><span class="p">:</span>
+                <span class="n">my_hop</span> <span class="o">//=</span> <span class="mi">2</span>
+                <span class="n">my_sr</span> <span class="o">/=</span> <span class="mf">2.0</span>
+                <span class="n">my_y</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
+                    <span class="n">my_y</span><span class="p">,</span> <span class="n">orig_sr</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">target_sr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+
+    <span class="n">V</span> <span class="o">=</span> <span class="n">__trim_stack</span><span class="p">(</span><span class="n">vqt_resp</span><span class="p">,</span> <span class="n">n_bins</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">scale</span><span class="p">:</span>
+        <span class="c1"># Recompute lengths here because early downsampling may have changed</span>
+        <span class="c1"># our sampling rate</span>
+        <span class="n">lengths</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">wavelet_lengths</span><span class="p">(</span>
+            <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+            <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+            <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+            <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># reshape lengths to match V shape</span>
+        <span class="n">lengths</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">expand_to</span><span class="p">(</span><span class="n">lengths</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">V</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">axes</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">V</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">V</span></div>
+
+
+
+<span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__vqt_filter_fft</span><span class="p">(</span>
+    <span class="n">sr</span><span class="p">,</span>
+    <span class="n">freqs</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">,</span>
+    <span class="n">sparsity</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">window</span><span class="o">=</span><span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">gamma</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate the frequency domain variable-Q filter basis.&quot;&quot;&quot;</span>
+    <span class="n">basis</span><span class="p">,</span> <span class="n">lengths</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">wavelet</span><span class="p">(</span>
+        <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">pad_fft</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+        <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Filters are padded up to the nearest integral power of 2</span>
+    <span class="n">n_fft</span> <span class="o">=</span> <span class="n">basis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">hop_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">n_fft</span> <span class="o">&lt;</span> <span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">hop_length</span><span class="p">))):</span>
+        <span class="n">n_fft</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">hop_length</span><span class="p">))))</span>
+
+    <span class="c1"># re-normalize bases with respect to the FFT window length</span>
+    <span class="n">basis</span> <span class="o">*=</span> <span class="n">lengths</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">n_fft</span><span class="p">)</span>
+
+    <span class="c1"># FFT and retain only the non-negative frequencies</span>
+    <span class="c1"># Note: in principle we could use an rfft here, but scipy.fft only allows</span>
+    <span class="c1"># real inputs, so we&#39;d have to call twice.  That negates the speed advantage</span>
+    <span class="c1"># of using rfft in the first place.</span>
+    <span class="n">fft_basis</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">basis</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n_fft</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="p">:</span> <span class="p">(</span><span class="n">n_fft</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># sparsify the basis</span>
+    <span class="n">fft_basis</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">sparsify_rows</span><span class="p">(</span><span class="n">fft_basis</span><span class="p">,</span> <span class="n">quantile</span><span class="o">=</span><span class="n">sparsity</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fft_basis</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">lengths</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__trim_stack</span><span class="p">(</span>
+    <span class="n">cqt_resp</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Trim and stack a collection of CQT responses&quot;&quot;&quot;</span>
+    <span class="n">max_col</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">c_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c_i</span> <span class="ow">in</span> <span class="n">cqt_resp</span><span class="p">)</span>
+    <span class="c1"># Grab any leading dimensions</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">cqt_resp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_bins</span>
+    <span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_col</span>
+    <span class="n">cqt_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;F&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Copy per-octave data into output array</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">n_bins</span>
+    <span class="k">for</span> <span class="n">c_i</span> <span class="ow">in</span> <span class="n">cqt_resp</span><span class="p">:</span>
+        <span class="c1"># By default, take the whole octave</span>
+        <span class="n">n_oct</span> <span class="o">=</span> <span class="n">c_i</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="c1"># If the whole octave is more than we can fit,</span>
+        <span class="c1"># take the highest bins from c_i</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="o">&lt;</span> <span class="n">n_oct</span><span class="p">:</span>
+            <span class="n">cqt_out</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">end</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c_i</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="n">end</span><span class="p">:,</span> <span class="p">:</span><span class="n">max_col</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cqt_out</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">n_oct</span> <span class="p">:</span> <span class="n">end</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">c_i</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">max_col</span><span class="p">]</span>
+
+        <span class="n">end</span> <span class="o">-=</span> <span class="n">n_oct</span>
+
+    <span class="k">return</span> <span class="n">cqt_out</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__cqt_response</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">hop_length</span><span class="p">,</span> <span class="n">fft_basis</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the filter response with a target STFT hop.&quot;&quot;&quot;</span>
+    <span class="c1"># Compute the STFT matrix</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="n">n_fft</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">pad_mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">phase</span><span class="p">:</span>
+        <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+
+    <span class="c1"># Reshape D to Dr</span>
+    <span class="n">Dr</span> <span class="o">=</span> <span class="n">D</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">output_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+        <span class="p">(</span><span class="n">Dr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fft_basis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Dr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">D</span><span class="o">.</span><span class="n">dtype</span>
+    <span class="p">)</span>
+
+    <span class="c1"># iterate over channels</span>
+    <span class="c1">#   project fft_basis.dot(Dr[i])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Dr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">output_flat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fft_basis</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Dr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="c1"># reshape Dr to match D&#39;s leading dimensions again</span>
+    <span class="n">shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">fft_basis</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">output_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__early_downsample_count</span><span class="p">(</span><span class="n">nyquist</span><span class="p">,</span> <span class="n">filter_cutoff</span><span class="p">,</span> <span class="n">hop_length</span><span class="p">,</span> <span class="n">n_octaves</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the number of early downsampling operations&quot;&quot;&quot;</span>
+    <span class="n">downsample_count1</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">nyquist</span> <span class="o">/</span> <span class="n">filter_cutoff</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">num_twos</span> <span class="o">=</span> <span class="n">__num_two_factors</span><span class="p">(</span><span class="n">hop_length</span><span class="p">)</span>
+    <span class="n">downsample_count2</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_twos</span> <span class="o">-</span> <span class="n">n_octaves</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">downsample_count1</span><span class="p">,</span> <span class="n">downsample_count2</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__early_downsample</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="p">,</span> <span class="n">res_type</span><span class="p">,</span> <span class="n">n_octaves</span><span class="p">,</span> <span class="n">nyquist</span><span class="p">,</span> <span class="n">filter_cutoff</span><span class="p">,</span> <span class="n">scale</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform early downsampling on an audio signal, if it applies.&quot;&quot;&quot;</span>
+    <span class="n">downsample_count</span> <span class="o">=</span> <span class="n">__early_downsample_count</span><span class="p">(</span>
+        <span class="n">nyquist</span><span class="p">,</span> <span class="n">filter_cutoff</span><span class="p">,</span> <span class="n">hop_length</span><span class="p">,</span> <span class="n">n_octaves</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">downsample_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">downsample_factor</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">downsample_count</span><span class="p">)</span>
+
+        <span class="n">hop_length</span> <span class="o">//=</span> <span class="n">downsample_factor</span>
+
+        <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">downsample_factor</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Input signal length=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2"> is too short for &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n_octaves</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="s2">-octave CQT&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">new_sr</span> <span class="o">=</span> <span class="n">sr</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">downsample_factor</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">audio</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
+            <span class="n">y</span><span class="p">,</span> <span class="n">orig_sr</span><span class="o">=</span><span class="n">downsample_factor</span><span class="p">,</span> <span class="n">target_sr</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+
+        <span class="c1"># If we&#39;re not going to length-scale after CQT, we</span>
+        <span class="c1"># need to compensate for the downsampling factor here</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">scale</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">downsample_factor</span><span class="p">)</span>
+
+        <span class="n">sr</span> <span class="o">=</span> <span class="n">new_sr</span>
+
+    <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span>
+
+
+<span class="nd">@jit</span><span class="p">(</span><span class="n">nopython</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">__num_two_factors</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return how many times integer x can be evenly divided by 2.</span>
+
+<span class="sd">    Returns 0 for non-positive integers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">num_twos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">num_twos</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">x</span> <span class="o">//=</span> <span class="mi">2</span>
+
+    <span class="k">return</span> <span class="n">num_twos</span>
+
+
+<div class="viewcode-block" id="griffinlim_cqt">
+<a class="viewcode-back" href="../../../generated/librosa.griffinlim_cqt.html#librosa.griffinlim_cqt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">griffinlim_cqt</span><span class="p">(</span>
+    <span class="n">C</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">n_iter</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">22050</span><span class="p">,</span>
+    <span class="n">hop_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
+    <span class="n">fmin</span><span class="p">:</span> <span class="n">_FloatLike_co</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="n">tuning</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">norm</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="n">sparsity</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
+    <span class="n">scale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">pad_mode</span><span class="p">:</span> <span class="n">_PadMode</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
+    <span class="n">res_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;soxr_hq&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="p">:</span> <span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">momentum</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.99</span><span class="p">,</span>
+    <span class="n">init</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
+    <span class="n">rng</span><span class="p">:</span> <span class="n">RNGLike</span> <span class="o">|</span> <span class="n">SeedLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">Generator</span> <span class="o">|</span> <span class="n">Deprecated</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Deprecated</span><span class="p">(),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Approximate constant-Q magnitude spectrogram inversion using the &quot;fast&quot; Griffin-Lim algorithm.</span>
+
+<span class="sd">    Given the magnitude of a constant-Q spectrogram (``C``), the algorithm randomly initializes</span>
+<span class="sd">    phase estimates, and then alternates forward- and inverse-CQT operations. [#]_</span>
+
+<span class="sd">    This implementation is based on the (fast) Griffin-Lim method for Short-time Fourier Transforms, [#]_</span>
+<span class="sd">    but adapted for use with constant-Q spectrograms.</span>
+
+<span class="sd">    .. [#] D. W. Griffin and J. S. Lim,</span>
+<span class="sd">        &quot;Signal estimation from modified short-time Fourier transform,&quot;</span>
+<span class="sd">        IEEE Trans. ASSP, vol.32, no.2, pp.236--243, Apr. 1984.</span>
+
+<span class="sd">    .. [#] Perraudin, N., Balazs, P., &amp; Søndergaard, P. L.</span>
+<span class="sd">        &quot;A fast Griffin-Lim algorithm,&quot;</span>
+<span class="sd">        IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (pp. 1--4),</span>
+<span class="sd">        Oct. 2013.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : np.ndarray [shape=(..., n_bins, n_frames)]</span>
+<span class="sd">        The constant-Q magnitude spectrogram</span>
+
+<span class="sd">    n_iter : int &gt; 0</span>
+<span class="sd">        The number of iterations to run</span>
+
+<span class="sd">    sr : number &gt; 0</span>
+<span class="sd">        Audio sampling rate</span>
+
+<span class="sd">    hop_length : int &gt; 0</span>
+<span class="sd">        The hop length of the CQT</span>
+
+<span class="sd">    fmin : number &gt; 0</span>
+<span class="sd">        Minimum frequency for the CQT.</span>
+
+<span class="sd">        If not provided, it defaults to `C1`.</span>
+
+<span class="sd">    bins_per_octave : int &gt; 0</span>
+<span class="sd">        Number of bins per octave</span>
+
+<span class="sd">    tuning : float</span>
+<span class="sd">        Tuning deviation from A440, in fractions of a bin</span>
+
+<span class="sd">    filter_scale : float &gt; 0</span>
+<span class="sd">        Filter scale factor. Small values (&lt;1) use shorter windows</span>
+<span class="sd">        for improved time resolution.</span>
+
+<span class="sd">    norm : {inf, -inf, 0, float &gt; 0}</span>
+<span class="sd">        Type of norm to use for basis function normalization.</span>
+<span class="sd">        See `librosa.util.normalize`.</span>
+
+<span class="sd">    sparsity : float in [0, 1)</span>
+<span class="sd">        Sparsify the CQT basis by discarding up to ``sparsity``</span>
+<span class="sd">        fraction of the energy in each basis.</span>
+
+<span class="sd">        Set ``sparsity=0`` to disable sparsification.</span>
+
+<span class="sd">    window : str, tuple, or function</span>
+<span class="sd">        Window specification for the basis filters.</span>
+<span class="sd">        See `filters.get_window` for details.</span>
+
+<span class="sd">    scale : bool</span>
+<span class="sd">        If ``True``, scale the CQT response by square-root the length</span>
+<span class="sd">        of each channel&#39;s filter.  This is analogous to ``norm=&#39;ortho&#39;``</span>
+<span class="sd">        in FFT.</span>
+
+<span class="sd">        If ``False``, do not scale the CQT. This is analogous to ``norm=None``</span>
+<span class="sd">        in FFT.</span>
+
+<span class="sd">    pad_mode : str</span>
+<span class="sd">        Padding mode for centered frame analysis.</span>
+
+<span class="sd">        See also: `librosa.stft` and `numpy.pad`.</span>
+
+<span class="sd">    res_type : str</span>
+<span class="sd">        The resampling mode for recursive downsampling.</span>
+
+<span class="sd">        See ``librosa.resample`` for a list of available options.</span>
+
+<span class="sd">    dtype : numeric type</span>
+<span class="sd">        Real numeric type for ``y``.  Default is inferred to match the precision</span>
+<span class="sd">        of the input CQT.</span>
+
+<span class="sd">    length : int &gt; 0, optional</span>
+<span class="sd">        If provided, the output ``y`` is zero-padded or clipped to exactly</span>
+<span class="sd">        ``length`` samples.</span>
+
+<span class="sd">    momentum : float &gt; 0</span>
+<span class="sd">        The momentum parameter for fast Griffin-Lim.</span>
+<span class="sd">        Setting this to 0 recovers the original Griffin-Lim method.</span>
+<span class="sd">        Values near 1 can lead to faster convergence, but above 1 may not converge.</span>
+
+<span class="sd">    init : None or &#39;random&#39; [default]</span>
+<span class="sd">        If &#39;random&#39; (the default), then phase values are initialized randomly</span>
+<span class="sd">        according to ``random_state``.  This is recommended when the input ``C`` is</span>
+<span class="sd">        a magnitude spectrogram with no initial phase estimates.</span>
+
+<span class="sd">        If ``None``, then the phase is initialized from ``C``.  This is useful when</span>
+<span class="sd">        an initial guess for phase can be provided, or when you want to resume</span>
+<span class="sd">        Griffin-Lim from a previous output.</span>
+
+<span class="sd">    rng : None, int, sequence of int, np.random.Generator, or np.random.RandomState</span>
+<span class="sd">        Pseudorandom number generator state. When `rng` is None, a new</span>
+<span class="sd">        `numpy.random.Generator` is created using entropy from the</span>
+<span class="sd">        operating system. Types other than `numpy.random.Generator` are</span>
+<span class="sd">        passed to `numpy.random.default_rng` to instantiate a ``Generator``.</span>
+
+<span class="sd">    random_state : None, int, np.random.RandomState, or np.random.Generator</span>
+<span class="sd">        .. warning:: This parameter is deprecated in 1.0.0 and will be removed in 1.2.0.</span>
+
+<span class="sd">        If int, random_state is the seed used by the random number generator</span>
+<span class="sd">        for phase initialization.</span>
+
+<span class="sd">        If `np.random.RandomState` or `np.random.Generator` instance, the random number generator itself.</span>
+
+<span class="sd">        If ``None``, defaults to the `np.random.default_rng()` object.</span>
+
+<span class="sd">        An exception is raised if both `rng` and `random_state` are provided.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        time-domain signal reconstructed from ``C``</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    cqt</span>
+<span class="sd">    icqt</span>
+<span class="sd">    griffinlim</span>
+<span class="sd">    filters.get_window</span>
+<span class="sd">    resample</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    A basic CQT inverse example</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.loadx(&#39;trumpet&#39;, sr=None)</span>
+<span class="sd">    &gt;&gt;&gt; # Get the CQT magnitude, 7 octaves at 36 bins per octave</span>
+<span class="sd">    &gt;&gt;&gt; C = np.abs(librosa.cqt(y=y, sr=sr, bins_per_octave=36, n_bins=7*36))</span>
+<span class="sd">    &gt;&gt;&gt; # Invert using Griffin-Lim</span>
+<span class="sd">    &gt;&gt;&gt; y_inv = librosa.griffinlim_cqt(C, sr=sr, bins_per_octave=36)</span>
+<span class="sd">    &gt;&gt;&gt; # And invert without estimating phase</span>
+<span class="sd">    &gt;&gt;&gt; y_icqt = librosa.icqt(C, sr=sr, bins_per_octave=36)</span>
+
+<span class="sd">    Wave-plot the results</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=3, sharex=True, sharey=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.waveshow(y, sr=sr, color=&#39;C0&#39;, ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&#39;Original&#39;, xlabel=None)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.waveshow(y_inv, sr=sr, color=&#39;C1&#39;, ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&#39;Griffin-Lim reconstruction&#39;, xlabel=None)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.waveshow(y_icqt, sr=sr, color=&#39;C2&#39;, ax=ax[2])</span>
+<span class="sd">    &gt;&gt;&gt; ax[2].set(title=&#39;Magnitude-only icqt reconstruction&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">fmin</span> <span class="o">=</span> <span class="n">note_to_hz</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">random_state</span><span class="p">,</span> <span class="n">Deprecated</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">rng</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Both random_state=</span><span class="si">{</span><span class="n">random_state</span><span class="si">!r}</span><span class="s2"> and rng=</span><span class="si">{</span><span class="n">rng</span><span class="si">!r}</span><span class="s2"> were provided. &quot;</span>
+                <span class="s2">&quot;Please use only the rng parameter.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Otherwise transfer the state object and throw a deprecation warning</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">rename_kw</span><span class="p">(</span>
+            <span class="n">old_name</span><span class="o">=</span><span class="s2">&quot;random_state&quot;</span><span class="p">,</span>
+            <span class="n">old_value</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
+            <span class="n">new_name</span><span class="o">=</span><span class="s2">&quot;rng&quot;</span><span class="p">,</span>
+            <span class="n">new_value</span><span class="o">=</span><span class="n">rng</span><span class="p">,</span>
+            <span class="n">version_deprecated</span><span class="o">=</span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+            <span class="n">version_removed</span><span class="o">=</span><span class="s2">&quot;1.2.0&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Coerce the various input types to a proper Generator</span>
+    <span class="c1"># This branch is necessary until we bump to numpy 2.2</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">):</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">momentum</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Griffin-Lim with momentum=</span><span class="si">{</span><span class="n">momentum</span><span class="si">}</span><span class="s2"> &gt; 1 can be unstable. &quot;</span>
+            <span class="s2">&quot;Proceed with caution!&quot;</span><span class="p">,</span>
+            <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">momentum</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;griffinlim_cqt() called with momentum=</span><span class="si">{</span><span class="n">momentum</span><span class="si">}</span><span class="s2"> &lt; 0&quot;</span><span class="p">)</span>
+
+    <span class="c1"># using complex64 will keep the result to minimal necessary precision</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex64</span><span class="p">)</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">tiny</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">init</span> <span class="o">==</span> <span class="s2">&quot;random&quot;</span><span class="p">:</span>
+        <span class="c1"># randomly initialize the phase</span>
+        <span class="n">angles</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">phasor</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">init</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Initialize an all ones complex matrix</span>
+        <span class="n">angles</span><span class="p">[:]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;init=</span><span class="si">{</span><span class="n">init</span><span class="si">}</span><span class="s2"> must either None or &#39;random&#39;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># And initialize the previous iterate to 0</span>
+    <span class="n">rebuilt</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_iter</span><span class="p">):</span>
+        <span class="c1"># Store the previous iterate</span>
+        <span class="n">tprev</span> <span class="o">=</span> <span class="n">rebuilt</span>
+
+        <span class="c1"># Invert with our current estimate of the phases</span>
+        <span class="n">inverse</span> <span class="o">=</span> <span class="n">icqt</span><span class="p">(</span>
+            <span class="n">C</span> <span class="o">*</span> <span class="n">angles</span><span class="p">,</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+            <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">,</span>
+            <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span>
+            <span class="n">tuning</span><span class="o">=</span><span class="n">tuning</span><span class="p">,</span>
+            <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+            <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+            <span class="n">length</span><span class="o">=</span><span class="n">length</span><span class="p">,</span>
+            <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span>
+            <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+            <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
+            <span class="n">sparsity</span><span class="o">=</span><span class="n">sparsity</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Rebuild the spectrogram</span>
+        <span class="n">rebuilt</span> <span class="o">=</span> <span class="n">cqt</span><span class="p">(</span>
+            <span class="n">inverse</span><span class="p">,</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+            <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">,</span>
+            <span class="n">n_bins</span><span class="o">=</span><span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+            <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span>
+            <span class="n">tuning</span><span class="o">=</span><span class="n">tuning</span><span class="p">,</span>
+            <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+            <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+            <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+            <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
+            <span class="n">sparsity</span><span class="o">=</span><span class="n">sparsity</span><span class="p">,</span>
+            <span class="n">pad_mode</span><span class="o">=</span><span class="n">pad_mode</span><span class="p">,</span>
+            <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Update our phase estimates</span>
+        <span class="n">angles</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">rebuilt</span> <span class="o">-</span> <span class="p">(</span><span class="n">momentum</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">momentum</span><span class="p">))</span> <span class="o">*</span> <span class="n">tprev</span>
+        <span class="n">angles</span><span class="p">[:]</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span> <span class="o">+</span> <span class="n">eps</span>
+
+    <span class="c1"># Return the final phase estimates</span>
+    <span class="k">return</span> <span class="n">icqt</span><span class="p">(</span>
+        <span class="n">C</span> <span class="o">*</span> <span class="n">angles</span><span class="p">,</span>
+        <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+        <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+        <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">bins_per_octave</span><span class="p">,</span>
+        <span class="n">tuning</span><span class="o">=</span><span class="n">tuning</span><span class="p">,</span>
+        <span class="n">filter_scale</span><span class="o">=</span><span class="n">filter_scale</span><span class="p">,</span>
+        <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span>
+        <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+        <span class="n">length</span><span class="o">=</span><span class="n">length</span><span class="p">,</span>
+        <span class="n">res_type</span><span class="o">=</span><span class="n">res_type</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span>
+        <span class="n">sparsity</span><span class="o">=</span><span class="n">sparsity</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__et_relative_bw</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the relative bandwidth coefficient for equal</span>
+<span class="sd">    (geometric) freuqency spacing and a give number of bins</span>
+<span class="sd">    per octave.</span>
+
+<span class="sd">    This is a special case of the more general `relative_bandwidth`</span>
+<span class="sd">    calculation that can be used when only a single basis frequency</span>
+<span class="sd">    is used.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    bins_per_octave : int</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    alpha : np.ndarray &gt; 0</span>
+<span class="sd">        Value is cast up to a 1d array to allow slicing</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">bins_per_octave</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">((</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">__clip_freqs</span><span class="p">(</span>
+    <span class="n">freqs</span><span class="p">:</span> <span class="n">NDArray</span><span class="p">,</span>
+    <span class="n">window</span><span class="p">:</span> <span class="n">_WindowSpec</span><span class="p">,</span>
+    <span class="n">filter_scale</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">sr</span><span class="p">:</span> <span class="nb">float</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NDArray</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clip a frequency set to avoid exceeding the Nyquist frequency.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    freqs : np.ndarray [shape=(n_bins,)]</span>
+<span class="sd">        Frequency set to clip.  At least two frequencies are</span>
+<span class="sd">        needed.</span>
+
+<span class="sd">    window : str, tuple, or function</span>
+<span class="sd">        Window specification for the basis filters.</span>
+
+<span class="sd">    filter_scale : float &gt; 0</span>
+<span class="sd">        Filter scale factor. Small values (&lt;1) use shorter windows</span>
+<span class="sd">        for improved time resolution.</span>
+
+<span class="sd">    gamma : float &gt;= 0 or None</span>
+<span class="sd">        Bandwidth offset for determining filter lengths.</span>
+<span class="sd">        If `None`, use the default ERB-based calculation.</span>
+
+<span class="sd">    sr : number &gt; 0</span>
+<span class="sd">        Audio sampling rate</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    freqs : np.ndarray [shape=(n_bins,)]</span>
+<span class="sd">        Frequency set clipped to avoid exceeding the Nyquist frequency.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+    <span class="n">window_bw</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">window_bandwidth</span><span class="p">(</span><span class="n">window</span><span class="p">)</span>
+
+    <span class="c1"># Use the reflection calculation for alpha, under the</span>
+    <span class="c1"># assumption that each frequency could be acting as the</span>
+    <span class="c1"># fmax.</span>
+    <span class="n">bpo</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">logf</span><span class="p">,</span> <span class="n">prepend</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">bpo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">logf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">logf</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">bpo</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">bpo</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">gamma</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">gamma_</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="mf">24.7</span> <span class="o">/</span> <span class="mf">0.108</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">gamma_</span> <span class="o">=</span> <span class="n">gamma</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">filter_scale</span><span class="p">)</span> <span class="o">/</span> <span class="n">alpha</span>
+
+    <span class="c1"># Assuming non-monotonicity here: find the</span>
+    <span class="c1"># maximum cutoff frequency such that all frequencies</span>
+    <span class="c1"># below it land below the Nyquist frequency.</span>
+    <span class="n">f_cutoff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">freqs</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">window_bw</span> <span class="o">/</span> <span class="n">Q</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">gamma_</span><span class="p">)</span>
+
+    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">f_cutoff</span><span class="p">,</span> <span class="n">sr</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unable to construct wavelet basis for fmin=</span><span class="si">{</span><span class="n">freqs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Hz and sr=</span><span class="si">{</span><span class="n">sr</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Hz.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">freqs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+</pre></div>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2013--2026, librosa development team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1346 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; librosa 1.0.0dev documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce423923" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="_static/documentation_options.js?v=756f2b42"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=35a8b989"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('consent', 'default', {
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied',
+                    'analytics_storage': 'denied'
+                });
+            </script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'UA-171031946-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://librosa.org/en/stable/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0.0dev" />
+  
+    
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
+    <img src="_static/librosa_logo_text.svg" class="logo__image only-dark pst-js-only" alt="librosa"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="tutorial.html">
+    Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="advanced/index.html">
+    Advanced topics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="changelog.html">
+    Changelog
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contributing.html">
+    Contributing
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="reference/index.html">
+    Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-3"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-3"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-3"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-3">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot.__init__">__init__() (librosa.display.AdaptiveWaveplot method)</a>
+
+      <ul>
+        <li><a href="generated/librosa.display.ChromaFJSFormatter.html#librosa.display.ChromaFJSFormatter.__init__">(librosa.display.ChromaFJSFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.ChromaFormatter.html#librosa.display.ChromaFormatter.__init__">(librosa.display.ChromaFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.ChromaSvaraFormatter.html#librosa.display.ChromaSvaraFormatter.__init__">(librosa.display.ChromaSvaraFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.FJSFormatter.html#librosa.display.FJSFormatter.__init__">(librosa.display.FJSFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.LogHzFormatter.html#librosa.display.LogHzFormatter.__init__">(librosa.display.LogHzFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.NoteFormatter.html#librosa.display.NoteFormatter.__init__">(librosa.display.NoteFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.SvaraFormatter.html#librosa.display.SvaraFormatter.__init__">(librosa.display.SvaraFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.TimeFormatter.html#librosa.display.TimeFormatter.__init__">(librosa.display.TimeFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.TonnetzFormatter.html#librosa.display.TonnetzFormatter.__init__">(librosa.display.TonnetzFormatter method)</a>
+</li>
+        <li><a href="generated/librosa.display.Transformf0.html#librosa.display.Transformf0.__init__">(librosa.display.Transformf0 method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.A4_to_tuning.html#librosa.A4_to_tuning">A4_to_tuning() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.A_weighting.html#librosa.A_weighting">A_weighting() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.abs2.html#librosa.util.abs2">abs2() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot">AdaptiveWaveplot (class in librosa.display)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.segment.agglomerative.html#librosa.segment.agglomerative">agglomerative() (in module librosa.segment)</a>
+</li>
+      <li><a href="generated/librosa.amplitude_to_db.html#librosa.amplitude_to_db">amplitude_to_db() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.autocorrelate.html#librosa.autocorrelate">autocorrelate() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.axis_sort.html#librosa.util.axis_sort">axis_sort() (in module librosa.util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.B_weighting.html#librosa.B_weighting">B_weighting() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.beat.beat_track.html#librosa.beat.beat_track">beat_track() (in module librosa.beat)</a>
+</li>
+      <li><a href="generated/librosa.blocks_to_frames.html#librosa.blocks_to_frames">blocks_to_frames() (in module librosa)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.blocks_to_samples.html#librosa.blocks_to_samples">blocks_to_samples() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.blocks_to_time.html#librosa.blocks_to_time">blocks_to_time() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.buf_to_float.html#librosa.util.buf_to_float">buf_to_float() (in module librosa.util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.C_weighting.html#librosa.C_weighting">C_weighting() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.chirp.html#librosa.chirp">chirp() (in module librosa)</a>
+</li>
+      <li><a href="glossary.html#term-chroma"><strong>chroma</strong></a>
+</li>
+      <li><a href="generated/librosa.filters.chroma.html#librosa.filters.chroma">chroma() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.feature.chroma_cens.html#librosa.feature.chroma_cens">chroma_cens() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.chroma_cqt.html#librosa.feature.chroma_cqt">chroma_cqt() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.chroma_stft.html#librosa.feature.chroma_stft">chroma_stft() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.chroma_vqt.html#librosa.feature.chroma_vqt">chroma_vqt() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.display.ChromaFJSFormatter.html#librosa.display.ChromaFJSFormatter">ChromaFJSFormatter (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.display.ChromaFormatter.html#librosa.display.ChromaFormatter">ChromaFormatter (class in librosa.display)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.display.ChromaSvaraFormatter.html#librosa.display.ChromaSvaraFormatter">ChromaSvaraFormatter (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.util.cite.html#librosa.util.cite">cite() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.clicks.html#librosa.clicks">clicks() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.display.colorbar_db.html#librosa.display.colorbar_db">colorbar_db() (in module librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.display.colorbar_phase.html#librosa.display.colorbar_phase">colorbar_phase() (in module librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.util.count_unique.html#librosa.util.count_unique">count_unique() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.filters.cq_to_chroma.html#librosa.filters.cq_to_chroma">cq_to_chroma() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.cqt.html#librosa.cqt">cqt() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.cqt_frequencies.html#librosa.cqt_frequencies">cqt_frequencies() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.segment.cross_similarity.html#librosa.segment.cross_similarity">cross_similarity() (in module librosa.segment)</a>
+</li>
+      <li><a href="generated/librosa.util.cyclic_gradient.html#librosa.util.cyclic_gradient">cyclic_gradient() (in module librosa.util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.D_weighting.html#librosa.D_weighting">D_weighting() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.db_to_amplitude.html#librosa.db_to_amplitude">db_to_amplitude() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.db_to_power.html#librosa.db_to_power">db_to_power() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.decompose.decompose.html#librosa.decompose.decompose">decompose() (in module librosa.decompose)</a>
+</li>
+      <li><a href="generated/librosa.effects.deemphasis.html#librosa.effects.deemphasis">deemphasis() (in module librosa.effects)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.feature.delta.html#librosa.feature.delta">delta() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.filters.diagonal_filter.html#librosa.filters.diagonal_filter">diagonal_filter() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.sequence.dtw.html#librosa.sequence.dtw">dtw() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.util.dtype_c2r.html#librosa.util.dtype_c2r">dtype_c2r() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.dtype_r2c.html#librosa.util.dtype_r2c">dtype_r2c() (in module librosa.util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.estimate_tuning.html#librosa.estimate_tuning">estimate_tuning() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.example.html#librosa.util.example">example() (in module librosa.util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.util.example_info.html#librosa.util.example_info">example_info() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.expand_to.html#librosa.util.expand_to">expand_to() (in module librosa.util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.f0_harmonics.html#librosa.f0_harmonics">f0_harmonics() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.fft_frequencies.html#librosa.fft_frequencies">fft_frequencies() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.fifths_to_note.html#librosa.fifths_to_note">fifths_to_note() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.find_files.html#librosa.util.find_files">find_files() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.fix_frames.html#librosa.util.fix_frames">fix_frames() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.fix_length.html#librosa.util.fix_length">fix_length() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.display.FJSFormatter.html#librosa.display.FJSFormatter">FJSFormatter (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.fmt.html#librosa.fmt">fmt() (in module librosa)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.fourier_tempo_frequencies.html#librosa.fourier_tempo_frequencies">fourier_tempo_frequencies() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.fourier_tempogram.html#librosa.feature.fourier_tempogram">fourier_tempogram() (in module librosa.feature)</a>
+</li>
+      <li><a href="glossary.html#term-frame"><strong>frame</strong></a>
+</li>
+      <li><a href="glossary.html#term-frame-length"><strong>frame length</strong></a>
+</li>
+      <li><a href="generated/librosa.util.frame.html#librosa.util.frame">frame() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.frames_to_samples.html#librosa.frames_to_samples">frames_to_samples() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.frames_to_time.html#librosa.frames_to_time">frames_to_time() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.frequency_weighting.html#librosa.frequency_weighting">frequency_weighting() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.get_duration.html#librosa.get_duration">get_duration() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.get_samplerate.html#librosa.get_samplerate">get_samplerate() (in module librosa)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.filters.get_window.html#librosa.filters.get_window">get_window() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.griffinlim.html#librosa.griffinlim">griffinlim() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.griffinlim_cqt.html#librosa.griffinlim_cqt">griffinlim_cqt() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.effects.harmonic.html#librosa.effects.harmonic">harmonic() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.display.highlight.html#librosa.display.highlight">highlight() (in module librosa.display)</a>
+</li>
+      <li><a href="glossary.html#term-hop-length"><strong>hop length</strong></a>
+</li>
+      <li><a href="generated/librosa.decompose.hpss.html#librosa.decompose.hpss">hpss() (in module librosa.decompose)</a>
+
+      <ul>
+        <li><a href="generated/librosa.effects.hpss.html#librosa.effects.hpss">(in module librosa.effects)</a>
+</li>
+      </ul></li>
+      <li><a href="generated/librosa.hybrid_cqt.html#librosa.hybrid_cqt">hybrid_cqt() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.hybrid_tempogram.html#librosa.feature.hybrid_tempogram">hybrid_tempogram() (in module librosa.feature)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.hz_to_fjs.html#librosa.hz_to_fjs">hz_to_fjs() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.hz_to_mel.html#librosa.hz_to_mel">hz_to_mel() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.hz_to_midi.html#librosa.hz_to_midi">hz_to_midi() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.hz_to_note.html#librosa.hz_to_note">hz_to_note() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.hz_to_octs.html#librosa.hz_to_octs">hz_to_octs() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.hz_to_svara_c.html#librosa.hz_to_svara_c">hz_to_svara_c() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.hz_to_svara_h.html#librosa.hz_to_svara_h">hz_to_svara_h() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.icqt.html#librosa.icqt">icqt() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.iirt.html#librosa.iirt">iirt() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.index_to_slice.html#librosa.util.index_to_slice">index_to_slice() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.display.infer_cmap.html#librosa.display.infer_cmap">infer_cmap() (in module librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.util.interp_broadcast.html#librosa.util.interp_broadcast">interp_broadcast() (in module librosa.util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.interp_harmonics.html#librosa.interp_harmonics">interp_harmonics() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.interval_frequencies.html#librosa.interval_frequencies">interval_frequencies() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.interval_to_fjs.html#librosa.interval_to_fjs">interval_to_fjs() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.is_positive_int.html#librosa.util.is_positive_int">is_positive_int() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.is_unique.html#librosa.util.is_unique">is_unique() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.istft.html#librosa.istft">istft() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.key_to_degrees.html#librosa.key_to_degrees">key_to_degrees() (in module librosa)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.key_to_notes.html#librosa.key_to_notes">key_to_notes() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.segment.lag_to_recurrence.html#librosa.segment.lag_to_recurrence">lag_to_recurrence() (in module librosa.segment)</a>
+</li>
+      <li><a href="generated/librosa.display.legend_for_axes.html#librosa.display.legend_for_axes">legend_for_axes() (in module librosa.display)</a>
+</li>
+      <li>
+    librosa
+
+      <ul>
+        <li><a href="core.html#module-librosa">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.beat
+
+      <ul>
+        <li><a href="beat.html#module-librosa.beat">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.decompose
+
+      <ul>
+        <li><a href="decompose.html#module-librosa.decompose">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.display
+
+      <ul>
+        <li><a href="display.html#module-librosa.display">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.effects
+
+      <ul>
+        <li><a href="effects.html#module-librosa.effects">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.feature
+
+      <ul>
+        <li><a href="feature.html#module-librosa.feature">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.filters
+
+      <ul>
+        <li><a href="filters.html#module-librosa.filters">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    librosa.onset
+
+      <ul>
+        <li><a href="onset.html#module-librosa.onset">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.segment
+
+      <ul>
+        <li><a href="segment.html#module-librosa.segment">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.sequence
+
+      <ul>
+        <li><a href="sequence.html#module-librosa.sequence">module</a>
+</li>
+      </ul></li>
+      <li>
+    librosa.util
+
+      <ul>
+        <li><a href="util.html#module-librosa.util">module</a>
+</li>
+      </ul></li>
+      <li><a href="generated/librosa.util.list_examples.html#librosa.util.list_examples">list_examples() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.list_mela.html#librosa.list_mela">list_mela() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.list_thaat.html#librosa.list_thaat">list_thaat() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.load.html#librosa.load">load() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.loadx.html#librosa.loadx">loadx() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.localmax.html#librosa.util.localmax">localmax() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.localmin.html#librosa.util.localmin">localmin() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.display.LogHzFormatter.html#librosa.display.LogHzFormatter">LogHzFormatter (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.lpc.html#librosa.lpc">lpc() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.magphase.html#librosa.magphase">magphase() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.match_events.html#librosa.util.match_events">match_events() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.match_intervals.html#librosa.util.match_intervals">match_intervals() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.filters.mel.html#librosa.filters.mel">mel() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.mel_frequencies.html#librosa.mel_frequencies">mel_frequencies() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.inverse.mel_to_audio.html#librosa.feature.inverse.mel_to_audio">mel_to_audio() (in module librosa.feature.inverse)</a>
+</li>
+      <li><a href="generated/librosa.mel_to_hz.html#librosa.mel_to_hz">mel_to_hz() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.inverse.mel_to_stft.html#librosa.feature.inverse.mel_to_stft">mel_to_stft() (in module librosa.feature.inverse)</a>
+</li>
+      <li><a href="generated/librosa.mela_to_degrees.html#librosa.mela_to_degrees">mela_to_degrees() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.mela_to_svara.html#librosa.mela_to_svara">mela_to_svara() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.melspectrogram.html#librosa.feature.melspectrogram">melspectrogram() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.metrogram.html#librosa.feature.metrogram">metrogram() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.mfcc.html#librosa.feature.mfcc">mfcc() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.inverse.mfcc_to_audio.html#librosa.feature.inverse.mfcc_to_audio">mfcc_to_audio() (in module librosa.feature.inverse)</a>
+</li>
+      <li><a href="generated/librosa.feature.inverse.mfcc_to_mel.html#librosa.feature.inverse.mfcc_to_mel">mfcc_to_mel() (in module librosa.feature.inverse)</a>
+</li>
+      <li><a href="generated/librosa.midi_to_hz.html#librosa.midi_to_hz">midi_to_hz() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.midi_to_note.html#librosa.midi_to_note">midi_to_note() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.midi_to_svara_c.html#librosa.midi_to_svara_c">midi_to_svara_c() (in module librosa)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.midi_to_svara_h.html#librosa.midi_to_svara_h">midi_to_svara_h() (in module librosa)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="core.html#module-librosa">librosa</a>
+</li>
+        <li><a href="beat.html#module-librosa.beat">librosa.beat</a>
+</li>
+        <li><a href="decompose.html#module-librosa.decompose">librosa.decompose</a>
+</li>
+        <li><a href="display.html#module-librosa.display">librosa.display</a>
+</li>
+        <li><a href="effects.html#module-librosa.effects">librosa.effects</a>
+</li>
+        <li><a href="feature.html#module-librosa.feature">librosa.feature</a>
+</li>
+        <li><a href="filters.html#module-librosa.filters">librosa.filters</a>
+</li>
+        <li><a href="onset.html#module-librosa.onset">librosa.onset</a>
+</li>
+        <li><a href="segment.html#module-librosa.segment">librosa.segment</a>
+</li>
+        <li><a href="sequence.html#module-librosa.sequence">librosa.sequence</a>
+</li>
+        <li><a href="util.html#module-librosa.util">librosa.util</a>
+</li>
+      </ul></li>
+      <li><a href="generated/librosa.filters.mr_frequencies.html#librosa.filters.mr_frequencies">mr_frequencies() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.mu_compress.html#librosa.mu_compress">mu_compress() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.mu_expand.html#librosa.mu_expand">mu_expand() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.multi_frequency_weighting.html#librosa.multi_frequency_weighting">multi_frequency_weighting() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.display.multiplot.html#librosa.display.multiplot">multiplot() (in module librosa.display)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.decompose.nn_filter.html#librosa.decompose.nn_filter">nn_filter() (in module librosa.decompose)</a>
+</li>
+      <li><a href="generated/librosa.util.nnls.html#librosa.util.nnls">nnls() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.normalize.html#librosa.util.normalize">normalize() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.note_to_hz.html#librosa.note_to_hz">note_to_hz() (in module librosa)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.note_to_midi.html#librosa.note_to_midi">note_to_midi() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.note_to_svara_c.html#librosa.note_to_svara_c">note_to_svara_c() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.note_to_svara_h.html#librosa.note_to_svara_h">note_to_svara_h() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.display.NoteFormatter.html#librosa.display.NoteFormatter">NoteFormatter (class in librosa.display)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.octs_to_hz.html#librosa.octs_to_hz">octs_to_hz() (in module librosa)</a>
+</li>
+      <li><a href="glossary.html#term-onset-strength-envelope"><strong>onset (strength) envelope</strong></a>
+</li>
+      <li><a href="generated/librosa.onset.onset_backtrack.html#librosa.onset.onset_backtrack">onset_backtrack() (in module librosa.onset)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.onset.onset_detect.html#librosa.onset.onset_detect">onset_detect() (in module librosa.onset)</a>
+</li>
+      <li><a href="generated/librosa.onset.onset_strength.html#librosa.onset.onset_strength">onset_strength() (in module librosa.onset)</a>
+</li>
+      <li><a href="generated/librosa.onset.onset_strength_multi.html#librosa.onset.onset_strength_multi">onset_strength_multi() (in module librosa.onset)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.util.pad_center.html#librosa.util.pad_center">pad_center() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.segment.path_enhance.html#librosa.segment.path_enhance">path_enhance() (in module librosa.segment)</a>
+</li>
+      <li><a href="generated/librosa.sequence.path_to_steps.html#librosa.sequence.path_to_steps">path_to_steps() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.pcen.html#librosa.pcen">pcen() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.peak_pick.html#librosa.util.peak_pick">peak_pick() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.perceptual_weighting.html#librosa.perceptual_weighting">perceptual_weighting() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.effects.percussive.html#librosa.effects.percussive">percussive() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.phase_vocoder.html#librosa.phase_vocoder">phase_vocoder() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.phasor.html#librosa.util.phasor">phasor() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.piptrack.html#librosa.piptrack">piptrack() (in module librosa)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.effects.pitch_shift.html#librosa.effects.pitch_shift">pitch_shift() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.pitch_tuning.html#librosa.pitch_tuning">pitch_tuning() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.plimit_intervals.html#librosa.plimit_intervals">plimit_intervals() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.beat.plp.html#librosa.beat.plp">plp() (in module librosa.beat)</a>
+</li>
+      <li><a href="generated/librosa.feature.poly_features.html#librosa.feature.poly_features">poly_features() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.power_to_db.html#librosa.power_to_db">power_to_db() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.effects.preemphasis.html#librosa.effects.preemphasis">preemphasis() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.pseudo_cqt.html#librosa.pseudo_cqt">pseudo_cqt() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.pyin.html#librosa.pyin">pyin() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.pythagorean_intervals.html#librosa.pythagorean_intervals">pythagorean_intervals() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.reassigned_spectrogram.html#librosa.reassigned_spectrogram">reassigned_spectrogram() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.segment.recurrence_matrix.html#librosa.segment.recurrence_matrix">recurrence_matrix() (in module librosa.segment)</a>
+</li>
+      <li><a href="generated/librosa.segment.recurrence_to_lag.html#librosa.segment.recurrence_to_lag">recurrence_to_lag() (in module librosa.segment)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.effects.remix.html#librosa.effects.remix">remix() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.resample.html#librosa.resample">resample() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.rms.html#librosa.feature.rms">rms() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.sequence.rqa.html#librosa.sequence.rqa">rqa() (in module librosa.sequence)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.salience.html#librosa.salience">salience() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.samples_like.html#librosa.samples_like">samples_like() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.samples_to_frames.html#librosa.samples_to_frames">samples_to_frames() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.samples_to_time.html#librosa.samples_to_time">samples_to_time() (in module librosa)</a>
+</li>
+      <li><a href="glossary.html#term-sampling-rate"><strong>sampling rate</strong></a>
+</li>
+      <li><a href="generated/librosa.filters.semitone_filterbank.html#librosa.filters.semitone_filterbank">semitone_filterbank() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.util.shear.html#librosa.util.shear">shear() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.softmask.html#librosa.util.softmask">softmask() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.sparsify_rows.html#librosa.util.sparsify_rows">sparsify_rows() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.display.specshow.html#librosa.display.specshow">specshow() (in module librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.feature.spectral_bandwidth.html#librosa.feature.spectral_bandwidth">spectral_bandwidth() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.spectral_centroid.html#librosa.feature.spectral_centroid">spectral_centroid() (in module librosa.feature)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.feature.spectral_contrast.html#librosa.feature.spectral_contrast">spectral_contrast() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.spectral_flatness.html#librosa.feature.spectral_flatness">spectral_flatness() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.spectral_rolloff.html#librosa.feature.spectral_rolloff">spectral_rolloff() (in module librosa.feature)</a>
+</li>
+      <li><a href="glossary.html#term-spectrogram"><strong>spectrogram</strong></a>
+</li>
+      <li><a href="generated/librosa.effects.split.html#librosa.effects.split">split() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.util.stack.html#librosa.util.stack">stack() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.feature.stack_memory.html#librosa.feature.stack_memory">stack_memory() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.stft.html#librosa.stft">stft() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.stream.html#librosa.stream">stream() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.segment.subsegment.html#librosa.segment.subsegment">subsegment() (in module librosa.segment)</a>
+</li>
+      <li><a href="generated/librosa.display.SvaraFormatter.html#librosa.display.SvaraFormatter">SvaraFormatter (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.util.sync.html#librosa.util.sync">sync() (in module librosa.util)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.feature.tempo.html#librosa.feature.tempo">tempo() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.tempo_frequencies.html#librosa.tempo_frequencies">tempo_frequencies() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.tempogram.html#librosa.feature.tempogram">tempogram() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.feature.tempogram_ratio.html#librosa.feature.tempogram_ratio">tempogram_ratio() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.thaat_to_degrees.html#librosa.thaat_to_degrees">thaat_to_degrees() (in module librosa)</a>
+</li>
+      <li><a href="glossary.html#term-time-series"><strong>time series</strong></a>
+</li>
+      <li><a href="generated/librosa.effects.time_stretch.html#librosa.effects.time_stretch">time_stretch() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.time_to_frames.html#librosa.time_to_frames">time_to_frames() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.time_to_samples.html#librosa.time_to_samples">time_to_samples() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.display.TimeFormatter.html#librosa.display.TimeFormatter">TimeFormatter (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.segment.timelag_filter.html#librosa.segment.timelag_filter">timelag_filter() (in module librosa.segment)</a>
+</li>
+      <li><a href="generated/librosa.times_like.html#librosa.times_like">times_like() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.util.tiny.html#librosa.util.tiny">tiny() (in module librosa.util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.to_mono.html#librosa.to_mono">to_mono() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.to_multi.html#librosa.to_multi">to_multi() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.to_stereo.html#librosa.to_stereo">to_stereo() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.tone.html#librosa.tone">tone() (in module librosa)</a>
+</li>
+      <li><a href="generated/librosa.feature.tonnetz.html#librosa.feature.tonnetz">tonnetz() (in module librosa.feature)</a>
+</li>
+      <li><a href="generated/librosa.display.TonnetzFormatter.html#librosa.display.TonnetzFormatter">TonnetzFormatter (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.display.Transformf0.html#librosa.display.Transformf0">Transformf0 (class in librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.sequence.transition_cycle.html#librosa.sequence.transition_cycle">transition_cycle() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.sequence.transition_local.html#librosa.sequence.transition_local">transition_local() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.sequence.transition_loop.html#librosa.sequence.transition_loop">transition_loop() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.sequence.transition_uniform.html#librosa.sequence.transition_uniform">transition_uniform() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.effects.trim.html#librosa.effects.trim">trim() (in module librosa.effects)</a>
+</li>
+      <li><a href="generated/librosa.tuning_to_A4.html#librosa.tuning_to_A4">tuning_to_A4() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.util.valid_audio.html#librosa.util.valid_audio">valid_audio() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.valid_int.html#librosa.util.valid_int">valid_int() (in module librosa.util)</a>
+</li>
+      <li><a href="generated/librosa.util.valid_intervals.html#librosa.util.valid_intervals">valid_intervals() (in module librosa.util)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.sequence.viterbi.html#librosa.sequence.viterbi">viterbi() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.sequence.viterbi_binary.html#librosa.sequence.viterbi_binary">viterbi_binary() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.sequence.viterbi_discriminative.html#librosa.sequence.viterbi_discriminative">viterbi_discriminative() (in module librosa.sequence)</a>
+</li>
+      <li><a href="generated/librosa.vqt.html#librosa.vqt">vqt() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.display.wavebars.html#librosa.display.wavebars">wavebars() (in module librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.display.wavef0.html#librosa.display.wavef0">wavef0() (in module librosa.display)</a>
+</li>
+      <li><a href="generated/librosa.filters.wavelet.html#librosa.filters.wavelet">wavelet() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.filters.wavelet_lengths.html#librosa.filters.wavelet_lengths">wavelet_lengths() (in module librosa.filters)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.display.waveshow.html#librosa.display.waveshow">waveshow() (in module librosa.display)</a>
+</li>
+      <li><a href="glossary.html#term-window"><strong>window</strong></a>
+</li>
+      <li><a href="glossary.html#term-window-length"><strong>window length</strong></a>
+</li>
+      <li><a href="generated/librosa.filters.window_bandwidth.html#librosa.filters.window_bandwidth">window_bandwidth() (in module librosa.filters)</a>
+</li>
+      <li><a href="generated/librosa.filters.window_sumsquare.html#librosa.filters.window_sumsquare">window_sumsquare() (in module librosa.filters)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.yin.html#librosa.yin">yin() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.feature.zero_crossing_rate.html#librosa.feature.zero_crossing_rate">zero_crossing_rate() (in module librosa.feature)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/librosa.zero_crossings.html#librosa.zero_crossings">zero_crossings() (in module librosa)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2013--2026, librosa development team.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+﻿librosa.display.highlight
+=========================
+
+.. currentmodule:: librosa.display
+
+.. autofunction:: highlight
