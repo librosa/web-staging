@@ -13,15 +13,30 @@
 
    .. autosummary::
    
+      ~FJSFormatter.__call__
+      ~FJSFormatter.__delattr__
+      ~FJSFormatter.__dir__
+      ~FJSFormatter.__eq__
+      ~FJSFormatter.__format__
+      ~FJSFormatter.__ge__
+      ~FJSFormatter.__getattribute__
+      ~FJSFormatter.__getstate__
+      ~FJSFormatter.__gt__
+      ~FJSFormatter.__hash__
       ~FJSFormatter.__init__
-      ~FJSFormatter.create_dummy_axis
-      ~FJSFormatter.fix_minus
-      ~FJSFormatter.format_data
-      ~FJSFormatter.format_data_short
-      ~FJSFormatter.format_ticks
-      ~FJSFormatter.get_offset
-      ~FJSFormatter.set_axis
-      ~FJSFormatter.set_locs
+      ~FJSFormatter.__init_subclass__
+      ~FJSFormatter.__le__
+      ~FJSFormatter.__lt__
+      ~FJSFormatter.__ne__
+      ~FJSFormatter.__new__
+      ~FJSFormatter.__reduce__
+      ~FJSFormatter.__reduce_ex__
+      ~FJSFormatter.__repr__
+      ~FJSFormatter.__setattr__
+      ~FJSFormatter.__sizeof__
+      ~FJSFormatter.__str__
+      ~FJSFormatter.__subclasshook__
+      ~FJSFormatter._format_tick
    
    
 
@@ -31,8 +46,15 @@
 
    .. autosummary::
    
+      ~FJSFormatter.__annotations__
+      ~FJSFormatter.__dict__
+      ~FJSFormatter.__doc__
+      ~FJSFormatter.__firstlineno__
+      ~FJSFormatter.__module__
+      ~FJSFormatter.__static_attributes__
+      ~FJSFormatter.__weakref__
+      ~FJSFormatter._locs
       ~FJSFormatter.axis
-      ~FJSFormatter.locs
       ~FJSFormatter.fmin
       ~FJSFormatter.unison
       ~FJSFormatter.unicode
