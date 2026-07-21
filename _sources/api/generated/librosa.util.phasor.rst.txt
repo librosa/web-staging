@@ -1,6 +1,0 @@
-﻿librosa.util.phasor
-===================
-
-.. currentmodule:: librosa.util
-
-.. autofunction:: phasor

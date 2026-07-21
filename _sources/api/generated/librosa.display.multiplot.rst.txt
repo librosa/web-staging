@@ -1,6 +1,0 @@
-﻿librosa.display.multiplot
-=========================
-
-.. currentmodule:: librosa.display
-
-.. autofunction:: multiplot

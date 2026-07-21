@@ -1,6 +1,0 @@
-﻿librosa.f0\_harmonics
-=====================
-
-.. currentmodule:: librosa
-
-.. autofunction:: f0_harmonics

@@ -1,6 +1,0 @@
-﻿librosa.util.cite
-=================
-
-.. currentmodule:: librosa.util
-
-.. autofunction:: cite

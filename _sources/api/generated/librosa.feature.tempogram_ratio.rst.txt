@@ -1,6 +1,0 @@
-﻿librosa.feature.tempogram\_ratio
-================================
-
-.. currentmodule:: librosa.feature
-
-.. autofunction:: tempogram_ratio

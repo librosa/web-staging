@@ -1,6 +1,0 @@
-﻿librosa.note\_to\_svara\_c
-==========================
-
-.. currentmodule:: librosa
-
-.. autofunction:: note_to_svara_c

@@ -1,6 +1,0 @@
-﻿librosa.mela\_to\_degrees
-=========================
-
-.. currentmodule:: librosa
-
-.. autofunction:: mela_to_degrees

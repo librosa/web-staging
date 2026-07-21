@@ -1,6 +1,0 @@
-﻿librosa.feature.hybrid\_tempogram
-=================================
-
-.. currentmodule:: librosa.feature
-
-.. autofunction:: hybrid_tempogram

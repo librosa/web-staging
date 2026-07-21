@@ -1,6 +1,0 @@
-﻿librosa.list\_thaat
-===================
-
-.. currentmodule:: librosa
-
-.. autofunction:: list_thaat

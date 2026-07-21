@@ -1,6 +1,0 @@
-﻿librosa.iirt
-============
-
-.. currentmodule:: librosa
-
-.. autofunction:: iirt

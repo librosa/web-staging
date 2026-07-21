@@ -1,6 +1,0 @@
-﻿librosa.loadx
-=============
-
-.. currentmodule:: librosa
-
-.. autofunction:: loadx

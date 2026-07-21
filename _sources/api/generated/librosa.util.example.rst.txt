@@ -1,6 +1,0 @@
-﻿librosa.util.example
-====================
-
-.. currentmodule:: librosa.util
-
-.. autofunction:: example

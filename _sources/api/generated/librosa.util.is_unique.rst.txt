@@ -1,6 +1,0 @@
-﻿librosa.util.is\_unique
-=======================
-
-.. currentmodule:: librosa.util
-
-.. autofunction:: is_unique

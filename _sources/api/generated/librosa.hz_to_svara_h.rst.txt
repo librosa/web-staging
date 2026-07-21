@@ -1,6 +1,0 @@
-﻿librosa.hz\_to\_svara\_h
-========================
-
-.. currentmodule:: librosa
-
-.. autofunction:: hz_to_svara_h

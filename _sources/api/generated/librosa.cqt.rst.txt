@@ -1,6 +1,0 @@
-﻿librosa.cqt
-===========
-
-.. currentmodule:: librosa
-
-.. autofunction:: cqt

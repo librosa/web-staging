@@ -1,6 +1,0 @@
-﻿librosa.piptrack
-================
-
-.. currentmodule:: librosa
-
-.. autofunction:: piptrack

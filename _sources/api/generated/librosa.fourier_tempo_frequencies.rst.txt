@@ -1,6 +1,0 @@
-﻿librosa.fourier\_tempo\_frequencies
-===================================
-
-.. currentmodule:: librosa
-
-.. autofunction:: fourier_tempo_frequencies

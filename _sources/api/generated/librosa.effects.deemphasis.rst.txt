@@ -1,6 +1,0 @@
-﻿librosa.effects.deemphasis
-==========================
-
-.. currentmodule:: librosa.effects
-
-.. autofunction:: deemphasis

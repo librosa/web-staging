@@ -1,6 +1,0 @@
-﻿librosa.fmt
-===========
-
-.. currentmodule:: librosa
-
-.. autofunction:: fmt

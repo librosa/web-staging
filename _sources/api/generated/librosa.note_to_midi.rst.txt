@@ -1,6 +1,0 @@
-﻿librosa.note\_to\_midi
-======================
-
-.. currentmodule:: librosa
-
-.. autofunction:: note_to_midi

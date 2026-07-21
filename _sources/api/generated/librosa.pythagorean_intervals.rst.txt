@@ -1,6 +1,0 @@
-﻿librosa.pythagorean\_intervals
-==============================
-
-.. currentmodule:: librosa
-
-.. autofunction:: pythagorean_intervals

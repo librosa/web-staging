@@ -1,6 +1,0 @@
-﻿librosa.resample
-================
-
-.. currentmodule:: librosa
-
-.. autofunction:: resample

@@ -1,6 +1,0 @@
-﻿librosa.octs\_to\_hz
-====================
-
-.. currentmodule:: librosa
-
-.. autofunction:: octs_to_hz

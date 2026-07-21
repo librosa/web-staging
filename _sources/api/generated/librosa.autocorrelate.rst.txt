@@ -1,6 +1,0 @@
-﻿librosa.autocorrelate
-=====================
-
-.. currentmodule:: librosa
-
-.. autofunction:: autocorrelate

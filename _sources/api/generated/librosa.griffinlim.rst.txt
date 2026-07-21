@@ -1,6 +1,0 @@
-﻿librosa.griffinlim
-==================
-
-.. currentmodule:: librosa
-
-.. autofunction:: griffinlim

@@ -1,6 +1,0 @@
-﻿librosa.multi\_frequency\_weighting
-===================================
-
-.. currentmodule:: librosa
-
-.. autofunction:: multi_frequency_weighting

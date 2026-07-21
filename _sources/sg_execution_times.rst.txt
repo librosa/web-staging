@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:22.263** total execution time for 15 files **from all galleries**:
+**01:27.189** total execution time for 15 files **from all galleries**:
 
 .. container::
 
@@ -33,47 +33,47 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_plot_patch_generation.py` (``examples/plot_patch_generation.py``)
-     - 00:19.927
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_chroma.py` (``examples/plot_chroma.py``)
-     - 00:14.882
+     - 00:22.016
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_vocal_separation.py` (``examples/plot_vocal_separation.py``)
-     - 00:13.375
+     - 00:14.746
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_chroma.py` (``examples/plot_chroma.py``)
+     - 00:11.155
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_display.py` (``examples/plot_display.py``)
-     - 00:12.112
+     - 00:07.091
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_music_sync.py` (``examples/plot_music_sync.py``)
-     - 00:07.473
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_rainbowgram.py` (``examples/plot_rainbowgram.py``)
-     - 00:04.143
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_segmentation.py` (``examples/plot_segmentation.py``)
-     - 00:02.544
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_hprss.py` (``examples/plot_hprss.py``)
-     - 00:02.510
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_pcen_stream.py` (``examples/plot_pcen_stream.py``)
-     - 00:01.434
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_dynamic_beat.py` (``examples/plot_dynamic_beat.py``)
-     - 00:01.042
+     - 00:06.078
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_audio_playback.py` (``examples/plot_audio_playback.py``)
-     - 00:00.871
+     - 00:05.775
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_viterbi.py` (``examples/plot_viterbi.py``)
-     - 00:00.696
+   * - :ref:`sphx_glr_auto_examples_plot_rainbowgram.py` (``examples/plot_rainbowgram.py``)
+     - 00:04.633
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_dynamic_beat.py` (``examples/plot_dynamic_beat.py``)
+     - 00:03.938
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_segmentation.py` (``examples/plot_segmentation.py``)
+     - 00:03.324
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_hprss.py` (``examples/plot_hprss.py``)
+     - 00:02.764
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_spectral_harmonics.py` (``examples/plot_spectral_harmonics.py``)
-     - 00:00.615
+     - 00:01.668
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_pcen_stream.py` (``examples/plot_pcen_stream.py``)
+     - 00:01.631
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_plot_viterbi.py` (``examples/plot_viterbi.py``)
+     - 00:01.246
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_superflux.py` (``examples/plot_superflux.py``)
-     - 00:00.354
+     - 00:00.585
      - 0.0
    * - :ref:`sphx_glr_auto_examples_plot_presets.py` (``examples/plot_presets.py``)
-     - 00:00.284
+     - 00:00.538
      - 0.0

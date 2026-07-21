@@ -1,6 +1,0 @@
-﻿librosa.clicks
-==============
-
-.. currentmodule:: librosa
-
-.. autofunction:: clicks

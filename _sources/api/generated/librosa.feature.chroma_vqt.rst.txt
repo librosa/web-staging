@@ -1,6 +1,0 @@
-﻿librosa.feature.chroma\_vqt
-===========================
-
-.. currentmodule:: librosa.feature
-
-.. autofunction:: chroma_vqt

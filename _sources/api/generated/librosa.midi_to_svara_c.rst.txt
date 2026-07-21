@@ -1,6 +1,0 @@
-﻿librosa.midi\_to\_svara\_c
-==========================
-
-.. currentmodule:: librosa
-
-.. autofunction:: midi_to_svara_c

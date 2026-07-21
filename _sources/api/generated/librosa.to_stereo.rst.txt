@@ -1,6 +1,0 @@
-﻿librosa.to\_stereo
-==================
-
-.. currentmodule:: librosa
-
-.. autofunction:: to_stereo

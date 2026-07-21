@@ -1,6 +1,0 @@
-﻿librosa.mela\_to\_svara
-=======================
-
-.. currentmodule:: librosa
-
-.. autofunction:: mela_to_svara

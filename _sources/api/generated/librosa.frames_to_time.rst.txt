@@ -1,6 +1,0 @@
-﻿librosa.frames\_to\_time
-========================
-
-.. currentmodule:: librosa
-
-.. autofunction:: frames_to_time

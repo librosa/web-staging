@@ -1,6 +1,0 @@
-﻿librosa.lpc
-===========
-
-.. currentmodule:: librosa
-
-.. autofunction:: lpc

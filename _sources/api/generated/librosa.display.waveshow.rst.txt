@@ -1,6 +1,0 @@
-﻿librosa.display.waveshow
-========================
-
-.. currentmodule:: librosa.display
-
-.. autofunction:: waveshow

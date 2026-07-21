@@ -1,6 +1,0 @@
-﻿librosa.pyin
-============
-
-.. currentmodule:: librosa
-
-.. autofunction:: pyin

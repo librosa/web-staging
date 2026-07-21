@@ -1,6 +1,0 @@
-﻿librosa.zero\_crossings
-=======================
-
-.. currentmodule:: librosa
-
-.. autofunction:: zero_crossings

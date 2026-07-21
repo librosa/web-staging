@@ -1,6 +1,0 @@
-﻿librosa.stream
-==============
-
-.. currentmodule:: librosa
-
-.. autofunction:: stream

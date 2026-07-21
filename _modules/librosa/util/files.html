@@ -31,12 +31,13 @@
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=0017ea29" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=ce423923" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -47,6 +48,7 @@
     <script src="../../../_static/documentation_options.js?v=756f2b42"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../_static/copybutton.js?v=35a8b989"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
@@ -169,8 +171,8 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../auto_tutorials/index.html">
-    Tutorials
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
   </a>
 </li>
 
@@ -308,8 +310,8 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../auto_tutorials/index.html">
-    Tutorials
+  <a class="nav-link nav-internal" href="../../../tutorial.html">
+    Tutorial
   </a>
 </li>
 
@@ -600,7 +602,7 @@
 
 <div class="viewcode-block" id="example_info">
 <a class="viewcode-back" href="../../../generated/librosa.util.example_info.html#librosa.util.example_info">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">example_info</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">html</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">example_info</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Display licensing and metadata information for the given example recording.</span>
 
 <span class="sd">    The first time an example is requested, it will be downloaded from</span>
@@ -617,15 +619,6 @@
 <span class="sd">    ----------</span>
 <span class="sd">    key : str</span>
 <span class="sd">        The identifier for the recording (see `list_examples`)</span>
-<span class="sd">    html : bool</span>
-<span class="sd">        If ``True``, return the information in HTML format.</span>
-<span class="sd">        If ``False``, print the information in plain text format.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    info : str or None</span>
-<span class="sd">        If `html` is ``True``, return the HTML formatted string.</span>
-<span class="sd">        Otherwise, no return value.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -638,23 +631,12 @@
 
     <span class="n">license_file</span> <span class="o">=</span> <span class="n">__GOODBOY</span><span class="o">.</span><span class="n">fetch</span><span class="p">(</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;path&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.txt&quot;</span><span class="p">)</span>
 
-    <span class="n">out</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">license_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fdesc</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">html</span><span class="p">:</span>
-            <span class="n">license_text</span> <span class="o">=</span> <span class="n">fdesc</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-            <span class="n">out</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;&lt;div class=&quot;librosa-example-info&quot;&gt;&#39;</span>
-                <span class="sa">f</span><span class="s2">&quot;&lt;p&gt;&lt;strong&gt;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&lt;/strong&gt;: </span><span class="si">{</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/p&gt;&quot;</span>
-                <span class="sa">f</span><span class="s1">&#39;&lt;pre&gt;</span><span class="si">{</span><span class="n">license_text</span><span class="si">}</span><span class="s1">&lt;/pre&gt;&#39;</span>
-                <span class="sa">f</span><span class="s1">&#39;&lt;/div&gt;&#39;</span>
-            <span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">10s</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">68</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fdesc</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span></div>
 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">:</span><span class="s2">10s</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">__TRACKMAP</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">68</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fdesc</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">out</span></div>
 
 
 <div class="viewcode-block" id="find_files">

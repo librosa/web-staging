@@ -1,6 +1,0 @@
-﻿librosa.pseudo\_cqt
-===================
-
-.. currentmodule:: librosa
-
-.. autofunction:: pseudo_cqt

@@ -1,6 +1,0 @@
-﻿librosa.mel\_to\_hz
-===================
-
-.. currentmodule:: librosa
-
-.. autofunction:: mel_to_hz

@@ -1,6 +1,0 @@
-﻿librosa.util.interp\_broadcast
-==============================
-
-.. currentmodule:: librosa.util
-
-.. autofunction:: interp_broadcast

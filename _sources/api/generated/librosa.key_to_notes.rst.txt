@@ -1,6 +1,0 @@
-﻿librosa.key\_to\_notes
-======================
-
-.. currentmodule:: librosa
-
-.. autofunction:: key_to_notes

@@ -1,6 +1,0 @@
-﻿librosa.cqt\_frequencies
-========================
-
-.. currentmodule:: librosa
-
-.. autofunction:: cqt_frequencies

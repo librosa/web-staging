@@ -1,6 +1,0 @@
-﻿librosa.stft
-============
-
-.. currentmodule:: librosa
-
-.. autofunction:: stft

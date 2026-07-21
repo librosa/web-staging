@@ -1,6 +1,0 @@
-﻿librosa.perceptual\_weighting
-=============================
-
-.. currentmodule:: librosa
-
-.. autofunction:: perceptual_weighting

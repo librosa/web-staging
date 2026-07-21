@@ -1,6 +1,0 @@
-﻿librosa.display.colorbar\_phase
-===============================
-
-.. currentmodule:: librosa.display
-
-.. autofunction:: colorbar_phase

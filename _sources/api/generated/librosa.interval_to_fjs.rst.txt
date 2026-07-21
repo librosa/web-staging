@@ -1,6 +1,0 @@
-﻿librosa.interval\_to\_fjs
-=========================
-
-.. currentmodule:: librosa
-
-.. autofunction:: interval_to_fjs

@@ -1,6 +1,0 @@
-﻿librosa.util.localmin
-=====================
-
-.. currentmodule:: librosa.util
-
-.. autofunction:: localmin

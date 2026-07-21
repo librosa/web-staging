@@ -1,6 +1,0 @@
-﻿librosa.interval\_frequencies
-=============================
-
-.. currentmodule:: librosa
-
-.. autofunction:: interval_frequencies
