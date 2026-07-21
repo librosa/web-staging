@@ -190,14 +190,15 @@ function, but note that the `y_axis` parameter is now different:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 97-118
+.. GENERATED FROM PYTHON SOURCE LINES 97-119
 
 The image above should look somewhat similar to the visualization of the STFT, with
 two exceptions:
-  1. The frequency resolution is lower: we have only 84 frequencies now instead of
-     1025.
-  2. The frequency range is lower: the plot stops at about 4 KHz instead of 11 KHz
-     in the STFT.
+
+    1. The frequency resolution is lower: we have only 84 frequencies now instead of
+       1025.
+    2. The frequency range is lower: the plot stops at about 4 KHz instead of 11 KHz
+       in the STFT.
 
 Both of these can be adjusted by setting parameters in the CQT.
 For example, to use more bins per octave than the default 12, we can set
@@ -214,7 +215,7 @@ parameter.
 Let's create a new CQT, with a higher frequency resolution and a slightly higher
 frequency range.
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-123
+.. GENERATED FROM PYTHON SOURCE LINES 119-124
 
 .. code-block:: Python
 
@@ -230,13 +231,13 @@ frequency range.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-127
+.. GENERATED FROM PYTHON SOURCE LINES 125-128
 
 We can also visualize like before, but we will need to tell `specshow` to use
 the correct number of bins per octave.  (See :ref:`tutorial-display-axes` for more information
 on configuring frequency ranges in `specshow`.)
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-135
+.. GENERATED FROM PYTHON SOURCE LINES 128-136
 
 .. code-block:: Python
 
@@ -260,12 +261,12 @@ on configuring frequency ranges in `specshow`.)
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-138
+.. GENERATED FROM PYTHON SOURCE LINES 137-139
 
 Visually, the CQT plot should now look very similar to the STFT plot we started with.
 However, these are numerically quite different objects:
 
-.. GENERATED FROM PYTHON SOURCE LINES 138-142
+.. GENERATED FROM PYTHON SOURCE LINES 139-143
 
 .. code-block:: Python
 
@@ -287,12 +288,12 @@ However, these are numerically quite different objects:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 143-145
+.. GENERATED FROM PYTHON SOURCE LINES 144-146
 
 Aside from being a smaller representation, the CQT turns out to be a more convenient object to
 work with than the STFT for extracting harmonically related frequency content.
 
-.. GENERATED FROM PYTHON SOURCE LINES 147-155
+.. GENERATED FROM PYTHON SOURCE LINES 148-156
 
 A more complex example
 ----------------------
@@ -303,7 +304,7 @@ note).
 Let's now look at a slightly more complex example, now involving multiple instruments and
 simultaneous notes.
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-161
+.. GENERATED FROM PYTHON SOURCE LINES 156-162
 
 .. code-block:: Python
 
@@ -342,7 +343,7 @@ simultaneous notes.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 163-166
+.. GENERATED FROM PYTHON SOURCE LINES 164-167
 
 .. code-block:: Python
 
@@ -367,11 +368,11 @@ simultaneous notes.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-168
+.. GENERATED FROM PYTHON SOURCE LINES 168-169
 
 As before, we can compute and visualize the CQT of this example.
 
-.. GENERATED FROM PYTHON SOURCE LINES 168-181
+.. GENERATED FROM PYTHON SOURCE LINES 169-182
 
 .. code-block:: Python
 
@@ -400,7 +401,7 @@ As before, we can compute and visualize the CQT of this example.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 182-200
+.. GENERATED FROM PYTHON SOURCE LINES 183-201
 
 Chroma
 ------
@@ -421,7 +422,7 @@ Librosa implements a few methods for constructing chroma representations, but he
 demonstrate the CQT-based method.
 By default, this will use a 36-bin-per-octave CQT spanning 7 octaves.
 
-.. GENERATED FROM PYTHON SOURCE LINES 200-203
+.. GENERATED FROM PYTHON SOURCE LINES 201-204
 
 .. code-block:: Python
 
@@ -435,13 +436,13 @@ By default, this will use a 36-bin-per-octave CQT spanning 7 octaves.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 204-207
+.. GENERATED FROM PYTHON SOURCE LINES 205-208
 
 sphinx_gallery_thumbnail_number = 5
 We can visualize this with `specshow` as well, now setting the `y_axis` mode to `chroma`.
 We'll plot this underneath the CQT plot from above so the two can be directly compared.
 
-.. GENERATED FROM PYTHON SOURCE LINES 207-222
+.. GENERATED FROM PYTHON SOURCE LINES 208-223
 
 .. code-block:: Python
 
@@ -472,7 +473,7 @@ We'll plot this underneath the CQT plot from above so the two can be directly co
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 223-235
+.. GENERATED FROM PYTHON SOURCE LINES 224-236
 
 Each row of the chroma corresponds to a pitch class, and the value corresponds to the amount of
 relative energy detected within that pitch class.
@@ -487,7 +488,7 @@ While it is possible to build a basic chord estimation method using template mat
 involve supervised machine learning, and are out of scope for librosa.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 237-245
+.. GENERATED FROM PYTHON SOURCE LINES 238-246
 
 Summary
 -------
@@ -496,12 +497,12 @@ representing harmonic content in musical signals.
 The methods described above are quite basic, however, and there are numerous ways to improve upon
 them with more advanced pre- and post-processing techniques.
 If you want to learn more about designing effective chroma representations, you may
-want to look at :ref:`sphx_glr_auto_examples_plot_chroma.py`.
+want to look at :ref:`plot_advanced_chroma`.
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.870 seconds)
+   **Total running time of the script:** (0 minutes 1.477 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_01-intro_04-harmony.py:

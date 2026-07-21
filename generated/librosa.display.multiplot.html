@@ -739,20 +739,20 @@
 <dt class="sig sig-object py" id="librosa.display.multiplot">
 <span class="sig-prename descclassname"><span class="pre">librosa.display.</span></span><span class="sig-name descname"><span class="pre">multiplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orient</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'v'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">share_properties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fig_kw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sharey</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label_outer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">titles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop_cycle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/display.html#multiplot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.display.multiplot" title="Link to this definition">#</a></dt>
 <dd><p>Visualize multiple related waveforms or spectrograms on an array of subplots.</p>
-<dl class="simple">
-<dt>Example use cases include:</dt><dd><ul class="simple">
+<p>Example use cases include:</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Displaying multiple waveforms from a multi-channel audio file.</p></li>
 <li><p>Displaying multiple spectrograms from a multi-channel audio file.</p></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>func</strong><span class="classifier">str</span></dt><dd><p>The name of the display function to use for the multiplot. Accepted values are ‘waveshow’,
 ‘wavebars’, and ‘specshow’.</p>
 </dd>
-<dt><strong>*data</strong><span class="classifier">one or more <a href="#id1"><span class="problematic" id="id2">`</span></a>np.ndarray`s</span></dt><dd><p>The input data for the multiplot.
+<dt><strong>*data</strong><span class="classifier">one or more <code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></span></dt><dd><p>The input data for the multiplot.
 If one array is provided, it is interpreted as a multi-channel array, where the leading
 dimensions correspond to different channels or signals to plot.
 If multiple arrays are provided, each array is treated as a single channel or input

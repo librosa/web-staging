@@ -96,10 +96,11 @@ librosa.display.colorbar_db(img, label="dBFS")
 # %%
 # The image above should look somewhat similar to the visualization of the STFT, with
 # two exceptions:
-#   1. The frequency resolution is lower: we have only 84 frequencies now instead of
-#      1025.
-#   2. The frequency range is lower: the plot stops at about 4 KHz instead of 11 KHz
-#      in the STFT.
+#
+#     1. The frequency resolution is lower: we have only 84 frequencies now instead of
+#        1025.
+#     2. The frequency range is lower: the plot stops at about 4 KHz instead of 11 KHz
+#        in the STFT.
 #
 # Both of these can be adjusted by setting parameters in the CQT.
 # For example, to use more bins per octave than the default 12, we can set
@@ -241,5 +242,5 @@ fig.colorbar(imgchroma, ax=ax[1], aspect=20/3)  # aspect compensates for the 3:1
 # The methods described above are quite basic, however, and there are numerous ways to improve upon
 # them with more advanced pre- and post-processing techniques.
 # If you want to learn more about designing effective chroma representations, you may
-# want to look at :ref:`sphx_glr_auto_examples_plot_chroma.py`.
+# want to look at :ref:`plot_advanced_chroma`.
 

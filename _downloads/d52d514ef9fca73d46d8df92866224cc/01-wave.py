@@ -64,7 +64,7 @@ ax.set(title="Trumpet example", xlabel="Time (s)")
 #
 # 1. The visualization becomes dominated by the largest peaks in the signal, and
 # 2. The plot itself becomes computationally heavy due to the number of sample
-# points.
+#    points.
 #
 # To illustrate this, let's load a longer example.
 

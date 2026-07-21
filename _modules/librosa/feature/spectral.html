@@ -561,6 +561,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
@@ -702,6 +703,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
@@ -873,6 +875,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
@@ -1045,6 +1048,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
@@ -1201,6 +1205,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
@@ -1432,6 +1437,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
@@ -1668,6 +1674,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
@@ -2373,6 +2380,7 @@
 <span class="sd">    lifter : number &gt;= 0</span>
 <span class="sd">        If ``lifter&gt;0``, apply *liftering* (cepstral filtering) to the MFCCs::</span>
 <span class="sd">            M[n, :] &lt;- M[n, :] * (1 + sin(pi * (n + 1) / lifter) * lifter / 2)</span>
+
 <span class="sd">        Setting ``lifter &gt;= 2 * n_mfcc`` emphasizes the higher-order coefficients.</span>
 <span class="sd">        As ``lifter`` increases, the coefficient weighting becomes approximately linear.</span>
 <span class="sd">    mel_norm : float, &#39;slaney&#39;, or None</span>
@@ -2391,13 +2399,14 @@
 <span class="sd">        If unspecified, defaults to ``win_length = n_fft``.</span>
 <span class="sd">    window : str, tuple, number, function, or np.ndarray [shape=(n_fft,)]</span>
 <span class="sd">        - a window specification (str, tuple, or number);</span>
-<span class="sd">        see `scipy.signal.get_window`</span>
+<span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>
-<span class="sd">        ``t`` is centered at ``y[t * hop_length]``.</span>
+<span class="sd">          ``t`` is centered at ``y[t * hop_length]``.</span>
 <span class="sd">        - If `False`, then frame ``t`` begins at ``y[t * hop_length]``</span>
 <span class="sd">    pad_mode : str</span>
 <span class="sd">        If ``center=True``, the padding mode to use at the edges of the signal.</span>
@@ -2569,6 +2578,7 @@
 <span class="sd">          see `scipy.signal.get_window`</span>
 <span class="sd">        - a window function, such as `scipy.signal.windows.hann`</span>
 <span class="sd">        - a vector or array of length ``n_fft``</span>
+
 <span class="sd">        .. see also:: `librosa.filters.get_window`</span>
 <span class="sd">    center : bool</span>
 <span class="sd">        - If `True`, the signal ``y`` is padded so that frame</span>

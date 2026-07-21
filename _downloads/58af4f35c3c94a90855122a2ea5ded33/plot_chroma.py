@@ -11,6 +11,8 @@ also, introduces chroma variants implemented in librosa.
 
 ###############################################################################################
 #
+# .. _plot_advanced_chroma:
+#
 # Enhanced chroma
 # ^^^^^^^^^^^^^^^
 # Beyond the default parameter settings of librosa's chroma functions, we apply the following

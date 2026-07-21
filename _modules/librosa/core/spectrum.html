@@ -2249,6 +2249,7 @@
 <span class="sd">    axes: None, &quot;auto&quot;, int, or tuple of int</span>
 <span class="sd">        Axis or axes along which to compute the reference value (if `ref` is callable).</span>
 <span class="sd">        If `auto`, then axes will be inferred as the trailing dimensions of `S`:</span>
+
 <span class="sd">            - If `S` is scalar, then `axes=None`</span>
 <span class="sd">            - If `S` is 1D, then `axes=(-1,)`</span>
 <span class="sd">            - If `S` is &gt;=2D, then `axes=(-2, -1)`</span>
@@ -2464,6 +2465,7 @@
 <span class="sd">    axes : None, &quot;auto&quot;, int, or tuple of int</span>
 <span class="sd">        Axis or axes along which to compute the reference value (if `ref` is callable).</span>
 <span class="sd">        If `auto`, then axes will be inferred as the trailing dimensions of `S`:</span>
+
 <span class="sd">            - If `S` is scalar, then `axes=None`</span>
 <span class="sd">            - If `S` is 1D, then `axes=(-1,)`</span>
 <span class="sd">            - If `S` is &gt;=2D, then `axes=(-2, -1)`</span>
@@ -2659,7 +2661,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Fast Mellin transform (FMT)</span>
 
 <span class="sd">    The Mellin of a signal `y` is performed by interpolating `y` on an exponential time</span>
-<span class="sd">    axis, applying a polynomial window, and then taking the discrete Fourier transform.</span>
+<span class="sd">    axis, applying a polynomial window, and then taking the discrete Fourier transform. [#]_</span>
 
 <span class="sd">    When the Mellin parameter (beta) is 1/2, it is also known as the scale transform. [#]_</span>
 <span class="sd">    The scale transform can be useful for audio analysis because its magnitude is invariant</span>

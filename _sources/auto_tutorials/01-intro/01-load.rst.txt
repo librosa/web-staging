@@ -444,7 +444,7 @@ signal.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.477 seconds)
+   **Total running time of the script:** (0 minutes 0.453 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_01-intro_01-load.py:

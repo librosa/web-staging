@@ -25,7 +25,9 @@ Enhanced chroma and chroma variants
 This notebook demonstrates a variety of techniques for enhancing chroma features and
 also, introduces chroma variants implemented in librosa.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-23
+.. GENERATED FROM PYTHON SOURCE LINES 13-25
+
+.. _plot_advanced_chroma:
 
 Enhanced chroma
 ^^^^^^^^^^^^^^^
@@ -38,7 +40,7 @@ enhancements:
       `Cho and Bello, 2011 <https://zenodo.org/record/1417557>`_.
    3. Local median filtering to suppress remaining discontinuities.
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-35
+.. GENERATED FROM PYTHON SOURCE LINES 26-37
 
 .. code-block:: Python
 
@@ -60,12 +62,12 @@ enhancements:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-39
+.. GENERATED FROM PYTHON SOURCE LINES 39-41
 
 We'll use a track that has harmonic, melodic, and percussive elements
  Karissa Hobbs - Let's Go Fishin'
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-42
+.. GENERATED FROM PYTHON SOURCE LINES 41-44
 
 .. code-block:: Python
 
@@ -79,11 +81,11 @@ We'll use a track that has harmonic, melodic, and percussive elements
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 45-46
 
 First, let's plot the original chroma
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-65
+.. GENERATED FROM PYTHON SOURCE LINES 46-67
 
 .. code-block:: Python
 
@@ -120,12 +122,12 @@ First, let's plot the original chroma
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-68
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 We can do better by isolating the harmonic component of the audio signal.
 We'll use a large margin for separating harmonics from percussives:
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-81
+.. GENERATED FROM PYTHON SOURCE LINES 70-83
 
 .. code-block:: Python
 
@@ -154,13 +156,13 @@ We'll use a large margin for separating harmonics from percussives:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 82-85
+.. GENERATED FROM PYTHON SOURCE LINES 84-87
 
 There's still some noise in there though.
 We can clean it up using non-local filtering.
 This effectively removes any sparse additive noise from the features.
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-100
+.. GENERATED FROM PYTHON SOURCE LINES 87-102
 
 .. code-block:: Python
 
@@ -191,12 +193,12 @@ This effectively removes any sparse additive noise from the features.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 101-103
+.. GENERATED FROM PYTHON SOURCE LINES 103-105
 
 Local discontinuities and transients can be suppressed by
 using a horizontal median filter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-115
+.. GENERATED FROM PYTHON SOURCE LINES 105-117
 
 .. code-block:: Python
 
@@ -224,12 +226,12 @@ using a horizontal median filter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 116-118
+.. GENERATED FROM PYTHON SOURCE LINES 118-120
 
 A final comparison between the CQT, original chromagram
 and the result of our filtering.
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-131
+.. GENERATED FROM PYTHON SOURCE LINES 120-133
 
 .. code-block:: Python
 
@@ -258,7 +260,7 @@ and the result of our filtering.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 132-139
+.. GENERATED FROM PYTHON SOURCE LINES 134-141
 
 Chroma variants
 ^^^^^^^^^^^^^^^
@@ -268,7 +270,7 @@ There are three chroma variants implemented in librosa: `chroma_stft`, `chroma_c
 
 A comparison between the STFT and the CQT methods for chromagram.
 
-.. GENERATED FROM PYTHON SOURCE LINES 139-152
+.. GENERATED FROM PYTHON SOURCE LINES 141-154
 
 .. code-block:: Python
 
@@ -297,7 +299,7 @@ A comparison between the STFT and the CQT methods for chromagram.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 153-167
+.. GENERATED FROM PYTHON SOURCE LINES 155-169
 
 CENS features (`chroma_cens`) are variants of chroma features introduced in
 `Müller and Ewart, 2011 <https://zenodo.org/record/1416032>`_, in which
@@ -314,7 +316,7 @@ Following steps are additional processing done on the chromagram, and are implem
 
 A comparison between the original constant-Q chromagram and the CENS features.
 
-.. GENERATED FROM PYTHON SOURCE LINES 167-176
+.. GENERATED FROM PYTHON SOURCE LINES 169-178
 
 .. code-block:: Python
 
@@ -342,7 +344,7 @@ A comparison between the original constant-Q chromagram and the CENS features.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 15.536 seconds)
+   **Total running time of the script:** (0 minutes 13.409 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_chroma.py:

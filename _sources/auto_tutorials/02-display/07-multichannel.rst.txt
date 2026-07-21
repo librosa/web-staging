@@ -412,7 +412,7 @@ provides a convenient way to create legends that are restricted to a subset of s
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 21.242 seconds)
+   **Total running time of the script:** (0 minutes 21.330 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_02-display_07-multichannel.py:

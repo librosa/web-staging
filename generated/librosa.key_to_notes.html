@@ -765,13 +765,13 @@ key must be lower-case
 <p>Examples: <code class="docutils literal notranslate"><span class="pre">C:maj,</span> <span class="pre">C:major,</span> <span class="pre">Dbb:min,</span> <span class="pre">A♭:min,</span> <span class="pre">D:aeo,</span> <span class="pre">E𝄪:phryg</span></code>.</p>
 </dd>
 <dt><strong>unicode</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code> (default), use Unicode symbols (♯𝄪♭𝄫)for accidentals.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">False</span></code>, Unicode symbols will be mapped to low-order ASCII representations:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>♯ -&gt; #, 𝄪 -&gt; ##, ♭ -&gt; b, 𝄫 -&gt; bb, ♮ -&gt; n
-</pre></div>
-</div>
+<dl class="simple">
+<dt>If <code class="docutils literal notranslate"><span class="pre">False</span></code> Unicode symbols will be mapped to low-order ASCII representations::</dt><dd><p>♯ -&gt; #, 𝄪 -&gt; ##, ♭ -&gt; b, 𝄫 -&gt; bb, ♮ -&gt; n</p>
 </dd>
-<dt><strong>natural</strong><span class="classifier">bool</span></dt><dd><p>If <a href="#id1"><span class="problematic" id="id2">``</span></a>True’’, mark natural accidentals with a natural symbol (♮).</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">False</span></code> (default), do not print natural symbols.</p>
+</dl>
+</dd>
+<dt><strong>natural</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True''</span> <span class="pre">mark</span> <span class="pre">natural</span> <span class="pre">accidentals</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">natural</span> <span class="pre">symbol</span> <span class="pre">(♮).</span>
+<span class="pre">If</span> <span class="pre">``False</span></code> (default), do not print natural symbols.</p>
 <p>For example, <em class="xref py py-obj">note_to_degrees(‘D:maj’)[0]</em> is <em class="xref py py-obj">C</em> if <em class="xref py py-obj">natural=False</em> (default) and <em class="xref py py-obj">C♮</em> if <em class="xref py py-obj">natural=True</em>.</p>
 </dd>
 </dl>
