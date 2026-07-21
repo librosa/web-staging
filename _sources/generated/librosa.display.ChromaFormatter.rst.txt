@@ -13,29 +13,15 @@
 
    .. autosummary::
    
-      ~ChromaFormatter.__call__
-      ~ChromaFormatter.__delattr__
-      ~ChromaFormatter.__dir__
-      ~ChromaFormatter.__eq__
-      ~ChromaFormatter.__format__
-      ~ChromaFormatter.__ge__
-      ~ChromaFormatter.__getattribute__
-      ~ChromaFormatter.__getstate__
-      ~ChromaFormatter.__gt__
-      ~ChromaFormatter.__hash__
       ~ChromaFormatter.__init__
-      ~ChromaFormatter.__init_subclass__
-      ~ChromaFormatter.__le__
-      ~ChromaFormatter.__lt__
-      ~ChromaFormatter.__ne__
-      ~ChromaFormatter.__new__
-      ~ChromaFormatter.__reduce__
-      ~ChromaFormatter.__reduce_ex__
-      ~ChromaFormatter.__repr__
-      ~ChromaFormatter.__setattr__
-      ~ChromaFormatter.__sizeof__
-      ~ChromaFormatter.__str__
-      ~ChromaFormatter.__subclasshook__
+      ~ChromaFormatter.create_dummy_axis
+      ~ChromaFormatter.fix_minus
+      ~ChromaFormatter.format_data
+      ~ChromaFormatter.format_data_short
+      ~ChromaFormatter.format_ticks
+      ~ChromaFormatter.get_offset
+      ~ChromaFormatter.set_axis
+      ~ChromaFormatter.set_locs
    
    
 
@@ -45,15 +31,8 @@
 
    .. autosummary::
    
-      ~ChromaFormatter.__annotations__
-      ~ChromaFormatter.__dict__
-      ~ChromaFormatter.__doc__
-      ~ChromaFormatter.__firstlineno__
-      ~ChromaFormatter.__module__
-      ~ChromaFormatter.__static_attributes__
-      ~ChromaFormatter.__weakref__
-      ~ChromaFormatter._locs
       ~ChromaFormatter.axis
+      ~ChromaFormatter.locs
       ~ChromaFormatter.key
       ~ChromaFormatter.unicode
    

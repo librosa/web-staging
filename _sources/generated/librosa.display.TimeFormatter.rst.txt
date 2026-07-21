@@ -13,29 +13,15 @@
 
    .. autosummary::
    
-      ~TimeFormatter.__call__
-      ~TimeFormatter.__delattr__
-      ~TimeFormatter.__dir__
-      ~TimeFormatter.__eq__
-      ~TimeFormatter.__format__
-      ~TimeFormatter.__ge__
-      ~TimeFormatter.__getattribute__
-      ~TimeFormatter.__getstate__
-      ~TimeFormatter.__gt__
-      ~TimeFormatter.__hash__
       ~TimeFormatter.__init__
-      ~TimeFormatter.__init_subclass__
-      ~TimeFormatter.__le__
-      ~TimeFormatter.__lt__
-      ~TimeFormatter.__ne__
-      ~TimeFormatter.__new__
-      ~TimeFormatter.__reduce__
-      ~TimeFormatter.__reduce_ex__
-      ~TimeFormatter.__repr__
-      ~TimeFormatter.__setattr__
-      ~TimeFormatter.__sizeof__
-      ~TimeFormatter.__str__
-      ~TimeFormatter.__subclasshook__
+      ~TimeFormatter.create_dummy_axis
+      ~TimeFormatter.fix_minus
+      ~TimeFormatter.format_data
+      ~TimeFormatter.format_data_short
+      ~TimeFormatter.format_ticks
+      ~TimeFormatter.get_offset
+      ~TimeFormatter.set_axis
+      ~TimeFormatter.set_locs
    
    
 
@@ -45,15 +31,8 @@
 
    .. autosummary::
    
-      ~TimeFormatter.__annotations__
-      ~TimeFormatter.__dict__
-      ~TimeFormatter.__doc__
-      ~TimeFormatter.__firstlineno__
-      ~TimeFormatter.__module__
-      ~TimeFormatter.__static_attributes__
-      ~TimeFormatter.__weakref__
-      ~TimeFormatter._locs
       ~TimeFormatter.axis
+      ~TimeFormatter.locs
       ~TimeFormatter.unit
       ~TimeFormatter.lag
    

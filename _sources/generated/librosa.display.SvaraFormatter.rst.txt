@@ -13,30 +13,15 @@
 
    .. autosummary::
    
-      ~SvaraFormatter.__call__
-      ~SvaraFormatter.__delattr__
-      ~SvaraFormatter.__dir__
-      ~SvaraFormatter.__eq__
-      ~SvaraFormatter.__format__
-      ~SvaraFormatter.__ge__
-      ~SvaraFormatter.__getattribute__
-      ~SvaraFormatter.__getstate__
-      ~SvaraFormatter.__gt__
-      ~SvaraFormatter.__hash__
       ~SvaraFormatter.__init__
-      ~SvaraFormatter.__init_subclass__
-      ~SvaraFormatter.__le__
-      ~SvaraFormatter.__lt__
-      ~SvaraFormatter.__ne__
-      ~SvaraFormatter.__new__
-      ~SvaraFormatter.__reduce__
-      ~SvaraFormatter.__reduce_ex__
-      ~SvaraFormatter.__repr__
-      ~SvaraFormatter.__setattr__
-      ~SvaraFormatter.__sizeof__
-      ~SvaraFormatter.__str__
-      ~SvaraFormatter.__subclasshook__
-      ~SvaraFormatter._format_tick
+      ~SvaraFormatter.create_dummy_axis
+      ~SvaraFormatter.fix_minus
+      ~SvaraFormatter.format_data
+      ~SvaraFormatter.format_data_short
+      ~SvaraFormatter.format_ticks
+      ~SvaraFormatter.get_offset
+      ~SvaraFormatter.set_axis
+      ~SvaraFormatter.set_locs
    
    
 
@@ -46,15 +31,8 @@
 
    .. autosummary::
    
-      ~SvaraFormatter.__annotations__
-      ~SvaraFormatter.__dict__
-      ~SvaraFormatter.__doc__
-      ~SvaraFormatter.__firstlineno__
-      ~SvaraFormatter.__module__
-      ~SvaraFormatter.__static_attributes__
-      ~SvaraFormatter.__weakref__
-      ~SvaraFormatter._locs
       ~SvaraFormatter.axis
+      ~SvaraFormatter.locs
       ~SvaraFormatter.major
       ~SvaraFormatter.vmin
       ~SvaraFormatter.vmax

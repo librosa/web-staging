@@ -166,7 +166,7 @@ Now we can load in a file and do some analysis with the new defaults
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.538 seconds)
+   **Total running time of the script:** (0 minutes 0.739 seconds)
 
 
 .. _sphx_glr_download_auto_examples_plot_presets.py:

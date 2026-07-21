@@ -13,29 +13,15 @@
 
    .. autosummary::
    
-      ~ChromaSvaraFormatter.__call__
-      ~ChromaSvaraFormatter.__delattr__
-      ~ChromaSvaraFormatter.__dir__
-      ~ChromaSvaraFormatter.__eq__
-      ~ChromaSvaraFormatter.__format__
-      ~ChromaSvaraFormatter.__ge__
-      ~ChromaSvaraFormatter.__getattribute__
-      ~ChromaSvaraFormatter.__getstate__
-      ~ChromaSvaraFormatter.__gt__
-      ~ChromaSvaraFormatter.__hash__
       ~ChromaSvaraFormatter.__init__
-      ~ChromaSvaraFormatter.__init_subclass__
-      ~ChromaSvaraFormatter.__le__
-      ~ChromaSvaraFormatter.__lt__
-      ~ChromaSvaraFormatter.__ne__
-      ~ChromaSvaraFormatter.__new__
-      ~ChromaSvaraFormatter.__reduce__
-      ~ChromaSvaraFormatter.__reduce_ex__
-      ~ChromaSvaraFormatter.__repr__
-      ~ChromaSvaraFormatter.__setattr__
-      ~ChromaSvaraFormatter.__sizeof__
-      ~ChromaSvaraFormatter.__str__
-      ~ChromaSvaraFormatter.__subclasshook__
+      ~ChromaSvaraFormatter.create_dummy_axis
+      ~ChromaSvaraFormatter.fix_minus
+      ~ChromaSvaraFormatter.format_data
+      ~ChromaSvaraFormatter.format_data_short
+      ~ChromaSvaraFormatter.format_ticks
+      ~ChromaSvaraFormatter.get_offset
+      ~ChromaSvaraFormatter.set_axis
+      ~ChromaSvaraFormatter.set_locs
    
    
 
@@ -45,15 +31,8 @@
 
    .. autosummary::
    
-      ~ChromaSvaraFormatter.__annotations__
-      ~ChromaSvaraFormatter.__dict__
-      ~ChromaSvaraFormatter.__doc__
-      ~ChromaSvaraFormatter.__firstlineno__
-      ~ChromaSvaraFormatter.__module__
-      ~ChromaSvaraFormatter.__static_attributes__
-      ~ChromaSvaraFormatter.__weakref__
-      ~ChromaSvaraFormatter._locs
       ~ChromaSvaraFormatter.axis
+      ~ChromaSvaraFormatter.locs
       ~ChromaSvaraFormatter.Sa
       ~ChromaSvaraFormatter.mela
       ~ChromaSvaraFormatter.abbr

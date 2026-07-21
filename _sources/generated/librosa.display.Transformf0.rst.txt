@@ -13,28 +13,25 @@
 
    .. autosummary::
    
-      ~Transformf0.__delattr__
-      ~Transformf0.__dir__
-      ~Transformf0.__eq__
-      ~Transformf0.__format__
-      ~Transformf0.__ge__
-      ~Transformf0.__getattribute__
-      ~Transformf0.__gt__
-      ~Transformf0.__hash__
       ~Transformf0.__init__
-      ~Transformf0.__le__
-      ~Transformf0.__lt__
-      ~Transformf0.__ne__
-      ~Transformf0.__new__
-      ~Transformf0.__reduce__
-      ~Transformf0.__reduce_ex__
-      ~Transformf0.__repr__
-      ~Transformf0.__setattr__
-      ~Transformf0.__sizeof__
-      ~Transformf0.__str__
-      ~Transformf0.__subclasshook__
+      ~Transformf0.contains_branch
+      ~Transformf0.contains_branch_separately
+      ~Transformf0.contains_branch_seperately
+      ~Transformf0.frozen
+      ~Transformf0.get_affine
+      ~Transformf0.get_matrix
+      ~Transformf0.invalidate
       ~Transformf0.inverted
+      ~Transformf0.set_children
+      ~Transformf0.transform
+      ~Transformf0.transform_affine
+      ~Transformf0.transform_angles
+      ~Transformf0.transform_bbox
       ~Transformf0.transform_non_affine
+      ~Transformf0.transform_path
+      ~Transformf0.transform_path_affine
+      ~Transformf0.transform_path_non_affine
+      ~Transformf0.transform_point
    
    
 
@@ -44,16 +41,6 @@
 
    .. autosummary::
    
-      ~Transformf0._INVALID_AFFINE_ONLY
-      ~Transformf0._INVALID_FULL
-      ~Transformf0._VALID
-      ~Transformf0.__annotations__
-      ~Transformf0.__dict__
-      ~Transformf0.__doc__
-      ~Transformf0.__firstlineno__
-      ~Transformf0.__module__
-      ~Transformf0.__static_attributes__
-      ~Transformf0.__weakref__
       ~Transformf0.depth
       ~Transformf0.has_inverse
       ~Transformf0.input_dims

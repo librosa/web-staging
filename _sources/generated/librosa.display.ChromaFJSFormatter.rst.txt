@@ -13,29 +13,15 @@
 
    .. autosummary::
    
-      ~ChromaFJSFormatter.__call__
-      ~ChromaFJSFormatter.__delattr__
-      ~ChromaFJSFormatter.__dir__
-      ~ChromaFJSFormatter.__eq__
-      ~ChromaFJSFormatter.__format__
-      ~ChromaFJSFormatter.__ge__
-      ~ChromaFJSFormatter.__getattribute__
-      ~ChromaFJSFormatter.__getstate__
-      ~ChromaFJSFormatter.__gt__
-      ~ChromaFJSFormatter.__hash__
       ~ChromaFJSFormatter.__init__
-      ~ChromaFJSFormatter.__init_subclass__
-      ~ChromaFJSFormatter.__le__
-      ~ChromaFJSFormatter.__lt__
-      ~ChromaFJSFormatter.__ne__
-      ~ChromaFJSFormatter.__new__
-      ~ChromaFJSFormatter.__reduce__
-      ~ChromaFJSFormatter.__reduce_ex__
-      ~ChromaFJSFormatter.__repr__
-      ~ChromaFJSFormatter.__setattr__
-      ~ChromaFJSFormatter.__sizeof__
-      ~ChromaFJSFormatter.__str__
-      ~ChromaFJSFormatter.__subclasshook__
+      ~ChromaFJSFormatter.create_dummy_axis
+      ~ChromaFJSFormatter.fix_minus
+      ~ChromaFJSFormatter.format_data
+      ~ChromaFJSFormatter.format_data_short
+      ~ChromaFJSFormatter.format_ticks
+      ~ChromaFJSFormatter.get_offset
+      ~ChromaFJSFormatter.set_axis
+      ~ChromaFJSFormatter.set_locs
    
    
 
@@ -45,15 +31,8 @@
 
    .. autosummary::
    
-      ~ChromaFJSFormatter.__annotations__
-      ~ChromaFJSFormatter.__dict__
-      ~ChromaFJSFormatter.__doc__
-      ~ChromaFJSFormatter.__firstlineno__
-      ~ChromaFJSFormatter.__module__
-      ~ChromaFJSFormatter.__static_attributes__
-      ~ChromaFJSFormatter.__weakref__
-      ~ChromaFJSFormatter._locs
       ~ChromaFJSFormatter.axis
+      ~ChromaFJSFormatter.locs
       ~ChromaFJSFormatter.unison
       ~ChromaFJSFormatter.unicode
       ~ChromaFJSFormatter.intervals

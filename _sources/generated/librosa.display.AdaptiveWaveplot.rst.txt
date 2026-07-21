@@ -13,29 +13,7 @@
 
    .. autosummary::
    
-      ~AdaptiveWaveplot.__del__
-      ~AdaptiveWaveplot.__delattr__
-      ~AdaptiveWaveplot.__dir__
-      ~AdaptiveWaveplot.__eq__
-      ~AdaptiveWaveplot.__format__
-      ~AdaptiveWaveplot.__ge__
-      ~AdaptiveWaveplot.__getattribute__
-      ~AdaptiveWaveplot.__getstate__
-      ~AdaptiveWaveplot.__gt__
-      ~AdaptiveWaveplot.__hash__
       ~AdaptiveWaveplot.__init__
-      ~AdaptiveWaveplot.__init_subclass__
-      ~AdaptiveWaveplot.__le__
-      ~AdaptiveWaveplot.__lt__
-      ~AdaptiveWaveplot.__ne__
-      ~AdaptiveWaveplot.__new__
-      ~AdaptiveWaveplot.__reduce__
-      ~AdaptiveWaveplot.__reduce_ex__
-      ~AdaptiveWaveplot.__repr__
-      ~AdaptiveWaveplot.__setattr__
-      ~AdaptiveWaveplot.__sizeof__
-      ~AdaptiveWaveplot.__str__
-      ~AdaptiveWaveplot.__subclasshook__
       ~AdaptiveWaveplot.connect
       ~AdaptiveWaveplot.disconnect
       ~AdaptiveWaveplot.update
@@ -48,13 +26,6 @@
 
    .. autosummary::
    
-      ~AdaptiveWaveplot.__annotations__
-      ~AdaptiveWaveplot.__dict__
-      ~AdaptiveWaveplot.__doc__
-      ~AdaptiveWaveplot.__firstlineno__
-      ~AdaptiveWaveplot.__module__
-      ~AdaptiveWaveplot.__static_attributes__
-      ~AdaptiveWaveplot.__weakref__
       ~AdaptiveWaveplot.ax
       ~AdaptiveWaveplot.envelope
       ~AdaptiveWaveplot.steps

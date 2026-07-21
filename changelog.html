@@ -33,12 +33,12 @@
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=fd6457a4" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=d2898d2d" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=ce423923" />
   
   <!-- So that users can add custom icons -->
   <script defer src="_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
@@ -49,6 +49,7 @@
     <script src="_static/documentation_options.js?v=756f2b42"></script>
     <script src="_static/doctools.js?v=fd6eb6e6"></script>
     <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/sg-tags.js?v=d80f6fa4"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=35a8b989"></script>
     <script src="_static/design-tabs.js?v=f930bc37"></script>
@@ -173,8 +174,8 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="auto_tutorials/index.html">
-    Tutorials
+  <a class="nav-link nav-internal" href="tutorial.html">
+    Tutorial
   </a>
 </li>
 
@@ -314,8 +315,8 @@
   <ul class="bd-navbar-elements navbar-nav">
     
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="auto_tutorials/index.html">
-    Tutorials
+  <a class="nav-link nav-internal" href="tutorial.html">
+    Tutorial
   </a>
 </li>
 
@@ -906,7 +907,7 @@ explicit control for <a class="reference internal" href="generated/librosa.cqt.h
 </ul>
 </dd>
 <dt>Other changes</dt><dd><ul class="simple">
-<li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/1064">#1064</a> unit test suite modernized to support latest <code class="xref py py-obj docutils literal notranslate"><span class="pre">pytest</span></code>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/1064">#1064</a> unit test suite modernized to support latest <em class="xref py py-obj">pytest</em>. <em>Brian McFee</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/1112">#1112</a> numba accelerated <a class="reference internal" href="generated/librosa.feature.stack_memory.html#librosa.feature.stack_memory" title="librosa.feature.stack_memory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.feature.stack_memory</span></code></a>. <em>Brian McFee</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/1120">#1120</a> added reference tuning for pitch conversion utilities. <em>Julia Wilkins</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/1123">#1123</a> fixed Python requirement definition in installation script. <em>Stefan
@@ -1099,7 +1100,7 @@ warning to class <em class="xref py py-obj">FutureWarning</em>. <em>Brian McFee,
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/790">#790</a> removed dependency on deprecated <em class="xref py py-obj">imp</em> module. <em>Brian McFee</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/787">#787</a> fixed typos in CONTRIBUTING documentation. <em>Vincent Lostanlen</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/785">#785</a> removed all run-time assertions in favor of proper exceptions. <em>Brian McFee</em></p></li>
-<li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/783">#783</a> migrated test infrastructure from <em class="xref py py-obj">nose</em> to <code class="xref py py-obj docutils literal notranslate"><span class="pre">pytest</span></code>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/783">#783</a> migrated test infrastructure from <em class="xref py py-obj">nose</em> to <em class="xref py py-obj">pytest</em>. <em>Brian McFee</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/777">#777</a> include LICENSE file in source distribution. <em>toddrme2178</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/issues/769">#769</a> updated documentation in <a class="reference internal" href="generated/librosa.istft.html#librosa.istft" title="librosa.istft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.istft</span></code></a>. <em>Shayenne Moura</em></p></li>
 </ul>
@@ -1307,7 +1308,7 @@ energy. <em>Brian McFee</em></p></li>
 </ul>
 </dd>
 <dt>Other changes</dt><dd><ul class="simple">
-<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/352">#352</a> removed <code class="xref py py-obj docutils literal notranslate"><span class="pre">seaborn</span></code> integration. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/352">#352</a> removed <em class="xref py py-obj">seaborn</em> integration. <em>Brian McFee</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/368">#368</a> rewrite of the <a class="reference internal" href="display.html#module-librosa.display" title="librosa.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display</span></code></a> submodule.  All plots are now in natural coordinates. <em>Brian
 McFee</em></p></li>
 <li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/402">#402</a> <a class="reference internal" href="display.html#module-librosa.display" title="librosa.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display</span></code></a> submodule is not automatically imported. <em>Brian McFee</em></p></li>

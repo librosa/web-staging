@@ -13,30 +13,15 @@
 
    .. autosummary::
    
-      ~NoteFormatter.__call__
-      ~NoteFormatter.__delattr__
-      ~NoteFormatter.__dir__
-      ~NoteFormatter.__eq__
-      ~NoteFormatter.__format__
-      ~NoteFormatter.__ge__
-      ~NoteFormatter.__getattribute__
-      ~NoteFormatter.__getstate__
-      ~NoteFormatter.__gt__
-      ~NoteFormatter.__hash__
       ~NoteFormatter.__init__
-      ~NoteFormatter.__init_subclass__
-      ~NoteFormatter.__le__
-      ~NoteFormatter.__lt__
-      ~NoteFormatter.__ne__
-      ~NoteFormatter.__new__
-      ~NoteFormatter.__reduce__
-      ~NoteFormatter.__reduce_ex__
-      ~NoteFormatter.__repr__
-      ~NoteFormatter.__setattr__
-      ~NoteFormatter.__sizeof__
-      ~NoteFormatter.__str__
-      ~NoteFormatter.__subclasshook__
-      ~NoteFormatter._format_tick
+      ~NoteFormatter.create_dummy_axis
+      ~NoteFormatter.fix_minus
+      ~NoteFormatter.format_data
+      ~NoteFormatter.format_data_short
+      ~NoteFormatter.format_ticks
+      ~NoteFormatter.get_offset
+      ~NoteFormatter.set_axis
+      ~NoteFormatter.set_locs
    
    
 
@@ -46,15 +31,8 @@
 
    .. autosummary::
    
-      ~NoteFormatter.__annotations__
-      ~NoteFormatter.__dict__
-      ~NoteFormatter.__doc__
-      ~NoteFormatter.__firstlineno__
-      ~NoteFormatter.__module__
-      ~NoteFormatter.__static_attributes__
-      ~NoteFormatter.__weakref__
-      ~NoteFormatter._locs
       ~NoteFormatter.axis
+      ~NoteFormatter.locs
       ~NoteFormatter.octave
       ~NoteFormatter.major
       ~NoteFormatter.key

@@ -13,30 +13,15 @@
 
    .. autosummary::
    
-      ~LogHzFormatter.__call__
-      ~LogHzFormatter.__delattr__
-      ~LogHzFormatter.__dir__
-      ~LogHzFormatter.__eq__
-      ~LogHzFormatter.__format__
-      ~LogHzFormatter.__ge__
-      ~LogHzFormatter.__getattribute__
-      ~LogHzFormatter.__getstate__
-      ~LogHzFormatter.__gt__
-      ~LogHzFormatter.__hash__
       ~LogHzFormatter.__init__
-      ~LogHzFormatter.__init_subclass__
-      ~LogHzFormatter.__le__
-      ~LogHzFormatter.__lt__
-      ~LogHzFormatter.__ne__
-      ~LogHzFormatter.__new__
-      ~LogHzFormatter.__reduce__
-      ~LogHzFormatter.__reduce_ex__
-      ~LogHzFormatter.__repr__
-      ~LogHzFormatter.__setattr__
-      ~LogHzFormatter.__sizeof__
-      ~LogHzFormatter.__str__
-      ~LogHzFormatter.__subclasshook__
-      ~LogHzFormatter._format_tick
+      ~LogHzFormatter.create_dummy_axis
+      ~LogHzFormatter.fix_minus
+      ~LogHzFormatter.format_data
+      ~LogHzFormatter.format_data_short
+      ~LogHzFormatter.format_ticks
+      ~LogHzFormatter.get_offset
+      ~LogHzFormatter.set_axis
+      ~LogHzFormatter.set_locs
    
    
 
@@ -46,15 +31,8 @@
 
    .. autosummary::
    
-      ~LogHzFormatter.__annotations__
-      ~LogHzFormatter.__dict__
-      ~LogHzFormatter.__doc__
-      ~LogHzFormatter.__firstlineno__
-      ~LogHzFormatter.__module__
-      ~LogHzFormatter.__static_attributes__
-      ~LogHzFormatter.__weakref__
-      ~LogHzFormatter._locs
       ~LogHzFormatter.axis
+      ~LogHzFormatter.locs
       ~LogHzFormatter.major
       ~LogHzFormatter.vmin
       ~LogHzFormatter.vmax
