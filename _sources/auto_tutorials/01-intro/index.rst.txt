@@ -1,0 +1,172 @@
+
+
+.. _sphx_glr_auto_tutorials_01-intro:
+
+.. _tutorial-intro-index:
+
+Fundamentals
+============
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section introduces the basics of loading audio with librosa.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_01-load_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_01-load.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Getting started with audio data</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section demonstrates how to compute and visualize the frequency content of an audio signal, as well as how to compute a spectrogram for visualizing how frequency content changes over time.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_02-frequency_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_02-frequency.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Frequency and time-frequency analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section demonstrates how to extract the fundamental frequency (f0) from an audio recording.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_03-f0_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_03-f0.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Fundamental frequency</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section introduces tools for analyzing harmonic content of audio recordings.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_04-harmony_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_04-harmony.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Harmony and chroma</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section introduces the problem of detecting musical onsets, and the underlying methods for computing an onset strength envelope. Beyond the direct application of onset detection, the methods introduced here form the basis for rhythm analysis generally, which will be covered in the next section.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_05-onsets_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_05-onsets.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Onset detection</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section covers methods for estimating tempo and beat positions from audio signals.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_06-rhythm_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_06-rhythm.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rhythm analysis</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section introduces common tools for representing the timbral or textural content of audio signals.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_07-timbre_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_07-timbre.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Timbre and spectral content</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This section introduces tools for working with various music notational systems, and converting between them.">
+
+.. only:: html
+
+  .. image:: /auto_tutorials/01-intro/images/thumb/sphx_glr_08-notation_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_tutorials_01-intro_08-notation.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Music notation</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_tutorials/01-intro/01-load
+   /auto_tutorials/01-intro/02-frequency
+   /auto_tutorials/01-intro/03-f0
+   /auto_tutorials/01-intro/04-harmony
+   /auto_tutorials/01-intro/05-onsets
+   /auto_tutorials/01-intro/06-rhythm
+   /auto_tutorials/01-intro/07-timbre
+   /auto_tutorials/01-intro/08-notation
+
