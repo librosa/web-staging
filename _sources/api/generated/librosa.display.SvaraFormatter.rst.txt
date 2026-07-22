@@ -1,0 +1,62 @@
+﻿librosa.display.SvaraFormatter
+==============================
+
+.. currentmodule:: librosa.display
+
+.. autoclass:: SvaraFormatter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SvaraFormatter.__call__
+      ~SvaraFormatter.__delattr__
+      ~SvaraFormatter.__dir__
+      ~SvaraFormatter.__eq__
+      ~SvaraFormatter.__format__
+      ~SvaraFormatter.__ge__
+      ~SvaraFormatter.__getattribute__
+      ~SvaraFormatter.__getstate__
+      ~SvaraFormatter.__gt__
+      ~SvaraFormatter.__hash__
+      ~SvaraFormatter.__init__
+      ~SvaraFormatter.__init_subclass__
+      ~SvaraFormatter.__le__
+      ~SvaraFormatter.__lt__
+      ~SvaraFormatter.__ne__
+      ~SvaraFormatter.__new__
+      ~SvaraFormatter.__reduce__
+      ~SvaraFormatter.__reduce_ex__
+      ~SvaraFormatter.__repr__
+      ~SvaraFormatter.__setattr__
+      ~SvaraFormatter.__sizeof__
+      ~SvaraFormatter.__str__
+      ~SvaraFormatter.__subclasshook__
+      ~SvaraFormatter._format_tick
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SvaraFormatter.__annotations__
+      ~SvaraFormatter.__dict__
+      ~SvaraFormatter.__doc__
+      ~SvaraFormatter.__firstlineno__
+      ~SvaraFormatter.__module__
+      ~SvaraFormatter.__static_attributes__
+      ~SvaraFormatter.__weakref__
+      ~SvaraFormatter._locs
+      ~SvaraFormatter.axis
+      ~SvaraFormatter.major
+      ~SvaraFormatter.vmin
+      ~SvaraFormatter.vmax
+   
+   

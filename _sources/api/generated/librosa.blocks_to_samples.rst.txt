@@ -1,0 +1,6 @@
+﻿librosa.blocks\_to\_samples
+===========================
+
+.. currentmodule:: librosa
+
+.. autofunction:: blocks_to_samples

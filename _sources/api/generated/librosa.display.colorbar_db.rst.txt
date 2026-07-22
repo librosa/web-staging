@@ -1,0 +1,6 @@
+﻿librosa.display.colorbar\_db
+============================
+
+.. currentmodule:: librosa.display
+
+.. autofunction:: colorbar_db

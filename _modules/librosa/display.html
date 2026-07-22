@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -12,8 +12,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -89,7 +89,7 @@
     <script src="../../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -149,8 +149,6 @@
   
   
     
-    
-      
     
     
     <img src="../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
@@ -247,21 +245,6 @@
     role="listbox" aria-labelledby="pst-version-switcher-button-2">
     <!-- dropdown will be populated by javascript on page load -->
   </div>
-</div></div>
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
 </div></div>
       
     </div>
@@ -379,21 +362,6 @@
   </div>
 </div></div>
         
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
       </div>
     
   </div>
@@ -458,49 +426,12 @@
   <h1>Source code for librosa.display</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Display</span>
-<span class="sd">=======</span>
+<span class="sd">&quot;&quot;&quot;Visualizing signals and spectral data.</span>
 
-<span class="sd">Data visualization</span>
-<span class="sd">------------------</span>
-<span class="sd">.. autosummary::</span>
-<span class="sd">    :toctree: generated/</span>
-
-<span class="sd">    specshow</span>
-<span class="sd">    waveshow</span>
-<span class="sd">    wavebars</span>
-<span class="sd">    wavef0</span>
-<span class="sd">    multiplot</span>
-
-<span class="sd">Axis formatting</span>
-<span class="sd">---------------</span>
-<span class="sd">.. autosummary::</span>
-<span class="sd">    :toctree: generated/</span>
-
-<span class="sd">    TimeFormatter</span>
-<span class="sd">    NoteFormatter</span>
-<span class="sd">    SvaraFormatter</span>
-<span class="sd">    FJSFormatter</span>
-<span class="sd">    LogHzFormatter</span>
-<span class="sd">    ChromaFormatter</span>
-<span class="sd">    ChromaSvaraFormatter</span>
-<span class="sd">    ChromaFJSFormatter</span>
-<span class="sd">    TonnetzFormatter</span>
-
-<span class="sd">Miscellaneous</span>
-<span class="sd">-------------</span>
-<span class="sd">.. autosummary::</span>
-<span class="sd">    :toctree: generated/</span>
-
-<span class="sd">    infer_cmap</span>
-<span class="sd">    colorbar_db</span>
-<span class="sd">    colorbar_phase</span>
-<span class="sd">    highlight</span>
-<span class="sd">    legend_for_axes</span>
-<span class="sd">    AdaptiveWaveplot</span>
-<span class="sd">    Transformf0</span>
-
+<span class="sd">Librosa display functionality is built on top of matplotlib.</span>
+<span class="sd">The display module provides a collection of convenience functions</span>
+<span class="sd">that make construction of common visualizations easier, and also provides a set of</span>
+<span class="sd">custom tick formatters for musical axes (time, frequency, pitch, etc.).</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
@@ -637,7 +568,7 @@
 
 
 <div class="viewcode-block" id="TimeFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.TimeFormatter.html#librosa.display.TimeFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.TimeFormatter.html#librosa.display.TimeFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TimeFormatter</span><span class="p">(</span><span class="n">mplticker</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A tick formatter for time axes.</span>
 
@@ -703,7 +634,7 @@
     <span class="n">lag</span><span class="p">:</span> <span class="nb">bool</span>
 
 <div class="viewcode-block" id="TimeFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.TimeFormatter.html#librosa.display.TimeFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.TimeFormatter.html#librosa.display.TimeFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lag</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">unit</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;ms&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
             <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown time unit: </span><span class="si">{</span><span class="n">unit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -797,7 +728,7 @@
 
 
 <div class="viewcode-block" id="NoteFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.NoteFormatter.html#librosa.display.NoteFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.NoteFormatter.html#librosa.display.NoteFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">NoteFormatter</span><span class="p">(</span><span class="n">AdaptiveFormatterBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Ticker formatter for Notes</span>
 
@@ -833,7 +764,7 @@
     <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span>
 
 <div class="viewcode-block" id="NoteFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.NoteFormatter.html#librosa.display.NoteFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.NoteFormatter.html#librosa.display.NoteFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">octave</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -861,7 +792,7 @@
 
 
 <div class="viewcode-block" id="SvaraFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.SvaraFormatter.html#librosa.display.SvaraFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.SvaraFormatter.html#librosa.display.SvaraFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SvaraFormatter</span><span class="p">(</span><span class="n">AdaptiveFormatterBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Ticker formatter for Svara</span>
 
@@ -904,7 +835,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SvaraFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.SvaraFormatter.html#librosa.display.SvaraFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.SvaraFormatter.html#librosa.display.SvaraFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">Sa</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -945,7 +876,7 @@
 
 
 <div class="viewcode-block" id="FJSFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.FJSFormatter.html#librosa.display.FJSFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.FJSFormatter.html#librosa.display.FJSFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">FJSFormatter</span><span class="p">(</span><span class="n">AdaptiveFormatterBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Ticker formatter for Functional Just System (FJS) notation</span>
 
@@ -994,7 +925,7 @@
     <span class="n">frequencies_</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span>
 
 <div class="viewcode-block" id="FJSFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.FJSFormatter.html#librosa.display.FJSFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.FJSFormatter.html#librosa.display.FJSFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1034,7 +965,7 @@
 
 
 <div class="viewcode-block" id="LogHzFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.LogHzFormatter.html#librosa.display.LogHzFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.LogHzFormatter.html#librosa.display.LogHzFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">LogHzFormatter</span><span class="p">(</span><span class="n">AdaptiveFormatterBase</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Ticker formatter for logarithmic frequency</span>
 
@@ -1052,7 +983,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="LogHzFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.LogHzFormatter.html#librosa.display.LogHzFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.LogHzFormatter.html#librosa.display.LogHzFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">major</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">major</span><span class="o">=</span><span class="n">major</span><span class="p">)</span></div>
 
@@ -1087,7 +1018,7 @@
 
 
 <div class="viewcode-block" id="ChromaFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.ChromaFormatter.html#librosa.display.ChromaFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.ChromaFormatter.html#librosa.display.ChromaFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ChromaFormatter</span><span class="p">(</span><span class="n">mplticker</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A formatter for chroma axes</span>
 
@@ -1111,7 +1042,7 @@
     <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span>
 
 <div class="viewcode-block" id="ChromaFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.ChromaFormatter.html#librosa.display.ChromaFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.ChromaFormatter.html#librosa.display.ChromaFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;C:maj&quot;</span><span class="p">,</span> <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="n">key</span>
@@ -1127,7 +1058,7 @@
 
 
 <div class="viewcode-block" id="ChromaSvaraFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.ChromaSvaraFormatter.html#librosa.display.ChromaSvaraFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.ChromaSvaraFormatter.html#librosa.display.ChromaSvaraFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ChromaSvaraFormatter</span><span class="p">(</span><span class="n">mplticker</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A formatter for chroma axes with svara instead of notes.</span>
 
@@ -1165,7 +1096,7 @@
     <span class="n">unicode</span><span class="p">:</span> <span class="nb">bool</span>
 
 <div class="viewcode-block" id="ChromaSvaraFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.ChromaSvaraFormatter.html#librosa.display.ChromaSvaraFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.ChromaSvaraFormatter.html#librosa.display.ChromaSvaraFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">Sa</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1201,7 +1132,7 @@
 
 
 <div class="viewcode-block" id="ChromaFJSFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.ChromaFJSFormatter.html#librosa.display.ChromaFJSFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.ChromaFJSFormatter.html#librosa.display.ChromaFJSFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">ChromaFJSFormatter</span><span class="p">(</span><span class="n">mplticker</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A formatter for chroma axes with functional just notation</span>
 
@@ -1234,7 +1165,7 @@
     <span class="n">intervals_</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">]]</span>
 
 <div class="viewcode-block" id="ChromaFJSFormatter.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.ChromaFJSFormatter.html#librosa.display.ChromaFJSFormatter.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.ChromaFJSFormatter.html#librosa.display.ChromaFJSFormatter.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1280,7 +1211,7 @@
 
 
 <div class="viewcode-block" id="TonnetzFormatter">
-<a class="viewcode-back" href="../../generated/librosa.display.TonnetzFormatter.html#librosa.display.TonnetzFormatter">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.TonnetzFormatter.html#librosa.display.TonnetzFormatter">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TonnetzFormatter</span><span class="p">(</span><span class="n">mplticker</span><span class="o">.</span><span class="n">Formatter</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A formatter for tonnetz axes</span>
 
@@ -1296,7 +1227,7 @@
 
 
 <div class="viewcode-block" id="AdaptiveWaveplot">
-<a class="viewcode-back" href="../../generated/librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">AdaptiveWaveplot</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A helper class for managing adaptive wave visualizations.</span>
 
@@ -1352,7 +1283,7 @@
     <span class="n">label_proxy_</span><span class="p">:</span> <span class="n">_WaveplotDecoy</span>
 
 <div class="viewcode-block" id="AdaptiveWaveplot.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">times</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -1585,7 +1516,7 @@
 
 
 <div class="viewcode-block" id="Transformf0">
-<a class="viewcode-back" href="../../generated/librosa.display.Transformf0.html#librosa.display.Transformf0">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.Transformf0.html#librosa.display.Transformf0">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Transformf0</span><span class="p">(</span><span class="n">mtransforms</span><span class="o">.</span><span class="n">Transform</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A utility class to handle f0-displacement for waveform visualizations.</span>
 
@@ -1631,7 +1562,7 @@
     <span class="n">is_inverted</span><span class="p">:</span> <span class="nb">bool</span>
 
 <div class="viewcode-block" id="Transformf0.__init__">
-<a class="viewcode-back" href="../../generated/librosa.display.Transformf0.html#librosa.display.Transformf0.__init__">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.Transformf0.html#librosa.display.Transformf0.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">f0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -1737,7 +1668,7 @@
 
 
 <div class="viewcode-block" id="infer_cmap">
-<a class="viewcode-back" href="../../generated/librosa.display.infer_cmap.html#librosa.display.infer_cmap">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.infer_cmap.html#librosa.display.infer_cmap">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">infer_cmap</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -1890,7 +1821,7 @@
 
 
 <div class="viewcode-block" id="specshow">
-<a class="viewcode-back" href="../../generated/librosa.display.specshow.html#librosa.display.specshow">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.specshow.html#librosa.display.specshow">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">specshow</span><span class="p">(</span>
     <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -3126,7 +3057,7 @@
 
 
 <div class="viewcode-block" id="waveshow">
-<a class="viewcode-back" href="../../generated/librosa.display.waveshow.html#librosa.display.waveshow">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.waveshow.html#librosa.display.waveshow">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">waveshow</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -3448,7 +3379,7 @@
 
 
 <div class="viewcode-block" id="wavebars">
-<a class="viewcode-back" href="../../generated/librosa.display.wavebars.html#librosa.display.wavebars">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.wavebars.html#librosa.display.wavebars">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">wavebars</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -3635,7 +3566,7 @@
 
 
 <div class="viewcode-block" id="wavef0">
-<a class="viewcode-back" href="../../generated/librosa.display.wavef0.html#librosa.display.wavef0">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.wavef0.html#librosa.display.wavef0">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">wavef0</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -3926,7 +3857,7 @@
 
 
 <div class="viewcode-block" id="colorbar_phase">
-<a class="viewcode-back" href="../../generated/librosa.display.colorbar_phase.html#librosa.display.colorbar_phase">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.colorbar_phase.html#librosa.display.colorbar_phase">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">colorbar_phase</span><span class="p">(</span>
     <span class="n">im</span><span class="p">:</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -4012,7 +3943,7 @@
 
 
 <div class="viewcode-block" id="colorbar_db">
-<a class="viewcode-back" href="../../generated/librosa.display.colorbar_db.html#librosa.display.colorbar_db">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.colorbar_db.html#librosa.display.colorbar_db">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">colorbar_db</span><span class="p">(</span>
     <span class="n">im</span><span class="p">:</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">ScalarMappable</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -4410,7 +4341,7 @@
 
 
 <div class="viewcode-block" id="multiplot">
-<a class="viewcode-back" href="../../generated/librosa.display.multiplot.html#librosa.display.multiplot">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.multiplot.html#librosa.display.multiplot">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">multiplot</span><span class="p">(</span>
     <span class="n">func</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;waveshow&quot;</span><span class="p">,</span> <span class="s2">&quot;wavebars&quot;</span><span class="p">,</span> <span class="s2">&quot;specshow&quot;</span><span class="p">],</span>
     <span class="o">*</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -4597,7 +4528,7 @@
 
 
 <div class="viewcode-block" id="legend_for_axes">
-<a class="viewcode-back" href="../../generated/librosa.display.legend_for_axes.html#librosa.display.legend_for_axes">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.legend_for_axes.html#librosa.display.legend_for_axes">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">legend_for_axes</span><span class="p">(</span>
     <span class="n">axes</span><span class="p">:</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">Axes</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">Axes</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -4729,7 +4660,7 @@
 
 
 <div class="viewcode-block" id="highlight">
-<a class="viewcode-back" href="../../generated/librosa.display.highlight.html#librosa.display.highlight">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.display.highlight.html#librosa.display.highlight">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">highlight</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">artist</span><span class="p">:</span> <span class="n">Artist</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

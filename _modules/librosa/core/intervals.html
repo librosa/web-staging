@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -12,8 +12,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -89,7 +89,7 @@
     <script src="../../../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -149,8 +149,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
@@ -247,21 +245,6 @@
     role="listbox" aria-labelledby="pst-version-switcher-button-2">
     <!-- dropdown will be populated by javascript on page load -->
   </div>
-</div></div>
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
 </div></div>
       
     </div>
@@ -379,21 +362,6 @@
   </div>
 </div></div>
         
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
       </div>
     
   </div>
@@ -483,7 +451,7 @@
 
 
 <div class="viewcode-block" id="interval_frequencies">
-<a class="viewcode-back" href="../../../generated/librosa.interval_frequencies.html#librosa.interval_frequencies">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.interval_frequencies.html#librosa.interval_frequencies">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">interval_frequencies</span><span class="p">(</span>
     <span class="n">n_bins</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -604,7 +572,7 @@
     <span class="o">*</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">return_factors</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span> <span class="o">...</span>
 <div class="viewcode-block" id="pythagorean_intervals">
-<a class="viewcode-back" href="../../../generated/librosa.pythagorean_intervals.html#librosa.pythagorean_intervals">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.pythagorean_intervals.html#librosa.pythagorean_intervals">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">pythagorean_intervals</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span><span class="p">,</span> <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">return_factors</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -763,7 +731,7 @@
     <span class="n">return_factors</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="kc">True</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]:</span> <span class="o">...</span>
 <div class="viewcode-block" id="plimit_intervals">
-<a class="viewcode-back" href="../../../generated/librosa.plimit_intervals.html#librosa.plimit_intervals">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.plimit_intervals.html#librosa.plimit_intervals">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">plimit_intervals</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
@@ -778,7 +746,7 @@
 <span class="sd">    of [#1]_ [#2]_.</span>
 
 <span class="sd">    .. [#1] Tenney, James.</span>
-<span class="sd">        &quot;On `Crystal Growth&#39; in harmonic space (1993--1998).&quot;</span>
+<span class="sd">        &quot;On &#39;Crystal Growth&#39; in harmonic space (1993--1998).&quot;</span>
 <span class="sd">        Contemporary Music Review 27.1 (2008): 47--56.</span>
 
 <span class="sd">    .. [#2] Sabat, Marc, and James Tenney.</span>
@@ -793,10 +761,12 @@
 <span class="sd">        The number of intervals to construct</span>
 <span class="sd">    sort : bool</span>
 <span class="sd">        If `True` then intervals are returned in ascending order.</span>
-<span class="sd">        If `False`, then intervals are returned in crystal growth order.</span>
+
+<span class="sd">        If `False` then intervals are returned in crystal growth order.</span>
 <span class="sd">    return_factors : bool</span>
 <span class="sd">        If `True` then return a list of dictionaries encoding the prime factorization</span>
 <span class="sd">        of each interval as `{2: p2, 3: p3, ...}` (meaning `3**p3 * 2**p2`).</span>
+
 <span class="sd">        If `False` (default), return intervals as an array of floating point numbers.</span>
 
 <span class="sd">    Returns</span>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -12,8 +12,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -89,7 +89,7 @@
     <script src="../../../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -149,8 +149,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
@@ -247,21 +245,6 @@
     role="listbox" aria-labelledby="pst-version-switcher-button-2">
     <!-- dropdown will be populated by javascript on page load -->
   </div>
-</div></div>
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
 </div></div>
       
     </div>
@@ -379,21 +362,6 @@
   </div>
 </div></div>
         
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
       </div>
     
   </div>
@@ -484,7 +452,7 @@
 
 
 <div class="viewcode-block" id="estimate_tuning">
-<a class="viewcode-back" href="../../../generated/librosa.estimate_tuning.html#librosa.estimate_tuning">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.estimate_tuning.html#librosa.estimate_tuning">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">estimate_tuning</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -571,7 +539,7 @@
 
 
 <div class="viewcode-block" id="pitch_tuning">
-<a class="viewcode-back" href="../../../generated/librosa.pitch_tuning.html#librosa.pitch_tuning">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.pitch_tuning.html#librosa.pitch_tuning">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">pitch_tuning</span><span class="p">(</span>
     <span class="n">frequencies</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">resolution</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span> <span class="n">bins_per_octave</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
@@ -643,7 +611,7 @@
 
 
 <div class="viewcode-block" id="piptrack">
-<a class="viewcode-back" href="../../../generated/librosa.piptrack.html#librosa.piptrack">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.piptrack.html#librosa.piptrack">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">piptrack</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
@@ -940,7 +908,7 @@
 
 
 <div class="viewcode-block" id="yin">
-<a class="viewcode-back" href="../../../generated/librosa.yin.html#librosa.yin">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.yin.html#librosa.yin">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">yin</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -1094,7 +1062,7 @@
 
 
 <div class="viewcode-block" id="pyin">
-<a class="viewcode-back" href="../../../generated/librosa.pyin.html#librosa.pyin">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.pyin.html#librosa.pyin">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">pyin</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>

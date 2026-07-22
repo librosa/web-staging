@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../" >
+<html lang="en" data-content_root="../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -12,8 +12,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -89,7 +89,7 @@
     <script src="../../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -149,8 +149,6 @@
   
   
     
-    
-      
     
     
     <img src="../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
@@ -247,21 +245,6 @@
     role="listbox" aria-labelledby="pst-version-switcher-button-2">
     <!-- dropdown will be populated by javascript on page load -->
   </div>
-</div></div>
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
 </div></div>
       
     </div>
@@ -379,21 +362,6 @@
   </div>
 </div></div>
         
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
       </div>
     
   </div>
@@ -459,15 +427,8 @@
 <span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Onset detection</span>
-<span class="sd">===============</span>
-<span class="sd">.. autosummary::</span>
-<span class="sd">    :toctree: generated/</span>
-
-<span class="sd">    onset_detect</span>
-<span class="sd">    onset_backtrack</span>
-<span class="sd">    onset_strength</span>
-<span class="sd">    onset_strength_multi</span>
+<span class="sd">librosa.onset contains functions for computing onset strength envelopes</span>
+<span class="sd">and estimating onset events from audio signals.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
 
@@ -487,7 +448,7 @@
 
 
 <div class="viewcode-block" id="onset_detect">
-<a class="viewcode-back" href="../../generated/librosa.onset.onset_detect.html#librosa.onset.onset_detect">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.onset.onset_detect.html#librosa.onset.onset_detect">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">onset_detect</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -676,7 +637,7 @@
 
 
 <div class="viewcode-block" id="onset_strength">
-<a class="viewcode-back" href="../../generated/librosa.onset.onset_strength.html#librosa.onset.onset_strength">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.onset.onset_strength.html#librosa.onset.onset_strength">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">onset_strength</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -832,7 +793,7 @@
 
 
 <div class="viewcode-block" id="onset_backtrack">
-<a class="viewcode-back" href="../../generated/librosa.onset.onset_backtrack.html#librosa.onset.onset_backtrack">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.onset.onset_backtrack.html#librosa.onset.onset_backtrack">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">onset_backtrack</span><span class="p">(</span><span class="n">events</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">energy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Backtrack detected onset events to the nearest preceding local minimum of an energy function.</span>
 
@@ -909,7 +870,7 @@
 
 
 <div class="viewcode-block" id="onset_strength_multi">
-<a class="viewcode-back" href="../../generated/librosa.onset.onset_strength_multi.html#librosa.onset.onset_strength_multi">[docs]</a>
+<a class="viewcode-back" href="../../api/generated/librosa.onset.onset_strength_multi.html#librosa.onset.onset_strength_multi">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">onset_strength_multi</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>

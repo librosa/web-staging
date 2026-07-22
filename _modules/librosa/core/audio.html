@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../../../" >
+<html lang="en" data-content_root="../../../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -12,8 +12,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -89,7 +89,7 @@
     <script src="../../../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -149,8 +149,6 @@
   
   
     
-    
-      
     
     
     <img src="../../../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
@@ -247,21 +245,6 @@
     role="listbox" aria-labelledby="pst-version-switcher-button-2">
     <!-- dropdown will be populated by javascript on page load -->
   </div>
-</div></div>
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
 </div></div>
       
     </div>
@@ -377,21 +360,6 @@
     role="listbox" aria-labelledby="pst-version-switcher-button-3">
     <!-- dropdown will be populated by javascript on page load -->
   </div>
-</div></div>
-        
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
 </div></div>
         
       </div>
@@ -515,7 +483,7 @@
 <span class="c1"># Load should never be cached, since we cannot verify that the contents of</span>
 <span class="c1"># &#39;path&#39; are unchanged across calls.</span>
 <div class="viewcode-block" id="load">
-<a class="viewcode-back" href="../../../generated/librosa.load.html#librosa.load">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.load.html#librosa.load">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span>
     <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">sf</span><span class="o">.</span><span class="n">SoundFile</span> <span class="o">|</span> <span class="n">BinaryIO</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -681,7 +649,7 @@
 
 
 <div class="viewcode-block" id="stream">
-<a class="viewcode-back" href="../../../generated/librosa.stream.html#librosa.stream">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.stream.html#librosa.stream">[docs]</a>
 <span class="nd">@future_default</span><span class="p">(</span><span class="n">param_name</span><span class="o">=</span><span class="s2">&quot;sr&quot;</span><span class="p">,</span> <span class="n">old_default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">new_default</span><span class="o">=</span><span class="mi">22050</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.1.0&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span>
     <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">sf</span><span class="o">.</span><span class="n">SoundFile</span> <span class="o">|</span> <span class="n">BinaryIO</span><span class="p">,</span>
@@ -997,7 +965,7 @@
 
 
 <div class="viewcode-block" id="loadx">
-<a class="viewcode-back" href="../../../generated/librosa.loadx.html#librosa.loadx">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.loadx.html#librosa.loadx">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">loadx</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">hq</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Load an example audio file by key.</span>
 
@@ -1093,7 +1061,7 @@
 
 
 <div class="viewcode-block" id="to_mono">
-<a class="viewcode-back" href="../../../generated/librosa.to_mono.html#librosa.to_mono">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.to_mono.html#librosa.to_mono">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">to_mono</span><span class="p">(</span>
     <span class="o">*</span><span class="n">signals</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">pad</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -1211,7 +1179,7 @@
 
 
 <div class="viewcode-block" id="to_stereo">
-<a class="viewcode-back" href="../../../generated/librosa.to_stereo.html#librosa.to_stereo">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.to_stereo.html#librosa.to_stereo">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">to_stereo</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">left</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
@@ -1356,7 +1324,7 @@
 
 
 <div class="viewcode-block" id="to_multi">
-<a class="viewcode-back" href="../../../generated/librosa.to_multi.html#librosa.to_multi">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.to_multi.html#librosa.to_multi">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">to_multi</span><span class="p">(</span>
     <span class="o">*</span><span class="n">signals</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
     <span class="n">downmix</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -1475,7 +1443,7 @@
 
 
 <div class="viewcode-block" id="resample">
-<a class="viewcode-back" href="../../../generated/librosa.resample.html#librosa.resample">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.resample.html#librosa.resample">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">resample</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -1659,7 +1627,7 @@
 
 
 <div class="viewcode-block" id="get_duration">
-<a class="viewcode-back" href="../../../generated/librosa.get_duration.html#librosa.get_duration">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.get_duration.html#librosa.get_duration">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_duration</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1769,7 +1737,7 @@
 
 
 <div class="viewcode-block" id="get_samplerate">
-<a class="viewcode-back" href="../../../generated/librosa.get_samplerate.html#librosa.get_samplerate">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.get_samplerate.html#librosa.get_samplerate">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_samplerate</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="n">sf</span><span class="o">.</span><span class="n">SoundFile</span> <span class="o">|</span> <span class="n">BinaryIO</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the sampling rate for a given file.</span>
 
@@ -1802,7 +1770,7 @@
 
 
 <div class="viewcode-block" id="autocorrelate">
-<a class="viewcode-back" href="../../../generated/librosa.autocorrelate.html#librosa.autocorrelate">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.autocorrelate.html#librosa.autocorrelate">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">autocorrelate</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -1883,7 +1851,7 @@
 
 
 <div class="viewcode-block" id="lpc">
-<a class="viewcode-back" href="../../../generated/librosa.lpc.html#librosa.lpc">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.lpc.html#librosa.lpc">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">lpc</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Linear Prediction Coefficients via Burg&#39;s method</span>
 
@@ -2109,7 +2077,7 @@
 
 
 <div class="viewcode-block" id="zero_crossings">
-<a class="viewcode-back" href="../../../generated/librosa.zero_crossings.html#librosa.zero_crossings">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.zero_crossings.html#librosa.zero_crossings">[docs]</a>
 <span class="nd">@cache</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">zero_crossings</span><span class="p">(</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -2223,7 +2191,7 @@
 
 
 <div class="viewcode-block" id="clicks">
-<a class="viewcode-back" href="../../../generated/librosa.clicks.html#librosa.clicks">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.clicks.html#librosa.clicks">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">clicks</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">times</span><span class="p">:</span> <span class="n">_SequenceLike</span><span class="p">[</span><span class="n">_FloatLike_co</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2363,7 +2331,7 @@
 
 
 <div class="viewcode-block" id="tone">
-<a class="viewcode-back" href="../../../generated/librosa.tone.html#librosa.tone">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.tone.html#librosa.tone">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">tone</span><span class="p">(</span>
     <span class="n">frequency</span><span class="p">:</span> <span class="n">_FloatLike_co</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -2438,7 +2406,7 @@
 
 
 <div class="viewcode-block" id="chirp">
-<a class="viewcode-back" href="../../../generated/librosa.chirp.html#librosa.chirp">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.chirp.html#librosa.chirp">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">chirp</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">fmin</span><span class="p">:</span> <span class="n">_FloatLike_co</span><span class="p">,</span>
@@ -2556,7 +2524,7 @@
 
 
 <div class="viewcode-block" id="mu_compress">
-<a class="viewcode-back" href="../../../generated/librosa.mu_compress.html#librosa.mu_compress">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.mu_compress.html#librosa.mu_compress">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">mu_compress</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">_FloatLike_co</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">mu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">255</span><span class="p">,</span> <span class="n">quantize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
@@ -2655,7 +2623,7 @@
 <span class="nd">@overload</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">mu_expand</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">mu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">quantize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span> <span class="o">...</span>
 <div class="viewcode-block" id="mu_expand">
-<a class="viewcode-back" href="../../../generated/librosa.mu_expand.html#librosa.mu_expand">[docs]</a>
+<a class="viewcode-back" href="../../../api/generated/librosa.mu_expand.html#librosa.mu_expand">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">mu_expand</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">_FloatLike_co</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">mu</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">255.0</span><span class="p">,</span> <span class="n">quantize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">floating</span><span class="p">:</span>

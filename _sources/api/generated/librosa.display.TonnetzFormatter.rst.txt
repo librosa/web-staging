@@ -1,0 +1,58 @@
+﻿librosa.display.TonnetzFormatter
+================================
+
+.. currentmodule:: librosa.display
+
+.. autoclass:: TonnetzFormatter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~TonnetzFormatter.__call__
+      ~TonnetzFormatter.__delattr__
+      ~TonnetzFormatter.__dir__
+      ~TonnetzFormatter.__eq__
+      ~TonnetzFormatter.__format__
+      ~TonnetzFormatter.__ge__
+      ~TonnetzFormatter.__getattribute__
+      ~TonnetzFormatter.__getstate__
+      ~TonnetzFormatter.__gt__
+      ~TonnetzFormatter.__hash__
+      ~TonnetzFormatter.__init__
+      ~TonnetzFormatter.__init_subclass__
+      ~TonnetzFormatter.__le__
+      ~TonnetzFormatter.__lt__
+      ~TonnetzFormatter.__ne__
+      ~TonnetzFormatter.__new__
+      ~TonnetzFormatter.__reduce__
+      ~TonnetzFormatter.__reduce_ex__
+      ~TonnetzFormatter.__repr__
+      ~TonnetzFormatter.__setattr__
+      ~TonnetzFormatter.__sizeof__
+      ~TonnetzFormatter.__str__
+      ~TonnetzFormatter.__subclasshook__
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~TonnetzFormatter.__annotations__
+      ~TonnetzFormatter.__dict__
+      ~TonnetzFormatter.__doc__
+      ~TonnetzFormatter.__firstlineno__
+      ~TonnetzFormatter.__module__
+      ~TonnetzFormatter.__static_attributes__
+      ~TonnetzFormatter.__weakref__
+      ~TonnetzFormatter._locs
+      ~TonnetzFormatter.axis
+   
+   

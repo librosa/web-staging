@@ -1,0 +1,6 @@
+﻿librosa.mu\_compress
+====================
+
+.. currentmodule:: librosa
+
+.. autofunction:: mu_compress

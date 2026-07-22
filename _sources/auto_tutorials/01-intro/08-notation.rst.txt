@@ -616,7 +616,7 @@ of pitch and frequency axes in visualizations.  This is covered in more detail i
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.023 seconds)
+   **Total running time of the script:** (0 minutes 0.025 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_01-intro_08-notation.py:

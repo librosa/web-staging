@@ -1,0 +1,6 @@
+﻿librosa.plimit\_intervals
+=========================
+
+.. currentmodule:: librosa
+
+.. autofunction:: plimit_intervals

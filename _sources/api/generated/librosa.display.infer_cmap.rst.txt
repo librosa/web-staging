@@ -1,0 +1,6 @@
+﻿librosa.display.infer\_cmap
+===========================
+
+.. currentmodule:: librosa.display
+
+.. autofunction:: infer_cmap

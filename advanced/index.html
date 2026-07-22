@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="../" >
+<html lang="en" data-content_root="../" data-theme="light">
 
   <head>
     <meta charset="utf-8" />
@@ -13,8 +13,8 @@
   
   
   <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   <!--
     this give us a css class that will be invisible only if js is disabled
@@ -81,7 +81,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Multi-channel" href="../multichannel.html" />
-    <link rel="prev" title="librosa.util.cite" href="../generated/librosa.util.cite.html" />
+    <link rel="prev" title="librosa.util.cite" href="../api/generated/librosa.util.cite.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="1.0.0dev" />
@@ -92,7 +92,7 @@
     <script src="../searchindex.js"></script>
   
   </head>
-  <body data-default-mode="">
+  <body data-default-mode="light">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
@@ -152,8 +152,6 @@
   
   
     
-    
-      
     
     
     <img src="../_static/librosa_logo_text.svg" class="logo__image only-light" alt="librosa"/>
@@ -250,21 +248,6 @@
     role="listbox" aria-labelledby="pst-version-switcher-button-2">
     <!-- dropdown will be populated by javascript on page load -->
   </div>
-</div></div>
-      
-        <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
 </div></div>
       
     </div>
@@ -380,21 +363,6 @@
   </div>
 </div></div>
         
-          <div class="navbar-item">
-
-<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
-    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
-  </button>
-  <ul class="dropdown-menu dropdown-menu-end">
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
-    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
-  </ul>
-</div></div>
-        
       </div>
     
   </div>
@@ -414,18 +382,18 @@
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../filters.html">Filters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.mel.html">librosa.filters.mel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.chroma.html">librosa.filters.chroma</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.wavelet.html">librosa.filters.wavelet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.semitone_filterbank.html">librosa.filters.semitone_filterbank</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.window_bandwidth.html">librosa.filters.window_bandwidth</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.get_window.html">librosa.filters.get_window</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.wavelet_lengths.html">librosa.filters.wavelet_lengths</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.cq_to_chroma.html">librosa.filters.cq_to_chroma</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.mr_frequencies.html">librosa.filters.mr_frequencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.window_sumsquare.html">librosa.filters.window_sumsquare</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../generated/librosa.filters.diagonal_filter.html">librosa.filters.diagonal_filter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../filters.html">Filters and windows</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.mel.html">librosa.filters.mel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.chroma.html">librosa.filters.chroma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.wavelet.html">librosa.filters.wavelet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.semitone_filterbank.html">librosa.filters.semitone_filterbank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.window_bandwidth.html">librosa.filters.window_bandwidth</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.get_window.html">librosa.filters.get_window</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.wavelet_lengths.html">librosa.filters.wavelet_lengths</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.cq_to_chroma.html">librosa.filters.cq_to_chroma</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.mr_frequencies.html">librosa.filters.mr_frequencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.window_sumsquare.html">librosa.filters.window_sumsquare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/generated/librosa.filters.diagonal_filter.html">librosa.filters.diagonal_filter</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
@@ -495,7 +463,7 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters and windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
@@ -515,7 +483,7 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../generated/librosa.util.cite.html"
+       href="../api/generated/librosa.util.cite.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
