@@ -8,23 +8,32 @@ This notebook illustrates how to separate an audio signal into
 its harmonic and percussive components.
 
 We'll compare the original median-filtering based approach of
-`Fitzgerald, 2010 <https://arrow.tudublin.ie/cgi/viewcontent.cgi?article=1078&context=argcon>`_
-and its margin-based extension due to `Dreidger, Mueller and Disch, 2014
-<https://zenodo.org/record/1415226>`_.
+`Fitzgerald, 2010 <https://arrow.tudublin.ie/cgi/viewcontent.cgi?article=1078&context=argcon>`_ [1]_
+and its margin-based extension due to `Driedger, Müller and Disch, 2014 <https://zenodo.org/record/1415226>`_ [2]_.
 
+.. [1] Fitzgerald, D. (2010)
+    Harmonic/Percussive Separation using Median Filtering.
+    13th International Conference on Digital Audio Effects (DAFX10), Graz, Austria, 2010.
 
+.. [2] Jonathan Driedger, Meinard Müller & Sascha Disch. (2014).
+    Extending Harmonic-Percussive Separation of Audio Signals.
+    Proceedings of the 15th International Society for Music Information Retrieval Conference, 611--616. https://doi.org/10.5281/zenodo.1415226
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
 
-from IPython.display import Audio
+from IPython.display import Audio, HTML
 
 import librosa
 
 ########################
 # Load an example clip with harmonics and percussives
 y, sr = librosa.loadx("fishin", duration=5, offset=10)
+HTML(librosa.util.example_info("fishin", html=True))
+
+# %%
+#
 
 Audio(data=y, rate=sr)
 
@@ -47,20 +56,11 @@ rp = np.max(np.abs(D))
 
 fig, ax = plt.subplots(nrows=3, sharex=True, sharey=True)
 
-img = librosa.display.specshow(D, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[0])
-ax[0].set(title="Full spectrogram")
-ax[0].label_outer()
-
-librosa.display.specshow(D_harmonic, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[1])
-ax[1].set(title="Harmonic spectrogram")
-ax[1].label_outer()
-
-librosa.display.specshow(D_percussive, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[2])
-ax[2].set(title="Percussive spectrogram")
-librosa.display.colorbar_db(img, ax=ax)
+imgs = librosa.display.multiplot("specshow", D, D_harmonic, D_percussive,
+                                 vscale=f"dB[{rp}]", y_axis="log", x_axis="time",
+                                 titles=["Full spectrogram", "Harmonic spectrogram", "Percussive spectrogram"],
+                                 axes=ax)
+librosa.display.colorbar_db(imgs[0], ax=ax)
 
 #########################################################################
 # We can also invert the separated spectrograms to play back the audio.
@@ -103,42 +103,14 @@ D_harmonic16, D_percussive16 = librosa.decompose.hpss(D, margin=16)
 # In the plots below, note that vibrato has been suppressed from the harmonic
 # components, and vocals have been suppressed in the percussive components.
 fig, ax = plt.subplots(nrows=5, ncols=2, sharex=True, sharey=True, figsize=(10, 10))
-librosa.display.specshow(D_harmonic, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[0, 0])
+librosa.display.multiplot("specshow", D_harmonic, D_harmonic2, D_harmonic4, D_harmonic8, D_harmonic16,
+                          vscale=f"dB[{rp}]", y_axis="log", x_axis="time", axes=ax[:, 0])
+librosa.display.multiplot("specshow", D_percussive, D_percussive2, D_percussive4, D_percussive8, D_percussive16,
+                          vscale=f"dB[{rp}]", y_axis="log", x_axis="time", axes=ax[:, 1])
 ax[0, 0].set(title="Harmonic")
-
-librosa.display.specshow(D_percussive, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[0, 1])
 ax[0, 1].set(title="Percussive")
-
-librosa.display.specshow(D_harmonic2, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[1, 0])
-
-librosa.display.specshow(D_percussive2, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[1, 1])
-
-librosa.display.specshow(D_harmonic4, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[2, 0])
-
-librosa.display.specshow(D_percussive4, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[2, 1])
-
-librosa.display.specshow(D_harmonic8, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[3, 0])
-
-librosa.display.specshow(D_percussive8, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[3, 1])
-
-librosa.display.specshow(D_harmonic16, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[4, 0])
-
-librosa.display.specshow(D_percussive16, vscale=f"dB[{rp}]",
-                         y_axis="log", x_axis="time", ax=ax[4, 1])
-
 for i in range(5):
     ax[i, 0].set(ylabel="margin={:d}".format(2**i))
-    ax[i, 0].label_outer()
-    ax[i, 1].label_outer()
 
 
 ################################################################################

@@ -59,7 +59,7 @@ We'll need numpy and matplotlib for this example
 
     import numpy as np
     import matplotlib.pyplot as plt
-
+    from IPython.display import Audio, HTML
     import librosa
 
 
@@ -79,20 +79,66 @@ results are harder to visualize.
 .. code-block:: Python
 
     y, sr = librosa.loadx("trumpet", sr=44100)
+    HTML(librosa.util.example_info("trumpet", html=True))
 
 
 
 
 
 
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                <div class="sd-card sd-shadow-sm sd-mb-2">
+                    <div class="sd-card-header sd-font-weight-bold sd-fs-5">
+                        solo trumpet 06
+                    </div>
+                    <div class="sd-card-body sd-p-3">
+                        <div class="sd-card-text sd-text-muted sd-fs-6">
+                            <strong>By:</strong> Mihai Sorohan | <strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a><div><strong>Source:</strong> <a href="https://freesound.org/s/77711/">https://freesound.org/s/77711/</a></div>
+                        </div>
+                    
+                        <details>
+                            <summary>Description</summary>
+                            <p class="sd-card-text sd-mb-2">Part of &quot;Jazz Trumpet Loops Pack in F 90 bpm&quot; by Mihai Sorohan<br>All parts in this pack are in F, mostly Blues and Dorian scale and all are in stereo acidized .wav format, 16 bit, 44.1 khz sample rate, 90 bpm.<br><br>Gear used:<br>- trumpet Bb Amati ATR213<br>- microphone Oktava MK 319<br>- preamp Art Tube MP Project Series<br>- soundcard M-Audio Delta Audiophile 192<br></p>
+                        </details>
+                    </div>
+                </div>
+        
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 38-40
+
+.. code-block:: Python
+
+    Audio(url=librosa.example("trumpet", url=True))
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 37-38
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                    <audio  controls="controls" >
+                        <source src="https://librosa.org/data/audio/sorohanro_-_solo-trumpet-06.ogg" type="audio/ogg" />
+                        Your browser does not support the audio element.
+                    </audio>
+              
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 These parameters are taken directly from the paper
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-47
+.. GENERATED FROM PYTHON SOURCE LINES 42-51
 
 .. code-block:: Python
 
@@ -112,12 +158,12 @@ These parameters are taken directly from the paper
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-50
+.. GENERATED FROM PYTHON SOURCE LINES 52-54
 
 The paper uses a log-frequency representation, but for
 simplicity, we'll use a Mel spectrogram instead.
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-63
+.. GENERATED FROM PYTHON SOURCE LINES 54-67
 
 .. code-block:: Python
 
@@ -146,12 +192,12 @@ simplicity, we'll use a Mel spectrogram instead.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 64-66
+.. GENERATED FROM PYTHON SOURCE LINES 68-70
 
 Now we'll compute the onset strength envelope and onset events
 using the librosa defaults.
 
-.. GENERATED FROM PYTHON SOURCE LINES 66-71
+.. GENERATED FROM PYTHON SOURCE LINES 70-75
 
 .. code-block:: Python
 
@@ -167,11 +213,11 @@ using the librosa defaults.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 72-73
+.. GENERATED FROM PYTHON SOURCE LINES 76-77
 
 And similarly with the superflux method
 
-.. GENERATED FROM PYTHON SOURCE LINES 73-84
+.. GENERATED FROM PYTHON SOURCE LINES 77-88
 
 .. code-block:: Python
 
@@ -193,7 +239,7 @@ And similarly with the superflux method
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 85-91
+.. GENERATED FROM PYTHON SOURCE LINES 89-95
 
 If you look carefully, the default onset detector (top sub-plot) has
 several false positives in high-vibrato regions, eg around 0.62s or
@@ -202,7 +248,7 @@ several false positives in high-vibrato regions, eg around 0.62s or
 The superflux method (middle plot) is less susceptible to vibrato, and
 does not detect onset events at those points.
 
-.. GENERATED FROM PYTHON SOURCE LINES 91-115
+.. GENERATED FROM PYTHON SOURCE LINES 95-119
 
 .. code-block:: Python
 
@@ -245,7 +291,7 @@ does not detect onset events at those points.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.328 seconds)
+   **Total running time of the script:** (0 minutes 0.326 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_superflux.py:

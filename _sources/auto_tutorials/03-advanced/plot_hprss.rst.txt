@@ -26,11 +26,18 @@ This notebook illustrates how to separate an audio signal into
 its harmonic and percussive components.
 
 We'll compare the original median-filtering based approach of
-`Fitzgerald, 2010 <https://arrow.tudublin.ie/cgi/viewcontent.cgi?article=1078&context=argcon>`_
-and its margin-based extension due to `Dreidger, Mueller and Disch, 2014
-<https://zenodo.org/record/1415226>`_.
+`Fitzgerald, 2010 <https://arrow.tudublin.ie/cgi/viewcontent.cgi?article=1078&context=argcon>`_ [1]_
+and its margin-based extension due to `Driedger, Müller and Disch, 2014 <https://zenodo.org/record/1415226>`_ [2]_.
 
-.. GENERATED FROM PYTHON SOURCE LINES 17-25
+.. [1] Fitzgerald, D. (2010)
+    Harmonic/Percussive Separation using Median Filtering.
+    13th International Conference on Digital Audio Effects (DAFX10), Graz, Austria, 2010.
+
+.. [2] Jonathan Driedger, Meinard Müller & Sascha Disch. (2014).
+    Extending Harmonic-Percussive Separation of Audio Signals.
+    Proceedings of the 15th International Society for Music Information Retrieval Conference, 611--616. https://doi.org/10.5281/zenodo.1415226
+
+.. GENERATED FROM PYTHON SOURCE LINES 22-30
 
 .. code-block:: Python
 
@@ -38,7 +45,7 @@ and its margin-based extension due to `Dreidger, Mueller and Disch, 2014
     import numpy as np
     import matplotlib.pyplot as plt
 
-    from IPython.display import Audio
+    from IPython.display import Audio, HTML
 
     import librosa
 
@@ -49,15 +56,50 @@ and its margin-based extension due to `Dreidger, Mueller and Disch, 2014
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-27
+.. GENERATED FROM PYTHON SOURCE LINES 31-32
 
 Load an example clip with harmonics and percussives
 
-.. GENERATED FROM PYTHON SOURCE LINES 27-31
+.. GENERATED FROM PYTHON SOURCE LINES 32-35
 
 .. code-block:: Python
 
     y, sr = librosa.loadx("fishin", duration=5, offset=10)
+    HTML(librosa.util.example_info("fishin", html=True))
+
+
+
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                <div class="sd-card sd-shadow-sm sd-mb-2">
+                    <div class="sd-card-header sd-font-weight-bold sd-fs-5">
+                        Let&#x27;s Go Fishin&#x27;
+                    </div>
+                    <div class="sd-card-body sd-p-3">
+                        <div class="sd-card-text sd-text-muted sd-fs-6">
+                            <strong>By:</strong> Karissa Hobbs | <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA-4.0</a><div><strong>Source:</strong> <a href="https://freemusicarchive.org/music/Karissa_Hobbs/Age_of_Flowers/09_Lets_Go_Fishin/">https://freemusicarchive.org/music/Karissa_Hobbs/Age_of_Flowers/09_Lets_Go_Fishin/</a></div>
+                        </div>
+                    
+                        <details>
+                            <summary>Description</summary>
+                            <p class="sd-card-text sd-mb-2">A pop / folk song with vocals.</p>
+                        </details>
+                    </div>
+                </div>
+        
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 37-40
+
+.. code-block:: Python
+
 
     Audio(data=y, rate=sr)
 
@@ -79,11 +121,11 @@ Load an example clip with harmonics and percussives
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 32-33
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 Compute the short-time Fourier transform of y
 
-.. GENERATED FROM PYTHON SOURCE LINES 33-35
+.. GENERATED FROM PYTHON SOURCE LINES 42-44
 
 .. code-block:: Python
 
@@ -96,13 +138,13 @@ Compute the short-time Fourier transform of y
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-39
+.. GENERATED FROM PYTHON SOURCE LINES 45-48
 
 Decompose D into harmonic and percussive components
 
 :math:`D = D_\text{harmonic} + D_\text{percussive}`
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-42
+.. GENERATED FROM PYTHON SOURCE LINES 48-51
 
 .. code-block:: Python
 
@@ -116,11 +158,11 @@ Decompose D into harmonic and percussive components
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 52-53
 
 We can plot the two components along with the original spectrogram
 
-.. GENERATED FROM PYTHON SOURCE LINES 44-65
+.. GENERATED FROM PYTHON SOURCE LINES 53-65
 
 .. code-block:: Python
 
@@ -130,20 +172,11 @@ We can plot the two components along with the original spectrogram
 
     fig, ax = plt.subplots(nrows=3, sharex=True, sharey=True)
 
-    img = librosa.display.specshow(D, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[0])
-    ax[0].set(title="Full spectrogram")
-    ax[0].label_outer()
-
-    librosa.display.specshow(D_harmonic, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[1])
-    ax[1].set(title="Harmonic spectrogram")
-    ax[1].label_outer()
-
-    librosa.display.specshow(D_percussive, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[2])
-    ax[2].set(title="Percussive spectrogram")
-    librosa.display.colorbar_db(img, ax=ax)
+    imgs = librosa.display.multiplot("specshow", D, D_harmonic, D_percussive,
+                                     vscale=f"dB[{rp}]", y_axis="log", x_axis="time",
+                                     titles=["Full spectrogram", "Harmonic spectrogram", "Percussive spectrogram"],
+                                     axes=ax)
+    librosa.display.colorbar_db(imgs[0], ax=ax)
 
 
 
@@ -260,47 +293,19 @@ Note: the default (above) corresponds to margin=1
 In the plots below, note that vibrato has been suppressed from the harmonic
 components, and vocals have been suppressed in the percussive components.
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-144
+.. GENERATED FROM PYTHON SOURCE LINES 105-116
 
 .. code-block:: Python
 
     fig, ax = plt.subplots(nrows=5, ncols=2, sharex=True, sharey=True, figsize=(10, 10))
-    librosa.display.specshow(D_harmonic, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[0, 0])
+    librosa.display.multiplot("specshow", D_harmonic, D_harmonic2, D_harmonic4, D_harmonic8, D_harmonic16,
+                              vscale=f"dB[{rp}]", y_axis="log", x_axis="time", axes=ax[:, 0])
+    librosa.display.multiplot("specshow", D_percussive, D_percussive2, D_percussive4, D_percussive8, D_percussive16,
+                              vscale=f"dB[{rp}]", y_axis="log", x_axis="time", axes=ax[:, 1])
     ax[0, 0].set(title="Harmonic")
-
-    librosa.display.specshow(D_percussive, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[0, 1])
     ax[0, 1].set(title="Percussive")
-
-    librosa.display.specshow(D_harmonic2, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[1, 0])
-
-    librosa.display.specshow(D_percussive2, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[1, 1])
-
-    librosa.display.specshow(D_harmonic4, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[2, 0])
-
-    librosa.display.specshow(D_percussive4, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[2, 1])
-
-    librosa.display.specshow(D_harmonic8, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[3, 0])
-
-    librosa.display.specshow(D_percussive8, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[3, 1])
-
-    librosa.display.specshow(D_harmonic16, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[4, 0])
-
-    librosa.display.specshow(D_percussive16, vscale=f"dB[{rp}]",
-                             y_axis="log", x_axis="time", ax=ax[4, 1])
-
     for i in range(5):
         ax[i, 0].set(ylabel="margin={:d}".format(2**i))
-        ax[i, 0].label_outer()
-        ax[i, 1].label_outer()
 
 
 
@@ -315,7 +320,7 @@ components, and vocals have been suppressed in the percussive components.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 145-150
+.. GENERATED FROM PYTHON SOURCE LINES 117-122
 
 In the plots above, it looks like margins of 4 or greater are sufficient to
 produce strictly harmonic and percussive components.
@@ -323,7 +328,7 @@ produce strictly harmonic and percussive components.
 We can invert and play those components back just as before.
 Again, starting with the harmonic component:
 
-.. GENERATED FROM PYTHON SOURCE LINES 150-154
+.. GENERATED FROM PYTHON SOURCE LINES 122-126
 
 .. code-block:: Python
 
@@ -349,11 +354,11 @@ Again, starting with the harmonic component:
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-156
+.. GENERATED FROM PYTHON SOURCE LINES 127-128
 
 And the percussive component:
 
-.. GENERATED FROM PYTHON SOURCE LINES 156-159
+.. GENERATED FROM PYTHON SOURCE LINES 128-131
 
 .. code-block:: Python
 
@@ -381,7 +386,7 @@ And the percussive component:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.372 seconds)
+   **Total running time of the script:** (0 minutes 4.991 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_hprss.py:

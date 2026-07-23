@@ -25,7 +25,7 @@ Enhanced chroma and chroma variants
 This notebook demonstrates a variety of techniques for enhancing chroma features and
 also, introduces chroma variants implemented in librosa.
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-25
+.. GENERATED FROM PYTHON SOURCE LINES 13-34
 
 .. _plot_advanced_chroma:
 
@@ -37,20 +37,27 @@ enhancements:
    1. Harmonic-percussive-residual source separation to eliminate transients.
    2. Nearest-neighbor smoothing to eliminate passing tones and sparse noise.  This is inspired by the
       recurrence-based smoothing technique of
-      `Cho and Bello, 2011 <https://zenodo.org/record/1417557>`_.
+      `Cho and Bello, 2011 <https://zenodo.org/record/1417557>`_ [1]_.
    3. Local median filtering to suppress remaining discontinuities.
 
-.. GENERATED FROM PYTHON SOURCE LINES 26-37
+.. [1] Taemin Cho & Juan Pablo Bello. (2011).
+       A Feature Smoothing Method for Chord Recognition Using Recurrence Plots.
+       Proceedings of the 12th International Society for Music Information Retrieval Conference, 651--656.  https://doi.org/10.5281/zenodo.1417557
+
+
+Code source: Brian McFee
+License: ISC
+sphinx_gallery_thumbnail_number = 5
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-44
 
 .. code-block:: Python
 
 
-    # Code source: Brian McFee
-    # License: ISC
-
     import numpy as np
     import scipy
     import matplotlib.pyplot as plt
+    from IPython.display import Audio, HTML
 
     import librosa
 
@@ -62,30 +69,75 @@ enhancements:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-41
+.. GENERATED FROM PYTHON SOURCE LINES 45-46
 
 We'll use a track that has harmonic, melodic, and percussive elements
- Karissa Hobbs - Let's Go Fishin'
 
-.. GENERATED FROM PYTHON SOURCE LINES 41-44
+.. GENERATED FROM PYTHON SOURCE LINES 46-49
 
 .. code-block:: Python
 
     y, sr = librosa.loadx("fishin")
+    HTML(librosa.util.example_info("fishin", html=True))
 
 
 
 
 
 
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                <div class="sd-card sd-shadow-sm sd-mb-2">
+                    <div class="sd-card-header sd-font-weight-bold sd-fs-5">
+                        Let&#x27;s Go Fishin&#x27;
+                    </div>
+                    <div class="sd-card-body sd-p-3">
+                        <div class="sd-card-text sd-text-muted sd-fs-6">
+                            <strong>By:</strong> Karissa Hobbs | <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA-4.0</a><div><strong>Source:</strong> <a href="https://freemusicarchive.org/music/Karissa_Hobbs/Age_of_Flowers/09_Lets_Go_Fishin/">https://freemusicarchive.org/music/Karissa_Hobbs/Age_of_Flowers/09_Lets_Go_Fishin/</a></div>
+                        </div>
+                    
+                        <details>
+                            <summary>Description</summary>
+                            <p class="sd-card-text sd-mb-2">A pop / folk song with vocals.</p>
+                        </details>
+                    </div>
+                </div>
+        
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 51-53
+
+.. code-block:: Python
+
+    Audio(url=librosa.example("fishin", url=True))
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 45-46
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                    <audio  controls="controls" >
+                        <source src="https://librosa.org/data/audio/Karissa_Hobbs_-_Lets_Go_Fishin.ogg" type="audio/ogg" />
+                        Your browser does not support the audio element.
+                    </audio>
+              
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 54-55
 
 First, let's plot the original chroma
 
-.. GENERATED FROM PYTHON SOURCE LINES 46-67
+.. GENERATED FROM PYTHON SOURCE LINES 55-76
 
 .. code-block:: Python
 
@@ -122,12 +174,12 @@ First, let's plot the original chroma
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 68-70
+.. GENERATED FROM PYTHON SOURCE LINES 77-79
 
 We can do better by isolating the harmonic component of the audio signal.
 We'll use a large margin for separating harmonics from percussives:
 
-.. GENERATED FROM PYTHON SOURCE LINES 70-83
+.. GENERATED FROM PYTHON SOURCE LINES 79-92
 
 .. code-block:: Python
 
@@ -156,13 +208,13 @@ We'll use a large margin for separating harmonics from percussives:
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 84-87
+.. GENERATED FROM PYTHON SOURCE LINES 93-96
 
 There's still some noise in there though.
 We can clean it up using non-local filtering.
 This effectively removes any sparse additive noise from the features.
 
-.. GENERATED FROM PYTHON SOURCE LINES 87-102
+.. GENERATED FROM PYTHON SOURCE LINES 96-111
 
 .. code-block:: Python
 
@@ -193,12 +245,12 @@ This effectively removes any sparse additive noise from the features.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 103-105
+.. GENERATED FROM PYTHON SOURCE LINES 112-114
 
 Local discontinuities and transients can be suppressed by
 using a horizontal median filter.
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-117
+.. GENERATED FROM PYTHON SOURCE LINES 114-126
 
 .. code-block:: Python
 
@@ -226,12 +278,12 @@ using a horizontal median filter.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-120
+.. GENERATED FROM PYTHON SOURCE LINES 127-129
 
 A final comparison between the CQT, original chromagram
 and the result of our filtering.
 
-.. GENERATED FROM PYTHON SOURCE LINES 120-133
+.. GENERATED FROM PYTHON SOURCE LINES 129-142
 
 .. code-block:: Python
 
@@ -260,7 +312,7 @@ and the result of our filtering.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 134-141
+.. GENERATED FROM PYTHON SOURCE LINES 143-150
 
 Chroma variants
 ^^^^^^^^^^^^^^^
@@ -270,7 +322,7 @@ There are three chroma variants implemented in librosa: `chroma_stft`, `chroma_c
 
 A comparison between the STFT and the CQT methods for chromagram.
 
-.. GENERATED FROM PYTHON SOURCE LINES 141-154
+.. GENERATED FROM PYTHON SOURCE LINES 150-163
 
 .. code-block:: Python
 
@@ -299,10 +351,10 @@ A comparison between the STFT and the CQT methods for chromagram.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 155-169
+.. GENERATED FROM PYTHON SOURCE LINES 164-183
 
 CENS features (`chroma_cens`) are variants of chroma features introduced in
-`Müller and Ewart, 2011 <https://zenodo.org/record/1416032>`_, in which
+`Müller and Ewart, 2011 <https://zenodo.org/record/1416032>`_ [2]_, in which
 additional post processing steps are performed on the constant-Q chromagram to obtain features
 that are invariant to dynamics and timbre.
 
@@ -314,9 +366,14 @@ Following steps are additional processing done on the chromagram, and are implem
   3. Smoothing with sliding window (optional parameter)
   4. Downsampling (not implemented)
 
+.. [2] Meinard Müller & Sebastian Ewert. (2011).
+       Chroma Toolbox: Matlab Implementations for Extracting Variants of Chroma-Based Audio Features.
+       Proceedings of the 12th International Society for Music Information Retrieval Conference, 215--220.
+       https://doi.org/10.5281/zenodo.1416032
+
 A comparison between the original constant-Q chromagram and the CENS features.
 
-.. GENERATED FROM PYTHON SOURCE LINES 169-178
+.. GENERATED FROM PYTHON SOURCE LINES 183-192
 
 .. code-block:: Python
 
@@ -344,7 +401,7 @@ A comparison between the original constant-Q chromagram and the CENS features.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 13.450 seconds)
+   **Total running time of the script:** (0 minutes 14.330 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_chroma.py:

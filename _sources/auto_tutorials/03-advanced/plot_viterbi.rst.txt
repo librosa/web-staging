@@ -35,11 +35,11 @@ Our working example will be the problem of silence/non-silence detection.
     # Code source: Brian McFee
     # License: ISC
 
-    ##################
     # Standard imports
     import numpy as np
     import matplotlib.pyplot as plt
     import librosa
+    from IPython.display import HTML
 
 
 
@@ -52,19 +52,68 @@ Our working example will be the problem of silence/non-silence detection.
 
 Load an example signal
 
-.. GENERATED FROM PYTHON SOURCE LINES 24-38
+.. GENERATED FROM PYTHON SOURCE LINES 24-27
 
 .. code-block:: Python
 
     y, sr = librosa.loadx("trumpet")
+    HTML(librosa.util.example_info("trumpet", html=True))
 
 
-    # And compute the spectrogram magnitude and phase
+
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                <div class="sd-card sd-shadow-sm sd-mb-2">
+                    <div class="sd-card-header sd-font-weight-bold sd-fs-5">
+                        solo trumpet 06
+                    </div>
+                    <div class="sd-card-body sd-p-3">
+                        <div class="sd-card-text sd-text-muted sd-fs-6">
+                            <strong>By:</strong> Mihai Sorohan | <strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a><div><strong>Source:</strong> <a href="https://freesound.org/s/77711/">https://freesound.org/s/77711/</a></div>
+                        </div>
+                    
+                        <details>
+                            <summary>Description</summary>
+                            <p class="sd-card-text sd-mb-2">Part of &quot;Jazz Trumpet Loops Pack in F 90 bpm&quot; by Mihai Sorohan<br>All parts in this pack are in F, mostly Blues and Dorian scale and all are in stereo acidized .wav format, 16 bit, 44.1 khz sample rate, 90 bpm.<br><br>Gear used:<br>- trumpet Bb Amati ATR213<br>- microphone Oktava MK 319<br>- preamp Art Tube MP Project Series<br>- soundcard M-Audio Delta Audiophile 192<br></p>
+                        </details>
+                    </div>
+                </div>
+        
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 28-29
+
+And compute the spectrogram magnitude and phase
+
+.. GENERATED FROM PYTHON SOURCE LINES 29-32
+
+.. code-block:: Python
+
     S_full, phase = librosa.magphase(librosa.stft(y))
 
 
-    ###################
-    # Plot the spectrum
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 33-34
+
+Plot the spectrum
+
+.. GENERATED FROM PYTHON SOURCE LINES 34-39
+
+.. code-block:: Python
+
     fig, ax = plt.subplots()
     img = librosa.display.specshow(S_full, vscale="dBFS",
                                    y_axis="log", x_axis="time", sr=sr, ax=ax)
@@ -82,13 +131,13 @@ Load an example signal
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 39-42
+.. GENERATED FROM PYTHON SOURCE LINES 40-43
 
 As you can see, there are periods of silence and
 non-silence throughout this recording.
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-53
+.. GENERATED FROM PYTHON SOURCE LINES 43-54
 
 .. code-block:: Python
 
@@ -115,14 +164,12 @@ non-silence throughout this recording.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 54-58
+.. GENERATED FROM PYTHON SOURCE LINES 55-70
 
 The red line at 0.02 indicates a reasonable threshold for silence detection.
 However, the RMS curve occasionally dips below the threshold momentarily,
 and we would prefer the detector to not count these brief dips as silence.
 This is where the Viterbi algorithm comes in handy!
-
-.. GENERATED FROM PYTHON SOURCE LINES 60-70
 
 As a first step, we will convert the raw RMS score
 into a likelihood (probability) by logistic mapping
@@ -366,7 +413,7 @@ likely to change states.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.625 seconds)
+   **Total running time of the script:** (0 minutes 0.860 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_viterbi.py:

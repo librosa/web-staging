@@ -53,7 +53,7 @@ sphinx_gallery_thumbnail_path = '_static/playback-thumbnail.png'
     import librosa
 
     # We'll need IPython.display's Audio widget
-    from IPython.display import Audio
+    from IPython.display import Audio, HTML
 
     # We'll also use `mir_eval` to synthesize a signal for us
     import mir_eval.sonify
@@ -141,12 +141,47 @@ in the same way.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-58
+.. GENERATED FROM PYTHON SOURCE LINES 57-59
+
+.. code-block:: Python
+
+    HTML(librosa.util.example_info("trumpet", html=True))
+
+
+
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                <div class="sd-card sd-shadow-sm sd-mb-2">
+                    <div class="sd-card-header sd-font-weight-bold sd-fs-5">
+                        solo trumpet 06
+                    </div>
+                    <div class="sd-card-body sd-p-3">
+                        <div class="sd-card-text sd-text-muted sd-fs-6">
+                            <strong>By:</strong> Mihai Sorohan | <strong>License:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a><div><strong>Source:</strong> <a href="https://freesound.org/s/77711/">https://freesound.org/s/77711/</a></div>
+                        </div>
+                    
+                        <details>
+                            <summary>Description</summary>
+                            <p class="sd-card-text sd-mb-2">Part of &quot;Jazz Trumpet Loops Pack in F 90 bpm&quot; by Mihai Sorohan<br>All parts in this pack are in F, mostly Blues and Dorian scale and all are in stereo acidized .wav format, 16 bit, 44.1 khz sample rate, 90 bpm.<br><br>Gear used:<br>- trumpet Bb Amati ATR213<br>- microphone Oktava MK 319<br>- preamp Art Tube MP Project Series<br>- soundcard M-Audio Delta Audiophile 192<br></p>
+                        </details>
+                    </div>
+                </div>
+        
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 60-62
 
 If you're playing back packaged examples, you can also use the `url` argument to construct
 the Audio widget directly from a URL.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-62
+.. GENERATED FROM PYTHON SOURCE LINES 62-66
 
 .. code-block:: Python
 
@@ -172,7 +207,7 @@ the Audio widget directly from a URL.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 63-71
+.. GENERATED FROM PYTHON SOURCE LINES 67-75
 
 Sonifying pitch estimates
 -------------------------
@@ -183,7 +218,7 @@ fundamental frequency estimator.
 We'll do this using `librosa.pyin` for analysis,
 and `mir_eval.sonify.pitch_contour` for synthesis.
 
-.. GENERATED FROM PYTHON SOURCE LINES 71-82
+.. GENERATED FROM PYTHON SOURCE LINES 75-86
 
 .. code-block:: Python
 
@@ -205,7 +240,7 @@ and `mir_eval.sonify.pitch_contour` for synthesis.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 83-90
+.. GENERATED FROM PYTHON SOURCE LINES 87-94
 
 mir_eval's synthesizer uses negative f0 values to indicate
 unvoiced regions.
@@ -215,7 +250,7 @@ We'll make an array vneg which is 1 for voiced frames, and
 This way, `f0 * vneg` will leave voiced estimates unchanged,
 and negate the frequency for unvoiced frames.
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-97
+.. GENERATED FROM PYTHON SOURCE LINES 94-101
 
 .. code-block:: Python
 
@@ -244,7 +279,7 @@ and negate the frequency for unvoiced frames.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 98-111
+.. GENERATED FROM PYTHON SOURCE LINES 102-115
 
 Sonifying mixtures
 ------------------
@@ -260,7 +295,7 @@ and hear them both.
 For this to work, we need to ensure that both the synthesized
 click track and the original signal are of the same length.
 
-.. GENERATED FROM PYTHON SOURCE LINES 111-122
+.. GENERATED FROM PYTHON SOURCE LINES 115-126
 
 .. code-block:: Python
 
@@ -282,11 +317,11 @@ click track and the original signal are of the same length.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 123-124
+.. GENERATED FROM PYTHON SOURCE LINES 127-128
 
 We can play back the original signal mixed with the click track by adding them together.
 
-.. GENERATED FROM PYTHON SOURCE LINES 124-126
+.. GENERATED FROM PYTHON SOURCE LINES 128-130
 
 .. code-block:: Python
 
@@ -310,12 +345,12 @@ We can play back the original signal mixed with the click track by adding them t
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 127-129
+.. GENERATED FROM PYTHON SOURCE LINES 131-133
 
 Sometimes it's helpful to keep the original signal and the click track separate.
 This can be done using a stereo output as follows:
 
-.. GENERATED FROM PYTHON SOURCE LINES 129-132
+.. GENERATED FROM PYTHON SOURCE LINES 133-136
 
 .. code-block:: Python
 
@@ -340,7 +375,7 @@ This can be done using a stereo output as follows:
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 133-150
+.. GENERATED FROM PYTHON SOURCE LINES 137-154
 
 Caveats
 -------
@@ -363,7 +398,7 @@ Finally, some important things to note when using interactive playback:
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.281 seconds)
+   **Total running time of the script:** (0 minutes 0.860 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_audio_playback.py:

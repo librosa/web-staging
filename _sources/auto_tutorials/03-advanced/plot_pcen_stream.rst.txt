@@ -42,7 +42,7 @@ We'll need numpy and matplotlib for this example
 
     import numpy as np
     import matplotlib.pyplot as plt
-
+    from IPython.display import HTML
 
     import librosa
 
@@ -58,25 +58,48 @@ We'll need numpy and matplotlib for this example
 
 First, we'll start with an audio file that we want to stream
 
-.. GENERATED FROM PYTHON SOURCE LINES 31-33
+.. GENERATED FROM PYTHON SOURCE LINES 31-34
 
 .. code-block:: Python
 
     filename = librosa.ex("humpback")
+    HTML(librosa.util.example_info("humpback", html=True))
 
 
 
 
 
 
+.. raw:: html
 
+    <div class="output_subarea output_html rendered_html output_result">
 
-.. GENERATED FROM PYTHON SOURCE LINES 34-36
+                <div class="sd-card sd-shadow-sm sd-mb-2">
+                    <div class="sd-card-header sd-font-weight-bold sd-fs-5">
+                        Glacier Bay
+                    </div>
+                    <div class="sd-card-body sd-p-3">
+                        <div class="sd-card-text sd-text-muted sd-fs-6">
+                            <strong>By:</strong> Recorded by NPS - Chris Gabriele | <strong>License:</strong> <a href="https://creativecommons.org/publicdomain/mark/1.0/">CC-PDM-1.0</a><div><strong>Source:</strong> <a href="https://www.nps.gov/glba/learn/nature/soundclips.htm">https://www.nps.gov/glba/learn/nature/soundclips.htm</a></div>
+                        </div>
+                        <div><strong>Corpus:</strong> Sounds recorded in Glacier Bay</div>
+                        <details>
+                            <summary>Description</summary>
+                            <p class="sd-card-text sd-mb-2">2020 humpback whale song recorded at Glacier Bay National Park and Preserve, 2020/11/16.<br><br>Archive: https://web.archive.org/web/20220626001629/https://www.nps.gov/media/video/view.htm?id=D3F232B5-04F0-4545-9485-9A2F889ED152<br></p>
+                        </details>
+                    </div>
+                </div>
+        
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 35-37
 
 Next, we'll set up the block reader to work on short segments of
 audio at a time.
 
-.. GENERATED FROM PYTHON SOURCE LINES 36-55
+.. GENERATED FROM PYTHON SOURCE LINES 37-56
 
 .. code-block:: Python
 
@@ -106,12 +129,12 @@ audio at a time.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 56-58
+.. GENERATED FROM PYTHON SOURCE LINES 57-59
 
 For this example, we'll compute PCEN on each block, find the maximum
 response over frequency, and store the results in a list.
 
-.. GENERATED FROM PYTHON SOURCE LINES 58-87
+.. GENERATED FROM PYTHON SOURCE LINES 59-88
 
 .. code-block:: Python
 
@@ -151,12 +174,12 @@ response over frequency, and store the results in a list.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 88-90
+.. GENERATED FROM PYTHON SOURCE LINES 89-91
 
 For the sake of comparison, let's see how it would look had we
 run PCEN on the entire spectrum without block-wise processing
 
-.. GENERATED FROM PYTHON SOURCE LINES 90-103
+.. GENERATED FROM PYTHON SOURCE LINES 91-104
 
 .. code-block:: Python
 
@@ -180,11 +203,11 @@ run PCEN on the entire spectrum without block-wise processing
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 104-105
+.. GENERATED FROM PYTHON SOURCE LINES 105-106
 
 Plot the PCEN spectrum and the resulting magnitudes
 
-.. GENERATED FROM PYTHON SOURCE LINES 105-122
+.. GENERATED FROM PYTHON SOURCE LINES 106-123
 
 .. code-block:: Python
 
@@ -220,7 +243,7 @@ Plot the PCEN spectrum and the resulting magnitudes
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 1.409 seconds)
+   **Total running time of the script:** (0 minutes 2.016 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_pcen_stream.py:

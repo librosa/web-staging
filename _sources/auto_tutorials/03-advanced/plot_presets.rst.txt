@@ -42,14 +42,14 @@ default parameters for librosa.
 
 .. GENERATED FROM PYTHON SOURCE LINES 15-16
 
-We'll need numpy and matplotlib for this example
+We'll need matplotlib for this example
 
 .. GENERATED FROM PYTHON SOURCE LINES 16-24
 
 .. code-block:: Python
 
     import matplotlib.pyplot as plt
-
+    from IPython.display import HTML  # for rendering example metadata
     # Import the Preset class
     from presets import Preset
 
@@ -107,24 +107,88 @@ and all function calls, and overriding default arguments.
 
 Now we can load in a file and do some analysis with the new defaults
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-92
+.. GENERATED FROM PYTHON SOURCE LINES 53-58
 
 .. code-block:: Python
 
     filename = librosa.ex("fishin")
 
     y, sr = librosa.load(filename, duration=5, offset=35)
+    HTML(librosa.util.example_info("fishin", html=True))
 
-    # Generate a Mel spectrogram:
+
+
+
+
+
+.. raw:: html
+
+    <div class="output_subarea output_html rendered_html output_result">
+
+                <div class="sd-card sd-shadow-sm sd-mb-2">
+                    <div class="sd-card-header sd-font-weight-bold sd-fs-5">
+                        Let&#x27;s Go Fishin&#x27;
+                    </div>
+                    <div class="sd-card-body sd-p-3">
+                        <div class="sd-card-text sd-text-muted sd-fs-6">
+                            <strong>By:</strong> Karissa Hobbs | <strong>License:</strong> <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY-NC-SA-4.0</a><div><strong>Source:</strong> <a href="https://freemusicarchive.org/music/Karissa_Hobbs/Age_of_Flowers/09_Lets_Go_Fishin/">https://freemusicarchive.org/music/Karissa_Hobbs/Age_of_Flowers/09_Lets_Go_Fishin/</a></div>
+                        </div>
+                    
+                        <details>
+                            <summary>Description</summary>
+                            <p class="sd-card-text sd-mb-2">A pop / folk song with vocals.</p>
+                        </details>
+                    </div>
+                </div>
+        
+    </div>
+    <br />
+    <br />
+
+.. GENERATED FROM PYTHON SOURCE LINES 59-60
+
+Generate a Mel spectrogram:
+
+.. GENERATED FROM PYTHON SOURCE LINES 60-63
+
+.. code-block:: Python
+
 
     M = librosa.feature.melspectrogram(y=y)
 
-    # Of course, you can still override the new default manually, e.g.:
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 64-65
+
+Of course, you can still override the new default manually, e.g.:
+
+.. GENERATED FROM PYTHON SOURCE LINES 65-68
+
+.. code-block:: Python
+
 
     M_highres = librosa.feature.melspectrogram(y=y, hop_length=512)
 
 
-    # And plot the results
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 69-70
+
+And plot the results
+
+.. GENERATED FROM PYTHON SOURCE LINES 70-95
+
+.. code-block:: Python
+
     fig, ax = plt.subplots(nrows=3, sharex=True, sharey=True)
 
     librosa.display.specshow(M, vscale="dBFS[power]",
@@ -165,7 +229,7 @@ Now we can load in a file and do some analysis with the new defaults
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.270 seconds)
+   **Total running time of the script:** (0 minutes 0.455 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_03-advanced_plot_presets.py:
