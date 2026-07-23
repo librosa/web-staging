@@ -23,7 +23,7 @@ Annotations and mir_eval integration
 This section illustrates integration of librosa display with the `mir_eval` library's utilities
 for visualizing annotations.
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-38
+.. GENERATED FROM PYTHON SOURCE LINES 11-40
 
 .. _tutorial-display-mireval:
 
@@ -33,6 +33,8 @@ such as estimated event timings (onsets or beats), pitch trajectories, or labele
 In some of the earlier sections of this tutorial, we have seen how to plot these kinds of
 annotations using `matplotlib` directly.  However, the `mir_eval` library provides a set of
 utilities for visualizing annotations in a more direct and convenient way.
+In this final section of the display tutorial, we'll show how to use both
+of these packages together to visualize annotations alongside signal content.
 
 mir_eval.display
 ----------------
@@ -53,7 +55,7 @@ We can also ask `pyin` to fill in a best guess by using `fill_na=None`, and indi
 unvoiced regions by a negative value.
 `mir_eval` will detect this and shade the unvoiced regions in the plot.
 
-.. GENERATED FROM PYTHON SOURCE LINES 38-48
+.. GENERATED FROM PYTHON SOURCE LINES 40-50
 
 .. code-block:: Python
 
@@ -96,11 +98,11 @@ unvoiced regions by a negative value.
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 49-50
+.. GENERATED FROM PYTHON SOURCE LINES 51-52
 
 Estimate the f0 using pyin
 
-.. GENERATED FROM PYTHON SOURCE LINES 50-78
+.. GENERATED FROM PYTHON SOURCE LINES 52-62
 
 .. code-block:: Python
 
@@ -113,16 +115,31 @@ Estimate the f0 using pyin
     # Everywhere that `voiced_flag[i]` is False, we will multiply `f0[i]` by -1.
     f0_voiced_unvoiced = f0 * (-1) ** (~voiced_flag)
 
-    # Get the time values for f0
-    times = librosa.times_like(f0, sr=sr)
 
-    # Visualize the spectrogram using specshow and
-    # overlay f0 using mir_eval.display.pitch
+
+
+
+
+
+
+
+.. GENERATED FROM PYTHON SOURCE LINES 64-66
+
+Visualize the spectrogram using specshow and
+overlay f0 using mir_eval.display.pitch
+
+.. GENERATED FROM PYTHON SOURCE LINES 66-83
+
+.. code-block:: Python
+
 
     fig, ax = plt.subplots()
     stft = librosa.stft(y)
     librosa.display.specshow(stft, vscale="dBFS", x_axis="time", y_axis="log_oct3", ax=ax)
     hl = librosa.display.highlight(ax=ax, linewidth=6)
+
+    # Get the time values for f0
+    times = librosa.times_like(f0, sr=sr)
     mir_eval.display.pitch(times, f0_voiced_unvoiced,
                            ax=ax,
                            unvoiced=True,
@@ -144,14 +161,14 @@ Estimate the f0 using pyin
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 80-84
+.. GENERATED FROM PYTHON SOURCE LINES 84-88
 
 In the plot above, we can now clearly see the that the detected unvoiced region at the end of
 the signal (from times 4.3 to 5.0 seconds) is drawn in a lighter color.
 Visualizing unvoiced regions in this way can be helpful for understanding the behavior of f0
 estimation on certain examples, in particular when it makes voicing estimation errors.
 
-.. GENERATED FROM PYTHON SOURCE LINES 86-94
+.. GENERATED FROM PYTHON SOURCE LINES 90-98
 
 Event timings
 -------------
@@ -162,7 +179,7 @@ of the trumpet signal, and then visualize them using `mir_eval.display.events`.
 This can be overlaid on any plot with a horizontal time axis, such as a waveform or
 spectrogram.  Here we'll show both.
 
-.. GENERATED FROM PYTHON SOURCE LINES 94-108
+.. GENERATED FROM PYTHON SOURCE LINES 98-112
 
 .. code-block:: Python
 
@@ -192,14 +209,14 @@ spectrogram.  Here we'll show both.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 109-113
+.. GENERATED FROM PYTHON SOURCE LINES 113-117
 
 Events can also be labeled with text, which can be useful for visualizing beat events with
 metrical position.
 For this example, we'll use a longer musical excerpt and detect beats using
 `librosa.beat.beat_track`.
 
-.. GENERATED FROM PYTHON SOURCE LINES 113-117
+.. GENERATED FROM PYTHON SOURCE LINES 117-121
 
 .. code-block:: Python
 
@@ -236,11 +253,11 @@ For this example, we'll use a longer musical excerpt and detect beats using
     <br />
     <br />
 
-.. GENERATED FROM PYTHON SOURCE LINES 118-119
+.. GENERATED FROM PYTHON SOURCE LINES 122-123
 
 Detect beats and visualize them with mir_eval.display.events
 
-.. GENERATED FROM PYTHON SOURCE LINES 119-135
+.. GENERATED FROM PYTHON SOURCE LINES 123-139
 
 .. code-block:: Python
 
@@ -272,14 +289,14 @@ Detect beats and visualize them with mir_eval.display.events
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 136-140
+.. GENERATED FROM PYTHON SOURCE LINES 140-144
 
 Labeled intervals
 -----------------
 Probably the most common type of annotation in audio data is a collection of labeled time
 intervals.
 
-.. GENERATED FROM PYTHON SOURCE LINES 140-176
+.. GENERATED FROM PYTHON SOURCE LINES 144-180
 
 .. code-block:: Python
 
@@ -331,7 +348,7 @@ intervals.
 
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 177-184
+.. GENERATED FROM PYTHON SOURCE LINES 181-188
 
 In the plot above, each segment is labeled according to the detected note within the
 time interval, and `mir_eval.display.segments` automatically colors each segment according to
@@ -341,14 +358,14 @@ any kind of labeled segmentation can be visualized in this way.
 The :ref:`segmentation example <tutorial-segmentation-laplacian>` shows similar usage in the
 context of structural analysis.
 
-.. GENERATED FROM PYTHON SOURCE LINES 186-195
+.. GENERATED FROM PYTHON SOURCE LINES 190-199
 
 Summary
 -------
 Librosa and `mir_eval` can be used together to visualize annotations and signal content
 together.
 The examples above illustrate only the simplest and most common uses, but there are many more
-things that you can do with `mir_eval.display`, including visualizing multiple f0 estimates, 
+things that you can do with `mir_eval.display`, including visualizing multiple f0 estimates,
 piano roll displays, or comparison of different annotations.
 Here we have focused on just the functionality that most clearly integrates with waveform or
 spectrogram displays.
@@ -356,7 +373,7 @@ spectrogram displays.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 3.226 seconds)
+   **Total running time of the script:** (0 minutes 2.023 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_02-display_08-mireval.py:

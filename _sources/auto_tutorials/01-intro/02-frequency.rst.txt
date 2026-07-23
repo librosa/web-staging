@@ -595,7 +595,7 @@ section of the display tutorial.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.994 seconds)
+   **Total running time of the script:** (0 minutes 0.996 seconds)
 
 
 .. _sphx_glr_download_auto_tutorials_01-intro_02-frequency.py:

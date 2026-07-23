@@ -16,6 +16,8 @@ for visualizing annotations.
 # In some of the earlier sections of this tutorial, we have seen how to plot these kinds of
 # annotations using `matplotlib` directly.  However, the `mir_eval` library provides a set of
 # utilities for visualizing annotations in a more direct and convenient way.
+# In this final section of the display tutorial, we'll show how to use both
+# of these packages together to visualize annotations alongside signal content.
 #
 # mir_eval.display
 # ----------------
@@ -57,9 +59,8 @@ f0, voiced_flag, voiced_probs = librosa.pyin(y, fmin=librosa.note_to_hz("C2"),
 # Everywhere that `voiced_flag[i]` is False, we will multiply `f0[i]` by -1.
 f0_voiced_unvoiced = f0 * (-1) ** (~voiced_flag)
 
-# Get the time values for f0
-times = librosa.times_like(f0, sr=sr)
 
+# %%
 # Visualize the spectrogram using specshow and
 # overlay f0 using mir_eval.display.pitch
 
@@ -67,6 +68,9 @@ fig, ax = plt.subplots()
 stft = librosa.stft(y)
 librosa.display.specshow(stft, vscale="dBFS", x_axis="time", y_axis="log_oct3", ax=ax)
 hl = librosa.display.highlight(ax=ax, linewidth=6)
+
+# Get the time values for f0
+times = librosa.times_like(f0, sr=sr)
 mir_eval.display.pitch(times, f0_voiced_unvoiced,
                        ax=ax,
                        unvoiced=True,
@@ -188,7 +192,7 @@ fig.legend(loc="outside center right")
 # Librosa and `mir_eval` can be used together to visualize annotations and signal content
 # together.
 # The examples above illustrate only the simplest and most common uses, but there are many more
-# things that you can do with `mir_eval.display`, including visualizing multiple f0 estimates, 
+# things that you can do with `mir_eval.display`, including visualizing multiple f0 estimates,
 # piano roll displays, or comparison of different annotations.
 # Here we have focused on just the functionality that most clearly integrates with waveform or
 # spectrogram displays.

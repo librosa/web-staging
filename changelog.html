@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css?v=7f9a90b1" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
@@ -548,6 +548,129 @@
 
   <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Link to this heading">#</a></h1>
+<section id="v1-0">
+<h2>v1.0<a class="headerlink" href="#v1-0" title="Link to this heading">#</a></h2>
+<section id="v1-0-0">
+<h3>v1.0.0<a class="headerlink" href="#v1-0-0" title="Link to this heading">#</a></h3>
+<p>2026-xx-xx</p>
+<dl class="simple">
+<dt>New features</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2059">#2059</a> <a class="reference internal" href="api/generated/librosa.display.legend_for_axes.html#librosa.display.legend_for_axes" title="librosa.display.legend_for_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.legend_for_axes</span></code></a> for generating legends for collections of
+axes. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2034">#2034</a> <a class="reference internal" href="api/generated/librosa.display.highlight.html#librosa.display.highlight" title="librosa.display.highlight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.highlight</span></code></a> for generating path effects. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2031">#2031</a> and <a class="reference external" href="https://github.com/librosa/librosa/pull/2032">#2032</a> <a class="reference internal" href="api/generated/librosa.loadx.html#librosa.loadx" title="librosa.loadx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.loadx</span></code></a> shortcut for loading example files. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2012">#2012</a> <a class="reference internal" href="api/generated/librosa.display.multiplot.html#librosa.display.multiplot" title="librosa.display.multiplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.multiplot</span></code></a> for multichannel visualization. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2004">#2004</a> <a class="reference internal" href="api/generated/librosa.feature.hybrid_tempogram.html#librosa.feature.hybrid_tempogram" title="librosa.feature.hybrid_tempogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.feature.hybrid_tempogram</span></code></a>. <em>Gopesh Pandey</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1986">#1986</a> <a class="reference internal" href="api/generated/librosa.feature.metrogram.html#librosa.feature.metrogram" title="librosa.feature.metrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.feature.metrogram</span></code></a>. <em>Daniel Fernandes</em>, <em>Ethan Cajetan Menezes</em>, <em>Valerian Coelho</em>.</p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1976">#1976</a> <a class="reference internal" href="api/generated/librosa.display.wavef0.html#librosa.display.wavef0" title="librosa.display.wavef0"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.wavef0</span></code></a> for f0-displaced waveforms. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1973">#1973</a> <a class="reference internal" href="api/generated/librosa.display.wavebars.html#librosa.display.wavebars" title="librosa.display.wavebars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.wavebars</span></code></a> for simplified bar plots. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1971">#1971</a> Inverted-mode display for <a class="reference internal" href="api/generated/librosa.display.waveshow.html#librosa.display.waveshow" title="librosa.display.waveshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.waveshow</span></code></a>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1967">#1967</a> <em class="xref py py-obj">oct3</em> display modes in <a class="reference internal" href="api/generated/librosa.display.specshow.html#librosa.display.specshow" title="librosa.display.specshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.specshow</span></code></a>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1964">#1964</a> Signal mixing helpers <a class="reference internal" href="api/generated/librosa.to_mono.html#librosa.to_mono" title="librosa.to_mono"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.to_mono</span></code></a> (improved), <a class="reference internal" href="api/generated/librosa.to_stereo.html#librosa.to_stereo" title="librosa.to_stereo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.to_stereo</span></code></a>, <a class="reference internal" href="api/generated/librosa.to_multi.html#librosa.to_multi" title="librosa.to_multi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.to_multi</span></code></a>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1958">#1958</a> <a class="reference internal" href="api/generated/librosa.sequence.path_to_steps.html#librosa.sequence.path_to_steps" title="librosa.sequence.path_to_steps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.sequence.path_to_steps</span></code></a> to convert DTW paths to a step grid. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1952">#1952</a> <a class="reference internal" href="api/generated/librosa.display.colorbar_db.html#librosa.display.colorbar_db" title="librosa.display.colorbar_db"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.colorbar_db</span></code></a> and <em class="xref py py-obj">colorbar_phase</em> for creating colorbars. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1936">#1936</a> <a class="reference internal" href="api/generated/librosa.display.specshow.html#librosa.display.specshow" title="librosa.display.specshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.specshow</span></code></a> parameter <em class="xref py py-obj">vscale</em> for value scaling. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1927">#1927</a> Peak picking by dynamic programming. <em>Brian McFee</em></p></li>
+</ul>
+</dd>
+<dt>Enhancements</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2080">#2080</a> Skip redundant <em class="xref py py-obj">abs</em> computation in <em class="xref py py-obj">piptrack</em>. <em>Imrul Hada</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2072">#2072</a> <a class="reference internal" href="api/generated/librosa.display.specshow.html#librosa.display.specshow" title="librosa.display.specshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.specshow</span></code></a> now uses a discrete <em class="xref py py-obj">BoundedNorm</em> when visualizing
+boolean data. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2066">#2066</a> <a class="reference internal" href="api/generated/librosa.cqt.html#librosa.cqt" title="librosa.cqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.cqt</span></code></a> and <a class="reference internal" href="api/generated/librosa.vqt.html#librosa.vqt" title="librosa.vqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.vqt</span></code></a> can infer the maximum number of bins
+automatically by setting <em class="xref py py-obj">n_bins=None</em>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2058">#2058</a> Signal mixing helpers can operate on a pre-allocated <em class="xref py py-obj">out=</em> array. <em>ejwong</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2055">#2055</a> <a class="reference internal" href="api/generated/librosa.stream.html#librosa.stream" title="librosa.stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.stream</span></code></a> now supports in-place sample rate conversion. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2051">#2051</a> decibel converts (<a class="reference internal" href="api/generated/librosa.amplitude_to_db.html#librosa.amplitude_to_db" title="librosa.amplitude_to_db"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.amplitude_to_db</span></code></a>, <a class="reference internal" href="api/generated/librosa.power_to_db.html#librosa.power_to_db" title="librosa.power_to_db"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.power_to_db</span></code></a>) now support
+<em class="xref py py-obj">axes</em> target parameter and support multichannel. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2044">#2044</a> Improved handling of styling and legend entries for <a class="reference internal" href="api/generated/librosa.display.waveshow.html#librosa.display.waveshow" title="librosa.display.waveshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.waveshow</span></code></a>.  <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2041">#2041</a> <a class="reference internal" href="api/generated/librosa.display.specshow.html#librosa.display.specshow" title="librosa.display.specshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.specshow</span></code></a> now supports <em class="xref py py-obj">cmap_cyclic</em>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2030">#2030</a> <a class="reference internal" href="api/generated/librosa.load.html#librosa.load" title="librosa.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.load</span></code></a> and <a class="reference internal" href="api/generated/librosa.stream.html#librosa.stream" title="librosa.stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.stream</span></code></a> now support negative <em class="xref py py-obj">offset</em> values. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2028">#2028</a> and <a class="reference external" href="https://github.com/librosa/librosa/pull/2029">#2029</a> reduced import time. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2007">#2007</a> Improved efficiency for Viterbi decoding. <em>Brian McFee</em> and <em>AD</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1994">#1994</a> Migrate from sparse matrix to sparse array. <em>Daniel Haas B</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1960">#1960</a> All <em class="xref py py-obj">rng=</em> parameters are now <a class="reference external" href="https://scientific-python.org/specs/spec-0007/">SPEC07</a> compliant. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1955">#1955</a> Warn on underflow in perceptual weighting calculation. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1954">#1954</a> Diverging colormaps in <em class="xref py py-obj">specshow</em> now use two-slope norms. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1948">#1948</a> Frequency conversions now support NaN values. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1931">#1931</a> Variable-rate phase vocoding. <em>Brian McFee</em></p></li>
+</ul>
+</dd>
+<dt>Bug fixes</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2063">#2063</a> Fixed array bounds error on <a class="reference internal" href="api/generated/librosa.sequence.rqa.html#librosa.sequence.rqa" title="librosa.sequence.rqa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.sequence.rqa</span></code></a> with single-axis inputs.  <em>Suhas Holla Karkada Chandrashekar</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2039">#2039</a> Avoid promoting scalars to 0-d arrays. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2026">#2026</a> Fixed error in label ordering for Tonnetz displays. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1992">#1992</a> Fixed garbage collection error in <a class="reference internal" href="api/generated/librosa.display.waveshow.html#librosa.display.waveshow" title="librosa.display.waveshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.waveshow</span></code></a>. <em>Daniel Haas B</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1947">#1947</a> Removed default quantization in <em class="xref py py-obj">note_to_hz</em>. <em>Brian McFee</em></p></li>
+</ul>
+</dd>
+<dt>Documentation</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1968">#1968</a> Significantly expanded and restructured the documentation site. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2068">#2068</a> Standardized docstring conventions for <em class="xref py py-obj">n_fft</em>. <em>Cameron Brooks</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2017">#2017</a> Improved contributing guidelines and AI agents policy. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2009">#2009</a> Improved documentation for contributing guidelines. <em>Petra Kuhnle</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2006">#2006</a> Improved documentation for frequency axis scaling in specshow. <em>cookesan</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1979">#1979</a> Fixed figure layout in API examples. <em>Haydn Lam</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1959">#1959</a> Fixed error in <a class="reference internal" href="api/generated/librosa.segment.subsegment.html#librosa.segment.subsegment" title="librosa.segment.subsegment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.segment.subsegment</span></code></a> example. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1932">#1932</a> Fixed typo in <em class="xref py py-obj">mel_frequencies</em> documentation. <em>Fadel Akram</em></p></li>
+</ul>
+</dd>
+<dt>Maintenance</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2075">#2075</a> Updated documentation deployment action. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2069">#2069</a> Precice dtype annotations in <a class="reference internal" href="api/beat.html#module-librosa.beat" title="librosa.beat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.beat</span></code></a>. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2065">#2065</a> Updated GitHub actions. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2060">#2060</a> Refactored frequency formatters in <a class="reference internal" href="api/display.html#module-librosa.display" title="librosa.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display</span></code></a>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2054">#2054</a> Support <em class="xref py py-obj">matplotlib 3.11</em> in tests. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2053">#2053</a> Fixed type annotations for decorators. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2052">#2052</a> Improved return type annotations involving <em class="xref py py-obj">ndarray</em>. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2050">#2050</a> Include <em class="xref py py-obj">str</em> dtype in <em class="xref py py-obj">ndarray</em> type annotations. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2049">#2049</a> Reformatted <em class="xref py py-obj">__init__.pyi</em> exports. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2047">#2047</a> Improved checking of documentation builds with ruff and numpydoc. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2043">#2043</a> Improved typing for dtype converters. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2037">#2037</a> Added missing type annotations. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2036">#2036</a> and <a class="reference external" href="https://github.com/librosa/librosa/pull/2038">#2038</a> Modernized type annotations. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2035">#2035</a> Modernized type annotation definitions. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2027">#2027</a> Modernized linting. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2025">#2025</a> Updated type annotation testing. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/2018">#2018</a> Adopted <a class="reference external" href="https://scientific-python.org/specs/spec-0000/">SPEC0</a>. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1999">#1999</a> Support for Python 3.14. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1980">#1980</a> Updated type annotations. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1977">#1977</a> Fixed type annotations in beat tracking. <em>emilazy</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1969">#1969</a> Refined <em class="xref py py-obj">gitignore</em>. <em>Ale Lloveras</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1962">#1962</a> Documentation builds in CI now store build artifacts. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1946">#1946</a> Use <code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy-stubs</span></code> in tests. <em>Joren Hammudoglu</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1936">#1936</a> Improved environment cache in tests. <em>Brian McFee</em></p></li>
+<li><p><a class="reference external" href="https://github.com/librosa/librosa/pull/1925">#1925</a> Overhaul of test framework. <em>Brian McFee</em></p></li>
+</ul>
+</dd>
+<dt>Expired deprecations</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt><a class="reference external" href="https://github.com/librosa/librosa/pull/1963">#1963</a> expires the following deprecated features:</dt><dd><ul>
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">audioread</span></code> backend</p></li>
+<li><p><em class="xref py py-obj">filename</em> argument in <a class="reference internal" href="api/generated/librosa.stream.html#librosa.stream" title="librosa.stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.stream</span></code></a></p></li>
+<li><p><em class="xref py py-obj">res_type=None</em> in <a class="reference internal" href="api/generated/librosa.vqt.html#librosa.vqt" title="librosa.vqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.vqt</span></code></a></p></li>
+<li><p><em class="xref py py-obj">librosa.set_fftlib</em> and <em class="xref py py-obj">librosa.get_fftlib</em></p></li>
+<li><p><em class="xref py py-obj">win_length</em> parameter in <em class="xref py py-obj">yin</em> and <em class="xref py py-obj">pyin</em></p></li>
+<li><p><em class="xref py py-obj">x_axis</em> parameter in <a class="reference internal" href="api/generated/librosa.display.waveshow.html#librosa.display.waveshow" title="librosa.display.waveshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.waveshow</span></code></a></p></li>
+<li><p><em class="xref py py-obj">librosa.filters.constant_q</em> and <em class="xref py py-obj">librosa.filters.constant_q_lengths</em></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt>New deprecations</dt><dd><ul class="simple">
+<li><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.cmap</span></code> has been renamed to <a class="reference internal" href="api/generated/librosa.display.infer_cmap.html#librosa.display.infer_cmap" title="librosa.display.infer_cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.infer_cmap</span></code></a>.  The old name
+will be removed in version 1.1.</p></li>
+<li><p><a class="reference internal" href="api/generated/librosa.phase_vocoder.html#librosa.phase_vocoder" title="librosa.phase_vocoder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.phase_vocoder</span></code></a> no longer requires <em class="xref py py-obj">hop_length</em> or <em class="xref py py-obj">n_fft</em> parameters.  These
+parameters are now ignored and will be removed in version 1.1.</p></li>
+<li><p><a class="reference internal" href="api/generated/librosa.griffinlim.html#librosa.griffinlim" title="librosa.griffinlim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.griffinlim</span></code></a> and <em class="xref py py-obj">griffinlim_cqt</em> now accept <em class="xref py py-obj">rng=</em> instead of <em class="xref py py-obj">random_state=</em>.
+The old parameter name will be removed in version 1.2.</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
 <section id="v0-11">
 <h2>v0.11<a class="headerlink" href="#v0-11" title="Link to this heading">#</a></h2>
 <section id="v0-11-0">
@@ -1904,6 +2027,10 @@ adapt to scale (mHz, Hz, KHz, MHz, GHz) and use automatic precision formatting (
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-0">v1.0</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v1-0-0">v1.0.0</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-11">v0.11</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#v0-11-0">v0.11.0</a></li>
 </ul>
