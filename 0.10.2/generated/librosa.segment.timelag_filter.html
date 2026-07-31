@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.segment.timelag_filter &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.segment.path_enhance" href="librosa.segment.path_enhance.html" />
+    <link rel="prev" title="librosa.segment.lag_to_recurrence" href="librosa.segment.lag_to_recurrence.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../segment.html">Temporal segmentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../segment.html#recurrence-and-self-similarity">Recurrence and self-similarity</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.segment.cross_similarity.html">librosa.segment.cross_similarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.segment.recurrence_matrix.html">librosa.segment.recurrence_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.segment.recurrence_to_lag.html">librosa.segment.recurrence_to_lag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.segment.lag_to_recurrence.html">librosa.segment.lag_to_recurrence</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.segment.timelag_filter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.segment.timelag_filter"><code class="docutils literal notranslate"><span class="pre">timelag_filter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.segment.path_enhance.html">librosa.segment.path_enhance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../segment.html#temporal-clustering">Temporal clustering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../segment.html">Temporal segmentation</a></li>
+      <li class="breadcrumb-item active">librosa.segment.timelag_filter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.segment.timelag_filter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-segment-timelag-filter">
+<h1>librosa.segment.timelag_filter<a class="headerlink" href="#librosa-segment-timelag-filter" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.segment.timelag_filter">
+<span class="sig-prename descclassname"><span class="pre">librosa.segment.</span></span><span class="sig-name descname"><span class="pre">timelag_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/segment.html#timelag_filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.segment.timelag_filter" title="Link to this definition"></a></dt>
+<dd><p>Apply a filter in the time-lag domain.</p>
+<p>This is primarily useful for adapting image filters to operate on
+<a class="reference internal" href="librosa.segment.recurrence_to_lag.html#librosa.segment.recurrence_to_lag" title="librosa.segment.recurrence_to_lag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recurrence_to_lag</span></code></a> output.</p>
+<p>Using <a class="reference internal" href="#librosa.segment.timelag_filter" title="librosa.segment.timelag_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timelag_filter</span></code></a> is equivalent to the following sequence of
+operations:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data_tl</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">recurrence_to_lag</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_filtered_tl</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">data_tl</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data_filtered</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">lag_to_recurrence</span><span class="p">(</span><span class="n">data_filtered_tl</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>function</strong><span class="classifier">callable</span></dt><dd><p>The filtering function to wrap, e.g., <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.median_filter.html#scipy.ndimage.median_filter" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.ndimage.median_filter</span></code></a></p>
+</dd>
+<dt><strong>pad</strong><span class="classifier">bool</span></dt><dd><p>Whether to zero-pad the structure feature matrix</p>
+</dd>
+<dt><strong>index</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">function</span></code> accepts input data as a positional argument, it should be
+indexed by <code class="docutils literal notranslate"><span class="pre">index</span></code></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>wrapped_function</strong><span class="classifier">callable</span></dt><dd><p>A new filter function which applies in time-lag space rather than
+time-time space.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Apply a 31-bin median filter to the diagonal of a recurrence matrix.
+With default, parameters, this corresponds to a time window of about
+0.72 seconds.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;nutcracker&#39;</span><span class="p">),</span> <span class="n">duration</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chroma</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">chroma_cqt</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chroma_stack</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">stack_memory</span><span class="p">(</span><span class="n">chroma</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">recurrence_matrix</span><span class="p">(</span><span class="n">chroma_stack</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.ndimage</span><span class="w"> </span><span class="kn">import</span> <span class="n">median_filter</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">diagonal_median</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">timelag_filter</span><span class="p">(</span><span class="n">median_filter</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec_filtered</span> <span class="o">=</span> <span class="n">diagonal_median</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mirror&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or with affinity weights</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rec_aff</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">recurrence_matrix</span><span class="p">(</span><span class="n">chroma_stack</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;affinity&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rec_aff_fil</span> <span class="o">=</span> <span class="n">diagonal_median</span><span class="p">(</span><span class="n">rec_aff</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">31</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;mirror&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">rec</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Raw recurrence matrix&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">rec_filtered</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filtered recurrence matrix&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">rec_aff</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma_r&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Raw affinity matrix&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">rec_aff_fil</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma_r&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Filtered affinity matrix&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/librosa-segment-timelag_filter-1.png" class="plot-directive" src="../_images/librosa-segment-timelag_filter-1.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.segment.lag_to_recurrence.html" class="btn btn-neutral float-left" title="librosa.segment.lag_to_recurrence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.segment.path_enhance.html" class="btn btn-neutral float-right" title="librosa.segment.path_enhance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

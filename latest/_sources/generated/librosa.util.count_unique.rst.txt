@@ -1,0 +1,6 @@
+﻿librosa.util.count\_unique
+==========================
+
+.. currentmodule:: librosa.util
+
+.. autofunction:: count_unique

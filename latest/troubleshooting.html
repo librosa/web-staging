@@ -1,0 +1,235 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=35a8b989"></script>
+      <script src="_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Core IO and DSP" href="core.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#no-attribute-display">no attribute ‘display’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pysoundfile-failed">PySoundFile failed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-librosa-hangs-indefinitely"><em class="xref py py-obj">import librosa</em> hangs indefinitely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-in-isolated-environments">Testing in isolated environments</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
+<p>If you have questions about how to use librosa, please consult the <a class="reference external" href="https://groups.google.com/forum/#!forum/librosa">discussion forum</a>.
+For bug reports and other, more technical issues, consult the <a class="reference external" href="https://github.com/librosa/librosa/issues">github issues</a>.</p>
+<p>Here are a few of the most common problems that users encounter.</p>
+<section id="no-attribute-display">
+<h2>no attribute ‘display’<a class="headerlink" href="#no-attribute-display" title="Link to this heading"></a></h2>
+<p>If you’re trying to run some example code, and encounter the following error
+message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">AttributeError</span><span class="p">:</span> <span class="n">module</span> <span class="s1">&#39;librosa&#39;</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;display&#39;</span>
+</pre></div>
+</div>
+<p>it is because the <a class="reference internal" href="display.html#module-librosa.display" title="librosa.display"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display</span></code></a> submodule needed to be imported explicitly in librosa versions
+earlier than 0.10.
+This is because <a class="reference external" href="https://matplotlib.org/stable/index.html#module-matplotlib" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib</span></code></a> is an optional dependency for librosa, so we do not
+assume that all users have it installed, or want plotting capability.</p>
+<p>To fix the problem, add the line</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">librosa.display</span>
+</pre></div>
+</div>
+<p>to the beginning of your program.</p>
+<p><strong>NOTE</strong>: this is no longer a problem since librosa 0.10, but it won’t hurt to include
+the explicit import statement.</p>
+</section>
+<section id="pysoundfile-failed">
+<h2>PySoundFile failed<a class="headerlink" href="#pysoundfile-failed" title="Link to this heading"></a></h2>
+<p>If you’re loading an audio file, and see the following message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">UserWarning</span><span class="p">:</span> <span class="n">PySoundFile</span> <span class="n">failed</span><span class="o">.</span> <span class="n">Trying</span> <span class="n">audioread</span> <span class="n">instead</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Do not worry.  This is a warning, not an error.  Odds are that your code is working
+just fine.</p>
+<p>This warning is most often triggered by loading files encoded with <em class="xref py py-obj">mp3</em> format,
+which are not supported by <em class="xref py py-obj">libsndfile</em> prior to version 1.1.
+When this situation is detected, librosa falls back to use the slower, but more
+flexible <code class="xref py py-obj docutils literal notranslate"><span class="pre">audioread</span></code>-based file loader.</p>
+</section>
+<section id="import-librosa-hangs-indefinitely">
+<h2><em class="xref py py-obj">import librosa</em> hangs indefinitely<a class="headerlink" href="#import-librosa-hangs-indefinitely" title="Link to this heading"></a></h2>
+<p>If you are trying to execute <em class="xref py py-obj">import librosa</em> in either a script or interactive
+environment, and it “stalls” or fails to complete, the problem is most likely
+that <code class="xref py py-obj docutils literal notranslate"><span class="pre">numba</span></code> is trying to compile librosa functions for more efficient execution,
+and is unable to write the compiled functions to disk for later usage.
+(See: <a class="reference external" href="https://numba.readthedocs.io/en/stable/developer/caching.html">numba caching documentation</a> for more details on this.)
+This might occur if <a class="reference internal" href="core.html#module-librosa" title="librosa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa</span></code></a> was installed by an administrator or super-user,
+and ordinary users (i.e. you) may not have permission to write files in the same folder.</p>
+<p>There are two ways to address this issue:</p>
+<ol class="arabic simple">
+<li><p>Install <a class="reference internal" href="core.html#module-librosa" title="librosa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa</span></code></a> as the same user who will be executing code, e.g., in a
+virtual environment.</p></li>
+<li><p>Change the <em class="xref py py-obj">NUMBA_CACHE_DIR</em> environment variable to a folder which the
+user does have write permissions to.  See <a class="reference external" href="https://numba.readthedocs.io/en/stable/reference/envvars.html#numba-envvars-caching">numba environment variables</a> for details.</p></li>
+</ol>
+<p>Note that in librosa 0.10 and later, you may not encounter this issue when importing the library, but it may arise later when executing functions.
+The solutions above are applicable in either case.</p>
+</section>
+<section id="testing-in-isolated-environments">
+<h2>Testing in isolated environments<a class="headerlink" href="#testing-in-isolated-environments" title="Link to this heading"></a></h2>
+<p>Librosa provides a few functions that require network access to collect externally hosted data.
+While these functions are optional to use, they can be problematic for running the test suite in
+environments that restrict network access, which most commonly occurs in packaging workflows.
+To run the test suite in such restricted environments, you can specify the <code class="docutils literal notranslate"><span class="pre">--librosa-isolation</span></code> parameter
+on the command-line to pytest</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--librosa-isolation
+</pre></div>
+</div>
+<p>which will skip any test functions known to require network access.  Test coverage will necessarily be reduced, but
+the remaining tests should still pass without problems.</p>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="core.html" class="btn btn-neutral float-right" title="Core IO and DSP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

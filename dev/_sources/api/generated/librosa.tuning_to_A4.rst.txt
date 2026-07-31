@@ -1,0 +1,6 @@
+﻿librosa.tuning\_to\_A4
+======================
+
+.. currentmodule:: librosa
+
+.. autofunction:: tuning_to_A4

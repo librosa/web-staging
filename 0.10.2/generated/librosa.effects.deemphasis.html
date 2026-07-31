@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.effects.deemphasis &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Temporal segmentation" href="../segment.html" />
+    <link rel="prev" title="librosa.effects.preemphasis" href="librosa.effects.preemphasis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../effects.html">Effects</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../effects.html#harmonic-percussive-source-separation">Harmonic-percussive source separation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../effects.html#time-and-frequency">Time and frequency</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../effects.html#miscellaneous">Miscellaneous</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.effects.remix.html">librosa.effects.remix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.effects.trim.html">librosa.effects.trim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.effects.split.html">librosa.effects.split</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.effects.preemphasis.html">librosa.effects.preemphasis</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.effects.deemphasis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.effects.deemphasis"><code class="docutils literal notranslate"><span class="pre">deemphasis</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../effects.html">Effects</a></li>
+      <li class="breadcrumb-item active">librosa.effects.deemphasis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.effects.deemphasis.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-effects-deemphasis">
+<h1>librosa.effects.deemphasis<a class="headerlink" href="#librosa-effects-deemphasis" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.effects.deemphasis">
+<span class="sig-prename descclassname"><span class="pre">librosa.effects.</span></span><span class="sig-name descname"><span class="pre">deemphasis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">coef</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.97</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_zf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/effects.html#deemphasis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.effects.deemphasis" title="Link to this definition"></a></dt>
+<dd><p>De-emphasize an audio signal with the inverse operation of preemphasis():</p>
+<p>If y = preemphasis(x, coef=coef, zi=zi), the deemphasis is:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">deemphasis</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">coef</span><span class="o">=</span><span class="n">coef</span><span class="p">,</span> <span class="n">zi</span><span class="o">=</span><span class="n">zi</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>y</strong><span class="classifier">np.ndarray [shape=(…, n)]</span></dt><dd><p>Audio signal. Multi-channel is supported.</p>
+</dd>
+<dt><strong>coef</strong><span class="classifier">positive number</span></dt><dd><p>Pre-emphasis coefficient.  Typical values of <code class="docutils literal notranslate"><span class="pre">coef</span></code> are between 0 and 1.</p>
+<p>At the limit <code class="docutils literal notranslate"><span class="pre">coef=0</span></code>, the signal is unchanged.</p>
+<p>At <code class="docutils literal notranslate"><span class="pre">coef=1</span></code>, the result is the first-order difference of the signal.</p>
+<p>The default (0.97) matches the pre-emphasis filter used in the HTK
+implementation of MFCCs <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://htk.eng.cam.ac.uk/">https://htk.eng.cam.ac.uk/</a></p>
+</aside>
+</aside>
+</dd>
+<dt><strong>zi</strong><span class="classifier">number</span></dt><dd><p>Initial filter state. If inverting a previous preemphasis(), the same value should be used.</p>
+<p>By default <code class="docutils literal notranslate"><span class="pre">zi</span></code> is initialized as
+<code class="docutils literal notranslate"><span class="pre">((2</span> <span class="pre">-</span> <span class="pre">coef)</span> <span class="pre">*</span> <span class="pre">y[0]</span> <span class="pre">-</span> <span class="pre">y[1])</span> <span class="pre">/</span> <span class="pre">(3</span> <span class="pre">-</span> <span class="pre">coef)</span></code>. This
+value corresponds to the transformation of the default initialization of <code class="docutils literal notranslate"><span class="pre">zi</span></code> in <code class="docutils literal notranslate"><span class="pre">preemphasis()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">2*x[0]</span> <span class="pre">-</span> <span class="pre">x[1]</span></code>.</p>
+</dd>
+<dt><strong>return_zf</strong><span class="classifier">boolean</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return the final filter state.
+If <code class="docutils literal notranslate"><span class="pre">False</span></code>, only return the pre-emphasized signal.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y_out</strong><span class="classifier">np.ndarray</span></dt><dd><p>de-emphasized signal</p>
+</dd>
+<dt><strong>zf</strong><span class="classifier">number</span></dt><dd><p>if <code class="docutils literal notranslate"><span class="pre">return_zf=True</span></code>, the final filter state is also returned</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.effects.preemphasis.html#librosa.effects.preemphasis" title="librosa.effects.preemphasis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preemphasis</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Apply a standard pre-emphasis filter and invert it with de-emphasis</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;trumpet&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_filt</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">preemphasis</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_deemph</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">deemphasis</span><span class="p">(</span><span class="n">y_filt</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_deemph</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.effects.preemphasis.html" class="btn btn-neutral float-left" title="librosa.effects.preemphasis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../segment.html" class="btn btn-neutral float-right" title="Temporal segmentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

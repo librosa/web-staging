@@ -1,0 +1,6 @@
+﻿librosa.display.wavebars
+========================
+
+.. currentmodule:: librosa.display
+
+.. autofunction:: wavebars

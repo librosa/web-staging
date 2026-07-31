@@ -1,0 +1,6 @@
+﻿librosa.samples\_to\_frames
+===========================
+
+.. currentmodule:: librosa
+
+.. autofunction:: samples_to_frames

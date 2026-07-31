@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.core.fft &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../../../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">librosa.core.fft</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <h1>Source code for librosa.core.fft</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Fast Fourier Transform (FFT) library container&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.fft</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModuleType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">deprecated</span>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;get_fftlib&quot;</span><span class="p">,</span> <span class="s2">&quot;set_fftlib&quot;</span><span class="p">]</span>
+
+<span class="c1"># Object to hold FFT interfaces</span>
+<span class="n">__FFTLIB</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ModuleType</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span>
+
+
+<div class="viewcode-block" id="set_fftlib">
+<a class="viewcode-back" href="../../../generated/librosa.set_fftlib.html#librosa.set_fftlib">[docs]</a>
+<span class="nd">@deprecated</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">&quot;0.11.0&quot;</span><span class="p">,</span> <span class="n">version_removed</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_fftlib</span><span class="p">(</span><span class="n">lib</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ModuleType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the FFT library used by librosa.</span>
+
+<span class="sd">    .. warning:: This functionality is deprecated in librosa 0.11 and will be</span>
+<span class="sd">        removed in 1.0.  To achieve the same effect, use either the</span>
+<span class="sd">        `scipy.fft.set_backend` context manager or</span>
+<span class="sd">        `scipy.fft.set_global_backend` function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lib : None or module</span>
+<span class="sd">        Must implement an interface compatible with `scipy.fft`.</span>
+<span class="sd">        If ``None``, reverts to `scipy.fft`.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Use `pyfftw`:</span>
+
+<span class="sd">    &gt;&gt;&gt; import pyfftw</span>
+<span class="sd">    &gt;&gt;&gt; librosa.set_fftlib(pyfftw.interfaces.numpy_fft)</span>
+
+<span class="sd">    Reset to default `scipy` implementation</span>
+
+<span class="sd">    &gt;&gt;&gt; librosa.set_fftlib()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">__FFTLIB</span>
+    <span class="k">if</span> <span class="n">lib</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">lib</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span>
+
+    <span class="n">__FFTLIB</span> <span class="o">=</span> <span class="n">lib</span></div>
+
+
+
+<div class="viewcode-block" id="get_fftlib">
+<a class="viewcode-back" href="../../../generated/librosa.get_fftlib.html#librosa.get_fftlib">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_fftlib</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">ModuleType</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the FFT library currently used by librosa</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fft : module</span>
+<span class="sd">        The FFT library currently used by librosa.</span>
+<span class="sd">        Must API-compatible with `numpy.fft`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">__FFTLIB</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># This path should never occur because importing</span>
+        <span class="c1"># this module will call set_fftlib</span>
+        <span class="k">assert</span> <span class="kc">False</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="k">return</span> <span class="n">__FFTLIB</span></div>
+
+</pre></div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

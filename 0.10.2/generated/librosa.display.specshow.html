@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.display.specshow &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.display.waveshow" href="librosa.display.waveshow.html" />
+    <link rel="prev" title="Display" href="../display.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../display.html">Display</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../display.html#data-visualization">Data visualization</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.display.specshow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.display.specshow"><code class="docutils literal notranslate"><span class="pre">specshow</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.display.waveshow.html">librosa.display.waveshow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../display.html#axis-formatting">Axis formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../display.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../display.html">Display</a></li>
+      <li class="breadcrumb-item active">librosa.display.specshow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.display.specshow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-display-specshow">
+<h1>librosa.display.specshow<a class="headerlink" href="#librosa-display-specshow" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.display.specshow">
+<span class="sig-prename descclassname"><span class="pre">librosa.display.</span></span><span class="sig-name descname"><span class="pre">specshow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22050</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hop_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">480</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tuning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins_per_octave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C:maj'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Sa</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mela</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thaat</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_aspect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">htk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unicode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intervals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unison</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/display.html#specshow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.display.specshow" title="Link to this definition"></a></dt>
+<dd><p>Display a spectrogram/chromagram/cqt/etc.</p>
+<p>For a detailed overview of this function, see <a class="reference internal" href="../auto_examples/plot_display.html#sphx-glr-auto-examples-plot-display-py"><span class="std std-ref">Using display.specshow</span></a></p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>data</strong><span class="classifier">np.ndarray [shape=(d, n)]</span></dt><dd><p>Matrix to display (e.g., spectrogram)</p>
+</dd>
+<dt><strong>sr</strong><span class="classifier">number &gt; 0 [scalar]</span></dt><dd><p>Sample rate used to determine time scale in x-axis.</p>
+</dd>
+<dt><strong>hop_length</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>Hop length, also used to determine time scale in x-axis</p>
+</dd>
+<dt><strong>n_fft</strong><span class="classifier">int &gt; 0 or None</span></dt><dd><p>Number of samples per frame in STFT/spectrogram displays.
+By default, this will be inferred from the shape of <code class="docutils literal notranslate"><span class="pre">data</span></code>
+as <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">(d</span> <span class="pre">-</span> <span class="pre">1)</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">data</span></code> was generated using an odd frame length, the correct
+value can be specified here.</p>
+</dd>
+<dt><strong>win_length</strong><span class="classifier">int &gt; 0 or None</span></dt><dd><p>The number of samples per window.
+By default, this will be inferred to match <code class="docutils literal notranslate"><span class="pre">n_fft</span></code>.
+This is primarily useful for specifying odd window lengths in
+Fourier tempogram displays.</p>
+</dd>
+<dt><strong>x_axis, y_axis</strong><span class="classifier">None or str</span></dt><dd><p>Range for the x- and y-axes.</p>
+<p>Valid types are:</p>
+<ul class="simple">
+<li><p>None, ‘none’, or ‘off’ : no axis decoration is displayed.</p></li>
+</ul>
+<p>Frequency types:</p>
+<ul class="simple">
+<li><p>‘linear’, ‘fft’, ‘hz’ : frequency range is determined by
+the FFT window and sampling rate.</p></li>
+<li><p>‘log’ : the spectrum is displayed on a log scale.</p></li>
+<li><p>‘fft_note’: the spectrum is displayed on a log scale with pitches marked.</p></li>
+<li><p>‘fft_svara’: the spectrum is displayed on a log scale with svara marked.</p></li>
+<li><p>‘mel’ : frequencies are determined by the mel scale.</p></li>
+<li><p>‘cqt_hz’ : frequencies are determined by the CQT scale.</p></li>
+<li><p>‘cqt_note’ : pitches are determined by the CQT scale.</p></li>
+<li><p>‘cqt_svara’ : like <em class="xref py py-obj">cqt_note</em> but using Hindustani or Carnatic svara</p></li>
+<li><p>‘vqt_fjs’ : like <em class="xref py py-obj">cqt_note</em> but using Functional Just System (FJS)
+notation.  This requires a just intonation-based variable-Q
+transform representation.</p></li>
+</ul>
+<p>All frequency types are plotted in units of Hz.</p>
+<p>Any spectrogram parameters (hop_length, sr, bins_per_octave, etc.)
+used to generate the input data should also be provided when
+calling <a class="reference internal" href="#librosa.display.specshow" title="librosa.display.specshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">specshow</span></code></a>.</p>
+<p>Categorical types:</p>
+<ul class="simple">
+<li><p>‘chroma’ : pitches are determined by the chroma filters.
+Pitch classes are arranged at integer locations (0-11) according to
+a given key.</p></li>
+<li><p><em class="xref py py-obj">chroma_h</em>, <em class="xref py py-obj">chroma_c</em>: pitches are determined by chroma filters,
+and labeled as svara in the Hindustani (<em class="xref py py-obj">chroma_h</em>) or Carnatic (<em class="xref py py-obj">chroma_c</em>)
+according to a given thaat (Hindustani) or melakarta raga (Carnatic).</p></li>
+<li><p>‘chroma_fjs’: pitches are determined by chroma filters using just
+intonation.  All pitch classes are annotated.</p></li>
+<li><p>‘tonnetz’ : axes are labeled by Tonnetz dimensions (0-5)</p></li>
+<li><p>‘frames’ : markers are shown as frame counts.</p></li>
+</ul>
+<p>Time types:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>‘time’<span class="classifier">markers are shown as milliseconds, seconds, minutes, or hours.</span></dt><dd><p>Values are plotted in units of seconds.</p>
+</dd>
+</dl>
+</li>
+<li><p>‘h’ : markers are shown as hours, minutes, and seconds.</p></li>
+<li><p>‘m’ : markers are shown as minutes and seconds.</p></li>
+<li><p>‘s’ : markers are shown as seconds.</p></li>
+<li><p>‘ms’ : markers are shown as milliseconds.</p></li>
+<li><p>‘lag’ : like time, but past the halfway point counts as negative values.</p></li>
+<li><p>‘lag_h’ : same as lag, but in hours, minutes and seconds.</p></li>
+<li><p>‘lag_m’ : same as lag, but in minutes and seconds.</p></li>
+<li><p>‘lag_s’ : same as lag, but in seconds.</p></li>
+<li><p>‘lag_ms’ : same as lag, but in milliseconds.</p></li>
+</ul>
+<p>Rhythm:</p>
+<ul>
+<li><dl class="simple">
+<dt>‘tempo’<span class="classifier">markers are shown as beats-per-minute (BPM)</span></dt><dd><p>using a logarithmic scale.  This is useful for
+visualizing the outputs of <em class="xref py py-obj">feature.tempogram</em>.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>‘fourier_tempo’<span class="classifier">same as <em class="xref py py-obj">‘tempo’</em>, but used when</span></dt><dd><p>tempograms are calculated in the Frequency domain
+using <em class="xref py py-obj">feature.fourier_tempogram</em>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+<dt><strong>x_coords, y_coords</strong><span class="classifier">np.ndarray [shape=data.shape[0 or 1]]</span></dt><dd><p>Optional positioning coordinates of the input data.
+These can be use to explicitly set the location of each
+element <code class="docutils literal notranslate"><span class="pre">data[i,</span> <span class="pre">j]</span></code>, e.g., for displaying beat-synchronous
+features in natural time coordinates.</p>
+<p>If not provided, they are inferred from <code class="docutils literal notranslate"><span class="pre">x_axis</span></code> and <code class="docutils literal notranslate"><span class="pre">y_axis</span></code>.</p>
+</dd>
+<dt><strong>fmin</strong><span class="classifier">float &gt; 0 [scalar] or None</span></dt><dd><p>Frequency of the lowest spectrogram bin.  Used for Mel, CQT, and VQT
+scales.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">y_axis</span></code> is <em class="xref py py-obj">cqt_hz</em> or <em class="xref py py-obj">cqt_note</em> and <code class="docutils literal notranslate"><span class="pre">fmin</span></code> is not given,
+it is set by default to <code class="docutils literal notranslate"><span class="pre">note_to_hz('C1')</span></code>.</p>
+</dd>
+<dt><strong>fmax</strong><span class="classifier">float &gt; 0 [scalar] or None</span></dt><dd><p>Used for setting the Mel frequency scales</p>
+</dd>
+<dt><strong>tempo_min</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Lowest tempo (in beats per minute) for tempogram display.</p>
+</dd>
+<dt><strong>tempo_max</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Highest tempo (in beats per minute) for tempogram display.</p>
+</dd>
+<dt><strong>tuning</strong><span class="classifier">float</span></dt><dd><p>Tuning deviation from A440, in fractions of a bin.</p>
+<p>This is used for CQT frequency scales, so that <code class="docutils literal notranslate"><span class="pre">fmin</span></code> is adjusted
+to <code class="docutils literal notranslate"><span class="pre">fmin</span> <span class="pre">*</span> <span class="pre">2**(tuning</span> <span class="pre">/</span> <span class="pre">bins_per_octave)</span></code>.</p>
+</dd>
+<dt><strong>bins_per_octave</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>Number of bins per octave.  Used for CQT frequency scale.</p>
+</dd>
+<dt><strong>key</strong><span class="classifier">str</span></dt><dd><p>The reference key to use when using note axes (<em class="xref py py-obj">cqt_note</em>, <em class="xref py py-obj">chroma</em>).</p>
+</dd>
+<dt><strong>Sa</strong><span class="classifier">float or int</span></dt><dd><p>If using Hindustani or Carnatic svara axis decorations, specify Sa.</p>
+<p>For <em class="xref py py-obj">cqt_svara</em>, <code class="docutils literal notranslate"><span class="pre">Sa</span></code> should be specified as a frequency in Hz.</p>
+<p>For <em class="xref py py-obj">chroma_c</em> or <em class="xref py py-obj">chroma_h</em>, <code class="docutils literal notranslate"><span class="pre">Sa</span></code> should correspond to the position
+of Sa within the chromagram.
+If not provided, Sa will default to 0 (equivalent to <em class="xref py py-obj">C</em>)</p>
+</dd>
+<dt><strong>mela</strong><span class="classifier">str or int, optional</span></dt><dd><p>If using <em class="xref py py-obj">chroma_c</em> or <em class="xref py py-obj">cqt_svara</em> display mode, specify the melakarta raga.</p>
+</dd>
+<dt><strong>thaat</strong><span class="classifier">str, optional</span></dt><dd><p>If using <em class="xref py py-obj">chroma_h</em> display mode, specify the parent thaat.</p>
+</dd>
+<dt><strong>intervals</strong><span class="classifier">str or array of floats in [1, 2), optional</span></dt><dd><p>If using an FJS notation (<em class="xref py py-obj">chroma_fjs</em>, <em class="xref py py-obj">vqt_fjs</em>), the interval specification.</p>
+<p>See <code class="xref py py-obj docutils literal notranslate"><span class="pre">core.interval_frequencies</span></code> for a description of supported values.</p>
+</dd>
+<dt><strong>unison</strong><span class="classifier">str, optional</span></dt><dd><p>If using an FJS notation (<em class="xref py py-obj">chroma_fjs</em>, <em class="xref py py-obj">vqt_fjs</em>), the pitch name of the unison
+interval.  If not provided, it will be inferred from <em class="xref py py-obj">fmin</em> (for VQT display) or
+assumed as <em class="xref py py-obj">‘C’</em> (for chroma display).</p>
+</dd>
+<dt><strong>auto_aspect</strong><span class="classifier">bool</span></dt><dd><p>Axes will have ‘equal’ aspect if the horizontal and vertical dimensions
+cover the same extent and their types match.</p>
+<p>To override, set to <em class="xref py py-obj">False</em>.</p>
+</dd>
+<dt><strong>htk</strong><span class="classifier">bool</span></dt><dd><p>If plotting on a mel frequency axis, specify which version of the mel
+scale to use.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em class="xref py py-obj">False</em>: use Slaney formula (default)</p></li>
+<li><p><em class="xref py py-obj">True</em>: use HTK formula</p></li>
+</ul>
+</div></blockquote>
+<p>See <code class="xref py py-obj docutils literal notranslate"><span class="pre">core.mel_frequencies</span></code> for more information.</p>
+</dd>
+<dt><strong>unicode</strong><span class="classifier">bool</span></dt><dd><p>If using note or svara decorations, setting <em class="xref py py-obj">unicode=True</em>
+will use unicode glyphs for accidentals and octave encoding.</p>
+<p>Setting <em class="xref py py-obj">unicode=False</em> will use ASCII glyphs.  This can be helpful
+if your font does not support musical notation symbols.</p>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes or None</span></dt><dd><p>Axes to plot on instead of the default <em class="xref py py-obj">plt.gca()</em>.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Arguments passed through to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html#matplotlib.pyplot.pcolormesh" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.pcolormesh</span></code></a>.</p>
+<p>By default, the following options are set:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rasterized=True</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shading='auto'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">edgecolors='None'</span></code></p></li>
+</ul>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">cmap</span></code> option if not provided, is inferred from data automatically.
+Set <code class="docutils literal notranslate"><span class="pre">cmap=None</span></code> to use matplotlib’s default colormap.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>colormesh</strong><span class="classifier"><a class="reference external" href="https://matplotlib.org/stable/api/collections_api.html#matplotlib.collections.QuadMesh" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.collections.QuadMesh</span></code></a></span></dt><dd><p>The color mesh object produced by <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html#matplotlib.pyplot.pcolormesh" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.pcolormesh</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.display.cmap.html#librosa.display.cmap" title="librosa.display.cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmap</span></code></a></dt><dd><p>Automatic colormap detection</p>
+</dd>
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.pcolormesh.html#matplotlib.pyplot.pcolormesh" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.pcolormesh</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Visualize an STFT power spectrum using default parameters</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;choice&#39;</span><span class="p">),</span> <span class="n">duration</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y</span><span class="p">)),</span> <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                               <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Linear-frequency power spectrogram&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Or on a logarithmic scale, and using a larger hop</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hop_length</span> <span class="o">=</span> <span class="mi">1024</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">D</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">amplitude_to_db</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)),</span>
+<span class="gp">... </span>                            <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Log-frequency power spectrogram&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%+2.f dB&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/librosa-display-specshow-1.png" class="plot-directive" src="../_images/librosa-display-specshow-1.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../display.html" class="btn btn-neutral float-left" title="Display" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.display.waveshow.html" class="btn btn-neutral float-right" title="librosa.display.waveshow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

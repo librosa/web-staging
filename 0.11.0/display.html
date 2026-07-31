@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Display &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=35a8b989"></script>
+      <script src="_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="librosa.display.specshow" href="generated/librosa.display.specshow.html" />
+    <link rel="prev" title="librosa.set_fftlib" href="generated/librosa.set_fftlib.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core IO and DSP</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Display</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-visualization">Data visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.specshow.html">librosa.display.specshow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.waveshow.html">librosa.display.waveshow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#axis-formatting">Axis formatting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.TimeFormatter.html">librosa.display.TimeFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.NoteFormatter.html">librosa.display.NoteFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.SvaraFormatter.html">librosa.display.SvaraFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.FJSFormatter.html">librosa.display.FJSFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.LogHzFormatter.html">librosa.display.LogHzFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.ChromaFormatter.html">librosa.display.ChromaFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.ChromaSvaraFormatter.html">librosa.display.ChromaSvaraFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.ChromaFJSFormatter.html">librosa.display.ChromaFJSFormatter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.TonnetzFormatter.html">librosa.display.TonnetzFormatter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.cmap.html">librosa.display.cmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.display.AdaptiveWaveplot.html">librosa.display.AdaptiveWaveplot</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Display</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/display.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="module-librosa.display">
+<span id="display"></span><span id="id1"></span><h1>Display<a class="headerlink" href="#module-librosa.display" title="Link to this heading"></a></h1>
+<section id="data-visualization">
+<h2>Data visualization<a class="headerlink" href="#data-visualization" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.display.specshow.html#librosa.display.specshow" title="librosa.display.specshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">specshow</span></code></a>(data, *[, x_coords, y_coords, ...])</p></td>
+<td><p>Display a spectrogram/chromagram/cqt/etc.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.display.waveshow.html#librosa.display.waveshow" title="librosa.display.waveshow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">waveshow</span></code></a>(y, *[, sr, max_points, axis, ...])</p></td>
+<td><p>Visualize a waveform in the time domain.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="axis-formatting">
+<h2>Axis formatting<a class="headerlink" href="#axis-formatting" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.display.TimeFormatter.html#librosa.display.TimeFormatter" title="librosa.display.TimeFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeFormatter</span></code></a>([lag, unit])</p></td>
+<td><p>A tick formatter for time axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.display.NoteFormatter.html#librosa.display.NoteFormatter" title="librosa.display.NoteFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NoteFormatter</span></code></a>([octave, major, key, unicode])</p></td>
+<td><p>Ticker formatter for Notes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.display.SvaraFormatter.html#librosa.display.SvaraFormatter" title="librosa.display.SvaraFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SvaraFormatter</span></code></a>(Sa[, octave, major, abbr, ...])</p></td>
+<td><p>Ticker formatter for Svara</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.display.FJSFormatter.html#librosa.display.FJSFormatter" title="librosa.display.FJSFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FJSFormatter</span></code></a>(*, fmin, n_bins, ...[, major, ...])</p></td>
+<td><p>Ticker formatter for Functional Just System (FJS) notation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.display.LogHzFormatter.html#librosa.display.LogHzFormatter" title="librosa.display.LogHzFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LogHzFormatter</span></code></a>([major])</p></td>
+<td><p>Ticker formatter for logarithmic frequency</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.display.ChromaFormatter.html#librosa.display.ChromaFormatter" title="librosa.display.ChromaFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChromaFormatter</span></code></a>([key, unicode])</p></td>
+<td><p>A formatter for chroma axes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.display.ChromaSvaraFormatter.html#librosa.display.ChromaSvaraFormatter" title="librosa.display.ChromaSvaraFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChromaSvaraFormatter</span></code></a>([Sa, mela, abbr, unicode])</p></td>
+<td><p>A formatter for chroma axes with svara instead of notes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.display.ChromaFJSFormatter.html#librosa.display.ChromaFJSFormatter" title="librosa.display.ChromaFJSFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChromaFJSFormatter</span></code></a>(*, intervals[, unison, ...])</p></td>
+<td><p>A formatter for chroma axes with functional just notation</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.display.TonnetzFormatter.html#librosa.display.TonnetzFormatter" title="librosa.display.TonnetzFormatter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TonnetzFormatter</span></code></a>()</p></td>
+<td><p>A formatter for tonnetz axes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.display.cmap.html#librosa.display.cmap" title="librosa.display.cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cmap</span></code></a>(data, *[, robust, cmap_seq, cmap_bool, ...])</p></td>
+<td><p>Get a default colormap from the given data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot" title="librosa.display.AdaptiveWaveplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AdaptiveWaveplot</span></code></a>(times, y, steps, envelope)</p></td>
+<td><p>A helper class for managing adaptive wave visualizations.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/librosa.set_fftlib.html" class="btn btn-neutral float-left" title="librosa.set_fftlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/librosa.display.specshow.html" class="btn btn-neutral float-right" title="librosa.display.specshow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

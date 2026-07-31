@@ -1,0 +1,6 @@
+﻿librosa.times\_like
+===================
+
+.. currentmodule:: librosa
+
+.. autofunction:: times_like

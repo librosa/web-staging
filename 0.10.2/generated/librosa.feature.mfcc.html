@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.feature.mfcc &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.feature.rms" href="librosa.feature.rms.html" />
+    <link rel="prev" title="librosa.feature.melspectrogram" href="librosa.feature.melspectrogram.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../feature.html">Feature extraction</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../feature.html#spectral-features">Spectral features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.chroma_stft.html">librosa.feature.chroma_stft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.chroma_cqt.html">librosa.feature.chroma_cqt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.chroma_cens.html">librosa.feature.chroma_cens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.chroma_vqt.html">librosa.feature.chroma_vqt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.melspectrogram.html">librosa.feature.melspectrogram</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.feature.mfcc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.feature.mfcc"><code class="docutils literal notranslate"><span class="pre">mfcc</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.rms.html">librosa.feature.rms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.spectral_centroid.html">librosa.feature.spectral_centroid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.spectral_bandwidth.html">librosa.feature.spectral_bandwidth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.spectral_contrast.html">librosa.feature.spectral_contrast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.spectral_flatness.html">librosa.feature.spectral_flatness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.spectral_rolloff.html">librosa.feature.spectral_rolloff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.poly_features.html">librosa.feature.poly_features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.tonnetz.html">librosa.feature.tonnetz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.feature.zero_crossing_rate.html">librosa.feature.zero_crossing_rate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../feature.html#rhythm-features">Rhythm features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../feature.html#feature-manipulation">Feature manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../feature.html#feature-inversion">Feature inversion</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../feature.html">Feature extraction</a></li>
+      <li class="breadcrumb-item active">librosa.feature.mfcc</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.feature.mfcc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-feature-mfcc">
+<h1>librosa.feature.mfcc<a class="headerlink" href="#librosa-feature-mfcc" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.feature.mfcc">
+<span class="sig-prename descclassname"><span class="pre">librosa.feature.</span></span><span class="sig-name descname"><span class="pre">mfcc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22050</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_mfcc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dct_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ortho'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/feature/spectral.html#mfcc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.feature.mfcc" title="Link to this definition"></a></dt>
+<dd><p>Mel-frequency cepstral coefficients (MFCCs)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If multi-channel audio input <code class="docutils literal notranslate"><span class="pre">y</span></code> is provided, the MFCC
+calculation will depend on the peak loudness (in decibels) across
+all channels.  The result may differ from independent MFCC calculation
+of each channel.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>y</strong><span class="classifier">np.ndarray [shape=(…, n,)] or None</span></dt><dd><p>audio time series. Multi-channel is supported..</p>
+</dd>
+<dt><strong>sr</strong><span class="classifier">number &gt; 0 [scalar]</span></dt><dd><p>sampling rate of <code class="docutils literal notranslate"><span class="pre">y</span></code></p>
+</dd>
+<dt><strong>S</strong><span class="classifier">np.ndarray [shape=(…, d, t)] or None</span></dt><dd><p>log-power Mel spectrogram</p>
+</dd>
+<dt><strong>n_mfcc</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>number of MFCCs to return</p>
+</dd>
+<dt><strong>dct_type</strong><span class="classifier">{1, 2, 3}</span></dt><dd><p>Discrete cosine transform (DCT) type.
+By default, DCT type-2 is used.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">None or ‘ortho’</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">dct_type</span></code> is <em class="xref py py-obj">2 or 3</em>, setting <code class="docutils literal notranslate"><span class="pre">norm='ortho'</span></code> uses an ortho-normal
+DCT basis.
+Normalization is not supported for <code class="docutils literal notranslate"><span class="pre">dct_type=1</span></code>.</p>
+</dd>
+<dt><strong>lifter</strong><span class="classifier">number &gt;= 0</span></dt><dd><dl class="simple">
+<dt>If <code class="docutils literal notranslate"><span class="pre">lifter&gt;0</span></code>, apply <em>liftering</em> (cepstral filtering) to the MFCCs::</dt><dd><p>M[n, :] &lt;- M[n, :] * (1 + sin(pi * (n + 1) / lifter) * lifter / 2)</p>
+</dd>
+</dl>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">lifter</span> <span class="pre">&gt;=</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">n_mfcc</span></code> emphasizes the higher-order coefficients.
+As <code class="docutils literal notranslate"><span class="pre">lifter</span></code> increases, the coefficient weighting becomes approximately linear.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments to <a class="reference internal" href="librosa.feature.melspectrogram.html#librosa.feature.melspectrogram" title="librosa.feature.melspectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">melspectrogram</span></code></a></span></dt><dd><p>if operating on time series input</p>
+</dd>
+<dt><strong>n_fft</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>length of the FFT window</p>
+</dd>
+<dt><strong>hop_length</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>number of samples between successive frames.
+See <a class="reference internal" href="librosa.stft.html#librosa.stft" title="librosa.stft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.stft</span></code></a></p>
+</dd>
+<dt><strong>win_length</strong><span class="classifier">int &lt;= n_fft [scalar]</span></dt><dd><p>Each frame of audio is windowed by <em class="xref py py-obj">window()</em>.
+The window will be of length <em class="xref py py-obj">win_length</em> and then padded
+with zeros to match <code class="docutils literal notranslate"><span class="pre">n_fft</span></code>.
+If unspecified, defaults to <code class="docutils literal notranslate"><span class="pre">win_length</span> <span class="pre">=</span> <span class="pre">n_fft</span></code>.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">string, tuple, number, function, or np.ndarray [shape=(n_fft,)]</span></dt><dd><ul class="simple">
+<li><p>a window specification (string, tuple, or number);</p></li>
+</ul>
+<p>see <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.get_window.html#scipy.signal.get_window" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.get_window</span></code></a>
+- a window function, such as <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.hann.html#scipy.signal.windows.hann" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.windows.hann</span></code></a>
+- a vector or array of length <code class="docutils literal notranslate"><span class="pre">n_fft</span></code>
+.. see also:: <a class="reference internal" href="librosa.filters.get_window.html#librosa.filters.get_window" title="librosa.filters.get_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.filters.get_window</span></code></a></p>
+</dd>
+<dt><strong>center</strong><span class="classifier">boolean</span></dt><dd><ul class="simple">
+<li><p>If <em class="xref py py-obj">True</em>, the signal <code class="docutils literal notranslate"><span class="pre">y</span></code> is padded so that frame</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">t</span></code> is centered at <code class="docutils literal notranslate"><span class="pre">y[t</span> <span class="pre">*</span> <span class="pre">hop_length]</span></code>.
+- If <em class="xref py py-obj">False</em>, then frame <code class="docutils literal notranslate"><span class="pre">t</span></code> begins at <code class="docutils literal notranslate"><span class="pre">y[t</span> <span class="pre">*</span> <span class="pre">hop_length]</span></code></p>
+</dd>
+<dt><strong>pad_mode</strong><span class="classifier">string</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">center=True</span></code>, the padding mode to use at the edges of the signal.
+By default, STFT uses zero padding.</p>
+</dd>
+<dt><strong>power</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Exponent applied to the spectrum before calculating the melspectrogram when the input is a time signal,
+e.g. 1 for magnitude, 2 for power <strong>(default)</strong>, etc.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments for Mel filter bank parameters</span></dt><dd></dd>
+<dt><strong>n_mels</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>number of Mel bands to generate</p>
+</dd>
+<dt><strong>fmin</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>lowest frequency (in Hz)</p>
+</dd>
+<dt><strong>fmax</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>highest frequency (in Hz).
+If <em class="xref py py-obj">None</em>, use <code class="docutils literal notranslate"><span class="pre">fmax</span> <span class="pre">=</span> <span class="pre">sr</span> <span class="pre">/</span> <span class="pre">2.0</span></code></p>
+</dd>
+<dt><strong>htk</strong><span class="classifier">bool [scalar]</span></dt><dd><p>use HTK formula instead of Slaney</p>
+</dd>
+<dt><strong>dtype</strong><span class="classifier">np.dtype</span></dt><dd><p>The data type of the output basis.
+By default, uses 32-bit (single-precision) floating point.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>M</strong><span class="classifier">np.ndarray [shape=(…, n_mfcc, t)]</span></dt><dd><p>MFCC sequence</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.feature.melspectrogram.html#librosa.feature.melspectrogram" title="librosa.feature.melspectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">melspectrogram</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.fftpack.dct.html#scipy.fftpack.dct" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.fftpack.dct</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Generate mfccs from a time series</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;libri1&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+<span class="go">array([[-565.919, -564.288, ..., -426.484, -434.668],</span>
+<span class="go">       [  10.305,   12.509, ...,   88.43 ,   90.12 ],</span>
+<span class="go">       ...,</span>
+<span class="go">       [   2.807,    2.068, ...,   -6.725,   -5.159],</span>
+<span class="go">       [   2.822,    2.244, ...,   -6.198,   -6.177]], dtype=float32)</span>
+</pre></div>
+</div>
+<p>Using a different hop length and HTK-style Mel frequencies</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">htk</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">array([[-5.471e+02, -5.464e+02, ..., -4.446e+02, -4.200e+02],</span>
+<span class="go">       [ 1.361e+01,  1.402e+01, ...,  9.764e+01,  9.869e+01],</span>
+<span class="go">       ...,</span>
+<span class="go">       [ 4.097e-01, -2.029e+00, ..., -1.051e+01, -1.130e+01],</span>
+<span class="go">       [-1.119e-01, -1.688e+00, ..., -3.442e+00, -4.687e+00]],</span>
+<span class="go">      dtype=float32)</span>
+</pre></div>
+</div>
+<p>Use a pre-computed log-power Mel spectrogram</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">melspectrogram</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_mels</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+<span class="gp">... </span>                                   <span class="n">fmax</span><span class="o">=</span><span class="mi">8000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">S</span><span class="o">=</span><span class="n">librosa</span><span class="o">.</span><span class="n">power_to_db</span><span class="p">(</span><span class="n">S</span><span class="p">))</span>
+<span class="go">array([[-559.974, -558.449, ..., -411.96 , -420.458],</span>
+<span class="go">       [  11.018,   13.046, ...,   76.972,   80.888],</span>
+<span class="go">       ...,</span>
+<span class="go">       [   2.713,    2.379, ...,    1.464,   -2.835],</span>
+<span class="go">       [   2.712,    2.619, ...,    2.209,    0.648]], dtype=float32)</span>
+</pre></div>
+</div>
+<p>Get more components</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mfccs</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_mfcc</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Visualize the MFCC series</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">power_to_db</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">),</span>
+<span class="gp">... </span>                               <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;mel&#39;</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">8000</span><span class="p">,</span>
+<span class="gp">... </span>                               <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="p">[</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Mel spectrogram&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">mfccs</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="p">[</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;MFCC&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Compare different DCT bases</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m_slaney</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">dct_type</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">m_htk</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">dct_type</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">img1</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">m_slaney</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;RASTAMAT / Auditory toolbox (dct_type=2)&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="p">[</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">img2</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">m_htk</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;HTK-style (dct_type=3)&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img2</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="p">[</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/librosa-feature-mfcc-1_00.png" class="plot-directive" src="../_images/librosa-feature-mfcc-1_00.png" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/librosa-feature-mfcc-1_01.png" class="plot-directive" src="../_images/librosa-feature-mfcc-1_01.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.feature.melspectrogram.html" class="btn btn-neutral float-left" title="librosa.feature.melspectrogram" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.feature.rms.html" class="btn btn-neutral float-right" title="librosa.feature.rms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

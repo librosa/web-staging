@@ -1,0 +1,6 @@
+﻿librosa.fifths\_to\_note
+========================
+
+.. currentmodule:: librosa
+
+.. autofunction:: fifths_to_note

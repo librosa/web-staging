@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.plimit_intervals &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.fft_frequencies" href="librosa.fft_frequencies.html" />
+    <link rel="prev" title="librosa.pythagorean_intervals" href="librosa.pythagorean_intervals.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../core.html">Core IO and DSP</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core.html#audio-loading">Audio loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-domain-processing">Time-domain processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#signal-generation">Signal generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#spectral-representations">Spectral representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#phase-recovery">Phase recovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#harmonics">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#magnitude-scaling">Magnitude scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-unit-conversion">Time unit conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-unit-conversion">Frequency unit conversion</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../core.html#music-notation">Music notation</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.key_to_notes.html">librosa.key_to_notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.key_to_degrees.html">librosa.key_to_degrees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.mela_to_svara.html">librosa.mela_to_svara</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.mela_to_degrees.html">librosa.mela_to_degrees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.thaat_to_degrees.html">librosa.thaat_to_degrees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.list_mela.html">librosa.list_mela</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.list_thaat.html">librosa.list_thaat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.fifths_to_note.html">librosa.fifths_to_note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.interval_to_fjs.html">librosa.interval_to_fjs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.interval_frequencies.html">librosa.interval_frequencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.pythagorean_intervals.html">librosa.pythagorean_intervals</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.plimit_intervals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.plimit_intervals"><code class="docutils literal notranslate"><span class="pre">plimit_intervals</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-range-generation">Frequency range generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#pitch-and-tuning">Pitch and tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../core.html">Core IO and DSP</a></li>
+      <li class="breadcrumb-item active">librosa.plimit_intervals</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.plimit_intervals.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-plimit-intervals">
+<h1>librosa.plimit_intervals<a class="headerlink" href="#librosa-plimit-intervals" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.plimit_intervals">
+<span class="sig-prename descclassname"><span class="pre">librosa.</span></span><span class="sig-name descname"><span class="pre">plimit_intervals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">primes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins_per_octave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_factors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/core/intervals.html#plimit_intervals"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.plimit_intervals" title="Link to this definition"></a></dt>
+<dd><p>Construct p-limit intervals for a given set of prime factors.</p>
+<p>This function is based on the “harmonic crystal growth” algorithm
+of <a class="footnote-reference brackets" href="#id3" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a> <a class="footnote-reference brackets" href="#id4" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a>.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id3" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">3</a><span class="fn-bracket">]</span></span>
+<p>Tenney, James.
+“On ‘Crystal Growth’ in harmonic space (1993–1998).”
+Contemporary Music Review 27.1 (2008): 47-56.</p>
+</aside>
+<aside class="footnote brackets" id="id4" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">4</a><span class="fn-bracket">]</span></span>
+<p>Sabat, Marc, and James Tenney.
+“Three crystal growth algorithms in 23-limit constrained harmonic space.”
+Contemporary Music Review 27, no. 1 (2008): 57-78.</p>
+</aside>
+</aside>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>primes</strong><span class="classifier">array of odd primes</span></dt><dd><p>Which prime factors are to be used</p>
+</dd>
+<dt><strong>bins_per_octave</strong><span class="classifier">int</span></dt><dd><p>The number of intervals to construct</p>
+</dd>
+<dt><strong>sort</strong><span class="classifier">bool</span></dt><dd><p>If <em class="xref py py-obj">True</em> then intervals are returned in ascending order.
+If <em class="xref py py-obj">False</em>, then intervals are returned in crystal growth order.</p>
+</dd>
+<dt><strong>return_factors</strong><span class="classifier">bool</span></dt><dd><p>If <em class="xref py py-obj">True</em> then return a list of dictionaries encoding the prime factorization
+of each interval as <em class="xref py py-obj">{2: p2, 3: p3, …}</em> (meaning <em class="xref py py-obj">3**p3 * 2**p2</em>).
+If <em class="xref py py-obj">False</em> (default), return intervals as an array of floating point numbers.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>intervals</strong><span class="classifier">np.ndarray or list of dictionaries</span></dt><dd><p>The constructed interval set. All intervals are mapped
+to the range [1, 2).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.pythagorean_intervals.html#librosa.pythagorean_intervals" title="librosa.pythagorean_intervals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pythagorean_intervals</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Compare 3-limit tuning to Pythagorean tuning and 12-TET</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">plimit_intervals</span><span class="p">(</span><span class="n">primes</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="go">array([1.        , 1.05349794, 1.125     , 1.18518519, 1.265625  ,</span>
+<span class="go">       1.33333333, 1.40466392, 1.5       , 1.58024691, 1.6875    ,</span>
+<span class="go">       1.77777778, 1.8984375 ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Pythagorean intervals:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">pythagorean_intervals</span><span class="p">(</span><span class="n">bins_per_octave</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="go">array([1.        , 1.06787109, 1.125     , 1.20135498, 1.265625  ,</span>
+<span class="go">       1.35152435, 1.42382812, 1.5       , 1.60180664, 1.6875    ,</span>
+<span class="go">       1.80203247, 1.8984375 ])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># 12-TET intervals:</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+<span class="go">array([1.        , 1.05946309, 1.12246205, 1.18920712, 1.25992105,</span>
+<span class="go">       1.33483985, 1.41421356, 1.49830708, 1.58740105, 1.68179283,</span>
+<span class="go">       1.78179744, 1.88774863])</span>
+</pre></div>
+</div>
+<p>Create a 7-bin, 5-limit interval set</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">plimit_intervals</span><span class="p">(</span><span class="n">primes</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">array([1.        , 1.125     , 1.25      , 1.33333333, 1.5       ,</span>
+<span class="go">       1.66666667, 1.875     ])</span>
+</pre></div>
+</div>
+<p>The same example, but now in factored form</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">plimit_intervals</span><span class="p">(</span><span class="n">primes</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">bins_per_octave</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="n">return_factors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">[</span>
+<span class="go">    {},</span>
+<span class="go">    {2: -3, 3: 2},</span>
+<span class="go">    {2: -2, 5: 1},</span>
+<span class="go">    {2: 2, 3: -1},</span>
+<span class="go">    {2: -1, 3: 1},</span>
+<span class="go">    {3: -1, 5: 1},</span>
+<span class="go">    {2: -3, 3: 1, 5: 1}</span>
+<span class="go">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.pythagorean_intervals.html" class="btn btn-neutral float-left" title="librosa.pythagorean_intervals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.fft_frequencies.html" class="btn btn-neutral float-right" title="librosa.fft_frequencies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

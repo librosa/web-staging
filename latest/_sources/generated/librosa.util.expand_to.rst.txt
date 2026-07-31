@@ -1,0 +1,6 @@
+﻿librosa.util.expand\_to
+=======================
+
+.. currentmodule:: librosa.util
+
+.. autofunction:: expand_to

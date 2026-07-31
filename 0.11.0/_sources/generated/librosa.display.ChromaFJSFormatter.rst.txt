@@ -1,0 +1,37 @@
+﻿librosa.display.ChromaFJSFormatter
+==================================
+
+.. currentmodule:: librosa.display
+
+.. autoclass:: ChromaFJSFormatter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ChromaFJSFormatter.__init__
+      ~ChromaFJSFormatter.create_dummy_axis
+      ~ChromaFJSFormatter.fix_minus
+      ~ChromaFJSFormatter.format_data
+      ~ChromaFJSFormatter.format_data_short
+      ~ChromaFJSFormatter.format_ticks
+      ~ChromaFJSFormatter.get_offset
+      ~ChromaFJSFormatter.set_axis
+      ~ChromaFJSFormatter.set_locs
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ChromaFJSFormatter.axis
+      ~ChromaFJSFormatter.locs
+   
+   

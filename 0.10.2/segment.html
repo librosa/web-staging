@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temporal segmentation &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=11e62b30"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=35a8b989"></script>
+      <script src="_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="librosa.segment.cross_similarity" href="generated/librosa.segment.cross_similarity.html" />
+    <link rel="prev" title="librosa.effects.deemphasis" href="generated/librosa.effects.deemphasis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects.html">Effects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Temporal segmentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#recurrence-and-self-similarity">Recurrence and self-similarity</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.cross_similarity.html">librosa.segment.cross_similarity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.recurrence_matrix.html">librosa.segment.recurrence_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.recurrence_to_lag.html">librosa.segment.recurrence_to_lag</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.lag_to_recurrence.html">librosa.segment.lag_to_recurrence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.timelag_filter.html">librosa.segment.timelag_filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.path_enhance.html">librosa.segment.path_enhance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#temporal-clustering">Temporal clustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.agglomerative.html">librosa.segment.agglomerative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.segment.subsegment.html">librosa.segment.subsegment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Temporal segmentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/segment.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="temporal-segmentation">
+<span id="module-librosa.segment"></span><span id="segment"></span><h1>Temporal segmentation<a class="headerlink" href="#temporal-segmentation" title="Link to this heading"></a></h1>
+<section id="recurrence-and-self-similarity">
+<h2>Recurrence and self-similarity<a class="headerlink" href="#recurrence-and-self-similarity" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.segment.cross_similarity.html#librosa.segment.cross_similarity" title="librosa.segment.cross_similarity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cross_similarity</span></code></a>(data, data_ref, *[, k, ...])</p></td>
+<td><p>Compute cross-similarity from one data sequence to a reference sequence.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.segment.recurrence_matrix.html#librosa.segment.recurrence_matrix" title="librosa.segment.recurrence_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recurrence_matrix</span></code></a>(data, *[, k, width, ...])</p></td>
+<td><p>Compute a recurrence matrix from a data matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.segment.recurrence_to_lag.html#librosa.segment.recurrence_to_lag" title="librosa.segment.recurrence_to_lag"><code class="xref py py-obj docutils literal notranslate"><span class="pre">recurrence_to_lag</span></code></a>(rec, *[, pad, axis])</p></td>
+<td><p>Convert a recurrence matrix into a lag matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.segment.lag_to_recurrence.html#librosa.segment.lag_to_recurrence" title="librosa.segment.lag_to_recurrence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lag_to_recurrence</span></code></a>(lag, *[, axis])</p></td>
+<td><p>Convert a lag matrix into a recurrence matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.segment.timelag_filter.html#librosa.segment.timelag_filter" title="librosa.segment.timelag_filter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">timelag_filter</span></code></a>(function[, pad, index])</p></td>
+<td><p>Apply a filter in the time-lag domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.segment.path_enhance.html#librosa.segment.path_enhance" title="librosa.segment.path_enhance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">path_enhance</span></code></a>(R, n, *[, window, max_ratio, ...])</p></td>
+<td><p>Multi-angle path enhancement for self- and cross-similarity matrices.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="temporal-clustering">
+<h2>Temporal clustering<a class="headerlink" href="#temporal-clustering" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.segment.agglomerative.html#librosa.segment.agglomerative" title="librosa.segment.agglomerative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">agglomerative</span></code></a>(data, k, *[, clusterer, axis])</p></td>
+<td><p>Bottom-up temporal segmentation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.segment.subsegment.html#librosa.segment.subsegment" title="librosa.segment.subsegment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">subsegment</span></code></a>(data, frames, *[, n_segments, axis])</p></td>
+<td><p>Sub-divide a segmentation by feature clustering.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/librosa.effects.deemphasis.html" class="btn btn-neutral float-left" title="librosa.effects.deemphasis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/librosa.segment.cross_similarity.html" class="btn btn-neutral float-right" title="librosa.segment.cross_similarity" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

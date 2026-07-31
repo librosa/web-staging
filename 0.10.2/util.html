@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utilities &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=11e62b30"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=35a8b989"></script>
+      <script src="_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="librosa.util.frame" href="generated/librosa.util.frame.html" />
+    <link rel="prev" title="librosa.sequence.transition_local" href="generated/librosa.sequence.transition_local.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#array-operations">Array operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.frame.html">librosa.util.frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.pad_center.html">librosa.util.pad_center</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.expand_to.html">librosa.util.expand_to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.fix_length.html">librosa.util.fix_length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.fix_frames.html">librosa.util.fix_frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.index_to_slice.html">librosa.util.index_to_slice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.softmask.html">librosa.util.softmask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.stack.html">librosa.util.stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.sync.html">librosa.util.sync</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.axis_sort.html">librosa.util.axis_sort</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.normalize.html">librosa.util.normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.shear.html">librosa.util.shear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.sparsify_rows.html">librosa.util.sparsify_rows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.buf_to_float.html">librosa.util.buf_to_float</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.tiny.html">librosa.util.tiny</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#matching">Matching</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.match_intervals.html">librosa.util.match_intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.match_events.html">librosa.util.match_events</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.localmax.html">librosa.util.localmax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.localmin.html">librosa.util.localmin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.peak_pick.html">librosa.util.peak_pick</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.nnls.html">librosa.util.nnls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.cyclic_gradient.html">librosa.util.cyclic_gradient</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.dtype_c2r.html">librosa.util.dtype_c2r</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.dtype_r2c.html">librosa.util.dtype_r2c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.count_unique.html">librosa.util.count_unique</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.is_unique.html">librosa.util.is_unique</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.abs2.html">librosa.util.abs2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.phasor.html">librosa.util.phasor</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#input-validation">Input validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.valid_audio.html">librosa.util.valid_audio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.valid_int.html">librosa.util.valid_int</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.valid_intervals.html">librosa.util.valid_intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.is_positive_int.html">librosa.util.is_positive_int</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#file-operations">File operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.example.html">librosa.util.example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.example_info.html">librosa.util.example_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.list_examples.html">librosa.util.list_examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.find_files.html">librosa.util.find_files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.util.cite.html">librosa.util.cite</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Utilities</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/util.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="utilities">
+<span id="module-librosa.util"></span><span id="util"></span><h1>Utilities<a class="headerlink" href="#utilities" title="Link to this heading"></a></h1>
+<section id="array-operations">
+<h2>Array operations<a class="headerlink" href="#array-operations" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.frame.html#librosa.util.frame" title="librosa.util.frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frame</span></code></a>(x, *, frame_length, hop_length[, ...])</p></td>
+<td><p>Slice a data array into (overlapping) frames.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.pad_center.html#librosa.util.pad_center" title="librosa.util.pad_center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pad_center</span></code></a>(data, *, size[, axis])</p></td>
+<td><p>Pad an array to a target length along a target axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.expand_to.html#librosa.util.expand_to" title="librosa.util.expand_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_to</span></code></a>(x, *, ndim, axes)</p></td>
+<td><p>Expand the dimensions of an input array with</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.fix_length.html#librosa.util.fix_length" title="librosa.util.fix_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fix_length</span></code></a>(data, *, size[, axis])</p></td>
+<td><p>Fix the length an array <code class="docutils literal notranslate"><span class="pre">data</span></code> to exactly <code class="docutils literal notranslate"><span class="pre">size</span></code> along a target axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.fix_frames.html#librosa.util.fix_frames" title="librosa.util.fix_frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fix_frames</span></code></a>(frames, *[, x_min, x_max, pad])</p></td>
+<td><p>Fix a list of frames to lie within [x_min, x_max]</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.index_to_slice.html#librosa.util.index_to_slice" title="librosa.util.index_to_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">index_to_slice</span></code></a>(idx, *[, idx_min, idx_max, ...])</p></td>
+<td><p>Generate a slice array from an index array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.softmask.html#librosa.util.softmask" title="librosa.util.softmask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">softmask</span></code></a>(X, X_ref, *[, power, split_zeros])</p></td>
+<td><p>Robustly compute a soft-mask operation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.stack.html#librosa.util.stack" title="librosa.util.stack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stack</span></code></a>(arrays, *[, axis])</p></td>
+<td><p>Stack one or more arrays along a target axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.sync.html#librosa.util.sync" title="librosa.util.sync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sync</span></code></a>(data, idx, *[, aggregate, pad, axis])</p></td>
+<td><p>Aggregate a multi-dimensional array between specified boundaries.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.axis_sort.html#librosa.util.axis_sort" title="librosa.util.axis_sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">axis_sort</span></code></a>(S, *[, axis, index, value])</p></td>
+<td><p>Sort an array along its rows or columns.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.normalize.html#librosa.util.normalize" title="librosa.util.normalize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">normalize</span></code></a>(S, *[, norm, axis, threshold, fill])</p></td>
+<td><p>Normalize an array along a chosen axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.shear.html#librosa.util.shear" title="librosa.util.shear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shear</span></code></a>(X, *[, factor, axis])</p></td>
+<td><p>Shear a matrix by a given factor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.sparsify_rows.html#librosa.util.sparsify_rows" title="librosa.util.sparsify_rows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sparsify_rows</span></code></a>(x, *[, quantile, dtype])</p></td>
+<td><p>Return a row-sparse matrix approximating the input</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.buf_to_float.html#librosa.util.buf_to_float" title="librosa.util.buf_to_float"><code class="xref py py-obj docutils literal notranslate"><span class="pre">buf_to_float</span></code></a>(x, *[, n_bytes, dtype])</p></td>
+<td><p>Convert an integer buffer to floating point values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.tiny.html#librosa.util.tiny" title="librosa.util.tiny"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tiny</span></code></a>(x)</p></td>
+<td><p>Compute the tiny-value corresponding to an input's data type.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="matching">
+<h2>Matching<a class="headerlink" href="#matching" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.match_intervals.html#librosa.util.match_intervals" title="librosa.util.match_intervals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_intervals</span></code></a>(intervals_from, intervals_to)</p></td>
+<td><p>Match one set of time intervals to another.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.match_events.html#librosa.util.match_events" title="librosa.util.match_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">match_events</span></code></a>(events_from, events_to[, left, ...])</p></td>
+<td><p>Match one set of events to another.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.localmax.html#librosa.util.localmax" title="librosa.util.localmax"><code class="xref py py-obj docutils literal notranslate"><span class="pre">localmax</span></code></a>(x, *[, axis])</p></td>
+<td><p>Find local maxima in an array</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.localmin.html#librosa.util.localmin" title="librosa.util.localmin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">localmin</span></code></a>(x, *[, axis])</p></td>
+<td><p>Find local minima in an array</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.peak_pick.html#librosa.util.peak_pick" title="librosa.util.peak_pick"><code class="xref py py-obj docutils literal notranslate"><span class="pre">peak_pick</span></code></a>(x, *, pre_max, post_max, pre_avg, ...)</p></td>
+<td><p>Use a flexible heuristic to pick peaks in a signal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.nnls.html#librosa.util.nnls" title="librosa.util.nnls"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nnls</span></code></a>(A, B, **kwargs)</p></td>
+<td><p>Non-negative least squares.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.cyclic_gradient.html#librosa.util.cyclic_gradient" title="librosa.util.cyclic_gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cyclic_gradient</span></code></a>(data, *[, edge_order, axis])</p></td>
+<td><p>Estimate the gradient of a function over a uniformly sampled, periodic domain.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.dtype_c2r.html#librosa.util.dtype_c2r" title="librosa.util.dtype_c2r"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype_c2r</span></code></a>(d, *[, default])</p></td>
+<td><p>Find the real numpy dtype corresponding to a complex dtype.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.dtype_r2c.html#librosa.util.dtype_r2c" title="librosa.util.dtype_r2c"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype_r2c</span></code></a>(d, *[, default])</p></td>
+<td><p>Find the complex numpy dtype corresponding to a real dtype.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.count_unique.html#librosa.util.count_unique" title="librosa.util.count_unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count_unique</span></code></a>(data, *[, axis])</p></td>
+<td><p>Count the number of unique values in a multi-dimensional array along a given axis.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.is_unique.html#librosa.util.is_unique" title="librosa.util.is_unique"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_unique</span></code></a>(data, *[, axis])</p></td>
+<td><p>Determine if the input array consists of all unique values along a given axis.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.abs2.html#librosa.util.abs2" title="librosa.util.abs2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abs2</span></code></a>(x[, dtype])</p></td>
+<td><p>Compute the squared magnitude of a real or complex array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.phasor.html#librosa.util.phasor" title="librosa.util.phasor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">phasor</span></code></a>(angles, *[, mag])</p></td>
+<td><p>Construct a complex phasor representation from angles.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="input-validation">
+<h2>Input validation<a class="headerlink" href="#input-validation" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.valid_audio.html#librosa.util.valid_audio" title="librosa.util.valid_audio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_audio</span></code></a>(y, *[, mono])</p></td>
+<td><p>Determine whether a variable contains valid audio data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.valid_int.html#librosa.util.valid_int" title="librosa.util.valid_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_int</span></code></a>(x, *[, cast])</p></td>
+<td><p>Ensure that an input value is integer-typed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.valid_intervals.html#librosa.util.valid_intervals" title="librosa.util.valid_intervals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">valid_intervals</span></code></a>(intervals)</p></td>
+<td><p>Ensure that an array is a valid representation of time intervals:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.is_positive_int.html#librosa.util.is_positive_int" title="librosa.util.is_positive_int"><code class="xref py py-obj docutils literal notranslate"><span class="pre">is_positive_int</span></code></a>(x)</p></td>
+<td><p>Check that x is a positive integer, i.e. 1 or greater.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="file-operations">
+<h2>File operations<a class="headerlink" href="#file-operations" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.example.html#librosa.util.example" title="librosa.util.example"><code class="xref py py-obj docutils literal notranslate"><span class="pre">example</span></code></a>(key, *[, hq])</p></td>
+<td><p>Retrieve the example recording identified by 'key'.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.example_info.html#librosa.util.example_info" title="librosa.util.example_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">example_info</span></code></a>(key)</p></td>
+<td><p>Display licensing and metadata information for the given example recording.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.list_examples.html#librosa.util.list_examples" title="librosa.util.list_examples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_examples</span></code></a>()</p></td>
+<td><p>List the available audio recordings included with librosa.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.util.find_files.html#librosa.util.find_files" title="librosa.util.find_files"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_files</span></code></a>(directory, *[, ext, recurse, ...])</p></td>
+<td><p>Get a sorted list of (audio) files in a directory or directory sub-tree.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.util.cite.html#librosa.util.cite" title="librosa.util.cite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cite</span></code></a>([version])</p></td>
+<td><p>Print the citation information for librosa.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/librosa.sequence.transition_local.html" class="btn btn-neutral float-left" title="librosa.sequence.transition_local" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/librosa.util.frame.html" class="btn btn-neutral float-right" title="librosa.util.frame" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

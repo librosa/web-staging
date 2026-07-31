@@ -1,0 +1,6 @@
+﻿librosa.pitch\_tuning
+=====================
+
+.. currentmodule:: librosa
+
+.. autofunction:: pitch_tuning

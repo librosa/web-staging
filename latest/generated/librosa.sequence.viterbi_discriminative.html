@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.sequence.viterbi_discriminative &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.sequence.viterbi_binary" href="librosa.sequence.viterbi_binary.html" />
+    <link rel="prev" title="librosa.sequence.viterbi" href="librosa.sequence.viterbi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../sequence.html">Sequential modeling</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../sequence.html#sequence-alignment">Sequence alignment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../sequence.html#viterbi-decoding">Viterbi decoding</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.sequence.viterbi.html">librosa.sequence.viterbi</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.sequence.viterbi_discriminative</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.sequence.viterbi_discriminative"><code class="docutils literal notranslate"><span class="pre">viterbi_discriminative</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.sequence.viterbi_binary.html">librosa.sequence.viterbi_binary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../sequence.html#transition-matrices">Transition matrices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../sequence.html">Sequential modeling</a></li>
+      <li class="breadcrumb-item active">librosa.sequence.viterbi_discriminative</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.sequence.viterbi_discriminative.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-sequence-viterbi-discriminative">
+<h1>librosa.sequence.viterbi_discriminative<a class="headerlink" href="#librosa-sequence-viterbi-discriminative" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.sequence.viterbi_discriminative">
+<span class="sig-prename descclassname"><span class="pre">librosa.sequence.</span></span><span class="sig-name descname"><span class="pre">viterbi_discriminative</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transition</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p_init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_logp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/sequence.html#viterbi_discriminative"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.sequence.viterbi_discriminative" title="Link to this definition"></a></dt>
+<dd><p>Viterbi decoding from discriminative state predictions.</p>
+<p>Given a sequence of conditional state predictions <code class="docutils literal notranslate"><span class="pre">prob[s,</span> <span class="pre">t]</span></code>,
+indicating the conditional likelihood of state <code class="docutils literal notranslate"><span class="pre">s</span></code> given the
+observation at time <code class="docutils literal notranslate"><span class="pre">t</span></code>, and a transition matrix <code class="docutils literal notranslate"><span class="pre">transition[i,</span> <span class="pre">j]</span></code>
+which encodes the conditional probability of moving from state <code class="docutils literal notranslate"><span class="pre">i</span></code>
+to state <code class="docutils literal notranslate"><span class="pre">j</span></code>, the Viterbi algorithm computes the most likely sequence
+of states from the observations.</p>
+<p>This implementation uses the standard Viterbi decoding algorithm
+for observation likelihood sequences, under the assumption that
+<code class="docutils literal notranslate"><span class="pre">P[Obs(t)</span> <span class="pre">|</span> <span class="pre">State(t)</span> <span class="pre">=</span> <span class="pre">s]</span></code> is proportional to
+<code class="docutils literal notranslate"><span class="pre">P[State(t)</span> <span class="pre">=</span> <span class="pre">s</span> <span class="pre">|</span> <span class="pre">Obs(t)]</span> <span class="pre">/</span> <span class="pre">P[State(t)</span> <span class="pre">=</span> <span class="pre">s]</span></code>, where the denominator
+is the marginal probability of state <code class="docutils literal notranslate"><span class="pre">s</span></code> occurring as given by <code class="docutils literal notranslate"><span class="pre">p_state</span></code>.</p>
+<p>Note that because the denominator <code class="docutils literal notranslate"><span class="pre">P[State(t)</span> <span class="pre">=</span> <span class="pre">s]</span></code> is not explicitly
+calculated, the resulting probabilities (or log-probabilities) are not
+normalized.  If using the <em class="xref py py-obj">return_logp=True</em> option (see below),
+be aware that the “probabilities” may not sum to (and may exceed) 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>prob</strong><span class="classifier">np.ndarray [shape=(…, n_states, n_steps), non-negative]</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">prob[s,</span> <span class="pre">t]</span></code> is the probability of state <code class="docutils literal notranslate"><span class="pre">s</span></code> conditional on
+the observation at time <code class="docutils literal notranslate"><span class="pre">t</span></code>.
+Must be non-negative and sum to 1 along each column.</p>
+</dd>
+<dt><strong>transition</strong><span class="classifier">np.ndarray [shape=(n_states, n_states), non-negative]</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">transition[i,</span> <span class="pre">j]</span></code> is the probability of a transition from i-&gt;j.
+Each row must sum to 1.</p>
+</dd>
+<dt><strong>p_state</strong><span class="classifier">np.ndarray [shape=(n_states,)]</span></dt><dd><p>Optional: marginal probability distribution over states,
+must be non-negative and sum to 1.
+If not provided, a uniform distribution is assumed.</p>
+</dd>
+<dt><strong>p_init</strong><span class="classifier">np.ndarray [shape=(n_states,)]</span></dt><dd><p>Optional: initial state distribution.
+If not provided, it is assumed to be uniform.</p>
+</dd>
+<dt><strong>return_logp</strong><span class="classifier">bool</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, return the log-likelihood of the state sequence.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>Either <code class="docutils literal notranslate"><span class="pre">states</span></code> or <code class="docutils literal notranslate"><span class="pre">(states,</span> <span class="pre">logp)</span></code>:</dt><dd></dd>
+<dt><strong>states</strong><span class="classifier">np.ndarray [shape=(…, n_steps,)]</span></dt><dd><p>The most likely state sequence.
+If <code class="docutils literal notranslate"><span class="pre">prob</span></code> contains multiple input channels,
+then each channel is decoded independently.</p>
+</dd>
+<dt><strong>logp</strong><span class="classifier">scalar [float] or np.ndarray</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">return_logp=True</span></code>, the (unnormalized) log probability
+of <code class="docutils literal notranslate"><span class="pre">states</span></code> given the observations.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.sequence.viterbi.html#librosa.sequence.viterbi" title="librosa.sequence.viterbi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">viterbi</span></code></a></dt><dd><p>Viterbi decoding from observation likelihoods</p>
+</dd>
+<dt><a class="reference internal" href="librosa.sequence.viterbi_binary.html#librosa.sequence.viterbi_binary" title="librosa.sequence.viterbi_binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">viterbi_binary</span></code></a></dt><dd><p>Viterbi decoding for multi-label, conditional state likelihoods</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>This example constructs a simple, template-based discriminative chord estimator,
+using CENS chroma as input features.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this chord model is not accurate enough to use in practice. It is only
+intended to demonstrate how to use discriminative Viterbi decoding.</p>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Create templates for major, minor, and no-chord qualities</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">maj_template</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">min_template</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">N_template</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span> <span class="o">/</span> <span class="mf">4.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Generate the weighting matrix that maps chroma to labels</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">25</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;C#:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;D:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;D#:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;E:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;F:maj&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s1">&#39;F#:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;G:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;G#:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;A:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;A#:maj&#39;</span><span class="p">,</span> <span class="s1">&#39;B:maj&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s1">&#39;C:min&#39;</span><span class="p">,</span> <span class="s1">&#39;C#:min&#39;</span><span class="p">,</span> <span class="s1">&#39;D:min&#39;</span><span class="p">,</span> <span class="s1">&#39;D#:min&#39;</span><span class="p">,</span> <span class="s1">&#39;E:min&#39;</span><span class="p">,</span> <span class="s1">&#39;F:min&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s1">&#39;F#:min&#39;</span><span class="p">,</span> <span class="s1">&#39;G:min&#39;</span><span class="p">,</span> <span class="s1">&#39;G#:min&#39;</span><span class="p">,</span> <span class="s1">&#39;A:min&#39;</span><span class="p">,</span> <span class="s1">&#39;A#:min&#39;</span><span class="p">,</span> <span class="s1">&#39;B:min&#39;</span><span class="p">,</span>
+<span class="gp">... </span>          <span class="s1">&#39;N&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">weights</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">maj_template</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="c1"># c:maj</span>
+<span class="gp">... </span>    <span class="n">weights</span><span class="p">[</span><span class="n">c</span> <span class="o">+</span> <span class="mi">12</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">min_template</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>  <span class="c1"># c:min</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weights</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">N_template</span>  <span class="c1"># the last row is the no-chord class</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Make a self-loop transition matrix over 25 states</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">trans</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">sequence</span><span class="o">.</span><span class="n">transition_loop</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load in audio and make features</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;nutcracker&#39;</span><span class="p">),</span> <span class="n">duration</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Suppress percussive elements</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">harmonic</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">margin</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chroma</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">chroma_cqt</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Map chroma (observations) to class (state) likelihoods</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">chroma</span><span class="p">))</span>  <span class="c1"># P[class | chroma] ~= exp(template&#39; chroma)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">probs</span> <span class="o">/=</span> <span class="n">probs</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># probabilities must sum to 1 in each column</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Compute independent frame-wise estimates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chords_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># And viterbi estimates</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chords_vit</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">sequence</span><span class="o">.</span><span class="n">viterbi_discriminative</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">trans</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Plot the features and prediction map</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">chroma</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;chroma&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;chroma&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">yticklabels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Chord&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># And plot the results</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">times</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">times_like</span><span class="p">(</span><span class="n">chords_vit</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">chords_ind</span> <span class="o">+</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lime&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Independent&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">chords_vit</span> <span class="o">-</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;deeppink&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+<span class="gp">... </span>           <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Viterbi&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">chords_vit</span><span class="p">),</span>
+<span class="gp">... </span>       <span class="n">yticklabels</span><span class="o">=</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">chords_vit</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/librosa-sequence-viterbi_discriminative-1_00.png" class="plot-directive" src="../_images/librosa-sequence-viterbi_discriminative-1_00.png" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/librosa-sequence-viterbi_discriminative-1_01.png" class="plot-directive" src="../_images/librosa-sequence-viterbi_discriminative-1_01.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.sequence.viterbi.html" class="btn btn-neutral float-left" title="librosa.sequence.viterbi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.sequence.viterbi_binary.html" class="btn btn-neutral float-right" title="librosa.sequence.viterbi_binary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

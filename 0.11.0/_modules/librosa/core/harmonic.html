@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.core.harmonic &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../../../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../../../index.html">
+            
+              <img src="../../../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">librosa.core.harmonic</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <h1>Source code for librosa.core.harmonic</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Harmonic calculations for frequency representations&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.interpolate</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.signal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..util</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_unique</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numpy.typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;salience&quot;</span><span class="p">,</span> <span class="s2">&quot;interp_harmonics&quot;</span><span class="p">,</span> <span class="s2">&quot;f0_harmonics&quot;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="salience">
+<a class="viewcode-back" href="../../../generated/librosa.salience.html#librosa.salience">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">salience</span><span class="p">(</span>
+    <span class="n">S</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">freqs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">harmonics</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+    <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">aggregate</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">filter_peaks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Harmonic salience function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    S : np.ndarray [shape=(..., d, n)]</span>
+<span class="sd">        input time frequency magnitude representation (e.g. STFT or CQT magnitudes).</span>
+<span class="sd">        Must be real-valued and non-negative.</span>
+
+<span class="sd">    freqs : np.ndarray, shape=(S.shape[axis]) or shape=S.shape</span>
+<span class="sd">        The frequency values corresponding to S&#39;s elements along the</span>
+<span class="sd">        chosen axis.</span>
+
+<span class="sd">        Frequencies can also be time-varying, e.g. as computed by</span>
+<span class="sd">        `reassigned_spectrogram`, in which case the shape should</span>
+<span class="sd">        match ``S``.</span>
+
+<span class="sd">    harmonics : list-like, non-negative</span>
+<span class="sd">        Harmonics to include in salience computation.  The first harmonic (1)</span>
+<span class="sd">        corresponds to ``S`` itself. Values less than one (e.g., 1/2) correspond</span>
+<span class="sd">        to sub-harmonics.</span>
+
+<span class="sd">    weights : list-like</span>
+<span class="sd">        The weight to apply to each harmonic in the summation. (default:</span>
+<span class="sd">        uniform weights). Must be the same length as ``harmonics``.</span>
+
+<span class="sd">    aggregate : function</span>
+<span class="sd">        aggregation function (default: `np.average`)</span>
+
+<span class="sd">        If ``aggregate=np.average``, then a weighted average is</span>
+<span class="sd">        computed per-harmonic according to the specified weights.</span>
+<span class="sd">        For all other aggregation functions, all harmonics</span>
+<span class="sd">        are treated equally.</span>
+
+<span class="sd">    filter_peaks : bool</span>
+<span class="sd">        If true, returns harmonic summation only on frequencies of peak</span>
+<span class="sd">        magnitude. Otherwise returns harmonic summation over the full spectrum.</span>
+<span class="sd">        Defaults to True.</span>
+
+<span class="sd">    fill_value : float</span>
+<span class="sd">        The value to fill non-peaks in the output representation. (default:</span>
+<span class="sd">        `np.nan`) Only used if ``filter_peaks == True``.</span>
+
+<span class="sd">    kind : str</span>
+<span class="sd">        Interpolation type for harmonic estimation.</span>
+<span class="sd">        See `scipy.interpolate.interp1d`.</span>
+
+<span class="sd">    axis : int</span>
+<span class="sd">        The axis along which to compute harmonics</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    S_sal : np.ndarray</span>
+<span class="sd">        ``S_sal`` will have the same shape as ``S``, and measure</span>
+<span class="sd">        the overall harmonic energy at each frequency.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    interp_harmonics</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.load(librosa.ex(&#39;trumpet&#39;), duration=3)</span>
+<span class="sd">    &gt;&gt;&gt; S = np.abs(librosa.stft(y))</span>
+<span class="sd">    &gt;&gt;&gt; freqs = librosa.fft_frequencies(sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; harms = [1, 2, 3, 4]</span>
+<span class="sd">    &gt;&gt;&gt; weights = [1.0, 0.5, 0.33, 0.25]</span>
+<span class="sd">    &gt;&gt;&gt; S_sal = librosa.salience(S, freqs=freqs, harmonics=harms, weights=weights, fill_value=0)</span>
+<span class="sd">    &gt;&gt;&gt; print(S_sal.shape)</span>
+<span class="sd">    (1025, 115)</span>
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=2, sharex=True, sharey=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(librosa.amplitude_to_db(S, ref=np.max),</span>
+<span class="sd">    ...                          sr=sr, y_axis=&#39;log&#39;, x_axis=&#39;time&#39;, ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].set(title=&#39;Magnitude spectrogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; img = librosa.display.specshow(librosa.amplitude_to_db(S_sal,</span>
+<span class="sd">    ...                                                        ref=np.max),</span>
+<span class="sd">    ...                                sr=sr, y_axis=&#39;log&#39;, x_axis=&#39;time&#39;, ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(title=&#39;Salience spectrogram&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; fig.colorbar(img, ax=ax, format=&quot;%+2.0f dB&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">aggregate</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">aggregate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span>
+
+    <span class="k">if</span> <span class="n">weights</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">harmonics</span><span class="p">),))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">S_harm</span> <span class="o">=</span> <span class="n">interp_harmonics</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span> <span class="n">harmonics</span><span class="o">=</span><span class="n">harmonics</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+    <span class="n">S_sal</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="k">if</span> <span class="n">aggregate</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">:</span>
+        <span class="n">S_sal</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">S_harm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">S_sal</span> <span class="o">=</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">S_harm</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">filter_peaks</span><span class="p">:</span>
+        <span class="n">S_peaks</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">argrelmax</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+        <span class="n">S_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">S</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">S_out</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">fill_value</span><span class="p">)</span>
+        <span class="n">S_out</span><span class="p">[</span><span class="n">S_peaks</span><span class="p">]</span> <span class="o">=</span> <span class="n">S_sal</span><span class="p">[</span><span class="n">S_peaks</span><span class="p">]</span>
+
+        <span class="n">S_sal</span> <span class="o">=</span> <span class="n">S_out</span>
+
+    <span class="k">return</span> <span class="n">S_sal</span></div>
+
+
+
+<div class="viewcode-block" id="interp_harmonics">
+<a class="viewcode-back" href="../../../generated/librosa.interp_harmonics.html#librosa.interp_harmonics">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">interp_harmonics</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">freqs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">harmonics</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the energy at harmonics of time-frequency representation.</span>
+
+<span class="sd">    Given a frequency-based energy representation such as a spectrogram</span>
+<span class="sd">    or tempogram, this function computes the energy at the chosen harmonics</span>
+<span class="sd">    of the frequency axis.  (See examples below.)</span>
+<span class="sd">    The resulting harmonic array can then be used as input to a salience</span>
+<span class="sd">    computation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : np.ndarray</span>
+<span class="sd">        The input energy</span>
+<span class="sd">    freqs : np.ndarray, shape=(x.shape[axis]) or shape=x.shape</span>
+<span class="sd">        The frequency values corresponding to x&#39;s elements along the</span>
+<span class="sd">        chosen axis.</span>
+<span class="sd">        Frequencies can also be time-varying, e.g. as computed by</span>
+<span class="sd">        `reassigned_spectrogram`, in which case the shape should</span>
+<span class="sd">        match ``x``.</span>
+<span class="sd">    harmonics : list-like, non-negative</span>
+<span class="sd">        Harmonics to compute as ``harmonics[i] * freqs``.</span>
+<span class="sd">        The first harmonic (1) corresponds to ``freqs``.</span>
+<span class="sd">        Values less than one (e.g., 1/2) correspond to sub-harmonics.</span>
+<span class="sd">    kind : str</span>
+<span class="sd">        Interpolation type.  See `scipy.interpolate.interp1d`.</span>
+<span class="sd">    fill_value : float</span>
+<span class="sd">        The value to fill when extrapolating beyond the observed</span>
+<span class="sd">        frequency range.</span>
+<span class="sd">    axis : int</span>
+<span class="sd">        The axis along which to compute harmonics</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x_harm : np.ndarray</span>
+<span class="sd">        ``x_harm[i]`` will have the same shape as ``x``, and measure</span>
+<span class="sd">        the energy at the ``harmonics[i]`` harmonic of each frequency.</span>
+<span class="sd">        A new dimension indexing harmonics will be inserted immediately</span>
+<span class="sd">        before ``axis``.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    scipy.interpolate.interp1d</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Estimate the harmonics of a time-averaged tempogram</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.load(librosa.ex(&#39;sweetwaltz&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; # Compute the time-varying tempogram and average over time</span>
+<span class="sd">    &gt;&gt;&gt; tempi = np.mean(librosa.feature.tempogram(y=y, sr=sr), axis=1)</span>
+<span class="sd">    &gt;&gt;&gt; # We&#39;ll measure the first five harmonics</span>
+<span class="sd">    &gt;&gt;&gt; harmonics = [1, 2, 3, 4, 5]</span>
+<span class="sd">    &gt;&gt;&gt; f_tempo = librosa.tempo_frequencies(len(tempi), sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; # Build the harmonic tensor; we only have one axis here (tempo)</span>
+<span class="sd">    &gt;&gt;&gt; t_harmonics = librosa.interp_harmonics(tempi, freqs=f_tempo, harmonics=harmonics, axis=0)</span>
+<span class="sd">    &gt;&gt;&gt; print(t_harmonics.shape)</span>
+<span class="sd">    (5, 384)</span>
+
+<span class="sd">    &gt;&gt;&gt; # And plot the results</span>
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(t_harmonics, x_axis=&#39;tempo&#39;, sr=sr, ax=ax)</span>
+<span class="sd">    &gt;&gt;&gt; ax.set(yticks=np.arange(len(harmonics)),</span>
+<span class="sd">    ...        yticklabels=[&#39;{:.3g}&#39;.format(_) for _ in harmonics],</span>
+<span class="sd">    ...        ylabel=&#39;Harmonic&#39;, xlabel=&#39;Tempo (BPM)&#39;)</span>
+
+<span class="sd">    We can also compute frequency harmonics for spectrograms.</span>
+<span class="sd">    To calculate sub-harmonic energy, use values &lt; 1.</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.load(librosa.ex(&#39;trumpet&#39;), duration=3)</span>
+<span class="sd">    &gt;&gt;&gt; harmonics = [1./3, 1./2, 1, 2, 3, 4]</span>
+<span class="sd">    &gt;&gt;&gt; S = np.abs(librosa.stft(y))</span>
+<span class="sd">    &gt;&gt;&gt; fft_freqs = librosa.fft_frequencies(sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; S_harm = librosa.interp_harmonics(S, freqs=fft_freqs, harmonics=harmonics, axis=0)</span>
+<span class="sd">    &gt;&gt;&gt; print(S_harm.shape)</span>
+<span class="sd">    (6, 1025, 646)</span>
+
+<span class="sd">    &gt;&gt;&gt; fig, ax = plt.subplots(nrows=3, ncols=2, sharex=True, sharey=True)</span>
+<span class="sd">    &gt;&gt;&gt; for i, _sh in enumerate(S_harm):</span>
+<span class="sd">    ...     img = librosa.display.specshow(librosa.amplitude_to_db(_sh,</span>
+<span class="sd">    ...                                                      ref=S.max()),</span>
+<span class="sd">    ...                              sr=sr, y_axis=&#39;log&#39;, x_axis=&#39;time&#39;,</span>
+<span class="sd">    ...                              ax=ax.flat[i])</span>
+<span class="sd">    ...     ax.flat[i].set(title=&#39;h={:.3g}&#39;.format(harmonics[i]))</span>
+<span class="sd">    ...     ax.flat[i].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; fig.colorbar(img, ax=ax, format=&quot;%+2.f dB&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">freqs</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]:</span>
+        <span class="c1"># Build the 1-D interpolator.</span>
+        <span class="c1"># All frames have a common domain, so we only need one interpolator here.</span>
+
+        <span class="c1"># First, verify that the input frequencies are unique</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_unique</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Frequencies are not unique. This may produce incorrect harmonic interpolations.&quot;</span><span class="p">,</span>
+                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">f_interp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+            <span class="n">freqs</span><span class="p">,</span>
+            <span class="n">x</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+            <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
+            <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Set the interpolation points</span>
+        <span class="n">f_out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">harmonics</span><span class="p">,</span> <span class="n">freqs</span><span class="p">)</span>
+
+        <span class="c1"># Interpolate; suppress type checks</span>
+        <span class="k">return</span> <span class="n">f_interp</span><span class="p">(</span><span class="n">f_out</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+
+    <span class="k">elif</span> <span class="n">freqs</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">is_unique</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Frequencies are not unique. This may produce incorrect harmonic interpolations.&quot;</span><span class="p">,</span>
+                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># If we have time-varying frequencies, then it must match exactly the shape of the input</span>
+
+        <span class="c1"># We&#39;ll define a frame-wise interpolator helper function that we will vectorize over</span>
+        <span class="c1"># the entire input array</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_f_interp</span><span class="p">(</span><span class="n">_a</span><span class="p">,</span> <span class="n">_b</span><span class="p">):</span>
+            <span class="n">interp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+                <span class="n">_a</span><span class="p">,</span> <span class="n">_b</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">_a</span><span class="p">,</span> <span class="n">harmonics</span><span class="p">))</span>
+
+        <span class="c1"># Signature is expanding frequency into a new dimension</span>
+        <span class="n">xfunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">_f_interp</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="s2">&quot;(f),(f)-&gt;(f,h)&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Rotate the vectorizing axis to the tail so that we get parallelism over frames</span>
+        <span class="c1"># Afterward, we&#39;re swapping (-1, axis-1) instead of (-1,axis)</span>
+        <span class="c1"># because a new dimension has been inserted</span>
+        <span class="k">return</span> <span class="p">(</span>  <span class="c1"># type: ignore</span>
+            <span class="n">xfunc</span><span class="p">(</span><span class="n">freqs</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+            <span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span>
+                <span class="c1"># Return the original target axis to its place</span>
+                <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">axis</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span>
+                <span class="c1"># Put the new harmonic axis directly in front of the target axis</span>
+                <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                <span class="n">axis</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;freqs.shape=</span><span class="si">{</span><span class="n">freqs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> is incompatible with input shape=</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="f0_harmonics">
+<a class="viewcode-back" href="../../../generated/librosa.f0_harmonics.html#librosa.f0_harmonics">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">f0_harmonics</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">f0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">freqs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">harmonics</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+    <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the energy at selected harmonics of a time-varying</span>
+<span class="sd">    fundamental frequency.</span>
+
+<span class="sd">    This function can be used to reduce a `frequency * time` representation</span>
+<span class="sd">    to a `harmonic * time` representation, effectively normalizing out for</span>
+<span class="sd">    the fundamental frequency.  The result can be used as a representation</span>
+<span class="sd">    of timbre when f0 corresponds to pitch, or as a representation of</span>
+<span class="sd">    rhythm when f0 corresponds to tempo.</span>
+
+<span class="sd">    This function differs from `interp_harmonics`, which computes the</span>
+<span class="sd">    harmonics of *all* frequencies.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : np.ndarray [shape=(..., frequencies, n)]</span>
+<span class="sd">        The input array (e.g., STFT magnitudes)</span>
+<span class="sd">    f0 : np.ndarray [shape=(..., n)]</span>
+<span class="sd">        The fundamental frequency (f0) of each frame in the input</span>
+<span class="sd">        Shape should match ``x.shape[-1]``</span>
+<span class="sd">    freqs : np.ndarray, shape=(x.shape[axis]) or shape=x.shape</span>
+<span class="sd">        The frequency values corresponding to X&#39;s elements along the</span>
+<span class="sd">        chosen axis.</span>
+<span class="sd">        Frequencies can also be time-varying, e.g. as computed by</span>
+<span class="sd">        `reassigned_spectrogram`, in which case the shape should</span>
+<span class="sd">        match ``x``.</span>
+<span class="sd">    harmonics : list-like, non-negative</span>
+<span class="sd">        Harmonics to compute as ``harmonics[i] * f0``</span>
+<span class="sd">        Values less than one (e.g., 1/2) correspond to sub-harmonics.</span>
+<span class="sd">    kind : str</span>
+<span class="sd">        Interpolation type.  See `scipy.interpolate.interp1d`.</span>
+<span class="sd">    fill_value : float</span>
+<span class="sd">        The value to fill when extrapolating beyond the observed</span>
+<span class="sd">        frequency range.</span>
+<span class="sd">    axis : int</span>
+<span class="sd">        The axis corresponding to frequency in ``x``</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    f0_harm : np.ndarray [shape=(..., len(harmonics), n)]</span>
+<span class="sd">        Interpolated energy at each specified harmonic of the fundamental</span>
+<span class="sd">        frequency for each time step.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    interp_harmonics</span>
+<span class="sd">    librosa.feature.tempogram_ratio</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    This example estimates the fundamental (f0), and then extracts the first</span>
+<span class="sd">    12 harmonics</span>
+
+<span class="sd">    &gt;&gt;&gt; y, sr = librosa.load(librosa.ex(&#39;trumpet&#39;))</span>
+<span class="sd">    &gt;&gt;&gt; f0, voicing, voicing_p = librosa.pyin(y=y, sr=sr, fmin=200, fmax=700)</span>
+<span class="sd">    &gt;&gt;&gt; S = np.abs(librosa.stft(y))</span>
+<span class="sd">    &gt;&gt;&gt; freqs = librosa.fft_frequencies(sr=sr)</span>
+<span class="sd">    &gt;&gt;&gt; harmonics = np.arange(1, 13)</span>
+<span class="sd">    &gt;&gt;&gt; f0_harm = librosa.f0_harmonics(S, freqs=freqs, f0=f0, harmonics=harmonics)</span>
+
+<span class="sd">    &gt;&gt;&gt; import matplotlib.pyplot as plt</span>
+<span class="sd">    &gt;&gt;&gt; fig, ax =plt.subplots(nrows=2, sharex=True)</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(librosa.amplitude_to_db(S, ref=np.max),</span>
+<span class="sd">    ...                          x_axis=&#39;time&#39;, y_axis=&#39;log&#39;, ax=ax[0])</span>
+<span class="sd">    &gt;&gt;&gt; times = librosa.times_like(f0)</span>
+<span class="sd">    &gt;&gt;&gt; for h in harmonics:</span>
+<span class="sd">    ...     ax[0].plot(times, h * f0, label=f&quot;{h}*f0&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].legend(ncols=4, loc=&#39;lower right&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; ax[0].label_outer()</span>
+<span class="sd">    &gt;&gt;&gt; librosa.display.specshow(librosa.amplitude_to_db(f0_harm, ref=np.max),</span>
+<span class="sd">    ...                          x_axis=&#39;time&#39;, ax=ax[1])</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set_yticks(harmonics-1)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set_yticklabels(harmonics)</span>
+<span class="sd">    &gt;&gt;&gt; ax[1].set(ylabel=&#39;Harmonics&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">result</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="k">if</span> <span class="n">freqs</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_unique</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Frequencies are not unique. This may produce incorrect harmonic interpolations.&quot;</span><span class="p">,</span>
+                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># We have a fixed frequency grid</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">freqs</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">_f_interps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+            <span class="n">interp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+                <span class="n">freqs</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">assume_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
+                <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">interp</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">xfunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">_f_interps</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="s2">&quot;(f),(h)-&gt;(h)&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">xfunc</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">harmonics</span><span class="p">))</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span>
+            <span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">freqs</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">is_unique</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)):</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Frequencies are not unique. This may produce incorrect harmonic interpolations.&quot;</span><span class="p">,</span>
+                <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="c1"># We have a dynamic frequency grid, not so bad</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_f_interpd</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+            <span class="n">interp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">interp1d</span><span class="p">(</span>
+                <span class="n">frequencies</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+                <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">assume_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">kind</span><span class="o">=</span><span class="n">kind</span><span class="p">,</span>
+                <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">interp</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">xfunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">_f_interpd</span><span class="p">,</span> <span class="n">signature</span><span class="o">=</span><span class="s2">&quot;(f),(f),(h)-&gt;(h)&quot;</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">xfunc</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">freqs</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">harmonics</span><span class="p">),</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ParameterError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;freqs.shape=</span><span class="si">{</span><span class="n">freqs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> is incompatible with input shape=</span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">nan</span><span class="o">=</span><span class="n">fill_value</span><span class="p">)</span></div>
+
+</pre></div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

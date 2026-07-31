@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sequential modeling &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=35a8b989"></script>
+      <script src="_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="librosa.sequence.dtw" href="generated/librosa.sequence.dtw.html" />
+    <link rel="prev" title="librosa.segment.subsegment" href="generated/librosa.segment.subsegment.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sequential modeling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sequence-alignment">Sequence alignment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.dtw.html">librosa.sequence.dtw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.rqa.html">librosa.sequence.rqa</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#viterbi-decoding">Viterbi decoding</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.viterbi.html">librosa.sequence.viterbi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.viterbi_discriminative.html">librosa.sequence.viterbi_discriminative</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.viterbi_binary.html">librosa.sequence.viterbi_binary</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#transition-matrices">Transition matrices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.transition_uniform.html">librosa.sequence.transition_uniform</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.transition_loop.html">librosa.sequence.transition_loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.transition_cycle.html">librosa.sequence.transition_cycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.sequence.transition_local.html">librosa.sequence.transition_local</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sequential modeling</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sequence.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="sequential-modeling">
+<span id="module-librosa.sequence"></span><span id="sequence"></span><h1>Sequential modeling<a class="headerlink" href="#sequential-modeling" title="Link to this heading"></a></h1>
+<section id="sequence-alignment">
+<h2>Sequence alignment<a class="headerlink" href="#sequence-alignment" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.sequence.dtw.html#librosa.sequence.dtw" title="librosa.sequence.dtw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtw</span></code></a>([X, Y, C, metric, step_sizes_sigma, ...])</p></td>
+<td><p>Dynamic time warping (DTW).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.sequence.rqa.html#librosa.sequence.rqa" title="librosa.sequence.rqa"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rqa</span></code></a>(sim, *[, gap_onset, gap_extend, ...])</p></td>
+<td><p>Recurrence quantification analysis (RQA)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="viterbi-decoding">
+<h2>Viterbi decoding<a class="headerlink" href="#viterbi-decoding" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.sequence.viterbi.html#librosa.sequence.viterbi" title="librosa.sequence.viterbi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">viterbi</span></code></a>(prob, transition, *[, p_init, ...])</p></td>
+<td><p>Viterbi decoding from observation likelihoods.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.sequence.viterbi_discriminative.html#librosa.sequence.viterbi_discriminative" title="librosa.sequence.viterbi_discriminative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">viterbi_discriminative</span></code></a>(prob, transition, *)</p></td>
+<td><p>Viterbi decoding from discriminative state predictions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.sequence.viterbi_binary.html#librosa.sequence.viterbi_binary" title="librosa.sequence.viterbi_binary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">viterbi_binary</span></code></a>(prob, transition, *[, ...])</p></td>
+<td><p>Viterbi decoding from binary (multi-label), discriminative state predictions.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transition-matrices">
+<h2>Transition matrices<a class="headerlink" href="#transition-matrices" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.sequence.transition_uniform.html#librosa.sequence.transition_uniform" title="librosa.sequence.transition_uniform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transition_uniform</span></code></a>(n_states)</p></td>
+<td><p>Construct a uniform transition matrix over <code class="docutils literal notranslate"><span class="pre">n_states</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.sequence.transition_loop.html#librosa.sequence.transition_loop" title="librosa.sequence.transition_loop"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transition_loop</span></code></a>(n_states, prob)</p></td>
+<td><p>Construct a self-loop transition matrix over <code class="docutils literal notranslate"><span class="pre">n_states</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.sequence.transition_cycle.html#librosa.sequence.transition_cycle" title="librosa.sequence.transition_cycle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transition_cycle</span></code></a>(n_states, prob)</p></td>
+<td><p>Construct a cyclic transition matrix over <code class="docutils literal notranslate"><span class="pre">n_states</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.sequence.transition_local.html#librosa.sequence.transition_local" title="librosa.sequence.transition_local"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transition_local</span></code></a>(n_states, width, *[, ...])</p></td>
+<td><p>Construct a localized transition matrix.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generated/librosa.segment.subsegment.html" class="btn btn-neutral float-left" title="librosa.segment.subsegment" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/librosa.sequence.dtw.html" class="btn btn-neutral float-right" title="librosa.sequence.dtw" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

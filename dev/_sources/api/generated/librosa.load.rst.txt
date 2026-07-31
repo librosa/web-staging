@@ -1,0 +1,6 @@
+﻿librosa.load
+============
+
+.. currentmodule:: librosa
+
+.. autofunction:: load

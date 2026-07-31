@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core IO and DSP &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=11e62b30"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=35a8b989"></script>
+      <script src="_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="librosa.load" href="generated/librosa.load.html" />
+    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Core IO and DSP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#audio-loading">Audio loading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.load.html">librosa.load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.stream.html">librosa.stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.to_mono.html">librosa.to_mono</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.resample.html">librosa.resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.get_duration.html">librosa.get_duration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.get_samplerate.html">librosa.get_samplerate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#time-domain-processing">Time-domain processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.autocorrelate.html">librosa.autocorrelate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.lpc.html">librosa.lpc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.zero_crossings.html">librosa.zero_crossings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.mu_compress.html">librosa.mu_compress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.mu_expand.html">librosa.mu_expand</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#signal-generation">Signal generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.clicks.html">librosa.clicks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.tone.html">librosa.tone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.chirp.html">librosa.chirp</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#spectral-representations">Spectral representations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.stft.html">librosa.stft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.istft.html">librosa.istft</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.reassigned_spectrogram.html">librosa.reassigned_spectrogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.cqt.html">librosa.cqt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.icqt.html">librosa.icqt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hybrid_cqt.html">librosa.hybrid_cqt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.pseudo_cqt.html">librosa.pseudo_cqt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.vqt.html">librosa.vqt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.iirt.html">librosa.iirt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.fmt.html">librosa.fmt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.magphase.html">librosa.magphase</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#phase-recovery">Phase recovery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.griffinlim.html">librosa.griffinlim</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.griffinlim_cqt.html">librosa.griffinlim_cqt</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#harmonics">Harmonics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.interp_harmonics.html">librosa.interp_harmonics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.salience.html">librosa.salience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.f0_harmonics.html">librosa.f0_harmonics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.phase_vocoder.html">librosa.phase_vocoder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#magnitude-scaling">Magnitude scaling</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.amplitude_to_db.html">librosa.amplitude_to_db</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.db_to_amplitude.html">librosa.db_to_amplitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.power_to_db.html">librosa.power_to_db</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.db_to_power.html">librosa.db_to_power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.perceptual_weighting.html">librosa.perceptual_weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.frequency_weighting.html">librosa.frequency_weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.multi_frequency_weighting.html">librosa.multi_frequency_weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.A_weighting.html">librosa.A_weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.B_weighting.html">librosa.B_weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.C_weighting.html">librosa.C_weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.D_weighting.html">librosa.D_weighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.pcen.html">librosa.pcen</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#time-unit-conversion">Time unit conversion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.frames_to_samples.html">librosa.frames_to_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.frames_to_time.html">librosa.frames_to_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.samples_to_frames.html">librosa.samples_to_frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.samples_to_time.html">librosa.samples_to_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.time_to_frames.html">librosa.time_to_frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.time_to_samples.html">librosa.time_to_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.blocks_to_frames.html">librosa.blocks_to_frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.blocks_to_samples.html">librosa.blocks_to_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.blocks_to_time.html">librosa.blocks_to_time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#frequency-unit-conversion">Frequency unit conversion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hz_to_note.html">librosa.hz_to_note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hz_to_midi.html">librosa.hz_to_midi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hz_to_svara_h.html">librosa.hz_to_svara_h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hz_to_svara_c.html">librosa.hz_to_svara_c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hz_to_fjs.html">librosa.hz_to_fjs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.midi_to_hz.html">librosa.midi_to_hz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.midi_to_note.html">librosa.midi_to_note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.midi_to_svara_h.html">librosa.midi_to_svara_h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.midi_to_svara_c.html">librosa.midi_to_svara_c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.note_to_hz.html">librosa.note_to_hz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.note_to_midi.html">librosa.note_to_midi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.note_to_svara_h.html">librosa.note_to_svara_h</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.note_to_svara_c.html">librosa.note_to_svara_c</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hz_to_mel.html">librosa.hz_to_mel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.hz_to_octs.html">librosa.hz_to_octs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.mel_to_hz.html">librosa.mel_to_hz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.octs_to_hz.html">librosa.octs_to_hz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.A4_to_tuning.html">librosa.A4_to_tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.tuning_to_A4.html">librosa.tuning_to_A4</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#music-notation">Music notation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.key_to_notes.html">librosa.key_to_notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.key_to_degrees.html">librosa.key_to_degrees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.mela_to_svara.html">librosa.mela_to_svara</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.mela_to_degrees.html">librosa.mela_to_degrees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.thaat_to_degrees.html">librosa.thaat_to_degrees</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.list_mela.html">librosa.list_mela</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.list_thaat.html">librosa.list_thaat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.fifths_to_note.html">librosa.fifths_to_note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.interval_to_fjs.html">librosa.interval_to_fjs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.interval_frequencies.html">librosa.interval_frequencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.pythagorean_intervals.html">librosa.pythagorean_intervals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.plimit_intervals.html">librosa.plimit_intervals</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#frequency-range-generation">Frequency range generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.fft_frequencies.html">librosa.fft_frequencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.cqt_frequencies.html">librosa.cqt_frequencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.mel_frequencies.html">librosa.mel_frequencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.tempo_frequencies.html">librosa.tempo_frequencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.fourier_tempo_frequencies.html">librosa.fourier_tempo_frequencies</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#pitch-and-tuning">Pitch and tuning</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.pyin.html">librosa.pyin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.yin.html">librosa.yin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.estimate_tuning.html">librosa.estimate_tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.pitch_tuning.html">librosa.pitch_tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.piptrack.html">librosa.piptrack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">Miscellaneous</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.samples_like.html">librosa.samples_like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.times_like.html">librosa.times_like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.get_fftlib.html">librosa.get_fftlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="generated/librosa.set_fftlib.html">librosa.set_fftlib</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Core IO and DSP</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/core.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="core-io-and-dsp">
+<span id="module-librosa"></span><span id="core"></span><h1>Core IO and DSP<a class="headerlink" href="#core-io-and-dsp" title="Link to this heading"></a></h1>
+<section id="audio-loading">
+<h2>Audio loading<a class="headerlink" href="#audio-loading" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.load.html#librosa.load" title="librosa.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>(path, *[, sr, mono, offset, duration, ...])</p></td>
+<td><p>Load an audio file as a floating point time series.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.stream.html#librosa.stream" title="librosa.stream"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stream</span></code></a>(path, *, block_length, frame_length, ...)</p></td>
+<td><p>Stream audio in fixed-length buffers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.to_mono.html#librosa.to_mono" title="librosa.to_mono"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_mono</span></code></a>(y)</p></td>
+<td><p>Convert an audio signal to mono by averaging samples across channels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.resample.html#librosa.resample" title="librosa.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></a>(y, *, orig_sr, target_sr[, ...])</p></td>
+<td><p>Resample a time series from orig_sr to target_sr</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.get_duration.html#librosa.get_duration" title="librosa.get_duration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_duration</span></code></a>(*[, y, sr, S, n_fft, ...])</p></td>
+<td><p>Compute the duration (in seconds) of an audio time series, feature matrix, or filename.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.get_samplerate.html#librosa.get_samplerate" title="librosa.get_samplerate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_samplerate</span></code></a>(path)</p></td>
+<td><p>Get the sampling rate for a given file.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="time-domain-processing">
+<h2>Time-domain processing<a class="headerlink" href="#time-domain-processing" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.autocorrelate.html#librosa.autocorrelate" title="librosa.autocorrelate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">autocorrelate</span></code></a>(y, *[, max_size, axis])</p></td>
+<td><p>Bounded-lag auto-correlation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.lpc.html#librosa.lpc" title="librosa.lpc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lpc</span></code></a>(y, *, order[, axis])</p></td>
+<td><p>Linear Prediction Coefficients via Burg's method</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.zero_crossings.html#librosa.zero_crossings" title="librosa.zero_crossings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">zero_crossings</span></code></a>(y, *[, threshold, ...])</p></td>
+<td><p>Find the zero-crossings of a signal <code class="docutils literal notranslate"><span class="pre">y</span></code>: indices <code class="docutils literal notranslate"><span class="pre">i</span></code> such that <code class="docutils literal notranslate"><span class="pre">sign(y[i])</span> <span class="pre">!=</span> <span class="pre">sign(y[j])</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.mu_compress.html#librosa.mu_compress" title="librosa.mu_compress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mu_compress</span></code></a>(x, *[, mu, quantize])</p></td>
+<td><p>mu-law compression</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.mu_expand.html#librosa.mu_expand" title="librosa.mu_expand"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mu_expand</span></code></a>(x, *[, mu, quantize])</p></td>
+<td><p>mu-law expansion</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="signal-generation">
+<h2>Signal generation<a class="headerlink" href="#signal-generation" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.clicks.html#librosa.clicks" title="librosa.clicks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clicks</span></code></a>(*[, times, frames, sr, hop_length, ...])</p></td>
+<td><p>Construct a &quot;click track&quot;.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.tone.html#librosa.tone" title="librosa.tone"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tone</span></code></a>(frequency, *[, sr, length, duration, phi])</p></td>
+<td><p>Construct a pure tone (cosine) signal at a given frequency.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.chirp.html#librosa.chirp" title="librosa.chirp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">chirp</span></code></a>(*, fmin, fmax[, sr, length, duration, ...])</p></td>
+<td><p>Construct a &quot;chirp&quot; or &quot;sine-sweep&quot; signal.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="spectral-representations">
+<h2>Spectral representations<a class="headerlink" href="#spectral-representations" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.stft.html#librosa.stft" title="librosa.stft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stft</span></code></a>(y, *[, n_fft, hop_length, win_length, ...])</p></td>
+<td><p>Short-time Fourier transform (STFT).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.istft.html#librosa.istft" title="librosa.istft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">istft</span></code></a>(stft_matrix, *[, hop_length, ...])</p></td>
+<td><p>Inverse short-time Fourier transform (ISTFT).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.reassigned_spectrogram.html#librosa.reassigned_spectrogram" title="librosa.reassigned_spectrogram"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reassigned_spectrogram</span></code></a>(y, *[, sr, S, n_fft, ...])</p></td>
+<td><p>Time-frequency reassigned spectrogram.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.cqt.html#librosa.cqt" title="librosa.cqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cqt</span></code></a>(y, *[, sr, hop_length, fmin, n_bins, ...])</p></td>
+<td><p>Compute the constant-Q transform of an audio signal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.icqt.html#librosa.icqt" title="librosa.icqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">icqt</span></code></a>(C, *[, sr, hop_length, fmin, ...])</p></td>
+<td><p>Compute the inverse constant-Q transform.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.hybrid_cqt.html#librosa.hybrid_cqt" title="librosa.hybrid_cqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hybrid_cqt</span></code></a>(y, *[, sr, hop_length, fmin, ...])</p></td>
+<td><p>Compute the hybrid constant-Q transform of an audio signal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.pseudo_cqt.html#librosa.pseudo_cqt" title="librosa.pseudo_cqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pseudo_cqt</span></code></a>(y, *[, sr, hop_length, fmin, ...])</p></td>
+<td><p>Compute the pseudo constant-Q transform of an audio signal.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.vqt.html#librosa.vqt" title="librosa.vqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vqt</span></code></a>(y, *[, sr, hop_length, fmin, n_bins, ...])</p></td>
+<td><p>Compute the variable-Q transform of an audio signal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.iirt.html#librosa.iirt" title="librosa.iirt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">iirt</span></code></a>(y, *[, sr, win_length, hop_length, ...])</p></td>
+<td><p>Time-frequency representation using IIR filters</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.fmt.html#librosa.fmt" title="librosa.fmt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fmt</span></code></a>(y, *[, t_min, n_fmt, kind, beta, ...])</p></td>
+<td><p>Fast Mellin transform (FMT)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.magphase.html#librosa.magphase" title="librosa.magphase"><code class="xref py py-obj docutils literal notranslate"><span class="pre">magphase</span></code></a>(D, *[, power])</p></td>
+<td><p>Separate a complex-valued spectrogram D into its magnitude (S) and phase (P) components, so that <code class="docutils literal notranslate"><span class="pre">D</span> <span class="pre">=</span> <span class="pre">S</span> <span class="pre">*</span> <span class="pre">P</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="phase-recovery">
+<h2>Phase recovery<a class="headerlink" href="#phase-recovery" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.griffinlim.html#librosa.griffinlim" title="librosa.griffinlim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griffinlim</span></code></a>(S, *[, n_iter, hop_length, ...])</p></td>
+<td><p>Approximate magnitude spectrogram inversion using the &quot;fast&quot; Griffin-Lim algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.griffinlim_cqt.html#librosa.griffinlim_cqt" title="librosa.griffinlim_cqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griffinlim_cqt</span></code></a>(C, *[, n_iter, sr, ...])</p></td>
+<td><p>Approximate constant-Q magnitude spectrogram inversion using the &quot;fast&quot; Griffin-Lim algorithm.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="harmonics">
+<h2>Harmonics<a class="headerlink" href="#harmonics" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.interp_harmonics.html#librosa.interp_harmonics" title="librosa.interp_harmonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interp_harmonics</span></code></a>(x, *, freqs, harmonics[, ...])</p></td>
+<td><p>Compute the energy at harmonics of time-frequency representation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.salience.html#librosa.salience" title="librosa.salience"><code class="xref py py-obj docutils literal notranslate"><span class="pre">salience</span></code></a>(S, *, freqs, harmonics[, weights, ...])</p></td>
+<td><p>Harmonic salience function.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.f0_harmonics.html#librosa.f0_harmonics" title="librosa.f0_harmonics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f0_harmonics</span></code></a>(x, *, f0, freqs, harmonics[, ...])</p></td>
+<td><p>Compute the energy at selected harmonics of a time-varying fundamental frequency.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.phase_vocoder.html#librosa.phase_vocoder" title="librosa.phase_vocoder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">phase_vocoder</span></code></a>(D, *, rate[, hop_length, n_fft])</p></td>
+<td><p>Phase vocoder.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="magnitude-scaling">
+<h2>Magnitude scaling<a class="headerlink" href="#magnitude-scaling" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.amplitude_to_db.html#librosa.amplitude_to_db" title="librosa.amplitude_to_db"><code class="xref py py-obj docutils literal notranslate"><span class="pre">amplitude_to_db</span></code></a>(S, *[, ref, amin, top_db])</p></td>
+<td><p>Convert an amplitude spectrogram to dB-scaled spectrogram.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.db_to_amplitude.html#librosa.db_to_amplitude" title="librosa.db_to_amplitude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">db_to_amplitude</span></code></a>(S_db, *[, ref])</p></td>
+<td><p>Convert a dB-scaled spectrogram to an amplitude spectrogram.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.power_to_db.html#librosa.power_to_db" title="librosa.power_to_db"><code class="xref py py-obj docutils literal notranslate"><span class="pre">power_to_db</span></code></a>(S, *[, ref, amin, top_db])</p></td>
+<td><p>Convert a power spectrogram (amplitude squared) to decibel (dB) units</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.db_to_power.html#librosa.db_to_power" title="librosa.db_to_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">db_to_power</span></code></a>(S_db, *[, ref])</p></td>
+<td><p>Convert dB-scale values to a power values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.perceptual_weighting.html#librosa.perceptual_weighting" title="librosa.perceptual_weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">perceptual_weighting</span></code></a>(S, frequencies, *[, kind])</p></td>
+<td><p>Perceptual weighting of a power spectrogram.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.frequency_weighting.html#librosa.frequency_weighting" title="librosa.frequency_weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frequency_weighting</span></code></a>(frequencies, *[, kind])</p></td>
+<td><p>Compute the weighting of a set of frequencies.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.multi_frequency_weighting.html#librosa.multi_frequency_weighting" title="librosa.multi_frequency_weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_frequency_weighting</span></code></a>(frequencies, *[, ...])</p></td>
+<td><p>Compute multiple weightings of a set of frequencies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.A_weighting.html#librosa.A_weighting" title="librosa.A_weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">A_weighting</span></code></a>(frequencies, *[, min_db])</p></td>
+<td><p>Compute the A-weighting of a set of frequencies.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.B_weighting.html#librosa.B_weighting" title="librosa.B_weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">B_weighting</span></code></a>(frequencies, *[, min_db])</p></td>
+<td><p>Compute the B-weighting of a set of frequencies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.C_weighting.html#librosa.C_weighting" title="librosa.C_weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">C_weighting</span></code></a>(frequencies, *[, min_db])</p></td>
+<td><p>Compute the C-weighting of a set of frequencies.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.D_weighting.html#librosa.D_weighting" title="librosa.D_weighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">D_weighting</span></code></a>(frequencies, *[, min_db])</p></td>
+<td><p>Compute the D-weighting of a set of frequencies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.pcen.html#librosa.pcen" title="librosa.pcen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pcen</span></code></a>(S, *[, sr, hop_length, gain, bias, ...])</p></td>
+<td><p>Per-channel energy normalization (PCEN)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="time-unit-conversion">
+<h2>Time unit conversion<a class="headerlink" href="#time-unit-conversion" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.frames_to_samples.html#librosa.frames_to_samples" title="librosa.frames_to_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frames_to_samples</span></code></a>(frames, *[, hop_length, n_fft])</p></td>
+<td><p>Convert frame indices to audio sample indices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.frames_to_time.html#librosa.frames_to_time" title="librosa.frames_to_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frames_to_time</span></code></a>(frames, *[, sr, hop_length, ...])</p></td>
+<td><p>Convert frame counts to time (seconds).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.samples_to_frames.html#librosa.samples_to_frames" title="librosa.samples_to_frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">samples_to_frames</span></code></a>(samples, *[, hop_length, ...])</p></td>
+<td><p>Convert sample indices into STFT frames.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.samples_to_time.html#librosa.samples_to_time" title="librosa.samples_to_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">samples_to_time</span></code></a>(samples, *[, sr])</p></td>
+<td><p>Convert sample indices to time (in seconds).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.time_to_frames.html#librosa.time_to_frames" title="librosa.time_to_frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_to_frames</span></code></a>(times, *[, sr, hop_length, n_fft])</p></td>
+<td><p>Convert time stamps into STFT frames.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.time_to_samples.html#librosa.time_to_samples" title="librosa.time_to_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">time_to_samples</span></code></a>(times, *[, sr])</p></td>
+<td><p>Convert timestamps (in seconds) to sample indices.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.blocks_to_frames.html#librosa.blocks_to_frames" title="librosa.blocks_to_frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">blocks_to_frames</span></code></a>(blocks, *, block_length)</p></td>
+<td><p>Convert block indices to frame indices</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.blocks_to_samples.html#librosa.blocks_to_samples" title="librosa.blocks_to_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">blocks_to_samples</span></code></a>(blocks, *, block_length, ...)</p></td>
+<td><p>Convert block indices to sample indices</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.blocks_to_time.html#librosa.blocks_to_time" title="librosa.blocks_to_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">blocks_to_time</span></code></a>(blocks, *, block_length, ...)</p></td>
+<td><p>Convert block indices to time (in seconds)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="frequency-unit-conversion">
+<h2>Frequency unit conversion<a class="headerlink" href="#frequency-unit-conversion" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.hz_to_note.html#librosa.hz_to_note" title="librosa.hz_to_note"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz_to_note</span></code></a>(frequencies, **kwargs)</p></td>
+<td><p>Convert one or more frequencies (in Hz) to the nearest note names.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.hz_to_midi.html#librosa.hz_to_midi" title="librosa.hz_to_midi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz_to_midi</span></code></a>(frequencies)</p></td>
+<td><p>Get MIDI note number(s) for given frequencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.hz_to_svara_h.html#librosa.hz_to_svara_h" title="librosa.hz_to_svara_h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz_to_svara_h</span></code></a>(frequencies, *, Sa[, abbr, ...])</p></td>
+<td><p>Convert frequencies (in Hz) to Hindustani svara</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.hz_to_svara_c.html#librosa.hz_to_svara_c" title="librosa.hz_to_svara_c"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz_to_svara_c</span></code></a>(frequencies, *, Sa, mela[, ...])</p></td>
+<td><p>Convert frequencies (in Hz) to Carnatic svara</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.hz_to_fjs.html#librosa.hz_to_fjs" title="librosa.hz_to_fjs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz_to_fjs</span></code></a>(frequencies, *[, fmin, unison, ...])</p></td>
+<td><p>Convert one or more frequencies (in Hz) from a just intonation scale to notes in FJS notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.midi_to_hz.html#librosa.midi_to_hz" title="librosa.midi_to_hz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">midi_to_hz</span></code></a>(notes)</p></td>
+<td><p>Get the frequency (Hz) of MIDI note(s)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.midi_to_note.html#librosa.midi_to_note" title="librosa.midi_to_note"><code class="xref py py-obj docutils literal notranslate"><span class="pre">midi_to_note</span></code></a>(midi, *[, octave, cents, key, ...])</p></td>
+<td><p>Convert one or more MIDI numbers to note strings.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.midi_to_svara_h.html#librosa.midi_to_svara_h" title="librosa.midi_to_svara_h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">midi_to_svara_h</span></code></a>(midi, *, Sa[, abbr, octave, ...])</p></td>
+<td><p>Convert MIDI numbers to Hindustani svara</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.midi_to_svara_c.html#librosa.midi_to_svara_c" title="librosa.midi_to_svara_c"><code class="xref py py-obj docutils literal notranslate"><span class="pre">midi_to_svara_c</span></code></a>(midi, *, Sa, mela[, abbr, ...])</p></td>
+<td><p>Convert MIDI numbers to Carnatic svara within a given melakarta raga</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.note_to_hz.html#librosa.note_to_hz" title="librosa.note_to_hz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">note_to_hz</span></code></a>(note, **kwargs)</p></td>
+<td><p>Convert one or more note names to frequency (Hz)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.note_to_midi.html#librosa.note_to_midi" title="librosa.note_to_midi"><code class="xref py py-obj docutils literal notranslate"><span class="pre">note_to_midi</span></code></a>(note, *[, round_midi])</p></td>
+<td><p>Convert one or more spelled notes to MIDI number(s).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.note_to_svara_h.html#librosa.note_to_svara_h" title="librosa.note_to_svara_h"><code class="xref py py-obj docutils literal notranslate"><span class="pre">note_to_svara_h</span></code></a>(notes, *, Sa[, abbr, ...])</p></td>
+<td><p>Convert western notes to Hindustani svara</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.note_to_svara_c.html#librosa.note_to_svara_c" title="librosa.note_to_svara_c"><code class="xref py py-obj docutils literal notranslate"><span class="pre">note_to_svara_c</span></code></a>(notes, *, Sa, mela[, abbr, ...])</p></td>
+<td><p>Convert western notes to Carnatic svara</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.hz_to_mel.html#librosa.hz_to_mel" title="librosa.hz_to_mel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz_to_mel</span></code></a>(frequencies, *[, htk])</p></td>
+<td><p>Convert Hz to Mels</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.hz_to_octs.html#librosa.hz_to_octs" title="librosa.hz_to_octs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hz_to_octs</span></code></a>(frequencies, *[, tuning, ...])</p></td>
+<td><p>Convert frequencies (Hz) to (fractional) octave numbers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.mel_to_hz.html#librosa.mel_to_hz" title="librosa.mel_to_hz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mel_to_hz</span></code></a>(mels, *[, htk])</p></td>
+<td><p>Convert mel bin numbers to frequencies</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.octs_to_hz.html#librosa.octs_to_hz" title="librosa.octs_to_hz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">octs_to_hz</span></code></a>(octs, *[, tuning, bins_per_octave])</p></td>
+<td><p>Convert octaves numbers to frequencies.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.A4_to_tuning.html#librosa.A4_to_tuning" title="librosa.A4_to_tuning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">A4_to_tuning</span></code></a>(A4, *[, bins_per_octave])</p></td>
+<td><p>Convert a reference pitch frequency (e.g., <code class="docutils literal notranslate"><span class="pre">A4=435</span></code>) to a tuning estimation, in fractions of a bin per octave.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.tuning_to_A4.html#librosa.tuning_to_A4" title="librosa.tuning_to_A4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tuning_to_A4</span></code></a>(tuning, *[, bins_per_octave])</p></td>
+<td><p>Convert a tuning deviation (from 0) in fractions of a bin per octave (e.g., <code class="docutils literal notranslate"><span class="pre">tuning=-0.1</span></code>) to a reference pitch frequency relative to A440.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="music-notation">
+<h2>Music notation<a class="headerlink" href="#music-notation" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.key_to_notes.html#librosa.key_to_notes" title="librosa.key_to_notes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">key_to_notes</span></code></a>(key, *[, unicode, natural])</p></td>
+<td><p>List all 12 note names in the chromatic scale, as spelled according to a given key (major or minor) or mode (see below for details and accepted abbreviations).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.key_to_degrees.html#librosa.key_to_degrees" title="librosa.key_to_degrees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">key_to_degrees</span></code></a>(key)</p></td>
+<td><p>Construct the diatonic scale degrees for a given key.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.mela_to_svara.html#librosa.mela_to_svara" title="librosa.mela_to_svara"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mela_to_svara</span></code></a>(mela, *[, abbr, unicode])</p></td>
+<td><p>Spell the Carnatic svara names for a given melakarta raga</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.mela_to_degrees.html#librosa.mela_to_degrees" title="librosa.mela_to_degrees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mela_to_degrees</span></code></a>(mela)</p></td>
+<td><p>Construct the svara indices (degrees) for a given melakarta raga</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.thaat_to_degrees.html#librosa.thaat_to_degrees" title="librosa.thaat_to_degrees"><code class="xref py py-obj docutils literal notranslate"><span class="pre">thaat_to_degrees</span></code></a>(thaat)</p></td>
+<td><p>Construct the svara indices (degrees) for a given thaat</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.list_mela.html#librosa.list_mela" title="librosa.list_mela"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_mela</span></code></a>()</p></td>
+<td><p>List melakarta ragas by name and index.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.list_thaat.html#librosa.list_thaat" title="librosa.list_thaat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">list_thaat</span></code></a>()</p></td>
+<td><p>List supported thaats by name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.fifths_to_note.html#librosa.fifths_to_note" title="librosa.fifths_to_note"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fifths_to_note</span></code></a>(*, unison, fifths[, unicode])</p></td>
+<td><p>Calculate the note name for a given number of perfect fifths from a specified unison.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.interval_to_fjs.html#librosa.interval_to_fjs" title="librosa.interval_to_fjs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interval_to_fjs</span></code></a>(interval, *[, unison, ...])</p></td>
+<td><p>Convert an interval to Functional Just System (FJS) notation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.interval_frequencies.html#librosa.interval_frequencies" title="librosa.interval_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">interval_frequencies</span></code></a>(n_bins, *, fmin, intervals)</p></td>
+<td><p>Construct a set of frequencies from an interval set</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.pythagorean_intervals.html#librosa.pythagorean_intervals" title="librosa.pythagorean_intervals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pythagorean_intervals</span></code></a>(*[, bins_per_octave, ...])</p></td>
+<td><p>Pythagorean intervals</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.plimit_intervals.html#librosa.plimit_intervals" title="librosa.plimit_intervals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plimit_intervals</span></code></a>(*, primes[, ...])</p></td>
+<td><p>Construct p-limit intervals for a given set of prime factors.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="frequency-range-generation">
+<h2>Frequency range generation<a class="headerlink" href="#frequency-range-generation" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.fft_frequencies.html#librosa.fft_frequencies" title="librosa.fft_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft_frequencies</span></code></a>(*[, sr, n_fft])</p></td>
+<td><p>Alternative implementation of <em class="xref py py-obj">np.fft.fftfreq</em></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.cqt_frequencies.html#librosa.cqt_frequencies" title="librosa.cqt_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cqt_frequencies</span></code></a>(n_bins, *, fmin[, ...])</p></td>
+<td><p>Compute the center frequencies of Constant-Q bins.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.mel_frequencies.html#librosa.mel_frequencies" title="librosa.mel_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mel_frequencies</span></code></a>([n_mels, fmin, fmax, htk])</p></td>
+<td><p>Compute an array of acoustic frequencies tuned to the mel scale.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.tempo_frequencies.html#librosa.tempo_frequencies" title="librosa.tempo_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tempo_frequencies</span></code></a>(n_bins, *[, hop_length, sr])</p></td>
+<td><p>Compute the frequencies (in beats per minute) corresponding to an onset auto-correlation or tempogram matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.fourier_tempo_frequencies.html#librosa.fourier_tempo_frequencies" title="librosa.fourier_tempo_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fourier_tempo_frequencies</span></code></a>(*[, sr, ...])</p></td>
+<td><p>Compute the frequencies (in beats per minute) corresponding to a Fourier tempogram matrix.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pitch-and-tuning">
+<h2>Pitch and tuning<a class="headerlink" href="#pitch-and-tuning" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.pyin.html#librosa.pyin" title="librosa.pyin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyin</span></code></a>(y, *, fmin, fmax[, sr, frame_length, ...])</p></td>
+<td><p>Fundamental frequency (F0) estimation using probabilistic YIN (pYIN).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.yin.html#librosa.yin" title="librosa.yin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">yin</span></code></a>(y, *, fmin, fmax[, sr, frame_length, ...])</p></td>
+<td><p>Fundamental frequency (F0) estimation using the YIN algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.estimate_tuning.html#librosa.estimate_tuning" title="librosa.estimate_tuning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_tuning</span></code></a>(*[, y, sr, S, n_fft, ...])</p></td>
+<td><p>Estimate the tuning of an audio time series or spectrogram input.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.pitch_tuning.html#librosa.pitch_tuning" title="librosa.pitch_tuning"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pitch_tuning</span></code></a>(frequencies, *[, resolution, ...])</p></td>
+<td><p>Given a collection of pitches, estimate its tuning offset (in fractions of a bin) relative to A440=440.0Hz.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.piptrack.html#librosa.piptrack" title="librosa.piptrack"><code class="xref py py-obj docutils literal notranslate"><span class="pre">piptrack</span></code></a>(*[, y, sr, S, n_fft, hop_length, ...])</p></td>
+<td><p>Pitch tracking on thresholded parabolically-interpolated STFT.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.samples_like.html#librosa.samples_like" title="librosa.samples_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">samples_like</span></code></a>(X, *[, hop_length, n_fft, axis])</p></td>
+<td><p>Return an array of sample indices to match the time axis from a feature matrix.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.times_like.html#librosa.times_like" title="librosa.times_like"><code class="xref py py-obj docutils literal notranslate"><span class="pre">times_like</span></code></a>(X, *[, sr, hop_length, n_fft, axis])</p></td>
+<td><p>Return an array of time values to match the time axis from a feature matrix.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/librosa.get_fftlib.html#librosa.get_fftlib" title="librosa.get_fftlib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_fftlib</span></code></a>()</p></td>
+<td><p>Get the FFT library currently used by librosa</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/librosa.set_fftlib.html#librosa.set_fftlib" title="librosa.set_fftlib"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_fftlib</span></code></a>([lib])</p></td>
+<td><p>Set the FFT library used by librosa.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="generated/librosa.load.html" class="btn btn-neutral float-right" title="librosa.load" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

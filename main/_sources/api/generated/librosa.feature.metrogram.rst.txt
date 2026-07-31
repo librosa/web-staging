@@ -1,0 +1,6 @@
+﻿librosa.feature.metrogram
+=========================
+
+.. currentmodule:: librosa.feature
+
+.. autofunction:: metrogram

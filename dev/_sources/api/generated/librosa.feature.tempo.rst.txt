@@ -1,0 +1,6 @@
+﻿librosa.feature.tempo
+=====================
+
+.. currentmodule:: librosa.feature
+
+.. autofunction:: tempo

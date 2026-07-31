@@ -1,0 +1,6 @@
+﻿librosa.thaat\_to\_degrees
+==========================
+
+.. currentmodule:: librosa
+
+.. autofunction:: thaat_to_degrees

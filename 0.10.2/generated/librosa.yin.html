@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.yin &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.estimate_tuning" href="librosa.estimate_tuning.html" />
+    <link rel="prev" title="librosa.pyin" href="librosa.pyin.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../core.html">Core IO and DSP</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../core.html#audio-loading">Audio loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-domain-processing">Time-domain processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#signal-generation">Signal generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#spectral-representations">Spectral representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#phase-recovery">Phase recovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#harmonics">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#magnitude-scaling">Magnitude scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-unit-conversion">Time unit conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-unit-conversion">Frequency unit conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#music-notation">Music notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-range-generation">Frequency range generation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../core.html#pitch-and-tuning">Pitch and tuning</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.pyin.html">librosa.pyin</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.yin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.yin"><code class="docutils literal notranslate"><span class="pre">yin</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.estimate_tuning.html">librosa.estimate_tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.pitch_tuning.html">librosa.pitch_tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.piptrack.html">librosa.piptrack</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../core.html">Core IO and DSP</a></li>
+      <li class="breadcrumb-item active">librosa.yin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.yin.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-yin">
+<h1>librosa.yin<a class="headerlink" href="#librosa-yin" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.yin">
+<span class="sig-prename descclassname"><span class="pre">librosa.</span></span><span class="sig-name descname"><span class="pre">yin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22050</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2048</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">win_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hop_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trough_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pad_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'constant'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/core/pitch.html#yin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.yin" title="Link to this definition"></a></dt>
+<dd><p>Fundamental frequency (F0) estimation using the YIN algorithm.</p>
+<p>YIN is an autocorrelation based method for fundamental frequency estimation <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.
+First, a normalized difference function is computed over short (overlapping) frames of audio.
+Next, the first minimum in the difference function below <code class="docutils literal notranslate"><span class="pre">trough_threshold</span></code> is selected as
+an estimate of the signal’s period.
+Finally, the estimated period is refined using parabolic interpolation before converting
+into the corresponding frequency.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>De Cheveigné, Alain, and Hideki Kawahara.
+“YIN, a fundamental frequency estimator for speech and music.”
+The Journal of the Acoustical Society of America 111.4 (2002): 1917-1930.</p>
+</aside>
+</aside>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">np.ndarray [shape=(…, n)]</span></dt><dd><p>audio time series. Multi-channel is supported..</p>
+</dd>
+<dt><strong>fmin</strong><span class="classifier">number &gt; 0 [scalar]</span></dt><dd><p>minimum frequency in Hertz.
+The recommended minimum is <code class="docutils literal notranslate"><span class="pre">librosa.note_to_hz('C2')</span></code> (~65 Hz)
+though lower values may be feasible.</p>
+</dd>
+<dt><strong>fmax</strong><span class="classifier">number &gt; fmin, &lt;= sr/2 [scalar]</span></dt><dd><p>maximum frequency in Hertz.
+The recommended maximum is <code class="docutils literal notranslate"><span class="pre">librosa.note_to_hz('C7')</span></code> (~2093 Hz)
+though higher values may be feasible.</p>
+</dd>
+<dt><strong>sr</strong><span class="classifier">number &gt; 0 [scalar]</span></dt><dd><p>sampling rate of <code class="docutils literal notranslate"><span class="pre">y</span></code> in Hertz.</p>
+</dd>
+<dt><strong>frame_length</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>length of the frames in samples.
+By default, <code class="docutils literal notranslate"><span class="pre">frame_length=2048</span></code> corresponds to a time scale of about 93 ms at
+a sampling rate of 22050 Hz.</p>
+</dd>
+<dt><strong>win_length</strong><span class="classifier">None or int &gt; 0 [scalar]</span></dt><dd><p>length of the window for calculating autocorrelation in samples.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, defaults to <code class="docutils literal notranslate"><span class="pre">frame_length</span> <span class="pre">//</span> <span class="pre">2</span></code></p>
+</dd>
+<dt><strong>hop_length</strong><span class="classifier">None or int &gt; 0 [scalar]</span></dt><dd><p>number of audio samples between adjacent YIN predictions.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, defaults to <code class="docutils literal notranslate"><span class="pre">frame_length</span> <span class="pre">//</span> <span class="pre">4</span></code>.</p>
+</dd>
+<dt><strong>trough_threshold</strong><span class="classifier">number &gt; 0 [scalar]</span></dt><dd><p>absolute threshold for peak estimation.</p>
+</dd>
+<dt><strong>center</strong><span class="classifier">boolean</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the signal <em class="xref py py-obj">y</em> is padded so that frame
+<code class="docutils literal notranslate"><span class="pre">D[:,</span> <span class="pre">t]</span></code> is centered at <em class="xref py py-obj">y[t * hop_length]</em>.
+If <code class="docutils literal notranslate"><span class="pre">False</span></code>, then <code class="docutils literal notranslate"><span class="pre">D[:,</span> <span class="pre">t]</span></code> begins at <code class="docutils literal notranslate"><span class="pre">y[t</span> <span class="pre">*</span> <span class="pre">hop_length]</span></code>.
+Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>,  which simplifies the alignment of <code class="docutils literal notranslate"><span class="pre">D</span></code> onto a
+time grid by means of <code class="docutils literal notranslate"><span class="pre">librosa.core.frames_to_samples</span></code>.</p>
+</dd>
+<dt><strong>pad_mode</strong><span class="classifier">string or function</span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">center=True</span></code>, this argument is passed to <code class="docutils literal notranslate"><span class="pre">np.pad</span></code> for padding
+the edges of the signal <code class="docutils literal notranslate"><span class="pre">y</span></code>. By default (<code class="docutils literal notranslate"><span class="pre">pad_mode=&quot;constant&quot;</span></code>),
+<code class="docutils literal notranslate"><span class="pre">y</span></code> is padded on both sides with zeros.
+If <code class="docutils literal notranslate"><span class="pre">center=False</span></code>,  this argument is ignored.
+.. see also:: <em class="xref py py-obj">np.pad</em></p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt>f0: np.ndarray [shape=(…, n_frames)]</dt><dd><p>time series of fundamental frequencies in Hertz.</p>
+<p>If multi-channel input is provided, f0 curves are estimated separately for each channel.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.pyin.html#librosa.pyin" title="librosa.pyin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.pyin</span></code></a></dt><dd><p>Fundamental frequency (F0) estimation using probabilistic YIN (pYIN).</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Computing a fundamental frequency (F0) curve from an audio input</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">chirp</span><span class="p">(</span><span class="n">fmin</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">880</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="mi">22050</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">yin</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="mi">440</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="mi">880</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="mi">22050</span><span class="p">)</span>
+<span class="go">array([442.66354675, 441.95299983, 441.58010963, ...,</span>
+<span class="go">    871.161732  , 873.99001454, 877.04297681])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.pyin.html" class="btn btn-neutral float-left" title="librosa.pyin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.estimate_tuning.html" class="btn btn-neutral float-right" title="librosa.estimate_tuning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

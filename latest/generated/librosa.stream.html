@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.stream &mdash; librosa 0.11.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f3b36f1a"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.to_mono" href="librosa.to_mono.html" />
+    <link rel="prev" title="librosa.load" href="librosa.load.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../core.html">Core IO and DSP</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../core.html#audio-loading">Audio loading</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.load.html">librosa.load</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.stream</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.stream"><code class="docutils literal notranslate"><span class="pre">stream</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.to_mono.html">librosa.to_mono</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.resample.html">librosa.resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.get_duration.html">librosa.get_duration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.get_samplerate.html">librosa.get_samplerate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-domain-processing">Time-domain processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#signal-generation">Signal generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#spectral-representations">Spectral representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#phase-recovery">Phase recovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#harmonics">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#magnitude-scaling">Magnitude scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-unit-conversion">Time unit conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-unit-conversion">Frequency unit conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#music-notation">Music notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-range-generation">Frequency range generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#pitch-and-tuning">Pitch and tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../core.html">Core IO and DSP</a></li>
+      <li class="breadcrumb-item active">librosa.stream</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.stream.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-stream">
+<h1>librosa.stream<a class="headerlink" href="#librosa-stream" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.stream">
+<span class="sig-prename descclassname"><span class="pre">librosa.</span></span><span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hop_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mono</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/core/audio.html#stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.stream" title="Link to this definition"></a></dt>
+<dd><p>Stream audio in fixed-length buffers.</p>
+<p>This is primarily useful for processing large files that won’t
+fit entirely in memory at once.</p>
+<p>Instead of loading the entire audio signal into memory (as
+in <a class="reference internal" href="librosa.load.html#librosa.load" title="librosa.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>, this function produces <em>blocks</em> of audio spanning
+a fixed number of frames at a specified frame length and hop
+length.</p>
+<p>While this function strives for similar behavior to <a class="reference internal" href="librosa.load.html#librosa.load" title="librosa.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a>,
+there are a few caveats that users should be aware of:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>This function does not return audio buffers directly.
+It returns a generator, which you can iterate over
+to produce blocks of audio.  A <em>block</em>, in this context,
+refers to a buffer of audio which spans a given number of
+(potentially overlapping) frames.</p></li>
+<li><p>Automatic sample-rate conversion is not supported.
+Audio will be streamed in its native sample rate,
+so no default values are provided for <code class="docutils literal notranslate"><span class="pre">frame_length</span></code>
+and <code class="docutils literal notranslate"><span class="pre">hop_length</span></code>.  It is recommended that you first
+get the sampling rate for the file in question, using
+<a class="reference internal" href="librosa.get_samplerate.html#librosa.get_samplerate" title="librosa.get_samplerate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_samplerate</span></code></a>, and set these parameters accordingly.</p></li>
+<li><p>Many analyses require access to the entire signal
+to behave correctly, such as <a class="reference internal" href="librosa.resample.html#librosa.resample" title="librosa.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></a>, <a class="reference internal" href="librosa.cqt.html#librosa.cqt" title="librosa.cqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cqt</span></code></a>, or
+<em class="xref py py-obj">beat_track</em>, so these methods will not be appropriate
+for streamed data.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">block_length</span></code> parameter specifies how many frames
+of audio will be produced per block.  Larger values will
+consume more memory, but will be more efficient to process
+down-stream.  The best value will ultimately depend on your
+application and other system constraints.</p></li>
+<li><p>By default, most librosa analyses (e.g., short-time Fourier
+transform) assume centered frames, which requires padding the
+signal at the beginning and end.  This will not work correctly
+when the signal is carved into blocks, because it would introduce
+padding in the middle of the signal.  To disable this feature,
+use <code class="docutils literal notranslate"><span class="pre">center=False</span></code> in all frame-based analyses.</p></li>
+</ol>
+</div></blockquote>
+<p>See the examples below for proper usage of this function.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>path</strong><span class="classifier">string, int, sf.SoundFile, or file-like object</span></dt><dd><p>path to the input file to stream.</p>
+<p>Any codec supported by <a class="reference external" href="https://python-soundfile.readthedocs.io/en/latest/index.html#module-soundfile" title="(in python-soundfile)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundfile</span></code></a> is permitted here.</p>
+<p>An existing <a class="reference external" href="https://python-soundfile.readthedocs.io/en/latest/index.html#soundfile.SoundFile" title="(in python-soundfile)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundfile.SoundFile</span></code></a> object may also be provided.</p>
+</dd>
+<dt><strong>block_length</strong><span class="classifier">int &gt; 0</span></dt><dd><p>The number of frames to include in each block.</p>
+<p>Note that at the end of the file, there may not be enough
+data to fill an entire block, resulting in a shorter block
+by default.  To pad the signal out so that blocks are always
+full length, set <code class="docutils literal notranslate"><span class="pre">fill_value</span></code> (see below).</p>
+</dd>
+<dt><strong>frame_length</strong><span class="classifier">int &gt; 0</span></dt><dd><p>The number of samples per frame.</p>
+</dd>
+<dt><strong>hop_length</strong><span class="classifier">int &gt; 0</span></dt><dd><p>The number of samples to advance between frames.</p>
+<p>Note that by when <code class="docutils literal notranslate"><span class="pre">hop_length</span> <span class="pre">&lt;</span> <span class="pre">frame_length</span></code>, neighboring frames
+will overlap.  Similarly, the last frame of one <em>block</em> will overlap
+with the first frame of the next <em>block</em>.</p>
+</dd>
+<dt><strong>mono</strong><span class="classifier">bool</span></dt><dd><p>Convert the signal to mono during streaming</p>
+</dd>
+<dt><strong>offset</strong><span class="classifier">float</span></dt><dd><p>Start reading after this time (in seconds)</p>
+</dd>
+<dt><strong>duration</strong><span class="classifier">float</span></dt><dd><p>Only load up to this much audio (in seconds)</p>
+</dd>
+<dt><strong>fill_value</strong><span class="classifier">float [optional]</span></dt><dd><p>If padding the signal to produce constant-length blocks,
+this value will be used at the end of the signal.</p>
+<p>In most cases, <code class="docutils literal notranslate"><span class="pre">fill_value=0</span></code> (silence) is expected, but
+you may specify any value here.</p>
+</dd>
+<dt><strong>dtype</strong><span class="classifier">numeric type</span></dt><dd><p>data type of audio buffers to be produced</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Yields<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">np.ndarray</span></dt><dd><p>An audio buffer of (at most)
+<code class="docutils literal notranslate"><span class="pre">(block_length-1)</span> <span class="pre">*</span> <span class="pre">hop_length</span> <span class="pre">+</span> <span class="pre">frame_length</span></code> samples.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.load.html#librosa.load" title="librosa.load"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load</span></code></a></dt><dd></dd>
+<dt><a class="reference internal" href="librosa.get_samplerate.html#librosa.get_samplerate" title="librosa.get_samplerate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_samplerate</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://python-soundfile.readthedocs.io/en/latest/index.html#soundfile.blocks" title="(in python-soundfile)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">soundfile.blocks</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Apply a short-term Fourier transform to blocks of 256 frames
+at a time.  Note that streaming operation requires left-aligned
+frames, so we must set <code class="docutils literal notranslate"><span class="pre">center=False</span></code> to avoid padding artifacts.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;brahms&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">get_samplerate</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stream</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">block_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">frame_length</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
+<span class="gp">... </span>                      <span class="n">hop_length</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">y_block</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">D_block</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y_block</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or compute a mel spectrogram over a stream, using a shorter frame
+and non-overlapping windows</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">filename</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;brahms&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">get_samplerate</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stream</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="n">block_length</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="n">frame_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+<span class="gp">... </span>                        <span class="n">hop_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">y_block</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">m_block</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">melspectrogram</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y_block</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+<span class="gp">... </span>                                             <span class="n">n_fft</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+<span class="gp">... </span>                                             <span class="n">hop_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">,</span>
+<span class="gp">... </span>                                             <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.load.html" class="btn btn-neutral float-left" title="librosa.load" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.to_mono.html" class="btn btn-neutral float-right" title="librosa.to_mono" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2025, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

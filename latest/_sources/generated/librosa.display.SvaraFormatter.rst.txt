@@ -1,0 +1,37 @@
+﻿librosa.display.SvaraFormatter
+==============================
+
+.. currentmodule:: librosa.display
+
+.. autoclass:: SvaraFormatter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~SvaraFormatter.__init__
+      ~SvaraFormatter.create_dummy_axis
+      ~SvaraFormatter.fix_minus
+      ~SvaraFormatter.format_data
+      ~SvaraFormatter.format_data_short
+      ~SvaraFormatter.format_ticks
+      ~SvaraFormatter.get_offset
+      ~SvaraFormatter.set_axis
+      ~SvaraFormatter.set_locs
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~SvaraFormatter.axis
+      ~SvaraFormatter.locs
+   
+   

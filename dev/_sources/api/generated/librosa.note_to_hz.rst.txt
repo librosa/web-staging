@@ -1,0 +1,6 @@
+﻿librosa.note\_to\_hz
+====================
+
+.. currentmodule:: librosa
+
+.. autofunction:: note_to_hz

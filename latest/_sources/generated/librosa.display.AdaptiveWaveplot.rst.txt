@@ -1,0 +1,25 @@
+﻿librosa.display.AdaptiveWaveplot
+================================
+
+.. currentmodule:: librosa.display
+
+.. autoclass:: AdaptiveWaveplot
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~AdaptiveWaveplot.__init__
+      ~AdaptiveWaveplot.connect
+      ~AdaptiveWaveplot.disconnect
+      ~AdaptiveWaveplot.update
+   
+   
+
+   
+   
+   

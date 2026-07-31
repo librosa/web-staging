@@ -1,0 +1,37 @@
+﻿librosa.display.ChromaFormatter
+===============================
+
+.. currentmodule:: librosa.display
+
+.. autoclass:: ChromaFormatter
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ChromaFormatter.__init__
+      ~ChromaFormatter.create_dummy_axis
+      ~ChromaFormatter.fix_minus
+      ~ChromaFormatter.format_data
+      ~ChromaFormatter.format_data_short
+      ~ChromaFormatter.format_ticks
+      ~ChromaFormatter.get_offset
+      ~ChromaFormatter.set_axis
+      ~ChromaFormatter.set_locs
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ChromaFormatter.axis
+      ~ChromaFormatter.locs
+   
+   

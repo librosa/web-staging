@@ -1,0 +1,6 @@
+﻿librosa.key\_to\_degrees
+========================
+
+.. currentmodule:: librosa
+
+.. autofunction:: key_to_degrees

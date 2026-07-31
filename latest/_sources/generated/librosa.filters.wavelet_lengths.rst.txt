@@ -1,0 +1,6 @@
+﻿librosa.filters.wavelet\_lengths
+================================
+
+.. currentmodule:: librosa.filters
+
+.. autofunction:: wavelet_lengths

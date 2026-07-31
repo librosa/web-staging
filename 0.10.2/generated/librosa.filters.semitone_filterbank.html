@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.filters.semitone_filterbank &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.filters.window_bandwidth" href="librosa.filters.window_bandwidth.html" />
+    <link rel="prev" title="librosa.filters.wavelet" href="librosa.filters.wavelet.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../filters.html">Filters</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../filters.html#filter-bank-construction">Filter bank construction</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.filters.mel.html">librosa.filters.mel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.filters.chroma.html">librosa.filters.chroma</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.filters.wavelet.html">librosa.filters.wavelet</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.filters.semitone_filterbank</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.filters.semitone_filterbank"><code class="docutils literal notranslate"><span class="pre">semitone_filterbank</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html#window-functions">Window functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html#miscellaneous">Miscellaneous</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html#deprecated">Deprecated</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../filters.html">Filters</a></li>
+      <li class="breadcrumb-item active">librosa.filters.semitone_filterbank</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.filters.semitone_filterbank.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-filters-semitone-filterbank">
+<h1>librosa.filters.semitone_filterbank<a class="headerlink" href="#librosa-filters-semitone-filterbank" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.filters.semitone_filterbank">
+<span class="sig-prename descclassname"><span class="pre">librosa.filters.</span></span><span class="sig-name descname"><span class="pre">semitone_filterbank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_freqs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tuning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flayout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ba'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/filters.html#semitone_filterbank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.filters.semitone_filterbank" title="Link to this definition"></a></dt>
+<dd><p>Construct a multi-rate bank of infinite-impulse response (IIR)
+band-pass filters at user-defined center frequencies and sample rates.</p>
+<p>By default, these center frequencies are set equal to the 88 fundamental
+frequencies of the grand piano keyboard, according to a pitch tuning standard
+of A440, that is, note A above middle C set to 440 Hz. The center frequencies
+are tuned to the twelve-tone equal temperament, which means that they grow
+exponentially at a rate of 2**(1/12), that is, twelve notes per octave.</p>
+<p>The A440 tuning can be changed by the user while keeping twelve-tone equal
+temperament. While A440 is currently the international standard in the music
+industry (ISO 16), some orchestras tune to A441-A445, whereas baroque musicians
+tune to A415.</p>
+<p>See <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> for details.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Müller, Meinard.
+“Information Retrieval for Music and Motion.”
+Springer Verlag. 2007.</p>
+</aside>
+</aside>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>center_freqs</strong><span class="classifier">np.ndarray [shape=(n,), dtype=float]</span></dt><dd><p>Center frequencies of the filter kernels.
+Also defines the number of filters in the filterbank.</p>
+</dd>
+<dt><strong>tuning</strong><span class="classifier">float [scalar]</span></dt><dd><p>Tuning deviation from A440 as a fraction of a semitone (1/12 of an octave
+in equal temperament).</p>
+</dd>
+<dt><strong>sample_rates</strong><span class="classifier">np.ndarray [shape=(n,), dtype=float]</span></dt><dd><p>Sample rates of each filter in the multirate filterbank.</p>
+</dd>
+<dt><strong>flayout</strong><span class="classifier">string</span></dt><dd><ul class="simple">
+<li><p>If <em class="xref py py-obj">ba</em>, the standard difference equation is used for filtering with <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.filtfilt.html#scipy.signal.filtfilt" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.filtfilt</span></code></a>.
+Can be unstable for high-order filters.</p></li>
+<li><p>If <em class="xref py py-obj">sos</em>, a series of second-order filters is used for filtering with <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.sosfiltfilt.html#scipy.signal.sosfiltfilt" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.sosfiltfilt</span></code></a>.
+Minimizes numerical precision errors for high-order filters, but is slower.</p></li>
+</ul>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Additional arguments to the private function <em class="xref py py-obj">_multirate_fb()</em>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>filterbank</strong><span class="classifier">list [shape=(n,), dtype=float]</span></dt><dd><p>Each list entry contains the filter coefficients for a single filter.</p>
+</dd>
+<dt><strong>fb_sample_rates</strong><span class="classifier">np.ndarray [shape=(n,), dtype=float]</span></dt><dd><p>Sample rate for each filter.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.cqt.html#librosa.cqt" title="librosa.cqt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.cqt</span></code></a></dt><dd></dd>
+<dt><a class="reference internal" href="librosa.iirt.html#librosa.iirt" title="librosa.iirt"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.iirt</span></code></a></dt><dd></dd>
+<dt><a class="reference internal" href="librosa.filters.mr_frequencies.html#librosa.filters.mr_frequencies" title="librosa.filters.mr_frequencies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.filters.mr_frequencies</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.iirdesign.html#scipy.signal.iirdesign" title="(in SciPy v1.18.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy.signal.iirdesign</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.signal</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">semitone_filterbank</span><span class="p">,</span> <span class="n">sample_rates</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">semitone_filterbank</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">center_freqs</span><span class="o">=</span><span class="n">librosa</span><span class="o">.</span><span class="n">midi_to_hz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="n">sample_rates</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mf">4410.0</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">flayout</span><span class="o">=</span><span class="s1">&#39;sos&#39;</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">magnitudes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">cur_sr</span><span class="p">,</span> <span class="n">cur_filter</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sample_rates</span><span class="p">,</span> <span class="n">semitone_filterbank</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">sosfreqz</span><span class="p">(</span><span class="n">cur_filter</span><span class="p">,</span><span class="n">fs</span><span class="o">=</span><span class="n">cur_sr</span><span class="p">,</span> <span class="n">worN</span><span class="o">=</span><span class="mi">1025</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">magnitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">h</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">img</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">magnitudes</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">x_axis</span><span class="o">=</span><span class="s2">&quot;hz&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">sr</span><span class="o">=</span><span class="mi">4410</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">y_coords</span><span class="o">=</span><span class="n">librosa</span><span class="o">.</span><span class="n">midi_to_hz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="n">vmin</span><span class="o">=-</span><span class="mi">60</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">vmax</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%+2.f dB&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Magnitude (dB)&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">600</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="n">yticks</span><span class="o">=</span><span class="n">librosa</span><span class="o">.</span><span class="n">midi_to_hz</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">72</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Magnitude Responses of the Pitch Filterbank&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequency (Hz)&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Semitone filter center frequency (Hz)&#39;</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/librosa-filters-semitone_filterbank-1.png" class="plot-directive" src="../_images/librosa-filters-semitone_filterbank-1.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.filters.wavelet.html" class="btn btn-neutral float-left" title="librosa.filters.wavelet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.filters.window_bandwidth.html" class="btn btn-neutral float-right" title="librosa.filters.window_bandwidth" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿librosa.hz\_to\_midi
+====================
+
+.. currentmodule:: librosa
+
+.. autofunction:: hz_to_midi

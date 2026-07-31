@@ -1,0 +1,6 @@
+﻿librosa.display.wavef0
+======================
+
+.. currentmodule:: librosa.display
+
+.. autofunction:: wavef0

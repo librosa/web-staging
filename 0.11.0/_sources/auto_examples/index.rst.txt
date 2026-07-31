@@ -1,0 +1,314 @@
+:orphan:
+
+-----------------
+Advanced examples
+-----------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to use &quot;Rainbowgrams&quot; to simultaneously  visualize amplitude and (unwrapped) phase (differential) as demonstrated in the NSynth paper [1]_.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_rainbowgram_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_rainbowgram.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Rainbowgrams</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to use IPython&#x27;s audio playback to play audio signals through your web browser.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_audio_playback_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_audio_playback.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Audio playback</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to use the beat tracker in situations where the tempo may change over time.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_dynamic_beat_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_dynamic_beat.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Beat tracking with time-varying tempo</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to use the presets package to change the default parameters for librosa.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_presets_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_presets.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Presets</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to use Viterbi decoding to impose temporal smoothing on frame-wise state predictions.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_viterbi_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_viterbi.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Viterbi decoding</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to efficiently generate fixed-duration excerpts of a signal using librosa.util.frame. This can be helpful in machine learning applications where a model may expect inputs of a certain size during training, but your data may be of arbitrary and variable length.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_patch_generation_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_patch_generation.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Efficient patch generation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to recover the Superflux onset detection algorithm of Boeck and Widmer, 2013 [1]_ from librosa.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_superflux_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_superflux.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Superflux onsets</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to extract the harmonic spectrum from an audio signal. The basic idea is to estimate the fundamental frequency (f0) at each time step, and extract the energy at integer multiples of f0 (the harmonics). This representation can be used to represent the short-term evolution of timbre, either for resynthesis [1]_ or downstream analysis [2]_.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_spectral_harmonics_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_spectral_harmonics.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Harmonic spectrum</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="In this short tutorial, we demonstrate the use of dynamic time warping (DTW) for music synchronization which is implemented in librosa.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_music_sync_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_music_sync.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Music Synchronization with Dynamic Time Warping</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates how to use streaming IO with librosa.pcen to do dynamic per-channel energy normalization on a spectrogram incrementally.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_pcen_stream_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_pcen_stream.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">PCEN Streaming</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates a simple technique for separating vocals (and other sporadic foreground signals) from accompanying instrumentation.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_vocal_separation_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_vocal_separation.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Vocal separation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook illustrates how to separate an audio signal into its harmonic and percussive components.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_hprss_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_hprss.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Harmonic-percussive source separation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook demonstrates a variety of techniques for enhancing chroma features and  also, introduces chroma variants implemented in librosa.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_chroma_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_chroma.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Enhanced chroma and chroma variants</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook implements the laplacian segmentation method of McFee and Ellis, 2014, with a couple of minor stability improvements.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_segmentation_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_segmentation.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Laplacian segmentation</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This notebook gives a more in-depth demonstration of all things that specshow can do to help generate beautiful visualizations of spectro-temporal data.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_plot_display_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_plot_display.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Using display.specshow</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/plot_rainbowgram
+   /auto_examples/plot_audio_playback
+   /auto_examples/plot_dynamic_beat
+   /auto_examples/plot_presets
+   /auto_examples/plot_viterbi
+   /auto_examples/plot_patch_generation
+   /auto_examples/plot_superflux
+   /auto_examples/plot_spectral_harmonics
+   /auto_examples/plot_music_sync
+   /auto_examples/plot_pcen_stream
+   /auto_examples/plot_vocal_separation
+   /auto_examples/plot_hprss
+   /auto_examples/plot_chroma
+   /auto_examples/plot_segmentation
+   /auto_examples/plot_display
+
+
+.. only:: html
+
+  .. container:: sphx-glr-footer sphx-glr-footer-gallery
+
+    .. container:: sphx-glr-download sphx-glr-download-python
+
+      :download:`Download all examples in Python source code: auto_examples_python.zip </auto_examples/auto_examples_python.zip>`
+
+    .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+      :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip </auto_examples/auto_examples_jupyter.zip>`
+
+
+.. only:: html
+
+ .. rst-class:: sphx-glr-signature
+
+    `Gallery generated by Sphinx-Gallery <https://sphinx-gallery.github.io>`_

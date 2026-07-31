@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.get_duration &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.get_samplerate" href="librosa.get_samplerate.html" />
+    <link rel="prev" title="librosa.resample" href="librosa.resample.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../core.html">Core IO and DSP</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../core.html#audio-loading">Audio loading</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.load.html">librosa.load</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.stream.html">librosa.stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.to_mono.html">librosa.to_mono</a></li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.resample.html">librosa.resample</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.get_duration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.get_duration"><code class="docutils literal notranslate"><span class="pre">get_duration</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="librosa.get_samplerate.html">librosa.get_samplerate</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-domain-processing">Time-domain processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#signal-generation">Signal generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#spectral-representations">Spectral representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#phase-recovery">Phase recovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#harmonics">Harmonics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#magnitude-scaling">Magnitude scaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#time-unit-conversion">Time unit conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-unit-conversion">Frequency unit conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#music-notation">Music notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#frequency-range-generation">Frequency range generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#pitch-and-tuning">Pitch and tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../core.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../display.html">Display</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../core.html">Core IO and DSP</a></li>
+      <li class="breadcrumb-item active">librosa.get_duration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.get_duration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-get-duration">
+<h1>librosa.get_duration<a class="headerlink" href="#librosa-get-duration" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.get_duration">
+<span class="sig-prename descclassname"><span class="pre">librosa.</span></span><span class="sig-name descname"><span class="pre">get_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22050</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">S</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2048</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hop_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;DEPRECATED</span> <span class="pre">parameter&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/core/audio.html#get_duration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.get_duration" title="Link to this definition"></a></dt>
+<dd><p>Compute the duration (in seconds) of an audio time series,
+feature matrix, or filename.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>y</strong><span class="classifier">np.ndarray [shape=(…, n)] or None</span></dt><dd><p>audio time series. Multi-channel is supported.</p>
+</dd>
+<dt><strong>sr</strong><span class="classifier">number &gt; 0 [scalar]</span></dt><dd><p>audio sampling rate of <code class="docutils literal notranslate"><span class="pre">y</span></code></p>
+</dd>
+<dt><strong>S</strong><span class="classifier">np.ndarray [shape=(…, d, t)] or None</span></dt><dd><p>STFT matrix, or any STFT-derived matrix (e.g., chromagram
+or mel spectrogram).
+Durations calculated from spectrogram inputs are only accurate
+up to the frame resolution. If high precision is required,
+it is better to use the audio time series directly.</p>
+</dd>
+<dt><strong>n_fft</strong><span class="classifier">int &gt; 0 [scalar]</span></dt><dd><p>FFT window size for <code class="docutils literal notranslate"><span class="pre">S</span></code></p>
+</dd>
+<dt><strong>hop_length</strong><span class="classifier">int &gt; 0 [ scalar]</span></dt><dd><p>number of audio samples between columns of <code class="docutils literal notranslate"><span class="pre">S</span></code></p>
+</dd>
+<dt><strong>center</strong><span class="classifier">boolean</span></dt><dd><ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">S[:,</span> <span class="pre">t]</span></code> is centered at <code class="docutils literal notranslate"><span class="pre">y[t</span> <span class="pre">*</span> <span class="pre">hop_length]</span></code></p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">False</span></code>, then <code class="docutils literal notranslate"><span class="pre">S[:,</span> <span class="pre">t]</span></code> begins at <code class="docutils literal notranslate"><span class="pre">y[t</span> <span class="pre">*</span> <span class="pre">hop_length]</span></code></p></li>
+</ul>
+</dd>
+<dt><strong>path</strong><span class="classifier">str, path, or file-like</span></dt><dd><p>If provided, all other parameters are ignored, and the
+duration is calculated directly from the audio file.
+Note that this avoids loading the contents into memory,
+and is therefore useful for querying the duration of
+long files.</p>
+<p>As in <code class="docutils literal notranslate"><span class="pre">load</span></code>, this can also be an integer or open file-handle
+that can be processed by <code class="docutils literal notranslate"><span class="pre">soundfile</span></code>.</p>
+</dd>
+<dt><strong>filename</strong><span class="classifier">Deprecated</span></dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">path</span></code></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This parameter has been renamed to <code class="docutils literal notranslate"><span class="pre">path</span></code> in 0.10.
+Support for <code class="docutils literal notranslate"><span class="pre">filename=</span></code> will be removed in 1.0.</p>
+</div>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>d</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Duration (in seconds) of the input time series or spectrogram.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ParameterError</dt><dd><p>if none of <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">S</span></code>, or <code class="docutils literal notranslate"><span class="pre">path</span></code> are provided.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p><a class="reference internal" href="#librosa.get_duration" title="librosa.get_duration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_duration</span></code></a> can be applied to a file (<code class="docutils literal notranslate"><span class="pre">path</span></code>), a spectrogram (<code class="docutils literal notranslate"><span class="pre">S</span></code>),
+or audio buffer (<code class="docutils literal notranslate"><span class="pre">y,</span> <span class="pre">sr</span></code>).  Only one of these three options should be
+provided.  If you do provide multiple options (e.g., <code class="docutils literal notranslate"><span class="pre">path</span></code> and <code class="docutils literal notranslate"><span class="pre">S</span></code>),
+then <code class="docutils literal notranslate"><span class="pre">path</span></code> takes precedence over <code class="docutils literal notranslate"><span class="pre">S</span></code>, and <code class="docutils literal notranslate"><span class="pre">S</span></code> takes precedence over
+<code class="docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">sr)</span></code>.</p>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load an example audio file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;trumpet&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+<span class="go">5.333378684807256</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Or directly from an audio file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;trumpet&#39;</span><span class="p">))</span>
+<span class="go">5.333378684807256</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Or compute duration from an STFT matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;trumpet&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(</span><span class="n">S</span><span class="o">=</span><span class="n">S</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+<span class="go">5.317369614512471</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Or a non-centered STFT matrix</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">S_left</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">get_duration</span><span class="p">(</span><span class="n">S</span><span class="o">=</span><span class="n">S_left</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+<span class="go">5.224489795918367</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.resample.html" class="btn btn-neutral float-left" title="librosa.resample" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.get_samplerate.html" class="btn btn-neutral float-right" title="librosa.get_samplerate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

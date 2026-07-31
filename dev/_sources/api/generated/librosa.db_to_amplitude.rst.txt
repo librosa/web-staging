@@ -1,0 +1,6 @@
+﻿librosa.db\_to\_amplitude
+=========================
+
+.. currentmodule:: librosa
+
+.. autofunction:: db_to_amplitude

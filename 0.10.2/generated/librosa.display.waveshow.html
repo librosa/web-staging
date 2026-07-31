@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171031946-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-171031946-1');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>librosa.display.waveshow &mdash; librosa 0.10.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=5e94ddc7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=11e62b30"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=35a8b989"></script>
+      <script src="../_static/rtd-version-switcher.js?v=0802cd80"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="librosa.display.TimeFormatter" href="librosa.display.TimeFormatter.html" />
+    <link rel="prev" title="librosa.display.specshow" href="librosa.display.specshow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/librosa_logo_text.svg" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core.html">Core IO and DSP</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../display.html">Display</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../display.html#data-visualization">Data visualization</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="librosa.display.specshow.html">librosa.display.specshow</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">librosa.display.waveshow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#librosa.display.waveshow"><code class="docutils literal notranslate"><span class="pre">waveshow</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../display.html#axis-formatting">Axis formatting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../display.html#miscellaneous">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../feature.html">Feature extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onset.html">Onset detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../beat.html">Beat and tempo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../decompose.html">Spectrogram decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../effects.html">Effects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../segment.html">Temporal segmentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sequence.html">Sequential modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">Utilities</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../multichannel.html">Multi-channel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cache.html">Caching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ioformats.html">Advanced I/O Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced.html">Advanced examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recordings.html">Example files</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">Glossary</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">librosa</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../display.html">Display</a></li>
+      <li class="breadcrumb-item active">librosa.display.waveshow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/librosa.display.waveshow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+
+  <section id="librosa-display-waveshow">
+<h1>librosa.display.waveshow<a class="headerlink" href="#librosa-display-waveshow" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="librosa.display.waveshow">
+<span class="sig-prename descclassname"><span class="pre">librosa.display.</span></span><span class="sig-name descname"><span class="pre">waveshow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22050</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'time'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">where</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'post'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transpose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;DEPRECATED</span> <span class="pre">parameter&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/librosa/display.html#waveshow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#librosa.display.waveshow" title="Link to this definition"></a></dt>
+<dd><p>Visualize a waveform in the time domain.</p>
+<p>This function constructs a plot which adaptively switches between a raw
+samples-based view of the signal (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.step.html#matplotlib.pyplot.step" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.step</span></code></a>) and an
+amplitude-envelope view of the signal (<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_between.html#matplotlib.pyplot.fill_between" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.fill_between</span></code></a>)
+depending on the time extent of the plot’s viewport.</p>
+<p>More specifically, when the plot spans a time interval of less than <code class="docutils literal notranslate"><span class="pre">max_points</span> <span class="pre">/</span>
+<span class="pre">sr</span></code> (by default, 1/2 second), the samples-based view is used, and otherwise a
+downsampled amplitude envelope is used.
+This is done to limit the complexity of the visual elements to guarantee an
+efficient, visually interpretable plot.</p>
+<p>When using interactive rendering (e.g., in a Jupyter notebook or IPython
+console), the plot will automatically update as the view-port is changed, either
+through widget controls or programmatic updates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When visualizing stereo waveforms, the amplitude envelope will be generated
+so that the upper limits derive from the left channel, and the lower limits derive
+from the right channel, which can produce a vertically asymmetric plot.</p>
+<p>When zoomed in to the sample view, only the first channel will be shown.
+If you want to visualize both channels at the sample level, it is recommended to
+plot each signal independently.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>y</strong><span class="classifier">np.ndarray [shape=(n,) or (2,n)]</span></dt><dd><p>audio time series (mono or stereo)</p>
+</dd>
+<dt><strong>sr</strong><span class="classifier">number &gt; 0 [scalar]</span></dt><dd><p>sampling rate of <code class="docutils literal notranslate"><span class="pre">y</span></code> (samples per second)</p>
+</dd>
+<dt><strong>max_points</strong><span class="classifier">positive integer</span></dt><dd><p>Maximum number of samples to draw.  When the plot covers a time extent
+smaller than <code class="docutils literal notranslate"><span class="pre">max_points</span> <span class="pre">/</span> <span class="pre">sr</span></code> (default: 1/2 second), samples are drawn.</p>
+<p>If drawing raw samples would exceed <em class="xref py py-obj">max_points</em>, then a downsampled
+amplitude envelope extracted from non-overlapping windows of <em class="xref py py-obj">y</em> is
+visualized instead.  The parameters of the amplitude envelope are defined so
+that the resulting plot cannot produce more than <em class="xref py py-obj">max_points</em> frames.</p>
+</dd>
+<dt><strong>axis</strong><span class="classifier">str or None</span></dt><dd><p>Display style of the axis ticks and tick markers. Accepted values are:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>‘time’<span class="classifier">markers are shown as milliseconds, seconds, minutes, or hours.</span></dt><dd><p>Values are plotted in units of seconds.</p>
+</dd>
+</dl>
+</li>
+<li><p>‘h’ : markers are shown as hours, minutes, and seconds.</p></li>
+<li><p>‘m’ : markers are shown as minutes and seconds.</p></li>
+<li><p>‘s’ : markers are shown as seconds.</p></li>
+<li><p>‘ms’ : markers are shown as milliseconds.</p></li>
+<li><p>‘lag’ : like time, but past the halfway point counts as negative values.</p></li>
+<li><p>‘lag_h’ : same as lag, but in hours.</p></li>
+<li><p>‘lag_m’ : same as lag, but in minutes.</p></li>
+<li><p>‘lag_s’ : same as lag, but in seconds.</p></li>
+<li><p>‘lag_ms’ : same as lag, but in milliseconds.</p></li>
+<li><p><em class="xref py py-obj">None</em>, ‘none’, or ‘off’: ticks and tick markers are hidden.</p></li>
+</ul>
+</dd>
+<dt><strong>x_axis</strong><span class="classifier">Deprecated</span></dt><dd><p>Equivalent to <em class="xref py py-obj">axis</em> parameter, included for backward compatibility.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This parameter is deprecated as of 0.10.0 and
+will be removed in 1.0.  Use <em class="xref py py-obj">axis=</em> instead going forward.</p>
+</div>
+</dd>
+<dt><strong>ax</strong><span class="classifier">matplotlib.axes.Axes or None</span></dt><dd><p>Axes to plot on instead of the default <em class="xref py py-obj">plt.gca()</em>.</p>
+</dd>
+<dt><strong>offset</strong><span class="classifier">float</span></dt><dd><p>Horizontal offset (in seconds) to start the waveform plot</p>
+</dd>
+<dt><strong>marker</strong><span class="classifier">string</span></dt><dd><p>Marker symbol to use for sample values. (default: no markers)</p>
+<p>See Also: <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.markers</span></code></a>.</p>
+</dd>
+<dt><strong>where</strong><span class="classifier">string, {‘pre’, ‘mid’, ‘post’}</span></dt><dd><p>This setting determines how both waveform and envelope plots interpolate
+between observations.</p>
+<p>See <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.step.html#matplotlib.pyplot.step" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.step</span></code></a> for details.</p>
+<p>Default: ‘post’</p>
+</dd>
+<dt><strong>label</strong><span class="classifier">string [optional]</span></dt><dd><p>The label string applied to this plot.
+Note that the label</p>
+</dd>
+<dt><strong>transpose</strong><span class="classifier">bool</span></dt><dd><p>If <em class="xref py py-obj">True</em>, display the wave vertically instead of horizontally.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Additional keyword arguments to <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_between.html#matplotlib.pyplot.fill_between" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.fill_between</span></code></a> and
+<a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.step.html#matplotlib.pyplot.step" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.step</span></code></a>.</p>
+<p>Note that only those arguments which are common to both functions will be
+supported.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>librosa.display.AdaptiveWaveplot</dt><dd><p>An object of type <a class="reference internal" href="librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot" title="librosa.display.AdaptiveWaveplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">librosa.display.AdaptiveWaveplot</span></code></a></p>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="librosa.display.AdaptiveWaveplot.html#librosa.display.AdaptiveWaveplot" title="librosa.display.AdaptiveWaveplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AdaptiveWaveplot</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.step.html#matplotlib.pyplot.step" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.step</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_between.html#matplotlib.pyplot.fill_between" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.fill_between</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.fill_betweenx.html#matplotlib.pyplot.fill_betweenx" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.pyplot.fill_betweenx</span></code></a></dt><dd></dd>
+<dt><a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers" title="(in Matplotlib v3.11.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matplotlib.markers</span></code></a></dt><dd></dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>Plot a monophonic waveform with an envelope view</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;choice&#39;</span><span class="p">),</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Envelope view, mono&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Or a stereo waveform</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;choice&#39;</span><span class="p">,</span> <span class="n">hq</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="n">mono</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Envelope view, stereo&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Or harmonic and percussive components with transparency</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;choice&#39;</span><span class="p">),</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y_harm</span><span class="p">,</span> <span class="n">y_perc</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">hpss</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y_harm</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Harmonic&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y_perc</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Percussive&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Multiple waveforms&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Zooming in on a plot to show raw sample values</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlim</span><span class="o">=</span><span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">6.01</span><span class="p">],</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sample view&#39;</span><span class="p">,</span> <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Full signal&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y_harm</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Harmonic&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y_perc</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Percussive&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Plotting a transposed wave along with a self-similarity matrix</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot_mosaic</span><span class="p">(</span><span class="s2">&quot;hSSS;hSSS;hSSS;.vvv&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">librosa</span><span class="o">.</span><span class="n">ex</span><span class="p">(</span><span class="s1">&#39;trumpet&#39;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chroma</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">chroma_cqt</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sim</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">segment</span><span class="o">.</span><span class="n">recurrence_matrix</span><span class="p">(</span><span class="n">chroma</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;affinity&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">],</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="n">auto_aspect</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sharex</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sharey</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;S&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Self-similarity&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;transpose=False&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">waveshow</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">],</span> <span class="n">transpose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">label_outer</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ax</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;transpose=True&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/librosa-display-waveshow-1_00.png" class="plot-directive" src="../_images/librosa-display-waveshow-1_00.png" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/librosa-display-waveshow-1_01.png" class="plot-directive" src="../_images/librosa-display-waveshow-1_01.png" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/librosa-display-waveshow-1_02.png" class="plot-directive" src="../_images/librosa-display-waveshow-1_02.png" />
+</figure>
+</dd></dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="librosa.display.specshow.html" class="btn btn-neutral float-left" title="librosa.display.specshow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="librosa.display.TimeFormatter.html" class="btn btn-neutral float-right" title="librosa.display.TimeFormatter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2013--2023, librosa development team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
